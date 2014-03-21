@@ -780,10 +780,13 @@ ADD `avg_votacao` DECIMAL( 5, 2 ) NULL AFTER `avg_proposicao` ,
 ADD `avg_despesa` DECIMAL( 5, 2 ) NULL AFTER `avg_votacao` 
 
 
-ALTER TABLE `rodada` CHANGE `min_despesa` `min_despesa` DECIMAL( 10, 2 ) NULL DEFAULT NULL 
+ALTER TABLE `rodada` CHANGE `min_despesa` `min_despesa` DECIMAL( 10, 2 ) NULL DEFAULT NULL ;
 
-ALTER TABLE `rodada` CHANGE `avg_despesa` `avg_despesa` INT NULL DEFAULT NULL 
+ALTER TABLE `rodada` CHANGE `avg_despesa` `avg_despesa` INT NULL DEFAULT NULL ;
 
-ALTER TABLE `rodada` CHANGE `min_despesa` `min_despesa` INT NULL DEFAULT NULL 
+ALTER TABLE `rodada` CHANGE `min_despesa` `min_despesa` INT NULL DEFAULT NULL ;
 
-ALTER TABLE `rodada` CHANGE `max_despesa` `max_despesa` INT NULL DEFAULT NULL 
+ALTER TABLE `rodada` CHANGE `max_despesa` `max_despesa` INT NULL DEFAULT NULL ;
+
+
+http://localhost:8084/account/complete_login/

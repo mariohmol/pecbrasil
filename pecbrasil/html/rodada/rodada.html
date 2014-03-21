@@ -10,7 +10,8 @@
 {% block body %}
   <h1>{% trans %}Rodada{% endtrans %} {{ rodadas.semana }}/{{ rodadas.ano }}</h1>
   
-      
+    <h3><a href="/rodada/">{% trans %}Veja outras rodadas{% endtrans %}</a></h3>
+    
 <div class="container">
 
 
@@ -47,7 +48,7 @@
 		  {% set funcOption = 'false' %}
 
 		<iframe id="iframe2"
-			alt="/pontos/pontuacaorodada/{{ rodadas.id }}/true"
+			src="/pontos/pontuacaorodada/{{ rodadas.id }}/true"
 			style="width:  648px!important; height: 600px"> </iframe>
 	</div>
 

@@ -38,9 +38,6 @@ def before_request():
     if 'rodada_atual' not in session:
         rodadaA = politicaServices.rodadaAtual()
         session['rodada_atual']  = rodadaA
-        print "OLAAA" 
-        print rodadaA.id
-        print "FIM"
 #        if request.endpoint == "general.home":
 #            form = AccessForm()
             
@@ -68,7 +65,8 @@ def before_request():
     # a reference to the user from DB
     g.user = current_user
     
-    if g.user.is_authenticated() and request.endpoint != 'static':        
+    if g.user.is_authenticated() and request.endpoint != 'static' and not request.is_xhr:
+        print request.endpoint        
         g.user.last_seen = datetime.utcnow()
         db.session.add(g.user)
         db.session.commit()

@@ -76,7 +76,7 @@
 	  {% endif %}
 	 -->  
     
-    <h2>{% trans %}Membros</h2>
+    <h2>{% trans %}Membros{% endtrans %}</h2>
  
      {% trans %}Veja abaixo os integrantes desta liga{% endtrans %}.
       <br/>
@@ -117,7 +117,7 @@
          {% endif %}
          pts
         <td>
-        {% trans %}Entrada: {{ jogador.data_ligajogador }}
+        {% trans %}Entrada{% endtrans %}: {{ jogador.data_ligajogador }}
  	 </td>
   	{% if liga.criador_time.id == meutime %}
     

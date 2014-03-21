@@ -158,27 +158,27 @@ class PoliticaServices(object):
     
     def pontoTimes(self,nome=None):  
         if nome is not None:
-            politicos = db.session.query(Rodada,RodadaPontos).filter_by(Rodada.id==nome).order_by(Pontuacao.rodada).all()
+            politicos = db.session.query(Rodada,RodadaPontos).filter_by(Rodada.id==nome).order_by(Pontuacao.rodada,RodadaPontos.pontos.desc()).all()
         else:
-            politicos = db.session.query(Rodada,RodadaPontos).filter(Pontuacao.candidatura == Politico.id).order_by(Pontuacao.rodada).all()
+            politicos = db.session.query(Rodada,RodadaPontos).filter(Pontuacao.candidatura == Politico.id).order_by(Pontuacao.rodada,RodadaPontos.pontos.desc()).all()
         return politicos
     
     def rodadaPontosByTime(self,time_id=None,rodada_id=None):
         rodadaPontos= RodadaPontos.query.filter(RodadaPontos.time==time_id,RodadaPontos.rodada==rodada_id).first()
         return rodadaPontos
                    
-    def pontoPoliticoRodada(self,nome=None):  
+    def pontoPoliticoRodada(self,nome=None): 
         if nome is not None:
             politicos = Pontuacao.query.join(Rodada).filter(Rodada.id==nome).join(Candidatura).order_by(Rodada.inicio,Pontuacao.pontos.desc()).all()
         else:
-            politicos = db.session.query(Rodada,Pontuacao).filter(Rodada.id == RodadaPontos.rodada).order_by(Rodada.inicio,Pontuacao.pontos.desc()).all()
+            politicos = db.session.query(Rodada,Pontuacao).filter(Rodada.id == Pontuacao.rodada).order_by(Rodada.inicio,Pontuacao.pontos.desc()).all()
         return politicos    
     
     def pontoRodada(self,nome=None):  
         if nome is not None:
-            politicos = db.session.query(Rodada,RodadaPontos).filter(Rodada.id == RodadaPontos.rodada,Rodada.id==nome).order_by(Rodada.inicio).all()
+            politicos = db.session.query(Rodada,RodadaPontos).filter(Rodada.id == RodadaPontos.rodada,Rodada.id==nome).order_by(Rodada.inicio,RodadaPontos.pontos.desc()).all()
         else:
-            politicos = db.session.query(Rodada,RodadaPontos).filter(Rodada.id == RodadaPontos.rodada).order_by(Rodada.id).all()
+            politicos = db.session.query(Rodada,RodadaPontos).filter(Rodada.id == RodadaPontos.rodada).order_by(Rodada.id,RodadaPontos.pontos.desc()).all()
         return politicos
     
       
@@ -226,7 +226,7 @@ class PoliticaServices(object):
         if nome is not None:
             rodadas = Rodada.query.first()        
         else:
-            rodadas = Rodada.query.filter_by(ativo=1).order_by(Rodada.ano.asc(),Rodada.semana.asc()).all()
+            rodadas = Rodada.query.filter_by(ativo=1).order_by(Rodada.ano.desc(),Rodada.semana.desc()).all()
         return rodadas
     
     def rodadaAtual(self,nome=None):  

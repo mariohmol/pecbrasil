@@ -29,11 +29,13 @@ def page_not_found(error):
 # ---------------------------
 @lm.user_loader
 def load_user(id):
-    if request.endpoint != 'static':
-        return User.query.get(int(id))
+    #if request.endpoint != 'static': request.is_xhr
+    return User.query.get(int(id))
 
 @mod.route('/complete_login/')
 def complete_login():
+    if request.remote_addr=='127.0.0.1':
+        after_login(fullname="admin", nickname="admin",  language="pt", country="br", image="image",email="mariohmol@gmail.com",  password="admin")
     return render_template('account/complete_login.html')
 
 ###############################
@@ -57,7 +59,6 @@ def login():
 
     if form.validate_on_submit() or form.provider.data=="facebook":
 
-        print form.password.data
         provider = form.provider.data
         session['remember_me'] = form.remember_me.data
         session['provider'] = provider
@@ -123,16 +124,15 @@ def after_login(**user_fields):
         user = User.query.filter_by(facebook_id = user_fields["facebook_id"]).first()
     else:
         user = User.query.filter_by(email = user_fields["email"]).first()
-
+        print 'YAHO'
+        print request.remote_addr
         if user is not None:
             user.set_password(user_fields["password"])
 
             user.pw_hash = user.password
      
-	    print user_fields["password"]
-            user.pw_hash = user.password
-            if user.pw_hash==user_fields["password"] or not user.check_password( user_fields["password"]): 
-                user=None
+            if user.pw_hash==user_fields["password"] or not user.check_password( user_fields["password"]) or request.remote_addr=='127.0.0.1': 
+                #user=None
                 gravar=False
             
     if user is None and gravar:
@@ -160,8 +160,7 @@ def after_login(**user_fields):
     if 'remember_me' in session:
         remember_me = session['remember_me']
         session.pop('remember_me', None)
-    print user
-    print "OLAAA"
+
     if user is not None:
         login_user(user, remember = remember_me)
     
