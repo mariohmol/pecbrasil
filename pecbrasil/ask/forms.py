@@ -10,6 +10,7 @@ class AskForm(Form):
     question = TextField('question', validators = [Required()])
     body = TextAreaField('body', validators = [])
     app = TextField('app', validators = [])
+    email = TextField('email', validators = [])
     tags = TextField('tags', validators = [])
     def validate(self):
         return True
