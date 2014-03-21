@@ -103,7 +103,8 @@ class Candidatura(db.Model, AutoSerialize):
 class Rodada(db.Model, AutoSerialize):
 
     __tablename__ = 'rodada'
-    __public__ = ('id','nome_rodada', 'inicio', 'fim','ano','semana','ativo','max_presenca','min_presenca','max_proposicao','min_proposicao','max_processo','min_processo','max_votacao','min_votacao','max_despesa','min_despesa')
+    __public__ = ('id','nome_rodada', 'inicio', 'fim','ano','semana','ativo','max_presenca','min_presenca','avg_presenca','max_proposicao','min_proposicao','avg_proposicao', \
+                  'max_processo','min_processo','max_votacao','min_votacao','avg_votacao','max_despesa','min_despesa','avg_despesa')
     id = db.Column(db.Integer, primary_key=True)
     inicio = db.Column(db.DateTime)
     fim = db.Column(db.DateTime)
@@ -116,14 +117,18 @@ class Rodada(db.Model, AutoSerialize):
     
     max_presenca  = db.Column(db.Integer)
     min_presenca  = db.Column(db.Integer)
+    avg_presenca  = db.Column(db.Integer)
     max_proposicao  = db.Column(db.Integer)
     min_proposicao  = db.Column(db.Integer)
+    avg_proposicao  = db.Column(db.Integer)
     max_processo  = db.Column(db.Integer)
     min_processo  = db.Column(db.Integer)
     max_votacao   = db.Column(db.Integer)
     min_votacao  = db.Column(db.Integer)
+    avg_votacao  = db.Column(db.Integer)
     max_despesa  = db.Column(db.Integer)
     min_despesa  = db.Column(db.Integer)
+    avg_despesa  = db.Column(db.Integer)
     def __repr__(self):
         return '<Rodada %r>' % (self.inicio)
 

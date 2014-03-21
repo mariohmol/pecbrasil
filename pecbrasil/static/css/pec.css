@@ -2771,7 +2771,8 @@ fieldset[disabled] .btn-youtube.active {
 .sidePolitico .sideVal span { font-family:"Mohave"; color:#777; text-shadow:none; font-size:18px;}
 .sidePolitico hr {border-top:1px solid #27AE60; border-bottom:1px solid #FFFF4D; float:left; width:100%; }
 .backCard .boxCard{
-	float:left; height:30px; width: 140px;
+	float:left; 
+	width: 140px;
 	margin-bottom: 10px;
 }
 

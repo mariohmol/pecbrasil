@@ -36,8 +36,11 @@ def before_request():
         session['has_access'] = True
  
     if 'rodada_atual' not in session:
-        session['rodada_atual'] = politicaServices.rodadaAtual()
-       
+        rodadaA = politicaServices.rodadaAtual()
+        session['rodada_atual']  = rodadaA
+        print "OLAAA" 
+        print rodadaA.id
+        print "FIM"
 #        if request.endpoint == "general.home":
 #            form = AccessForm()
             

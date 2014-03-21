@@ -80,21 +80,24 @@
 	{% if backCard %}
 		
 		<div class="boxCard">
+			{{ rodada_atual.id}}
 				<span class="sideTlt">{% trans %}Votações{% endtrans %}</span>
 					<span class="sideVal boxVotacoes">
 						<span class="valor">{{ candidato.total_votacao|int }} 
 						{% if rodada_atual %}
-						/ {{ rodada_atual.max_votacao}}
+						<p style="font-size: 12px">  {{ rodada_atual.min_votacao}} {% trans %}a{% endtrans %} {{ rodada_atual.max_votacao}} / {% trans %}média{% endtrans %}: {{ rodada_atual.avg_votacao}}</p>
+						
 						{% endif %}
-						</span><br>
+						</span>
 					</span>
 				</div>
 				<div class="boxCard">
 					<span class="sideTlt">{% trans %}Presenças{% endtrans %}</span>
 					<span class="sideVal boxVotacoes">
-						<span class="valor">{{ candidato.total_presenca|int }} {% if rodada_atual %}
-						/ / {{ rodada_atual.max_presenca}}
-						
+						<span class="valor">{{ candidato.total_presenca|int }}
+							
+						{% if rodada_atual %}
+						<p style="font-size: 12px">  {{ rodada_atual.min_presenca}} {% trans %}a{% endtrans %} {{ rodada_atual.max_presenca}} / {% trans %}média{% endtrans %}: {{ rodada_atual.avg_presenca}}</p>
 						{% endif %}
 						</span>
 						
@@ -104,8 +107,10 @@
 				<div class="boxCard">
 					<span class="sideTlt">{% trans %}Proposições{% endtrans %}</span>
 					<span class="sideVal boxVotacoes">
-						<span class="valor">{{ candidato.total_proposicao|int }} {% if rodada_atual %}
-						/ / {{ rodada_atual.max_proposicao}}
+						<span class="valor">{{ candidato.total_proposicao|int }} 
+							
+							{% if rodada_atual %}
+						<p style="font-size: 12px">  {{ rodada_atual.min_proposicao}} {% trans %}a{% endtrans %} {{ rodada_atual.max_proposicao}} / {% trans %}média{% endtrans %}: {{ rodada_atual.avg_proposicao}}</p>
 						{% endif %}
 						</span>
 						
@@ -116,10 +121,13 @@
 				<div class="boxCard">
 						<span class="sideTlt">{% trans %}Despesas{% endtrans %}</span>
 					<span class="sideVal boxVotacoes">
-						<span class="valor">R$ {{ candidato.total_despesa|int }} {% if rodada_atual %}
-						/ / {{ rodada_atual.max_despesa}}
+						<span class="valor">R$ {{ candidato.total_despesa|int }} 
+							
+							{% if rodada_atual %}
+						<p style="font-size: 12px">  {{ rodada_atual.min_despesa}} {% trans %}a{% endtrans %} {{ rodada_atual.max_despesa}} / {% trans %}média{% endtrans %}: {{ rodada_atual.avg_despesa}}</p>
+						{% endif %}
 						
-						{% endif %}</span>
+						</span>
 					</span>
 				</div>
 		

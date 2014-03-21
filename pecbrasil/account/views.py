@@ -44,6 +44,7 @@ def logout():
     session.pop('twitter_token', None)
     session.pop('google_token', None)
     session.pop('facebook_token', None)
+    session.pop('rodada_atual', None)
     logout_user()
     return redirect('/')
 
