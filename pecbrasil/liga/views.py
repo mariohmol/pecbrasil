@@ -10,6 +10,7 @@ from pecbrasil import db
 from pecbrasil.liga.forms import LigaForm
 from pecbrasil.liga.models import Liga,LigaPontos,LigaJogador
 from pecbrasil.politica.services import PoliticaServices
+from pecbrasil.comunicado.forms import ConvidarForm
 
 mod = Blueprint('liga', __name__, url_prefix='/liga')
     
@@ -27,21 +28,26 @@ def criar(nome=None):
     if liga_form.nome.data is not None:
         #liga_form.validate_on_submit():       
         #timestamp = datetime.utcnow()
+        ligaExiste = politicaServices.liga(nome=liga_form.nome.data)
+        if ligaExiste is not None:
+            return render_template("liga/criar-liga.html",liga_form=liga_form,erromsg="Ja existe uma liga com este nome")
         liga = Liga(    nome_liga=liga_form.nome.data, 
                         desc_liga=liga_form.desc.data, 
                         publico_liga=liga_form.publico.data, 
                         data_liga=datetime.datetime.now(), 
                         criador_liga=timeRetorno.id)
         db.session.add(liga)
-        db.session.commit()
         
+        db.session.commit()
+        idliga= liga.id_liga
         ligaJog = LigaJogador(data_ligajogador=datetime.datetime.now(),
                     user_ligajogador=timeRetorno.id,
                     liga_ligajogador=liga.id_liga)
         db.session.add(ligaJog)
         db.session.commit()
-            
-        redirect(url_for('liga.ver')+liga.id_liga)
+
+        return ver(idliga)
+        #redirect(url_for('liga.ver')+str(15))
     else:       
         return render_template("liga/criar-liga.html",liga_form=liga_form)
 
@@ -53,6 +59,7 @@ from pecbrasil import mail
 @mod.route('/')
 @mod.route('/ver')
 @mod.route('/ver/')
+@mod.route('/ver/<id>')
 @mod.route('/ver/<id>/')
 @mod.route('/ver/<id>/<nome>')
 def ver(id=None,nome=None):
@@ -62,7 +69,7 @@ def ver(id=None,nome=None):
     #with app.app_context():
     #    mail.send(msg)
      
-   
+    form=ConvidarForm()
     # Quando nome-selecao for vazio mostrar a selecao do usuario logado
     if id is not None:
         liga = Liga.query.filter_by(id_liga = id).all()
@@ -74,7 +81,7 @@ def ver(id=None,nome=None):
             return render_template("liga/liga.html",  meutime=time, liga = liga[0] )
     else:
         ligas = Liga.query.all()   
-        return render_template("liga/ligaList.html",   ligas = ligas)
+        return render_template("liga/ligaList.html",   ligas = ligas,form=form)
 
 @mod.route('/convidar/<liga>')
 @mod.route('/convidar/<liga>/')

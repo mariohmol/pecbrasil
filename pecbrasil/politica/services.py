@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*- 
-from pecbrasil.politica.models import Candidatura, Pontuacao,Partido,Time,RodadaPontos,TimeCandidato 
+from pecbrasil.politica.models import Candidatura, Pontuacao,Partido,Time,RodadaPontos,TimeCandidato
+from pecbrasil.liga.models import Liga
 from pecbrasil.proposicao.models import Proposicao,TimeVotacao,VotacaoCandidato,Repasse
 from pecbrasil.politica.models import Rodada,Politico,ProcessoCandidato,DespesaCandidato
 from pecbrasil.orgao.models import Orgao
@@ -302,7 +303,13 @@ class PoliticaServices(object):
             ret = DespesaCandidato.query.filter_by(categoria=despesatipo_id).join(Rodada)\
             .order_by(Rodada.inicio).all()
         return ret
-       
+    
+    def liga(self,liga_id=None,nome=None):
+        if liga_id is not None:
+            return Liga.query.filter_by(id_liga=liga_id).first()
+        elif nome is not None:
+            return Liga.query.filter_by(nome_liga=nome).first()
+            
     def proposicao(self,candidatura_id=None,partido_sigla=None):
         ret = None
         if candidatura_id == 'all' and partido_sigla is not None:

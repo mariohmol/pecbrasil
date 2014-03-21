@@ -10,6 +10,7 @@ from pecbrasil.utils import clean_varrequest
 from pecbrasil.politica.forms import PoliticoForm,TimeForm
 from pecbrasil.politica.models import Politico, Partido, TimeCandidato,Time, Rodada, RodadaPontos,Candidatura,Pontuacao
 from pecbrasil.politica.services import PoliticaServices
+from pecbrasil.comunicado.forms import ConvidarForm
 
 
 mod = Blueprint('politica', __name__, url_prefix='/politica')
@@ -211,6 +212,7 @@ def selecionarPoliticos(idpolitico=None,posicao=None,gravar=None):
 @mod.route('/meu-partido/')
 @mod.route('/meu-partido/<time>')
 def verPartido(time=None):
+    form=ConvidarForm()
     if g.user is None or not g.user.is_authenticated():
         return   redirect(url_for('politica.criarPartido'))
     
@@ -219,7 +221,7 @@ def verPartido(time=None):
         return   redirect(url_for('politica.criarPartido'))
     session['user_time']=timeRetorno.id
     rodaA = db.session.merge(session['rodada_atual'])
-    return render_template("politica/meu-partido.html",  rodada_atual=rodaA ,               time = timeRetorno,user=g.user, time_id=time)
+    return render_template("politica/meu-partido.html",  rodada_atual=rodaA ,   form=form,            time = timeRetorno,user=g.user, time_id=time)
 
 
  

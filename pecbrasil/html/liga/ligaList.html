@@ -13,7 +13,11 @@
   {% trans %}Criar Liga{% endtrans %}
   </a>
   
-   <br/> <br/>
+   <br/>
+   
+   		{% set frame = 'true' %}
+      	{% include "comunicado/convideamigosform.html" %}
+    <br/>
   
   <h2>{% trans %}Veja as ligas{% endtrans %}:</h2>
      {% for liga in ligas %}

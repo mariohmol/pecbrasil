@@ -6,6 +6,7 @@ from pecbrasil import db
 from pecbrasil.politica.models import Candidatura, Pontuacao,Time,Rodada,RodadaPontos
 from pecbrasil.utils import exist_or_404, gzip_data, cached_query
 from pecbrasil.politica.services import PoliticaServices
+from pecbrasil.comunicado.forms import ConvidarForm
 from flask.ext.mail import Message
 from config import ADMINS
 from pecbrasil import mail
@@ -14,26 +15,19 @@ from pecbrasil.utils import send_mail
 mod = Blueprint('comunicado', __name__, url_prefix='/comunicado')
 politicaServices = PoliticaServices()   
 
-@mod.route('/convideamigos/')
-@mod.route('/convideamigos/<time_id>')
+@mod.route('/convideamigos/', methods=['GET', 'POST'])
+@mod.route('/convideamigos/<time_id>', methods=['GET', 'POST'])
 def convideamigos(time_id=None):  
-    titulo="Convide seus amigos"
-    total=0
-    log=""
-    if time_id is not None:
-        time = politicaServices.meuTime(time_id)
-        if time is not None:
-            send_mail(titulo,time.user.email,   render_template("comunicado/convideamigos.html",time=time))
-            total=total+1
-            log=log+","+time.user.email
+    titulo="Convite para o Politica Esporte Clube"
+    form=ConvidarForm()
+    if form.validate_on_submit():
+        time = politicaServices.meuTime(g.user.id)
+    
+        send_mail(titulo,[form.email.data],   render_template("comunicado/convideamigos.html",form=form,time=time,obs=form.obs.data))
+    
+        return render_template("comunicado/retornarpublico.html",titulo=titulo) 
     else:
-        times = Time.query.all()
-        for time in times:
-            if time is not None:
-                total=total+1
-                log=log+","+time.user.email
-                send_mail(titulo,time.user.email,  render_template("comunicado/convideamigos.html",time=time))
-    return render_template("comunicado/statuscomunicado.html",titulo=titulo,total=total,log=log)        
+        return render_template("comunicado/convideamigosform.html",form=form)        
 
 @mod.route('/ultimarodada')
 @mod.route('/ultimarodada/<rodada_id>')

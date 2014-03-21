@@ -1,0 +1,27 @@
+{% if frame %}
+	{% extends "templates/clean.html" %}
+{% else %}
+	{% extends "templates/site.html" %}
+{% endif %}
+
+
+
+{% block body %}
+ 	 <h2>Convide seus amigos</h2>
+ 	 
+ 	 {{ erromsg }}
+ 	 
+	<form action="/comunicado/convideamigos/" method="post" name="convite">
+	
+		{{form.email(id="email", placeholder="E-mail")}}
+		{{form.obs(id="obs", placeholder="Observacao")}} 
+		<input
+			type="submit" value="{% trans %}Enviar{% endtrans %}" class="btn btn-info" />
+
+
+		{{ form.hidden_tag() }}
+		
+	</form>
+    
+{% endblock %}
+
