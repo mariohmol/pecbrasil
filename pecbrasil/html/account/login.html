@@ -1,0 +1,75 @@
+{% extends "templates/site.html" %} {% block title %}{% trans %}Login{%
+endtrans %}{% endblock %} {% block body %}
+<img src="/static/img/pec/cadastro1.png" border="0" />
+
+<br />
+	<br />
+{% trans %}ESCOLHA UMA REDE SOCIAL PARA ENTRAR NO JOGO{% endtrans %}
+<br />
+	<br />
+<form action="" method="post" name="login">
+	
+		{{ form.hidden_tag() }}
+		
+	{% for pr in providers %} <a id="{{ pr }}" class="login_button_social"
+			href="javascript:;">&nbsp;</a> 
+	{% endfor %}
+	</form>
+	<!--
+<div id="login_div">
+	<div id="logo"></div>
+	<div id="login_text"></div>
+	{{ erromsg }} {% trans %}ENTRE{% endtrans %}
+	<form action="" method="post" name="login">
+	
+		{{form.email(id="email", placeholder="E-mail")}}
+		{{form.password(id="password", placeholder="Senha")}} 
+		<input
+			type="submit" value="{% trans %}Acessar{% endtrans %}" class="btn btn-info"
+			onclick="document.forms['login'].elements['provider'].value='email'" />
+
+
+		{{ form.hidden_tag() }}
+		<p>
+			{{form.remember_me(id="remember")}}<label for="remember">{%
+				trans %}Remember Me{% endtrans %}</label>
+		</p>
+	
+		{% for pr in providers %} <a id="{{ pr }}" class="login_button_social"
+			href="javascript:;">{{ pr }}</a> {% endfor %}
+	</form>
+
+	<br />
+	<br />
+	<br /> {% trans %}OU CRIE UMA CONTA{% endtrans %} 
+
+	<form action="" method="post" name="cadastro">
+
+		{{ formCreate.hidden_tag() }}
+		<p>
+			{{ formCreate.nickname(id="nickname", placeholder="nickname") }} {{
+			formCreate.fullname(id="fullname", placeholder="fullname") }} {{
+			formCreate.email(id="email", placeholder="email") }} {{
+			formCreate.password(id="password", placeholder="password") }} <input
+				type="submit" value="cadastrar" />
+	</form>
+	-->
+</div>
+<!--
+<div id="login_div">
+	<img src="/static/img/pec/wizard_preenchaoscampos.png" border="0" />
+
+</div>
+	-->
+<script type="text/javascript">
+	d3.selectAll(".login_button_social").on(d3plus.evt.click, function() {
+		var pr = this.id.toLowerCase()
+		console.log(pr);
+		form = document.forms['login'];
+		form.elements['provider'].value = pr;
+		this.parentNode.submit();
+		d3.event.preventDefault();
+		return false;
+	})
+</script>
+{% endblock %}

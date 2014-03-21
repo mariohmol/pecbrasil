@@ -1,0 +1,43 @@
+
+# Flask framework
+Jinja2==2.6
+Werkzeug==0.8.3
+flask==0.9
+
+# Helper lib for running scripts locally without server
+Flask-Script
+
+# Make managing logged in users easier
+flask-login
+
+# Oauth helper for signing in users from facebook, twitter, google
+flask_oauth
+
+# Form helper
+flask-wtf
+
+# Localization
+flask-babel
+
+#email
+flask-mail
+
+# DB libs for connecting to MySQL
+# WARNING: Must have MySQL server installed!
+MySQL-python
+sqlalchemy
+flask-sqlalchemy
+
+# Full text search indexing for db
+Flask-WhooshAlchemy
+# WARNING: Known bug as of 6/14/2013
+# pull request: https://github.com/gyllstromk/Flask-WhooshAlchemy/pull/12
+# fix: https://raw.github.com/miguelgrinberg/Flask-WhooshAlchemy/1e17350ea600e247c0094cfa4ae7145f08f4c4a3/flask_whooshalchemy.py
+
+# Redis connector for caching/sessions 
+# WARNING: Must have Redis server installed!
+redis
+hiredis
+
+#cp /home/sisfocus/public_html/ftp2/data/* /home/politica/git/pecbrasil/data/
+

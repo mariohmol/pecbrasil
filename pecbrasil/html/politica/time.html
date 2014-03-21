@@ -1,0 +1,24 @@
+<!-- extend from about base layout -->
+{% extends "templates/site.html" %}
+
+{% block title %}: {% trans %}About the Site{% endtrans %}{% endblock %}
+
+{% block content %}
+  <h1>{% trans %}Times{% endtrans %}</h1>
+  
+  <h2>{{ times.nome }}</h2>
+      <a class="app_links decision short icon {{ times.id }}" 
+      id="app" onclick="slide(this.id)">{{ times.id }}</a>
+    
+    {{ times }}
+    
+      {% for candidato in times.candidatos %}
+      <a 
+      id="app" onclick="slide(this.id)">
+      {{ candidato.id }}
+      {{ candidato.name_pt }}
+      
+      </a>
+    {% endfor %}
+{% endblock %}
+

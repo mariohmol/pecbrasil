@@ -1,0 +1,47 @@
+<!-- extend from about base layout -->
+{% if frame %}
+	{% extends "templates/clean.html" %}
+{% else %}
+	{% extends "templates/site.html" %}
+{% endif %}
+
+{% block title %}: {% trans %}Proposição{% endtrans %}{% endblock %}
+
+{% block body %}
+  
+  {% if proposicoes %}
+   <table><tr>
+  <td> {% trans %}Autor{% endtrans %} </td>
+      <td> {% trans %}Proposicão{% endtrans %} </td>
+       <td> {% trans %}Status{% endtrans %} </td>
+     <td> {% trans %}Descrição{% endtrans %} </td>
+     </tr>
+     
+     {% for proposicoe in proposicoes %}
+     <tr>
+     <td>{{ proposicoe.candidatura }}</td>
+      <td>
+      
+      {% if frame  %}	
+		   			<a href="#" onclick="top.window.location='/proposicao/ver/{{ proposicoe.id }}/'">
+		   		
+		   		{% else %}	
+		   			<a href="/proposicao/ver/{{ proposicoe.id }}/">
+		   		{% endif %}	
+		   		
+      {{ proposicoe.sigla }}</a>
+      </td>
+       <td>{{ proposicoe.status }}</td>
+     <td>{{ proposicoe.desc }}</td>
+      
+      </tr>
+    {% endfor %}
+    </table>
+    {% else %}
+    {% trans %}Não foram encontradas proposições de autoria deste político{% endtrans %}
+    {% endif %}
+    
+    
+    
+{% endblock %}
+

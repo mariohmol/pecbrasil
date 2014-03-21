@@ -1,0 +1,142 @@
+<!-- extend from about base layout -->
+{% extends "templates/site.html" %}
+
+ {% block title %}: {% trans %}Meu Partido{% endtrans %}{% endblock %} 
+
+{% block body %}
+
+{% if time_id %}
+<img src="/static/img/pec/cadastro4.png" border="0" />
+{% endif %}
+
+<h1>{% trans %}Meu Partido{% endtrans %}</h1>
+
+<h3>{% trans %}Presidente{% endtrans %}: {{ user.email }} </h3>
+
+ <h3>{% trans %}Nome{% endtrans %}: {{ time.nome }}</h3>
+ 
+
+{% set posicao1=true %}
+{% set posicao2=true %}
+{% set posicao3=true %}
+{% set posicao4=true %}
+{% set backCard = 'True' %}
+{% set acaoBoxPolitico = 'alterar' %} 
+{% for candidatura in time.candidatos.all() %}
+	 {% set candidato = candidatura.candidatos %} 
+	 {%	set posicao = candidatura.posicao %} 
+	 
+	{% if posicao == 1 %}
+		{% set posicao1=true %}
+	{% endif %}
+	{% if posicao == 2 %}
+		{% set posicao2=true %}
+	{% endif %}
+	{% if posicao == 3 %}
+		{% set posicao3=true %}
+	{% endif %}
+	{% if posicao == 4 %}
+		{% set posicao4=true %}
+	{% endif %}
+	{% include	"politica/boxpolitico.html" %} 
+{% endfor %}
+
+{% if posicao1 == true %}
+	<h3>
+		<a href="/politica/selecionar-politicos/all/1/false">{% trans %}Escolha um político para cadeira{% endtrans %} 1</a></h3>
+	{% endif %}
+
+{% if posicao2 == true %}
+		<h3><a href="/politica/selecionar-politicos/all/1/false">{% trans %}Escolha um político para cadeira{% endtrans %} 2</a></h3>
+	{% endif %}
+	
+	{% if posicao3 == true %}
+	<h3>	<a href="/politica/selecionar-politicos/all/3/false">{% trans %}Escolha um político para cadeira{% endtrans %} 3</a></h3>
+	{% endif %}
+	
+	{% if posicao4 == true %}
+	<h3>	<a href="/politica/selecionar-politicos/all/4/false">{% trans %}Escolha um político para cadeira{% endtrans %} 4</a></h3>
+	{% endif %}
+
+
+
+ {% set divId='painelPartido'  %} 
+    <br/>
+    
+    <div style="width: 100%;  float: left;">
+		     <div id="{{ divId }}_share_info"></div>
+		 <a href="#painelPartido_share_info" onclick="addPopUpShare('{{ divId }}_share_info', '', '',share_url)">
+		 {% trans %}Compartilhe{% endtrans %}</a> {% trans %}com seus amigos para que conheçam seu time{% endtrans %}
+		 <script>
+		 var pid = "#{{ divId }}_share_info"
+		 var share_url=document.URL//"{{share_url}}"
+		    
+		 </script>
+		 
+		 
+		 
+		<br />
+		<a href="#" onclick="if(confirm('{% trans %}Certeza que deseja excluir?{% endtrans %}'))
+			window.location='/politica/excluirtime'">{% trans %}Excluir Partido{% endtrans %}</a>
+		
+		<br />	
+</div>
+
+<div id="viz" style="width: 70%"></div>
+
+<script src="/static/js/src/viz/stacked.js"></script>
+
+<script>
+	var viz = d3plus.viz()
+
+	d3.json("/attrs/time/1", function(time) {
+		d3.json("/attrs/candidaturatime/1", function(candidato) {
+		d3.json("/attrs/timecandidato/1", function(timecandidato) {
+			d3.json("/attrs/rodadapontos/1", function(data) {
+
+				var attrs = {}
+				timecandidato.timecandidato.forEach(function(a) {
+					//a.time = a.id
+					time.times.forEach(function(p) {
+						if (p.id == a.time) {
+							a.timeNome = p.nome
+						}
+					})
+					candidato.candidaturas.forEach(function(p) {
+						if (p.id == a.candidatura) {
+							a.candidatoNome = p.name_pt
+						}
+					})
+					attrs[a.id] = a
+				})
+
+				viz.type("stacked").id_var("candidatoNome").attrs(attrs).text_var(
+						"candidatoNome").value("pontos")
+				 .xaxis_var("rodada")
+				.year_var("rodada")
+				//.year(2)
+
+				.tooltip_info([ "pontos", "rodada", "candidatura" ])
+
+				.name_array([ "candidatoNome", "candidatoNome" ]).nesting(
+						[ "time", "candidatura" ])
+
+				.depth("candidatura")
+
+				.aggs({"pontos":"mean"})
+				.aggs({
+					"pontos" : "sum"
+				})
+				
+				d3.select("#viz").datum(data.rodadapontos).call(viz)
+
+			})
+		})
+	})
+	})
+</script>
+
+<br />
+
+{% endblock %}
+

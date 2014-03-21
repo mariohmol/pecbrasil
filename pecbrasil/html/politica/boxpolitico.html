@@ -1,0 +1,189 @@
+ <!-- pontuacao_total acaoBoxPolitico iframe backCard -->
+{% if candidato %}
+			   
+	   <div id="boxPolitico" >
+	   <div class="card">
+		   <div class="frontCard" style="background: url('/static/img/pec/fotos/{{ candidato.politicos.id_original }}.jpg') no-repeat #f4f4f4; background-size: 100% 70%;">
+	   
+		   <div id="boxPoliticoPartido">
+		   	<div class="field-content">
+		   		
+		   		 
+		   		{% if  iframe=='true'  %}	
+		   			<a href="#" onclick="top.window.location='/politica/partido/{{ candidato.partidos.id }}'">
+		   		
+		   		{% else %}	
+		   			<a href="/politica/partido/{{ candidato.partidos.id }}">
+		   		{% endif %}	
+		   		
+		   		
+		   		<img style="border: 5px solid #f4f4f4; position: absolute; top:0px; right:0px;top: 150px;   
+		   		width: auto; height: 40px;" src="/static/img/pecbrasil/partidos/{{ candidato.partidos.sigla|lower}}.jpg" width="50">
+		   		</a>
+		   		 
+		   		
+	
+		   	</div>
+		   
+		   </div>
+	   
+	   	<!-- 	<div id="boxPoliticoCargo">Dep. Federal</div>  -->
+	   
+		   
+	{% if posicao and posicao < 100 %}	
+	
+	{% endif %}
+		
+
+
+
+		
+		
+		
+		<div id="boxPoliticoInfo"> {% if  iframe=='true'  %}
+			   		<a href="#" 
+		   			onclick="top.window.location='/politica/politico/{{ candidato.id }}/'">
+				{% else %}	
+		   			<a href="/politica/politico/{{ candidato.id }}">
+		   		{% endif %} {{ candidato.politicos.nome|truncate(28,False,'') }}</a><br>
+			<span style="font-size:11px; position:absolute; bottom:10px; left: 0px; margin-top:5px; display:inline-block;"><img src="/static/img/icons/bra/bra_{{ candidato.uf|lower }}.png" width="20px;"style=" vertical-align: middle;"	/>&nbsp;
+		   		{{ candidato.cidade }}</span>
+		</div>
+		 
+		<h5 id="boxPoliticoUltima">
+					<div class="field-content" >
+					{% if pontuacao_total %}
+					
+						{{ pontuacao_total }}
+					
+					{% else %}
+					
+						{{ candidato.pontuacao_total|int }}
+					
+					{% endif %}
+					</div>
+				</h5>
+	
+		
+		
+	
+
+		</div>
+		
+		
+	
+		
+		<div class="backCard">
+		
+		
+		
+	{% if backCard %}
+		
+		<div class="boxCard">
+				<span class="sideTlt">{% trans %}Votações{% endtrans %}</span>
+					<span class="sideVal boxVotacoes">
+						<span class="valor">{{ candidato.total_votacao|int }} 
+						{% if rodada_atual %}
+						/ {{ rodada_atual.max_votacao}}
+						{% endif %}
+						</span><br>
+					</span>
+				</div>
+				<div class="boxCard">
+					<span class="sideTlt">{% trans %}Presenças{% endtrans %}</span>
+					<span class="sideVal boxVotacoes">
+						<span class="valor">{{ candidato.total_presenca|int }} {% if rodada_atual %}
+						/ / {{ rodada_atual.max_presenca}}
+						
+						{% endif %}
+						</span>
+						
+					</span>
+				</div>
+			
+				<div class="boxCard">
+					<span class="sideTlt">{% trans %}Proposições{% endtrans %}</span>
+					<span class="sideVal boxVotacoes">
+						<span class="valor">{{ candidato.total_proposicao|int }} {% if rodada_atual %}
+						/ / {{ rodada_atual.max_proposicao}}
+						{% endif %}
+						</span>
+						
+					</span>
+				</div>
+		
+			
+				<div class="boxCard">
+						<span class="sideTlt">{% trans %}Despesas{% endtrans %}</span>
+					<span class="sideVal boxVotacoes">
+						<span class="valor">R$ {{ candidato.total_despesa|int }} {% if rodada_atual %}
+						/ / {{ rodada_atual.max_despesa}}
+						
+						{% endif %}</span>
+					</span>
+				</div>
+		
+		
+		
+		   
+	{% endif %}
+	
+	
+	
+		
+	<div style="float:left; height:30px; width: 120px">
+	{% if  iframe=='true'  %}
+	
+			   		<a href="#" 
+		   			onclick="top.window.location='/politica/politico/{{ candidato.id }}/'">
+				{% else %}	
+		   			<a  href="/politica/politico/{{ candidato.id }}">
+		   		{% endif %} {% trans %}Veja mais{% endtrans %}!</a>
+	</div>
+		   		
+		   		
+	{% if acaoBoxPolitico == 'alterar' %}
+	     
+ 		<a href="/politica/selecionar-politicos/{{ candidato.id }}/{{ posicao }}/false">
+			
+				{% trans %}Alterar{% endtrans %}
+				</a>
+	
+	{% endif %}
+
+	{% if acaoBoxPolitico == 'selecionar' %}
+			{% set exists = [] %}
+			
+			{% if politicosSelecionados %}
+				{% for timecandidato in politicosSelecionados.candidatos.all() %}
+		
+		
+					{% if candidato.id == timecandidato.candidatura %}
+					{% trans %}Selecionado!{% endtrans %}
+						 {% if exists.append(1) %}{% endif %}
+					{% endif %}
+				{% endfor %}
+				
+				
+			{% endif %}
+			
+				
+
+			{% if not exists %}
+				
+			 	<a href="/politica/selecionar-politicos/{{ candidato.id }}/{{ posicao }}/{{ gravar }}">
+			{% trans %}Selecionar{% endtrans %}
+				<!--  <img src="/static/img/pec/botao_selecionar.png"/>  -->
+				</a>
+			{% endif %}
+		
+		
+	{% endif %}
+	</div>
+	
+{% endif %}
+
+
+	</div>
+
+</div>

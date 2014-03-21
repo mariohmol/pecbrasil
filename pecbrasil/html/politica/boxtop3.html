@@ -1,0 +1,35 @@
+	<div id="classificacao">
+		<div onclick="window.location='/politica/classificacao/'"
+			id="times_rankingtop3">
+			<div class="times_rankingtop3_times" id="times_rankingtop3_primeiro">
+				<div id="times_rankingtop3_nomeTime">{{ primeiroTime.nome}}</div>
+				<div id="times_rankingtop3_pontoTime">
+				{% if primeiroTime.pontuacao_total  %}
+					{{ primeiroTime.pontuacao_total}}
+				{% else %}
+					0
+				{% endif %}
+				</div>
+			</div>
+			<div class="times_rankingtop3_times" id="times_rankingtop3_segundo">
+				<div id="times_rankingtop3_nomeTime">{{ segundoTime.nome}}</div>
+				<div id="times_rankingtop3_pontoTime">
+				{% if segundoTime.pontuacao_total  %}
+					{{ segundoTime.pontuacao_total}}
+				{% else %}
+					0
+				{% endif %}
+				</div>
+			</div>
+			<div class="times_rankingtop3_times" id="times_rankingtop3_terceiro">
+				<div id="times_rankingtop3_nomeTime">{{ terceiroTime.nome}}</div>
+				<div id="times_rankingtop3_pontoTime">
+				{% if terceiroTime.pontuacao_total  %}
+					{{ terceiroTime.pontuacao_total}}
+				{% else %}
+					0
+				{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>

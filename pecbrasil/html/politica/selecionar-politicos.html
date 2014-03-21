@@ -1,0 +1,64 @@
+<!-- extend from about base layout -->
+{% extends "templates/site.html" %}
+
+{% block title %}: {% trans %}Selecione um político para sua bancada{% endtrans %}{% endblock %}
+
+{% block body %}
+
+<img src="/static/img/pec/cadastro3.png" border="0" />
+
+
+  	{% trans %}Ordernar por{% endtrans %}: 
+  	<a href="?orderdirec={{orderdirec}}&order=name_pt">{% trans %}Nome{% endtrans %}</a> - 
+  	<a href="?orderdirec={{orderdirec}}&order=partido">{% trans %}Partido{% endtrans %}</a> - 
+  	<a href="?orderdirec={{orderdirec}}&order=total_despesa">{% trans %}Despesa{% endtrans %}</a> -
+  	<a href="?orderdirec={{orderdirec}}&order=total_presenca">{% trans %}Presença{% endtrans %}</a> - 
+  	<a href="?orderdirec={{orderdirec}}&order=total_proposicao">{% trans %}Proposição{% endtrans %}</a> - 
+  	<a href="?orderdirec={{orderdirec}}&order=total_votacao">{% trans %}Votação{% endtrans %}</a> - 
+  	 
+  	<a href="?orderdirec={{orderdirec}}&order=pontuacao_total">{% trans %}Pontos{% endtrans %}</a> - 
+  	<a href="?orderdirec={{orderdirec}}&order=pontuacao_ultima">{% trans %}Última Semana{% endtrans %}</a>
+  	<br/>
+  	
+  	{% if orderdirec == "asc" %}
+ 	{% trans %}Ordenação crescente{% endtrans %}
+ 	
+ 	- <a href="?orderdirec=desc&order={{orderby}}">{% trans %}Mudar sentido{% endtrans %}</a>
+  	{% else %}
+  		{% trans %}Ordenação decrescente{% endtrans %} 
+ 	
+ 	- <a href="?orderdirec=asc&order={{orderby}}">{% trans %}Mudar sentido{% endtrans %}</a>
+  	{% endif %}
+  	<script>
+  	var orderby="{{orderby}}";
+  	var orderdirec="{{orderdirec}}";
+  	</script>
+  	<div >
+  	
+  	<form action="?orderby={{orderby}}&orderdirec={{orderdirec}}" method="post">
+  	{{form.hidden_tag()}}
+  		<input type="text" name="nome" id="nome" /> 
+  		<input
+  		 type="submit" value="{% trans %}buscar{% endtrans %}" />
+  		 
+  		</form>
+  	</div>
+
+ <!-- <h1>Time do {{ time.nome }}</h1>  --> 
+<h2>Selecione seu político para a cadeira {{ posicao }}</h2>
+    {% for politico in politicos %}
+      
+	{% set candidato =  politico %}
+		
+		{% set acaoBoxPolitico = 'selecionar' %}
+		 {% set backCard = 'True' %}
+   
+		
+        {% include "politica/boxpolitico.html" %}
+        
+    {% endfor %}
+    
+
+    
+{% endblock %}
+

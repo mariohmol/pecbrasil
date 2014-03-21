@@ -1,0 +1,132 @@
+<!-- extend from base layout -->
+{% extends "templates/base.html" %} {% block content %}
+
+<div class="cabecalho">
+	<div class="container">
+		<ul class="list-inline menuTop">
+			<li><a href="/">{% trans %}INÍCIO{% endtrans %}</a></li>
+			<li><a href="/about">{% trans %}PEC BRASIL{% endtrans %}</a></li>
+			<li><a href="/politica/classificacao">{% trans %}CLASSIFICAÇÃO{% endtrans %}</a></li>
+			<li><a href="/politica/politico">{% trans %}TOP 100{% endtrans %}</a></li>
+			<li><a href="/politica/partidos">{% trans %}PARTIDOS{% endtrans %}</a></li>
+			<li><a href="/liga/">{% trans %}LIGAS{% endtrans %}</a></li>
+			
+			{% if g.user.is_authenticated() %}
+			<li><a href="/politica/meu-partido/">{% trans %}MEU PARTIDO{% endtrans %}</a></li>
+			<li><a href="/account/logout/">{% trans %}SAIR{% endtrans %}</a></li>
+			{% endif %}
+			
+		</ul>
+		<div class="qdUser">
+			{% if g.user.is_authenticated() %}
+			
+					{% trans %}Olá{% endtrans %} {{ g.user.nickname }} 
+					<!--
+					<button class="btn-mini btn-xing">{% trans %}Minha Conta{% endtrans %}</button>
+					-->
+										
+			{% else %}
+			
+			
+			
+			
+			<form action="/account/login/" method="post" name="loginFace" style="float: left;width: 240px;">
+			
+			<input type="hidden" value="facebook" name="provider" id="provider">
+			
+			<a href="/account/login/">	{% trans %}Entrar{% endtrans %} </a> |  
+			<button class="btn-mini btn-facebook">
+			<i class="fa fa-facebook"></i> | 
+			
+			
+	
+		 <a id="Facebook" class="login_button" href="#Facebook"
+			onclick="document.forms[0].submit()">
+
+	
+			{% trans %}Faça login com Facebook{% endtrans %}
+			</a></button>
+			
+			
+			
+				</form>
+			
+			<div class="leon radio group" style="float: right; padding-left: 10px;">
+				<div style="background: none repeat scroll 0% 0% #27AE60; border-color: #19783F; color: rgb(255, 255, 255);" 
+				id="leon_en" class="leon button small first"><a href="/set_lang/en">EN</a></div>
+				<div style="background: none repeat scroll 0% 0% #27AE60; border-color: #19783F; color: rgb(102, 102, 102);" 
+				id="leon_pt" class="leon button small last"><a href="/set_lang/pt">PT</a></div>
+			</div>
+			
+			{% endif %}
+			
+			
+			
+		</div>
+		
+	</div>	
+</div>
+{% if g.page_type != "home" %}
+<div class="qdHome" style="height:130px; float:left;">
+	
+	<div class="conteudo" style="height:150px; text-align:left;"><br>
+		<a href="/"><img  src="/static/img/pecbrasil/logo-topo.png" width="200"></a>
+		<img  width="100" align="right" src="/static/img/pecbrasil/badge-participa.png">
+		
+	</div>
+	
+</div>
+{% else %}
+<div class="qdHome">
+	
+	<div class="conteudo" style="height:355px;">
+		<img class="logo-topo" src="/static/img/pecbrasil/logo-topo.png">
+		<img class="badge-topo" src="/static/img/pecbrasil/badge-participa.png">
+		<div class="texto-topo">
+			{% trans %}compare os deputados federais{% endtrans %} <br> 
+			{% trans %}e escale os melhores para o seu time{% endtrans %}.
+			
+		</div>
+	</div>
+	
+</div>
+{% endif %}
+
+		<!-- /#header -->
+<div style="float:left; width:100%; text-align:center;">
+	<div class="conteudo">
+
+							{% for category, msg in
+							get_flashed_messages(with_categories=true) %}
+							<div id="server_message">
+								<div class="decision flash-{{ category }}">
+									{{ msg|safe }} <i id="close_message" class="icon-remove-sign"></i>
+								</div>
+							</div>
+							{% endfor %} <div style="font-size:22px;">{% block body %}</div> {% endblock %}
+							
+							</div>
+</div>
+
+<!-- /#content -->
+
+
+
+<div class="rodape">
+	<div class="container">
+		<img alt="" style="float:left" src="/static/img/pecbrasil/logo-rodape.png"/>
+		<!--
+		<div style="float:right; width:400px; color:#2ECC71; text-align:right; font-size:40px;">
+			<i class="fa fa-facebook-square"></i>
+			<i class="fa fa-twitter-square"></i>
+			<i class="fa fa-youtube-square"></i>
+		</div>
+		-->
+	</div>
+</div>
+
+
+
+
+
+{% endblock %}

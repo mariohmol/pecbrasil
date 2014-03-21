@@ -1,0 +1,90 @@
+ 
+ 
+	   
+	     
+   {% if votacao %}
+			   
+	   <div style="width: 100%;" id="boxPolitico">
+	   
+		   <h4>
+			   <div class="field-content">
+			   
+			  {% if  iframe=='true'  %}
+			   		<a href="#" 
+		   			onclick="top.window.location='/proposicao/ver/{{ votacao.proposicao }}/'">
+				{% else %}	
+		   			<a href="/proposicao/ver/{{ votacao.proposicao }}">
+		   		{% endif %}
+        
+        
+				  
+				    {{ votacao.proposicoes.sigla }}</a>
+				    
+				    
+				    {% if votacao.proposicoes.tipo %}
+				    -  {{ votacao.proposicoes.tipo }}
+				    {% endif %}
+				    
+				    {% if votacao.proposicoes.data %}
+				     <br/>
+				     {{ votacao.proposicoes.data }}
+				     
+				      {% endif %}
+				      
+				      {% if votacao.proposicoes.favor %}
+				      <br/>
+				       {% trans %}Votos{% endtrans %}: {{ votacao.proposicoes.favor }}  {% trans %}Sim{% endtrans %}
+				       / {{ votacao.proposicoes.contra }} {% trans %}Não{% endtrans %}
+				       / {{ votacao.proposicoes.abstencao }} {% trans %}Abstenção{% endtrans %}
+				       
+				     {% endif %}  
+			   </div>
+		   </h4>
+	   
+		   <div id="boxPoliticoPartido">
+		   
+		   <h3>{% trans %}Voto do Candidato{% endtrans %}: 	{% include "proposicao/boxvoto.html" %} </h3> 
+		   	<div class="field-content">
+		  
+		  
+		   {% if votacao.proposicoes.autor %}
+				  <br/>
+		  {% trans %}Autor{% endtrans %}: {{ votacao.proposicoes.autor }}
+		   		 <br/>
+		   	 {% endif %}
+				      	
+		   	
+	
+		   	</div>
+		   
+		   </div>
+	   
+			  <pre>
+			  
+			   {% if  iframe=='true'  %}
+			   	 {{ votacao.proposicoes.desc|truncate(255,False,'') }} 
+				{% else %}	
+		   			 {{ votacao.proposicoes.desc }} 
+		   		{% endif %}
+		   		
+		   
+	</pre>
+
+
+		<div id="boxPoliticoLateral">
+		
+
+
+			<div id="boxPoliticoUltimaSemana" >
+		
+			
+			
+			</div>
+
+		</div>
+		
+	
+
+</div>
+	   
+    {% endif %}

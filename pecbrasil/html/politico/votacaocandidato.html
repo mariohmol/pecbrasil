@@ -1,0 +1,30 @@
+<!-- extend from about base layout -->
+{% extends "templates/clean.html" %}
+
+{% block title %}: {% trans %}About the Site{% endtrans %}{% endblock %}
+
+{% block content %}
+  
+   <style>
+ 	body { background-color:#f1f1f1!important; font-family:"Open Sans"!important; font-size:12px!important; }
+  </style>
+
+  {% if votacoes %}
+	
+	     {% for votacao in votacoes %}
+	      
+	     
+	         {% include "politico/boxvotacao.html" %}
+      
+	         
+	     
+	    {% endfor %}
+	    {% else %}
+	    {% trans %}Não foram encontrados votacoes para este politico{% endtrans %}
+    {% endif %}
+    
+    
+    
+{% endblock %}
+
+

@@ -1,0 +1,110 @@
+{% extends "templates/clean.html" %}
+
+{% block content %}
+
+{% set divId = 'treemapDiv' %}
+{% include "grafico/painelIframe.html" %}
+
+	 
+  	<script src="/static/js/src/viz/tree_map.js"></script>
+  
+<div id="treemapDiv" style="display: block" ></div>
+  
+  
+  <script>
+   partidoParam='{{ partido }}'
+   politicoid=''   
+   {% if politicoid %}
+   	politicoid='{{ politicoid }}'
+   {% endif %}
+   
+	if(partidoParam=='' && politicoid=='') {
+		linkCandidatura='/attrs/candidatura'
+		linkPontuacao='/attrs/despesa'
+	}else if(partidoParam=='' && politicoid!=''){
+		linkCandidatura='/attrs/candidatura/'+politicoid
+		linkPontuacao='/attrs/despesa/'+politicoid
+	}
+	
+	else{
+		linkCandidatura='/attrs/candidatura/all/'+partidoParam
+		linkPontuacao='/attrs/despesa/all/'+partidoParam
+	}
+		
+  var viz = d3plus.viz()
+d3.json("/attrs/despesatipo", function(despesatipo){
+	d3.json("/attrs/partido", function(partido){
+	d3.json(linkCandidatura, function(attr){
+	  d3.json(linkPontuacao, function(data){
+	    
+	  var attrs = {}
+      attr.candidaturas.forEach(function(a){
+        a.candidatura = a.id
+        
+        partido.partidos.forEach(function(p){
+	          if(p.id == a.partido){
+	          	a.partidoNome = p.name_pt
+	          	a.partidoSigla = p.sigla
+	          	a.color=p.color
+	          }	
+	          
+          })	
+          
+        
+        if(politicoid == a.candidatura){
+	          	a.color='#000000'
+	          }
+       attrs[a.id] = a
+   	})
+   	
+   	 data.despesas.forEach(function(a){
+	  
+   		despesatipo.despesatipo.forEach(function(p){
+	   	  if(a.categoria== p.id_despesatipo){
+	   		  a.categoria=p.nome_despesatipo
+	   		a.color = p.cor_despesatipo  
+	   	  }
+	     })     
+   	 })
+	  inner_html = function(obj) {
+          console.log(obj)
+          var htmlnovo= "<iframe id='iframe3' src='/despesa/boxdespesa/";
+        	  htmlnovo+=obj+ "' style='width: 180px; height: 360px'></iframe>"
+          return htmlnovo
+        }
+ 
+  var tooltips = {"short": ["categoria","valor"],"other": ["categoria","categoria"]}
+  
+      viz
+        .type("tree_map")
+        .id_var("categoria")
+        .attrs(attrs)
+        .text_var("categoria")
+        .value("valor")         .color("color")
+        .year_var("rodada")
+        .font("Open Sans")
+        .font_weight("lighter")
+        //.year(2)
+         
+        .tooltip_info([ "categoria", "valor"])
+        //.tooltip_info(tooltips)
+	.click_function(inner_html)
+       .aggs({"valor":"sum"})
+      
+       // .name_array(["categoria"])
+        //.nesting(["partido","candidatura"])
+        //.depth("candidatura")
+        
+      
+      d3.select("#treemapDiv")
+        .datum(data.despesas)
+        .call(viz)
+	  
+	  })
+	})
+})   
+})
+  
+  </script>
+  
+{% endblock %}

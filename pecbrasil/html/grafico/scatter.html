@@ -1,0 +1,70 @@
+<!-- extend from about base layout -->
+{% extends "templates/site.html" %}
+
+{% block title %}: {% trans %}About the Site{% endtrans %}{% endblock %}
+
+{% block content %}
+  <h1>{% trans %} {% endtrans %}</h1>
+  
+  
+<div id="viz"></div>
+  
+  
+  <script src="/static/js/src/viz/pie_scatter.js"></script>
+
+<script>
+
+var viz = d3plus.viz()
+
+
+d3.json("/attrs/partido", function(partido){
+	d3.json("/attrs/candidatura", function(attr){
+	  d3.json("/attrs/pontuacao", function(data){
+	  	
+	  	    
+        var attrs = {}
+		  attr.candidaturas.forEach(function(a){
+		    a.candidatura = a.id
+		    partido.partidos.forEach(function(p){
+		      if(p.id == a.partido) a.partidoNome = p.name_pt;
+		    });
+		    attrs[a.id] = a
+      })
+  
+    viz
+      .type("pie_scatter")
+      .text_var("partidoNome")
+      .id_var("candidatura")
+      .attrs(attrs)
+      .xaxis_var("presenca")
+      .yaxis_var("proposicao")
+      .value("pontos")
+      .tooltip_info(["rodada", "partido", "pontos","partidoNome"])
+      //.total_bar({"prefix": "Export Value: $", "suffix": " USD", "format": ",f"})
+      //.nesting(["nesting_2","nesting_4","nesting_6"])
+      //.aggs({"complexity":"mean","distance":"mean","rca":"mean"})
+      //.depth("nesting_2")
+      //.text_format(text_formatting)
+      .spotlight(false)
+      .year_var("rodada")
+      .year(2)
+      .active_var("active1")
+      //.click_function(inner_html)
+      //.xaxis_val({"eci": "0.85"})
+      // .solo("11")
+      // .static_axis(false)
+      // .mirror_axis(true)
+
+    d3.select("#viz")
+      .datum(data.pontuacoes)
+      .call(viz)
+      
+  })
+})
+})
+
+</script>
+
+    
+{% endblock %}
+

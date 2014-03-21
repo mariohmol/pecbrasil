@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="{{ g.locale }}">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />-->
+<title>{% trans %}Política Esporte Clube{% endtrans %} {% block title %}{% endblock %}</title>
+<link rel="shortcut icon" href="/static/img/favicon.ico?v=2" />
+
+
+
+
+<!--[if IE 7]>
+    <link rel="stylesheet" href="{{STATIC_URL}}css/libs/font-awesome/font-awesome-ie7.min.css?v=3">
+    <![endif]-->
+
+<link href="/static/css/fonts/mohave.css" rel="stylesheet" type="text/css">
+<link href="/static/css/fonts/mohave-bold.css" rel="stylesheet" type="text/css">
+<link href="/static/css/fonts/mohave-semibold.css" rel="stylesheet" type="text/css">
+<link href="/static/css/d3plus.css" rel="stylesheet" type="text/css">
+<link href="/static/css/pec.css" rel="stylesheet" type="text/css">
+<link href="/static/css/font-awesome.css" rel="stylesheet" type="text/css">
+<link href="/static/css/styles.inputs.css" rel="stylesheet" type="text/css">
+
+<!--
+<link href="/static/css/styles.general.css" rel="stylesheet" type="text/css">
+-->
+<link href='/static/css/opensans.css' rel='stylesheet' type='text/css'>
+ 
+<link href="/static/css/styles.guide.css" rel="stylesheet" type="text/css">
+<link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/static/css/bootstrap-responsive.css" rel="stylesheet" type="text/css">
+<link href="/static/css/font-awesome.min.css" rel="stylesheet">
+ 
+
+<script src="/static/js/lib/jquery-1.9.0.min.js"></script>
+<script src="/static/js/lib/d3.js"></script>
+<script src="/static/js/lib/leon.js"></script>
+<script src="/static/js/lib/modernizr.custom.js"></script>
+<script src="/static/js/lib/topojson.js"></script>
+<script src="/static/js/lib/d3plus.js"></script>
+<script src="/static/js/lib/numeral.min.js"></script>
+<script src="/static/js/utils/utils.general.js"></script>
+<script src="/static/js/utils/utils.dataviva.js"></script>
+
+<script src="/static/js/utils/utils.pec.js"></script>
+
+
+
+
+
+{% block head %} {% endblock %}
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<meta property="og:title" content="Política Esporte Clube - PEC"/>
+<meta property="og:image" content="http://politicaesporteclube.com/static/img/pecbrasil/logofull.png"/>
+<meta property="og:site_name" content="Política Esporte Clube - PEC"/>
+<meta property="og:description" content="Jogo de fantasia que utiliza dados da participação dos políticos. Monte seu time com os políticos que mais pontuam e dispute as ligas, mostrando que você é quem mais entende de política."/>
+<meta property="og:type" content="game"/>
+<meta property="og:url" content="http://politicaesporteclube.com{{ request.path }}"/>	
+	
+	
+  <meta name="description" content="Jogo de fantasia que utiliza dados da participação dos políticos. Monte seu time com os políticos que mais pontuam e dispute as ligas, mostrando que você é quem mais entende de política." />
+	
+</head>
+
+<body {% if g.page_type %} class="{{g.page_type}}"{% endif %}>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=208773702609294";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+	<div class="pec">
+		{% block content %} {% endblock %}
+	</div>
+
+
+	{% block js %} {% endblock %}
+
+	<!-- Google Analytics! -->
+	<script>
+	//ID do Aplicativo/Chave API - 208773702609294 - http://apps.facebook.com/pecbrasil
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', 'UA-46575248-1', 'politicaesporteclube.com');
+	  ga('send', 'pageview');
+	
+	</script>
+
+</body>
+</html>

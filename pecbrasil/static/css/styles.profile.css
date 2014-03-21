@@ -1,0 +1,47 @@
+body.profiles #container {
+	padding: 58px 0px 49px 0px;
+	width: 100%;
+}
+
+div.darkbox img{
+	width: 35px;
+}
+div.darkbox h2{
+	color: #fff !important;
+	display: inline;
+	margin: 0 0 0 10px;
+}
+
+iframe {
+  height: 300px;
+  width: 100%;
+}
+
+div.data_table {
+	display: inline-block;
+	margin: 0px 10px;
+	overflow: hidden;
+	overflow-y: scroll;
+	width: 40%;
+}
+div.data_table:nth-child(even) {
+	margin-right: 20px;
+}
+div.data_table:nth-child(odd) {
+	margin-left: 20px;
+}
+div.data_table table{ 
+	overflow: hidden;
+}
+div.data_table table thead{ 
+	display: table-header-group;
+}
+div.data_table table thead th{ 
+	display: table-cell;
+}
+div.data_table table td { 
+	padding: 4px;
+}
+div.data_table table td a{ 
+	text-decoration: underline;
+}

@@ -1,0 +1,32 @@
+<!-- extend from about base layout -->
+{% extends "templates/clean.html" %}
+
+{% block title %}: {% trans %}About the Site{% endtrans %}{% endblock %}
+
+{% block content %}
+  <h1>{% trans %}Despesas{% endtrans %}</h1>
+  
+  <iframe id="iframeTreemapDespesa"
+			src="/grafico/treemapdespesa/all/{{ candidatura_id }}"
+			style="width: 900px; height: 600px"></iframe>
+			
+			
+  <table><tr>
+  <td> despesa.candidatura </td>
+      <td> despesa.categoria </td>
+       <td> despesa.rodada </td>
+     <td> despesa.valor </td>
+     </tr>
+     
+     {% for despesa in despesas %}
+     <tr>
+     <td>{{ despesa.candidatura }}</td>
+      <td>{{ despesa.categoria }}</td>
+       <td>{{ despesa.rodada }}</td>
+     <td>{{ despesa.valor }}</td>
+      
+      </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
+

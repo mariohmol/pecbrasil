@@ -1,0 +1,217 @@
+{% extends "templates/clean.html" %}
+
+{% block content %}
+
+
+<object id="MapaSVG" data="/static/img/mapa/mapa.svg" type="image/svg+xml"></object>
+
+    
+
+<script>
+
+
+
+var embed = document.getElementById("MapaSVG");
+embed.addEventListener('load', function()
+{
+ 
+	
+	var SVGDoc = document.getElementById('MapaSVG').contentDocument; 
+	if(SVGDoc!=null){
+		SVGRoot = SVGDoc.documentElement; //SVGDoc.documentElement; 
+		if(SVGRoot!=null){
+		{% if request.args.get('RS')  %}
+			SVGRoot.querySelector('#rs path').style.fill="#{{request.args.get('RS')}}";
+		{% else %}	
+			SVGRoot.querySelector('#rs path').style.fill="#CCC";
+		{% endif %}	
+		
+		{% if request.args.get('SC') %}
+			SVGRoot.querySelector('#sc path').style.fill="#{{request.args.get('SC')}}";
+		{% else %}	
+			SVGRoot.querySelector('#sc path').style.fill="#CCC";
+		{% endif %}	
+						
+		{% if request.args.get('PR') %}
+			SVGRoot.querySelector('#pr path').style.fill="#{{request.args.get('PR')}}";
+		{% else %}	
+			SVGRoot.querySelector('#pr path').style.fill="#CCC";
+		{% endif %}	
+								
+		{% if request.args.get('SP') %}
+			SVGRoot.querySelector('#sp path').style.fill="#{{request.args.get('SP')}}";
+		{% else %}	
+			SVGRoot.querySelector('#sp path').style.fill="#CCC";
+		{% endif %}	
+		
+		{% if request.args.get('MS') %}
+			SVGRoot.querySelector('#ms path').style.fill="#{{request.args.get('MS')}}";
+		{% else %}	
+			SVGRoot.querySelector('#ms path').style.fill="#CCC";
+		{% endif %}			
+		
+		{% if request.args.get('RS') %}
+			SVGRoot.querySelector('#rs path').style.fill="#{{request.args.get('RS')}}";
+		{% else %}	
+			SVGRoot.querySelector('#rs path').style.fill="#CCC";
+		{% endif %}	
+		
+		
+		{% if request.args.get('RJ') %}
+			SVGRoot.querySelector('#rj path').style.fill="#{{request.args.get('RJ')}}";
+		{% else %}	
+			SVGRoot.querySelector('#rj path').style.fill="#CCC";
+		{% endif %}	
+		
+		
+		{% if request.args.get('ES') %}
+			SVGRoot.querySelector('#es path').style.fill="#{{request.args.get('ES')}}";
+		{% else %}	
+			SVGRoot.querySelector('#es path').style.fill="#CCC";
+		{% endif %}	
+		
+		
+		{% if request.args.get('MG') %}
+			SVGRoot.querySelector('#mg path').style.fill="#{{request.args.get('MG')}}";
+		{% else %}	
+			SVGRoot.querySelector('#mg path').style.fill="#CCC";
+		{% endif %}				
+				
+					
+		{% if request.args.get('GO') %}
+			SVGRoot.querySelector('#go path').style.fill="#{{request.args.get('GO')}}";
+		{% else %}	
+			SVGRoot.querySelector('#go path').style.fill="#CCC";
+		{% endif %}					
+						
+		{% if request.args.get('DF') %}
+			SVGRoot.querySelector('#df path').style.fill="#{{request.args.get('DF')}}";
+		{% else %}	
+			SVGRoot.querySelector('#df path').style.fill="#CCC";
+		{% endif %}					
+					
+						
+					
+		{% if request.args.get('BA') %}
+			SVGRoot.querySelector('#ba path').style.fill="#{{request.args.get('BA')}}";
+		{% else %}	
+			SVGRoot.querySelector('#ba path').style.fill="#CCC";
+		{% endif %}					
+					
+						
+		{% if request.args.get('MT') %}
+			SVGRoot.querySelector('#mt path').style.fill="#{{request.args.get('MT')}}";
+		{% else %}	
+			SVGRoot.querySelector('#mt path').style.fill="#CCC";
+		{% endif %}					
+						
+		{% if request.args.get('RO') %}
+			SVGRoot.querySelector('#ro path').style.fill="#{{request.args.get('RO')}}";
+		{% else %}	
+			SVGRoot.querySelector('#ro path').style.fill="#CCC";
+		{% endif %}					
+			
+		{% if request.args.get('AC') %}
+			SVGRoot.querySelector('#ac path').style.fill="#{{request.args.get('AC')}}";
+		{% else %}	
+			SVGRoot.querySelector('#ac path').style.fill="#CCC";
+		{% endif %}			
+		
+		{% if request.args.get('AM') %}
+			SVGRoot.querySelector('#am path').style.fill="#{{request.args.get('AM') }}";
+		{% else %}	
+			SVGRoot.querySelector('#am path').style.fill="#CCC";
+		{% endif %}			
+		
+		{% if request.args.get('RR') %}
+			SVGRoot.querySelector('#rr path').style.fill="#{{request.args.get('RR')}}";
+		{% else %}	
+			SVGRoot.querySelector('#rr path').style.fill="#CCC";
+		{% endif %}		
+		
+		{% if request.args.get('PA') %}
+			SVGRoot.querySelector('#pa path').style.fill="#{{request.args.get('PA')}}";
+		{% else %}	
+			SVGRoot.querySelector('#pa path').style.fill="#CCC";
+		{% endif %}				
+		
+						
+		{% if request.args.get('AP') %}
+			SVGRoot.querySelector('#ap path').style.fill="#{{request.args.get('AP')}}";
+		{% else %}	
+			SVGRoot.querySelector('#ap path').style.fill="#CCC";
+		{% endif %}	
+		
+						
+		{% if request.args.get('MA') %}
+			SVGRoot.querySelector('#ma path').style.fill="#{{request.args.get('MA')}}";
+		{% else %}	
+			SVGRoot.querySelector('#ma path').style.fill="#CCC";
+		{% endif %}					
+					
+		{% if request.args.get('TO') %}
+			SVGRoot.querySelector('#to path').style.fill="#{{request.args.get('TO')}}";
+		{% else %}	
+			SVGRoot.querySelector('#to path').style.fill="#CCC";
+		{% endif %}				
+					
+						
+		{% if request.args.get('SE') %}
+			SVGRoot.querySelector('#se path').style.fill="#{{request.args.get('SE')}}";
+		{% else %}	
+			SVGRoot.querySelector('#se path').style.fill="#CCC";
+		{% endif %}				
+			
+		{% if request.args.get('AL') %}
+			SVGRoot.querySelector('#al path').style.fill="#{{request.args.get('AL')}}";
+		{% else %}	
+			SVGRoot.querySelector('#al path').style.fill="#CCC";
+		{% endif %}				
+						
+						
+		{% if request.args.get('PE') %}
+			SVGRoot.querySelector('#pe path').style.fill="#{{request.args.get('PE')}}";
+		{% else %}	
+			SVGRoot.querySelector('#pe path').style.fill="#CCC";
+		{% endif %}					
+						
+				
+		{% if request.args.get('PB') %}
+			SVGRoot.querySelector('#pb path').style.fill="#{{request.args.get('PB')}}";
+		{% else %}	
+			SVGRoot.querySelector('#pb path').style.fill="#CCC";
+		{% endif %}					
+		
+		{% if request.args.get('RN') %}
+			SVGRoot.querySelector('#rn path').style.fill="#{{request.args.get('RN')}}";
+		{% else %}	
+			SVGRoot.querySelector('#rn path').style.fill="#CCC";
+		{% endif %}					
+						
+					
+		{% if request.args.get('CE') %}
+			SVGRoot.querySelector('#ce path').style.fill="#{{request.args.get('CE')}}";
+		{% else %}	
+			SVGRoot.querySelector('#ce path').style.fill="#CCC";
+		{% endif %}					
+						
+			
+						
+		{% if request.args.get('PI') %}
+			SVGRoot.querySelector('#pi path').style.fill="#{{request.args.get('PI')}}";
+		{% else %}	
+			SVGRoot.querySelector('#pi path').style.fill="#CCC";
+		{% endif %}					
+				
+		
+		}
+	}			
+  // var svg = embed.getSVGDocument();
+    // Operate upon the SVG DOM here
+});
+
+</script>
+
+
+{% endblock %}
+

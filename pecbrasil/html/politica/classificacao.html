@@ -1,0 +1,146 @@
+<!-- extend from about base layout -->
+{% extends "templates/site.html" %}
+
+{% block title %}: {% trans %}Candidaturas{% endtrans %}{% endblock %}
+
+{% block body %}
+    
+    <div style="width:100%;float: left;">
+    
+    <div style="width:50%;float: left;">
+		<img src="/static/img/pec/ranking_classificacao_geral.png">
+   	</div>
+   	
+   	<div style="width:50%;float: left;">
+    <h2>{% trans %}Estamos na rodada{% endtrans %} 
+    	
+    	{{ rodadaAtual.semana }}/{{ rodadaAtual.ano }}<br/> 
+	{{ rodadaAtual.inicio }} a {{ rodadaAtual.fim }}</h2>
+	<a href="/rodada/">{% trans %}Veja mais{% endtrans %}!</a>
+
+	</div>
+	
+	<div id="times_ranking_primeiro">
+		<div id="times_ranking_primeiro_img">
+			<img src="/static/img/pec/ranking_primeiro.png" width="120px"></div>
+		<div id="times_ranking_primeiro_nome"> <a href="/politica/selecao/{{ primeiroTime.id }}">{{ primeiroTime.nome }}</a></div>
+		<div id="times_ranking_primeiro_fundacao">
+		{% if primeiroTime.fundacao %}
+		{% trans %}Fundacao{% endtrans %}: {{ primeiroTime.fundacao }}
+		{% endif %}
+		</div>
+		
+		<div id="times_ranking_primeiro_presidente">
+		{% if primeiroTime.fundacao %}
+		{% trans %}Presidente{% endtrans %}: {{ primeiroTime.fundacao }}
+		{% endif %}
+		</div>
+		
+		<div id="times_ranking_primeiro_pontos">
+		
+		{{ primeiroTime.pontuacao_total }} pts</div>
+	</div>
+
+	<div id="times_ranking_segundo">
+		<div id="times_ranking_segundo_img"><img src="/static/img/pec/ranking_segundo.png"></div>
+		<div id="times_ranking_segundo_nome"> <a href="/politica/selecao/{{ segundoTime.id }}">{{ segundoTime.nome }}</a></div>
+		<div id="times_ranking_segundo_fundacao">
+		{% if segundoTime.fundacao %}{% trans %}Fundacao{% endtrans %}: {{ segundoTime.fundacao }}
+		{% endif %}
+		</div>
+		<div id="times_ranking_segundo_presidente">
+		{% if segundoTime.fundacao %}{% trans %}Presidente{% endtrans %}: {{ segundoTime.fundacao }}
+		{% endif %}
+		</div>
+		<div id="times_ranking_segundo_pontos">{{ segundoTime.pontuacao_total }} pts</div>
+	</div>
+
+	<div id="times_ranking_terceiro">
+		<div id="times_ranking_terceiro_img">
+		<img src="/static/img/pec/ranking_terceiro.png"></div>
+		<div id="times_ranking_terceiro_nome"> 
+		<a href="/politica/selecao/{{ terceiroTime.id }}">
+		{{ terceiroTime.nome }}</a></div>
+		<div id="times_ranking_terceiro_fundacao">
+		{% if terceiroTime.fundacao %}{% trans %}Fundacao{% endtrans %}: {{ terceiroTime.fundacao }}
+		{% endif %}
+		</div>
+		<div id="times_ranking_terceiro_presidente">
+		{% if terceiroTime.fundacao %}{% trans %}Presidente{% endtrans %}: {{ terceiroTime.fundacao }}
+		{% endif %}
+		</div>
+		<div id="times_ranking_terceiro_pontos">{{ terceiroTime.pontuacao_total }} pts</div>
+	</div>
+
+ 
+ <br/>
+</div>
+    
+    
+    <h2>{% trans %}Ranking Completo{% endtrans %} </h2>
+    
+    <table style="width:100%;float: left;">
+    <tr>
+	     <td>{% trans %}Posição{% endtrans %} </td>
+	     
+	     <td>{% trans %}Nome do Time{% endtrans %}</td>
+	      <td>{% trans %}Pontos{% endtrans %}</td>
+	     <!--
+	      <td>Presidente</td>
+	       <td>Fundação</td>
+-->
+	</tr>
+	{% set posicao =0 %}
+     {% for t3Time in topTimes %}
+     
+     {% set posicao =posicao+1 %}
+     <tr>
+     
+     <td>{{ posicao }} </td>
+     
+      <td><a href="/politica/selecao/{{ t3Time.id }}">{{ t3Time.nome }}</a> </td>
+      
+      
+     <td>
+     {% if t3Time.pontuacao_total %}
+      {{ t3Time.pontuacao_total }} pts
+      
+      {% else %}
+      	0 pts
+      
+      {% endif%}
+      
+      </td>
+      
+      <!--  
+	     <td>{{ t3Time.fundador }} </td>
+	     
+	     <td>{{ t3Time.data }} </td>
+-->
+	</tr>
+    {% endfor %}
+    </table>
+    
+    <!-- 
+    <table style="width:100%;float: left;">
+     {% if verTime %}
+	     
+	     <tr>
+	     <td>{{ verTime.id }}</td>
+	     <td> {{ verTime.nome }} </td>
+	     </tr>
+	 {% endif %}
+	 </table>
+	 
+    <table style="width:100%;float: left;">
+    
+      {% for tPartido in topPartidos %}
+     <tr>
+	     <td>{{ tPartido.id }} </td>
+    {% endfor %}
+    </tr>
+    </table>
+     -->
+    
+{% endblock %}
+

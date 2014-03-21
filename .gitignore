@@ -1,0 +1,7 @@
+data/
+.settings/
+nbproject/
+.project
+.pydevproject
+*.pyc
+log.txt
