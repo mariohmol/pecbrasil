@@ -337,7 +337,7 @@ message="Invite friends: {0}".format(name)
 '''
 def send_mail(title, recipients,message):
     from pecbrasil import mail
-    msg = Message(title,sender="contato@politicaesporteclube.com",recipients=recipients)
+    msg = Message(title,sender="Politica Esporte Clube <contato@politicaesporteclube.com>",recipients=recipients)
     msg.body = message
     msg.html = msg.body
     mail.send(msg)
