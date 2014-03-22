@@ -3,16 +3,39 @@ from pecbrasil.utils import AutoSerialize
 from pecbrasil.politica.models import Candidatura,Time
 from pecbrasil.account.models import User
 
+
+class TipoProposicao(db.Model, AutoSerialize):
+    __tablename__ = 'tipoproposicao'
+    __public__ = ('id_tipoproposicao',   'nome_tipoproposicao','sigla_tipoproposicao','originalid_tipoproposicao')
+    id_tipoproposicao = db.Column(db.Integer, primary_key=True)
+    nome_tipoproposicao = db.Column(db.Text())
+    sigla_tipoproposicao = db.Column(db.Text())   
+    originalid_tipoproposicao = db.Column(db.Integer)
+    proposicoes = db.relationship("Proposicao", backref = 'tipoproposicao', lazy = 'dynamic')
+    def __repr__(self):
+        return '<TipoProposicao %r>' % (self.time)
+    
+class StatusProposicao(db.Model, AutoSerialize):
+    __tablename__ = 'statusproposicao'
+    __public__ = ('id_statusproposicao', 'nome_statusproposicao',  'originalid_statusproposicao', 'sigla_statusproposicao')
+    id_statusproposicao = db.Column(db.Integer, primary_key=True)
+    nome_statusproposicao = db.Column(db.Text())
+    sigla_statusproposicao=db.Column(db.Text())
+    originalid_statusproposicao=db.Column(db.Integer)
+    proposicoes = db.relationship("Proposicao", backref = 'statusproposicao', lazy = 'dynamic')
+    def __repr__(self):
+        return '<StatusProposicao %r>' % (self.time)
+    
 class Proposicao(db.Model, AutoSerialize):
     __tablename__ = 'proposicao'
     __public__ = ('status', 'id',  'desc','sigla')
     id = db.Column(db.Integer, primary_key=True)
     sigla = db.Column(db.String(30), primary_key=True)
-    status = db.Column(db.String(30))
+    status = db.Column(db.String(30),db.ForeignKey(StatusProposicao.id_statusproposicao))
     desc = db.Column(db.Text())
     candidatura = db.Column(db.Integer,db.ForeignKey(Candidatura.id))
     data = db.Column(db.Date)
-    tipo = db.Column(db.Integer)
+    tipo = db.Column(db.Integer,db.ForeignKey(TipoProposicao.id_tipoproposicao))
     favor = db.Column(db.Integer)
     contra = db.Column(db.Integer)
     abstencao = db.Column(db.Integer)
@@ -52,20 +75,3 @@ class Repasse(db.Model, AutoSerialize):
     def __repr__(self):
         return '<Repasse %r>' % (self.proposicao)
     
-class TipoProposicao(db.Model, AutoSerialize):
-    __tablename__ = 'tipoproposicao'
-    __public__ = ('id',   'nome','desc','original_cf')
-    id = db.Column(db.Integer, primary_key=True)
-    nome = db.Column(db.Text())
-    desc = db.Column(db.Text())   
-    original_cf = db.Column(db.Integer)
-    def __repr__(self):
-        return '<TipoProposicao %r>' % (self.time)
-    
-class StatusProposicao(db.Model, AutoSerialize):
-    __tablename__ = 'statusproposicao'
-    __public__ = ('id_statusproposicao',   'nome_statusproposicao')
-    id_statusproposicao = db.Column(db.Integer, primary_key=True)
-    nome_statusproposicao = db.Column(db.Text())
-    def __repr__(self):
-        return '<StatusProposicao %r>' % (self.time)

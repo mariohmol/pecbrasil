@@ -131,12 +131,12 @@ def runDespesas(cursor=None,anoFilter=None, semanaFilter=None):
         i=i+1
         
         Despesas_semanaInicio  = line[2]  
-        ano=  Despesas_semanaInicio[-4:]
-            
+        ano=  trim(Despesas_semanaInicio[-4:])
+          #print semanaFilter
         if (line[1] and len(line)>=5 and ((anoFilter is None or anoFilter==ano) and (semanaFilter is None or semanaFilter==Despesas_semana))):  
             #if i > max:
             #    break
-             
+            
             Despesas_semana  = line[1]   
             Despesas_semanaFim    = line[3]    
           

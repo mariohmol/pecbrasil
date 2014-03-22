@@ -19,7 +19,7 @@
      
      {% for proposicoe in proposicoes %}
      <tr>
-     <td>{{ proposicoe.candidatura }}</td>
+     <td>{{ proposicoe.candidaturas.name_pt }}</td>
       <td>
       
       {% if frame  %}	
@@ -29,9 +29,13 @@
 		   			<a href="/proposicao/ver/{{ proposicoe.id }}/">
 		   		{% endif %}	
 		   		
+		   		{{ proposicoe.tipoproposicao.nome_tipoproposicao }} - 
       {{ proposicoe.sigla }}</a>
       </td>
-       <td>{{ proposicoe.status }}</td>
+       <td>{{ proposicoe.status }}
+       	
+       	{{ proposicoe.statusproposicao.nome_statusproposicao }}
+       	</td>
      <td>{{ proposicoe.desc }}</td>
       
       </tr>

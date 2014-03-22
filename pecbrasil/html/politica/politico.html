@@ -16,9 +16,10 @@
 	
 	
 	<h1>veja mais</h1>
+	
 	    <a onclick="slide(this.id)" id="app0" class="app_links decision short icon tree_map">
 	{% trans %}Informações Gerais{% endtrans %}</a>
-		
+	
 	<a onclick="slide(this.id)" id="app2" class="app_links help short icon tree_map">
 	{% trans %}Última semana{% endtrans %}</a>
 	
@@ -134,28 +135,28 @@
 	</div>
 
  -->
-<!--
 <div id="profile1" class=" guide_app biografia"
 
 		style="">
 		
 		<h2>{% trans %}Biografia{% endtrans %}</h2>
 		
-		O {{ politicos.politicos.desc_pt }}  nascido em 	{{ politicos.politicos.nascimento }} nome
-		{{ politicos.politicos.desc_pt }}
-		
-		<span class="sideVal boxVotacoes">
-						<span class="valor">R$ 170308</span>
-					</span>
+		Nascido em 	{{ politicos.politicos.nascimento }} 
+		<br/>
+		Slogan de campanha: {{ politicos.politicos.desc_pt }}
+		<br/>
 		
 	</div>
 
--->
 
 
-	<div id="profile2" class="profileFechado  guide_app "
+	<div id="profile1" class="profileFechado  guide_app "
 >
-		<h2>{% trans %}Última semana{% endtrans %}<br> <span style="font-size:20px; font-style: italic; color:#777; font-family:'Mohave'">{{ politicos.politicos.nome }}
+		<h2>{% trans %}Comparação aos outros políticos do{% endtrans %} {{ politicos.partidos.sigla }}
+			
+			<br> 
+			
+			<span style="font-size:20px; font-style: italic; color:#777; font-family:'Mohave'">{{ politicos.politicos.nome }}
 			{% trans %}em comparação ao{% endtrans %} {{ politicos.partidos.sigla }}</span></h2>
 		{% set iframeId = 'iframe2' %} 
 		{% set anoOption = 'true' %}
@@ -163,7 +164,7 @@
 		{% include "grafico/painel.html" %}
 
 		<iframe id="iframe2"
-			alt="/grafico/treemap/{{ politicos.partidos.sigla }}/{{ politicos.id }}"
+			src="/grafico/treemap/{{ politicos.partidos.sigla }}/{{ politicos.id }}"
 			style="width:  648px!important; height: 600px"> </iframe>
 	</div>
 
@@ -171,7 +172,7 @@
 	<div id="profile3" class="profileFechado  guide_app "
 
 		>
-		<h2>{% trans %}Comparação aos outros políticos do{% endtrans %} {{ politicos.partidos.sigla }}</h2>
+		<h2>{% trans %}Comparação durante o tempo{% endtrans %} </h2>
 		{% set iframeId = 'iframe3' %} 
 			{% set anoOption = 'true' %}
 		  {% set funcOption = 'false' %}
@@ -185,7 +186,12 @@
 	
 	
 	<div id="profile4" class="profileFechado  guide_app ">
-		 <h2>{% trans %}Despesas  na Ultima Rodada{% endtrans %}</h2>
+		 <h2>{% trans %}Despesas por categoria{% endtrans %}</h2>
+		  {% set iframeId = 'iframe4' %} 
+		 {% set valOption = 'false' %}
+		 	{% set anoOption = 'true' %}
+		  {% set funcOption = 'false' %}
+		  {% include "grafico/painel.html" %}
 		<br>
 		<iframe id="iframe4"
 		
@@ -199,7 +205,7 @@
 		<h2>{% trans %}Despesas ao longo do campeonato{% endtrans %}</h2>	
 		 {% set iframeId = 'iframe5' %} 
 		 {% set valOption = 'false' %}
-		 	{% set anoOption = 'false' %}
+		 	{% set anoOption = 'true' %}
 		  {% set funcOption = 'false' %}
 		 {% include "grafico/painel.html" %}<br>
 		<iframe id="iframe5"

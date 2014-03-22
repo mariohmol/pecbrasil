@@ -58,7 +58,7 @@ d3.json("/attrs/despesatipo", function(despesatipo){
    	})
    	
    	 data.despesas.forEach(function(a){
-	  
+	  a.anodespesa=a.ano
    		despesatipo.despesatipo.forEach(function(p){
 	   	  if(a.categoria== p.id_despesatipo){
 	   		  a.categoria=p.nome_despesatipo
@@ -80,11 +80,13 @@ d3.json("/attrs/despesatipo", function(despesatipo){
         .id_var("categoria")
         .attrs(attrs)
         .text_var("categoria")
-        .value("valor")         .color("color")
-        .year_var("ano")
+        .value("valor")         
+        .color("color")
+        
         .font("Open Sans")
         .font_weight("lighter")
-        .year(2014)
+        .year(2013)
+        .year_var("anodespesa")
          
         .tooltip_info([ "categoria", "valor"])
         //.tooltip_info(tooltips)

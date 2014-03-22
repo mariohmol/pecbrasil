@@ -54,8 +54,10 @@ d3.json("/attrs/despesatipo", function(despesatipo){
 	   		var attrsNovo = {"rodada": attrsRodada, "candidatura": attrs,"categoria":attrsDespesa}
 		   	 
 	   	data.despesas.forEach(function(d){
-	   		d.inicio=attrsRodada[d.rodada].semana //+ ""+attrsRodada[a.rodada].ano
-		
+	   		if (attrsRodada[d.rodada].semana>50) alert(attrsRodada[d.rodada].semana)
+	   		d.semanaRodada=attrsRodada[d.rodada].semana //+ ""+attrsRodada[a.rodada].ano
+	   		
+			
 		})
 		
         viz = d3plus.viz()
@@ -66,11 +68,12 @@ d3.json("/attrs/despesatipo", function(despesatipo){
           .value("valor")
           //.tooltip_info([ "nome_despesatipo", "valor", "rodada"])
           .yaxis("valor")
-          .xaxis("inicio")//nome_rodada
+          .xaxis("semanaRodada")//nome_rodada
            .unique_axis("x")
          .color("cor_despesatipo")
           .stack_type("monotone")
-           .year_var("rodada_ano")
+           .year_var("ano")
+           .year(2013)
           // .click_function(inner_html)
           //.layout("share")
         

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- 
 from pecbrasil.politica.models import Candidatura, Pontuacao,Partido,Time,RodadaPontos,TimeCandidato
 from pecbrasil.liga.models import Liga
-from pecbrasil.proposicao.models import Proposicao,TimeVotacao,VotacaoCandidato,Repasse
+from pecbrasil.proposicao.models import Proposicao,TimeVotacao,VotacaoCandidato,Repasse,StatusProposicao,TipoProposicao
 from pecbrasil.politica.models import Rodada,Politico,ProcessoCandidato,DespesaCandidato
 from pecbrasil.orgao.models import Orgao
 from pecbrasil.utils import clean_varrequest
@@ -281,17 +281,17 @@ class PoliticaServices(object):
         #print 'ola'
         if candidatura_id is None:
             ret = DespesaCandidato.query.join(Rodada).filter_by(ativo=1)\
-            .order_by(Rodada.inicio).all()
+            .order_by(Rodada.inicio.desc()).all()
         elif candidatura_id == 'all' and partido_sigla is not None:
             ret = DespesaCandidato.query.join(Rodada).filter_by(ativo=1)\
-            .order_by(Rodada.inicio).all()
+            .order_by(Rodada.inicio.desc()).all()
             #ret = candidaturaByPartido(partido_sigla) 
         elif candidatura_id == 'all' and partido_sigla is None:
             ret = DespesaCandidato.query.join(Rodada).filter_by(ativo=1)\
-            .order_by(Rodada.inicio).all()
+            .order_by(Rodada.inicio.desc()).all()
         else:
             ret = DespesaCandidato.query.filter_by(candidatura=candidatura_id).join(Rodada)\
-            .filter_by(ativo=1).order_by(Rodada.inicio).all()
+            .filter_by(ativo=1).order_by(Rodada.inicio.desc()).all()
         return ret
  
     def despesaByTipo(self,despesatipo_id=None):
@@ -313,12 +313,12 @@ class PoliticaServices(object):
     def proposicao(self,candidatura_id=None,partido_sigla=None):
         ret = None
         if candidatura_id == 'all' and partido_sigla is not None:
-            ret = Proposicao.query.join(Candidatura).filter_by(partido=partido_sigla).all()
+            ret = Proposicao.query.outerjoin(Candidatura).filter_by(partido=partido_sigla).outerjoin(StatusProposicao).outerjoin(TipoProposicao).all()
             #ret = candidaturaByPartido(partido_sigla) 
         elif candidatura_id == 'all' and partido_sigla is None:
             ret = Proposicao.query.all()
         elif candidatura_id is not None and (partido_sigla is None or partido_sigla=="all"):
-            ret = Proposicao.query.filter_by(candidatura=candidatura_id).all()
+            ret = Proposicao.query.outerjoin(Candidatura).filter_by(id=candidatura_id).outerjoin(StatusProposicao).outerjoin(TipoProposicao).all()
         else:
             ret = Proposicao.query.all()
         return ret
@@ -567,7 +567,7 @@ class PoliticaServices(object):
         #update ponto liga??
         self.updateRodadaInicioFim()
         
-        sql="update  despesacandidato d set d.ano =  ( select r.ano from rodada r where d.rodada =  r.id ) where id_despesacandidato >0"
+        sql="update  despesacandidato d set d.ano =  ( select r.ano from rodada r where d.rodada =  r.id ) where id_despesacandidato >0 and d.ano is null"
         db.session.execute(sql)
         db.session.commit()
         

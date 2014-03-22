@@ -36,7 +36,7 @@ parser.add_option("-s", "--semana", dest="semana",
 opcao=None
 rodadaOption=None
 ambiente=None
-ano=None
+ano="2014"
 semana=None
 if options.opcao is not None:    
     opcao=trim(options.opcao)
@@ -79,9 +79,9 @@ if opcao=="runCandidaturas":
 
 #Detalhes das informacoes usadas em pontuacao
 if opcao=="runDespesas":
-    despesa.runDespesas(cursor=cursor)
+    despesa.runDespesas(cursor=cursor,anoFilter=ano,semanaFilter=semana)
 if opcao=="runProposicao":
-    proposicao.runProposicao(cursor=cursor)
+    proposicao.runProposicao(cursor=cursor,anoFilter=ano,semanaFilter=semana)
 if opcao=="runVotacaoCandidato":
     votacao.runVotacaoCandidato(cursor=cursor)
 
