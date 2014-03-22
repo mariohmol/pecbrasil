@@ -5,11 +5,15 @@
 
 {% block body %}
   <h1>{% trans %}Este é um convite do time{% endtrans %} {{ time.nome }} {% trans %}para você participar Política Esporte Clube{% endtrans %}</h1>
-  
+  {% if obs %}
+<h2>Mensagem: {{obs}}</h2>
 
+{% endif %}
       <h2> Política Esporte Clube é um jogo que utiliza dados reais da participação dos políticos no nosso país.
       	
       	</h2>
+      	
+      	
       
        <h2> Crie um time e escolha os políticos com melhor pontuação. Toda semana daremos pontos aos times baseado 
        	na participação dos políticos que você selecinou.     	
