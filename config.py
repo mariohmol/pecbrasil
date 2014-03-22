@@ -83,6 +83,10 @@ MAIL_USE_SSL = True
 MAIL_USERNAME = 'pecbrcontato@gmail.com'
 MAIL_PASSWORD = 'pecBR2014'
 
+# email server iweb
+MAIL_SERVER = 'server.croquiteca.com.br'
+MAIL_USERNAME = 'contato@politicaesporteclube.com'
+
 # email server LIVE - OUTLOOK
 #MAIL_SERVER = 'smtp.live.com'
 #MAIL_PORT = 587
