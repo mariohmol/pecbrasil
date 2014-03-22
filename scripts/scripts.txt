@@ -749,10 +749,10 @@ CREATE TABLE IF NOT EXISTS `candidaturatotal` (
 ) ;
 
 yes | cp -rf xxx yyy
-cp /home/sisfocus/public_html/ftp2/data/* /home/politica/git/pecbrasil/data/
+cp /home/sisfocus/public_html/ftp2/data/* /home/politica/pecbrasil/data/
 python import.py -o runVotacaoCandidato -a P > log.txt
 python import.py -o runPontuacao -a P > log.txt
-python import.py -o runDespesa -a P > log.txt
+python import.py -o runDespesas -a P > log.txt
 python import.py -o runProposicao -a P > log.txt
 
 CREATE TABLE IF NOT EXISTS `partidototal` (
@@ -788,5 +788,9 @@ ALTER TABLE `rodada` CHANGE `min_despesa` `min_despesa` INT NULL DEFAULT NULL ;
 
 ALTER TABLE `rodada` CHANGE `max_despesa` `max_despesa` INT NULL DEFAULT NULL ;
 
+ALTER TABLE  `despesacandidato` ADD  `ano` INT NULL
 
 http://localhost:8084/account/complete_login/
+
+ERROS
+nos graficos mostrar apenas rodadas ativa, aplicar filtros em attrs

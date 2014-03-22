@@ -19,8 +19,6 @@ def page_not_found(error):
 @mod.before_request
 def before_request():
     limit = request.args.get('limit')  
-    print "AOLAA"
-    print limit
     cache_id = request.path + g.locale
     # first lets test if this query is cached
     cached_q = cached_query(cache_id)

@@ -244,11 +244,12 @@ class DespesaTipo(db.Model, AutoSerialize):
     
 class DespesaCandidato(db.Model, AutoSerialize):
     __tablename__ = 'despesacandidato'
-    __public__ = ('categoria', 'candidatura',  'valor','rodada','idcategoria')
+    __public__ = ('categoria', 'candidatura',  'valor','rodada','idcategoria','ano')
     candidatura = db.Column(db.Integer,db.ForeignKey(Candidatura.id), primary_key=True)
     valor = db.Column(db.Integer)
     rodada = db.Column(db.Integer,db.ForeignKey(Rodada.id), primary_key=True)
     ativo = db.Column(db.Integer)
+    ano = db.Column(db.Integer)
     categoria = db.Column(db.Integer,db.ForeignKey(DespesaTipo.id_despesatipo), primary_key=True)
     idcategoria= db.Column(db.String(60), primary_key=True)
     def __repr__(self):

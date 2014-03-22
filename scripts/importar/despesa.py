@@ -16,7 +16,7 @@ import rodada
 #
 ###########
 def addDespesas(candidatura=None,categoria=None,valor=None,rodada=None,despesasSQL=None,cursor=None):    
-    row = getDespesas(candidatura=candidatura,categoria=categoria,rodada=rodada,valor=valor)    
+    row = getDespesas(candidatura=candidatura,categoria=categoria,rodada=rodada,valor=valor,cursor=cursor)    
     if isinstance(candidatura, tuple):
         candidatura=int(candidatura[0])
     if isinstance(categoria, tuple):
@@ -141,19 +141,20 @@ def runDespesas(cursor=None,anoFilter=None, semanaFilter=None):
             Despesas_semanaFim    = line[3]    
           
             #addRodada(semana=Despesas_semana,ano=ano,inicio=Despesas_semanaInicio,fim=Despesas_semanaFim)
-            rodadaRetorno=rodada.getRodada(Despesas_semana,ano,cursor=cursor) 
-            
+            rodadaRetorno=rodada.addRodada(semana=Despesas_semana,ano=ano,cursor=cursor) 
+     
             if isinstance(rodadaRetorno, tuple):
                 rodadaRetorno=int(rodadaRetorno[0])
-            
+  
             ideCadastro  = line[0] 
-            politicoRetorno = politico.getCandidatura(politico=ideCadastro,cursor=cursor)
+            politicoRetorno = politico.getCandidatura(id_original=ideCadastro,cursor=cursor)
             
             Despesas_txtDescricao  = line[4]  
             Despesas_txtDescricao=getDespesaTipo(Despesas_txtDescricao,cursor=cursor)
             #Despesas_txtDescricao = Despesas_txtDescricao.decode("utf-8")
             Despesas_vlrLiquido= line[5]
             Despesas_vlrLiquido = Despesas_vlrLiquido.replace(",",".")
+
             if politicoRetorno is not None:
                 despesasSQL=addDespesas(candidatura=politicoRetorno,categoria=Despesas_txtDescricao,  
                             valor=Despesas_vlrLiquido,rodada=rodadaRetorno,despesasSQL=despesasSQL,cursor=cursor)

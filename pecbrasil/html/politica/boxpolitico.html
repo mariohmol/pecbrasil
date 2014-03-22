@@ -40,7 +40,8 @@
 		
 		
 		
-		<div id="boxPoliticoInfo"> {% if  iframe=='true'  %}
+		<div id="boxPoliticoInfo"> 
+			{% if  iframe=='true'  %}
 			   		<a href="#" 
 		   			onclick="top.window.location='/politica/politico/{{ candidato.id }}/'">
 				{% else %}	
@@ -80,7 +81,7 @@
 	{% if backCard %}
 		
 		<div class="boxCard">
-			{{ rodada_atual.id}}
+
 				<span class="sideTlt">{% trans %}Votações{% endtrans %}</span>
 					<span class="sideVal boxVotacoes">
 						<span class="valor">{{ candidato.total_votacao|int }} 

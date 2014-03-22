@@ -17,18 +17,18 @@
    {% if politicoid %}
    	politicoid='{{ politicoid }}'
    {% endif %}
-   
+   ano=2014
 	if(partidoParam=='' && politicoid=='') {
 		linkCandidatura='/attrs/candidatura'
-		linkPontuacao='/attrs/despesa'
+		linkPontuacao='/attrs/despesa?ano='+ano
 	}else if(partidoParam=='' && politicoid!=''){
 		linkCandidatura='/attrs/candidatura/'+politicoid
-		linkPontuacao='/attrs/despesa/'+politicoid
+		linkPontuacao='/attrs/despesa/'+politicoid+ "?ano="+ano
 	}
 	
 	else{
 		linkCandidatura='/attrs/candidatura/all/'+partidoParam
-		linkPontuacao='/attrs/despesa/all/'+partidoParam
+		linkPontuacao='/attrs/despesa/all/'+partidoParam+ "?ano="+ano
 	}
 		
   var viz = d3plus.viz()
@@ -81,10 +81,10 @@ d3.json("/attrs/despesatipo", function(despesatipo){
         .attrs(attrs)
         .text_var("categoria")
         .value("valor")         .color("color")
-        .year_var("rodada")
+        .year_var("ano")
         .font("Open Sans")
         .font_weight("lighter")
-        //.year(2)
+        .year(2014)
          
         .tooltip_info([ "categoria", "valor"])
         //.tooltip_info(tooltips)

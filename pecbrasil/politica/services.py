@@ -567,6 +567,10 @@ class PoliticaServices(object):
         #update ponto liga??
         self.updateRodadaInicioFim()
         
+        sql="update  despesacandidato d set d.ano =  ( select r.ano from rodada r where d.rodada =  r.id ) where id_despesacandidato >0"
+        db.session.execute(sql)
+        db.session.commit()
+        
 
     def updateRodadaMaxMinAutomatic(self):
         sqlRodada="SELECT * FROM `rodada` where ativo='1' order by fim desc"
