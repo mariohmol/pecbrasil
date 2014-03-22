@@ -13,8 +13,25 @@
 
 <h3>{% trans %}Presidente{% endtrans %}: {{ user.email }} </h3>
 
- <h3>{% trans %}Nome{% endtrans %}: {{ time.nome }}</h3>
  
+ 	<form id="ask_form" action="" method="post">
+		{{time_form.hidden_tag()}} 
+		
+		<label for="nome">{% trans %}Nome do Partido{% endtrans %}</label>
+		{{ time_form.nome(id="nome",
+		placeholder="Nome Ex. Partido do Joao Silva") }} 
+		<br/>
+		<label for="desc">{% trans %}Descrição{% endtrans %}</label>
+		{{
+		time_form.desc(id="desc", placeholder="Descriçao Ex. Partido da Causa
+		Social , seguindo orientação política de Esquerda e ...") }} 
+		<!-- {{
+		time_form.color(id="color", placeholder="Cor Ex. Vermelho") }} 
+		 -->
+		<input
+			type="submit" value="{% trans %}Atualizar{% endtrans %}" />
+	</form>
+	
 
 {% set posicao1=true %}
 {% set posicao2=true %}
@@ -65,7 +82,7 @@
     
     <div style="width: 100%;  float: left;">
 		     <div id="{{ divId }}_share_info"></div>
-		 <a href="#painelPartido_share_info" onclick="addPopUpShare('{{ divId }}_share_info', '', '',share_url)">
+		 <a href="#painelPartido_share_info" onclick="addPopUpShare('{{ divId }}_share_info', '', '','http://politicaesporteclube.com/politica/selecao/{{ time.id }}')">
 		 {% trans %}Compartilhe{% endtrans %}</a> {% trans %}com seus amigos para que conheçam seu time{% endtrans %}
 		 <script>
 		 var pid = "#{{ divId }}_share_info"
@@ -97,9 +114,9 @@
 	var viz = d3plus.viz()
 
 	d3.json("/attrs/time/1", function(time) {
-		d3.json("/attrs/candidaturatime/1", function(candidato) {
-		d3.json("/attrs/timecandidato/1", function(timecandidato) {
-			d3.json("/attrs/rodadapontos/1", function(data) {
+		d3.json("/attrs/candidaturatime/{{ time.id }}", function(candidato) {
+		d3.json("/attrs/timecandidato/{{ time.id }}", function(timecandidato) {
+			d3.json("/attrs/rodadapontos/{{ time.id }}", function(data) {
 
 				var attrs = {}
 				timecandidato.timecandidato.forEach(function(a) {

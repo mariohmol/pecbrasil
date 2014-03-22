@@ -2,7 +2,6 @@
 
 {% block content %}
 
- 
  {% set divId = 'stackedDiv' %}
 {% include "grafico/painelIframe.html" %}
 
@@ -51,12 +50,12 @@ d3.json("/attrs/despesatipo", function(despesatipo){
 		  	attrsRodada=createRodadas(rodada.rodadas);
 		  	attrsDespesa=createDespesas(despesatipo.despesatipo);
 		  	
-	   		var attrsNovo = {"rodada": attrsRodada, "candidatura": attrs,"categoria":attrsDespesa}
+	   		var attrsNovo = { "candidatura": attrs,"categoria":attrsDespesa}
 		   	 
 	   	data.despesas.forEach(function(d){
 	   		if (attrsRodada[d.rodada].semana>50) alert(attrsRodada[d.rodada].semana)
-	   		d.semanaRodada=attrsRodada[d.rodada].semana //+ ""+attrsRodada[a.rodada].ano
-	   		
+	   		d.semanaRodada=1 //+ ""+attrsRodada[a.rodada].ano
+	   		//alert()
 			
 		})
 		

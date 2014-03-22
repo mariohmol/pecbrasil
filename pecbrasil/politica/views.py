@@ -20,6 +20,7 @@ politicaServices = PoliticaServices()
 #  Ver a selecao de um time
 @mod.route('/selecao/')
 @mod.route('/selecao/<nome>')
+@mod.route('/selecao/<nome>/<slug>')
 def selecao(nome=None):
     # Quando nome-selecao for vazio mostrar a selecao do usuario logado
     rodada_atual = db.session.merge(session['rodada_atual'])
@@ -209,19 +210,34 @@ def selecionarPoliticos(idpolitico=None,posicao=None,gravar=None):
         return redirect(url_for('general.home'))
     
 #        SERVICOS: verTime
-@mod.route('/meu-partido/')
-@mod.route('/meu-partido/<time>')
+@mod.route('/meu-partido/', methods=['GET', 'POST'])
+@mod.route('/meu-partido/<time>', methods=['GET', 'POST'])
 def verPartido(time=None):
     form=ConvidarForm()
+    
     if g.user is None or not g.user.is_authenticated():
         return   redirect(url_for('politica.criarPartido'))
     
     timeRetorno = politicaServices.meuTime(g.user.id) 
     if timeRetorno is None:
         return   redirect(url_for('politica.criarPartido'))
+    
+    time_form = TimeForm()
+    if time_form.validate_on_submit(): 
+        timeRetorno.nome=time_form.nome.data
+        timeRetorno.desc=time_form.desc.data
+        db.session.add(timeRetorno)
+        db.session.commit()
+        
     session['user_time']=timeRetorno.id
     rodaA = db.session.merge(session['rodada_atual'])
-    return render_template("politica/meu-partido.html",  rodada_atual=rodaA ,   form=form,            time = timeRetorno,user=g.user, time_id=time)
+    
+    time_form.nome.data=timeRetorno.nome
+    time_form.desc.data=timeRetorno.desc
+    
+    
+        
+    return render_template("politica/meu-partido.html",  rodada_atual=rodaA ,  time_form=time_form, form=form,            time = timeRetorno,user=g.user, time_id=time)
 
 
  

@@ -1,8 +1,11 @@
 
  <script>
  var pid = "#{{ iframeId }}_share_info"
- var share_url=document.URL//"{{share_url}}"
-    
+ {% if share_url %}
+ var share_url="{{share_url}}"
+  {% else %}
+  var share_url=document.URL;
+  {% endif %}  
  </script>
  
 <input type="hidden" name="{{ divId }}_depth_value" id="{{ divId }}_depth_value" value="pontos" />

@@ -189,8 +189,9 @@ function addPopUpShare(pid, slug, titleApp,share_url){
                .text(dataviva.format.text("share_url"))
              
              // make input box with share link
-               //if(share_url=="") 
+             if(share_url=="") 
              share_url = "http://politicaesporteclube.com"+window.location.pathname ;
+             
              d3.select(pid).append("input")
                .attr("type", "text")
                .attr("class", "leon textbox mediumleon textbox large")
