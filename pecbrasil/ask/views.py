@@ -185,7 +185,7 @@ def contact():
         mensag += "<br/> IP:" + politicaServices.getIPUser(request=request)           
             
             
-        send_mail(form.question.data, ["mariohmol@gmail.com"],mensag)
+        send_mail(form.question.data, ["pecbrasil@googlegroups.com"],mensag)
         return render_template("ask/contact.html")
 
 @mod.route('/teste', methods=['GET', 'POST'])
