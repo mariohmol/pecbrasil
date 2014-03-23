@@ -91,7 +91,7 @@ def abrecampeonato(time_id=None):
                 try: 
                     send_mail(titulo,[time.user.email],  render_template("comunicado/abrecampeonato.html",time=time))
                 except:
-                    print "Unexpected error:", sys.exc_info()[0]
+                    print "Unexpected error:"
               
     
     return render_template("comunicado/statuscomunicado.html",titulo=titulo,total=total,log=log)   
