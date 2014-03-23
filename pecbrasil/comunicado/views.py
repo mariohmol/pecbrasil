@@ -87,7 +87,10 @@ def abrecampeonato(time_id=None):
             if time is not None:
                 total=total+1
                 log=log+","+time.user.email
-                send_mail(titulo,[time.user.email],  render_template("comunicado/abrecampeonato.html",time=time))
+                try: 
+                    send_mail(titulo,[time.user.email],  render_template("comunicado/abrecampeonato.html",time=time))
+                except URLError, e:
+                    print e
     
     return render_template("comunicado/statuscomunicado.html",titulo=titulo,total=total,log=log)   
 
