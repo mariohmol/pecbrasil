@@ -173,8 +173,17 @@ def reply_flag(id, user=None):
 def contact():
     form=AskForm()
     if form.validate_on_submit():
-          
-        send_mail(form.question.data, ["mariohmol@gmail.com"],form.body.data)
+        mensag = "Contato atraves do formulario do site: <br/>"
+        if form.email.data:
+            mensag += "<br/> Email:" + form.email.data
+        if form.question.data:
+            mensag += "<br/> Pergunta:" + form.question.data
+        if form.body.data:
+            mensag += "<br/> Observacoes:" + form.body.data
+        mensag += "<br/> IP:" + request.remote_addr           
+            
+            
+        send_mail(form.question.data, ["mariohmol@gmail.com"],mensag)
         return render_template("ask/contact.html")
 
 @mod.route('/teste', methods=['GET', 'POST'])
