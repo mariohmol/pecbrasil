@@ -1306,6 +1306,7 @@ float: left;
     width: 152px;
     height: 280px;
     position: absolute;
+    overflow: hidden;
     display:block;
 			top: 0;
 			left: 0;

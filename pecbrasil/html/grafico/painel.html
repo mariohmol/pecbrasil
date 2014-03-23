@@ -1,8 +1,17 @@
 
-<div style="width: 100%; float: left; font-family:'MohaveSemiBold'; color:#777; font-size: 18px;">
+<div style="width: 100%; float: left; font-family:'Open Sans'; color:#777; font-size: 18px;">
 
+<style>
+label {
+	font-size:15px;
+	font-weight: normal;
+
+}
+</style>
  
 {% if valOption != 'false' %}
+<div style="float:left; width:450px;">
+<h3>Tipo</h3>
 	<input type="radio" name="{{ iframeId }}_depth"
 	id="{{ iframeId }}_depth_pontos"
 		onclick="getElementByIframeId('{{ iframeId }}','pontos').click()" 		
@@ -30,9 +39,12 @@
 		onclick="getElementByIframeId('{{ iframeId }}','votacao').click()">
 	<label for="{{ iframeId }}_depth_votacao">Votação </label>
 	<br/>
+</div>
 {% endif %}
 
 	 {% if anoOption == 'true' %}
+	 <div style="float:left; width:200px;">
+	<h3>Ano</h3>
 			 <input type="radio" name="{{ iframeId }}_ano" 
 		id="{{ iframeId }}_ano_2013" checked="checked"
 			onclick="getElementByIframeId('{{ iframeId }}','ano2013').click()">
@@ -43,6 +55,7 @@
 			onclick="getElementByIframeId('{{ iframeId }}','ano2014').click()">
 		<label for="{{ iframeId }}_ano_2014">2014 </label>
 		<br/>
+	</div>
 		  {% endif %}
 		  
 	 {% if funcOption == 'true' %}	  
@@ -60,7 +73,5 @@
 	
 	{% endif %}
 
- <a href="#{{ iframeId }}_depth_pontos" onclick="getElementByIframeId('{{ iframeId }}','share').click()">
- Compartilhar</a>
  
 </div>
