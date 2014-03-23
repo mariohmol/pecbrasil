@@ -84,7 +84,7 @@ def abrecampeonato(time_id=None):
     else:
         times = Time.query.all()
         for time in times:
-            if time is not None:
+            if time is not None and time.user.email is not None:
                 total=total+1
                 log=log+","+time.user.email
                 print "Enviando "+time.user.email
