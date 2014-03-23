@@ -3,6 +3,7 @@ from flask import Blueprint, render_template, g, request, current_app, session, 
 from flask.ext.login import login_user, logout_user, current_user, login_required
 from flask.ext.babel import gettext
 from pecbrasil.ask.forms import AskForm
+from pecbrasil.account.forms import LoginForm
 import time
 
 mod = Blueprint('general', __name__, url_prefix='/')
@@ -162,9 +163,11 @@ def home():
             segundo = line
         else:
             terceiro = line
-    form=AskForm()
-    return render_template("home.html",form=form,primeiroTime=primeiro,segundoTime=segundo,
-                   terceiroTime=terceiro,topPol=topPol,rodada_atual=rodada_atual)
+    formAsk=AskForm()
+    form = LoginForm()
+    providers = ["Facebook", "Google", "Twitter"]
+    return render_template("home.html",form=form,formAsk=formAsk,primeiroTime=primeiro,segundoTime=segundo,
+                   terceiroTime=terceiro,topPol=topPol,rodada_atual=rodada_atual,providers = providers)
 
 @mod.route('access/')
 @mod.route('access/logout/')

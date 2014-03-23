@@ -39,17 +39,18 @@
 		
 		<h1>{% trans %}O P.E.C. BRASIL É O JOGO QUE O PAÍS PRECISA{% endtrans %}.</h1>
 
-    <h3>{% trans %}Eleja seus políticos e ganhe pontos a cada semana. Os pontos
-      de cada representante é uma análise dos principais índices de
-      contribuição na cena política nacional{% endtrans %}.</h3><br>
-		<img alt="" src="/static/img/pecbrasil/passo-home.jpg"/>
-		
-		<br><br>
+	    <h3>{% trans %}Eleja seus políticos e ganhe pontos a cada semana. Os pontos
+	      de cada representante é uma análise dos principais índices de
+	      contribuição na cena política nacional{% endtrans %}.</h3><br>
+			<img alt="" src="/static/img/pecbrasil/passo-home.jpg"/>
+			
+			<br><br>
 		
 	</div>
 
 </div>
 </div>
+
 <div class="divisor">
 	<div class="conteudo">
 		{% trans %}CONHEÇA ALGUMAS DAS{% endtrans %} <span>{% trans %}FERRAMENTAS{% endtrans %}</span> {% trans %}QUE VOCÊ USARÁ PARA{% endtrans %} <span>{% trans %}COMPARAR{% endtrans %}</span> {% trans %}OS DEPUTADOS{% endtrans %}
@@ -58,42 +59,43 @@
 
 <div id="wrap">
 
-<div id="container">
- 	<div id="profile1" class="lightbox guide_app profileHome" 
- 	style=" height: 700px;
-    padding-left: 60px;
-    text-align: center;
-    min-width: 910px;">   
-    
-	
-	<h3 style="width: 100%; color:#27AE60; font-size:36px; text-align:left;"> {% trans %}Políticos que mais pontuaram na última rodada{% endtrans %}
-     </h3>
-	
-	  {% set posicao = 0 %}
-	  {% for candidatos in topPol %}
-	  	{% set posicao = posicao + 1 %}
-	  	{% set candidato = candidatos[0] %}
-    	{% set backCard = 'True' %}
-      	{% include "politica/boxpolitico.html" %}
-      
-    
-    {% endfor %}
-	</div>
+	<div id="container">
+		
+		
+	 	<div id="profile1" class="lightbox guide_app profileHome" 
+	 	style=" height: 700px;
+		    padding-left: 60px;
+		    text-align: center;
+		    min-width: 910px;">   
+		    
+			
+			<h3 style="width: 100%; color:#27AE60; font-size:36px; text-align:left;"> {% trans %}Políticos que mais pontuaram na última rodada{% endtrans %}
+		     </h3>
+			
+			  {% set posicao = 0 %}
+			  {% for candidatos in topPol %}
+			  	{% set posicao = posicao + 1 %}
+			  	{% set candidato = candidatos[0] %}
+		    	{% set backCard = 'True' %}
+		      	{% include "politica/boxpolitico.html" %}
+		      
+		    
+		    {% endfor %}
+		</div>
 
 	
-	<div id="profile2" class="lightbox guide_app profileHome"
->
-					<h3 style="width: 100%; color:#27AE60; font-size:36px; text-align:left;">{% trans %}Partidos que mais pontuaram na última{% endtrans %}
-			rodada</h3>
-		{% set iframeId = 'iframe1' %} 
-		 {% set anoOption = 'false' %}
-		  {% set funcOption = 'true' %}
-		 
-		{% include "grafico/painel.html" %}
-		<iframe id="iframe1" alt="/grafico/treemap/"
-			style="width: 858px; min-height: 500px"></iframe>
-		
-	</div>
+		<div id="profile2" class="lightbox guide_app profileHome">
+						<h3 style="width: 100%; color:#27AE60; font-size:36px; text-align:left;">{% trans %}Partidos que mais pontuaram na última{% endtrans %}
+				rodada</h3>
+			{% set iframeId = 'iframe1' %} 
+			 {% set anoOption = 'false' %}
+			  {% set funcOption = 'true' %}
+			 
+			{% include "grafico/painel.html" %}
+			<iframe id="iframe1" alt="/grafico/treemap/"
+				style="width: 858px; min-height: 500px"></iframe>
+			
+		</div>
 	
 	
 	
@@ -102,33 +104,33 @@
 
 
 
-	<div id="profile4" class="lightbox guide_app profileHome"
-		style="padding-left: 60px;">
-
-	</div>
-	<div id="profile3" class="lightbox guide_app profileHome"
-		style="">
-		<h2 style="width: 90%">Participação dos partidos durante este
-			campeonato</h2>
-		{% set iframeId = 'iframe2' %} {% include "grafico/painel.html" %}
-		<iframe id="iframe2" alt="/grafico/stacked/"
-			style="min-width: 90%; min-height: 500px"></iframe>
-	</div>
-
-
-	<div id="profile3" class="lightbox guide_app profileHome"
-		style="padding-left: 60px;">
-		<h3 style="width: 100%; color:#27AE60; font-size:36px; text-align:left;">Atuação dos políticos em relação a seu
-			partido</h3>
-		{% set iframeId = 'iframe3' %} 
-		 {% set anoOption = 'false' %}
-		  {% set funcOption = 'false' %}
-		{% include "grafico/painel.html" %}
-		<iframe id="iframe3" alt="/grafico/bubbles/" 
-			style="width: 858px; min-height: 700px; "></iframe>
-	</div>
+			<div id="profile4" class="lightbox guide_app profileHome"
+				style="padding-left: 60px;">
+		
+			</div>
+			<div id="profile3" class="lightbox guide_app profileHome"
+				style="">
+				<h2 style="width: 90%">Participação dos partidos durante este
+					campeonato</h2>
+				{% set iframeId = 'iframe2' %} {% include "grafico/painel.html" %}
+				<iframe id="iframe2" alt="/grafico/stacked/"
+					style="min-width: 90%; min-height: 500px"></iframe>
+			</div>
+		
+		
+			<div id="profile3" class="lightbox guide_app profileHome"
+				style="padding-left: 60px;">
+				<h3 style="width: 100%; color:#27AE60; font-size:36px; text-align:left;">Atuação dos políticos em relação a seu
+					partido</h3>
+				{% set iframeId = 'iframe3' %} 
+				 {% set anoOption = 'false' %}
+				  {% set funcOption = 'false' %}
+				{% include "grafico/painel.html" %}
+				<iframe id="iframe3" alt="/grafico/bubbles/" 
+					style="width: 858px; min-height: 700px; "></iframe>
+			</div>
  -->
-</div>
+	</div>
 	
 
 	<script>
@@ -155,63 +157,79 @@
       })
       initSlides();
   </script>
-  </div>
- </div>
-  <div class="divisor">
+</div>
+  
+<div class="divisor">
 	<div class="conteudo">
 		{% trans %}QUEM ESTÁ FALANDO SOBRE O{% endtrans %} <span>{% trans %}POLÍTICA ESPORTE CLUBE{% endtrans %}</span>
 	</div>
 </div>
-    <div id="wrap">
 
-<div id="container" style="text-align:justify; width: 500px;; padding-bottom: 30px;"><br><br><br>
-	<a href="http://www.arede.inf.br/noticias/6434-game-que-transforma-deputadoes-em-time-de-futebol-vence-desafio-participa-br" target="_blank" style="float:left; width:33%; text-align: center;"><img alt="" src="/static/img/pecbrasil/arede-rodape.jpg"/></a>
-	<a href="http://www.brasil.gov.br/ciencia-e-tecnologia/2013/12/idealizadores-de-aplicativos-cidadaos-sao-premiados" target="_blank" style="float:left; width:33%; text-align: center;"><img alt="" src="/static/img/pecbrasil/portalbrasil-rodape.jpg"/></a>
-	<a href="http://www.softex.br/softex-participa-da-solenidade-de-premiacao-do-1o-desafio-de-ideias-para-aplicativos-do-participa-br/" target="_blank" style="float:left; width:33%; text-align: center;"><img alt="" src="/static/img/pecbrasil/softex-rodape.jpg"/></a>
-	<br><br><br>
-</div>
 
- <div  class="pecHomebottom">
 
- <div style="margin-left:20px" class="fb-like-box" data-href="http://www.facebook.com/PoliticaEsporteClube" data-width="220" data-height="350"
-							data-colorscheme="light" data-show-faces="true"
-data-header="false" data-stream="false" data-show-border="false"></div>
+
+
+	<div id="container" style="text-align:justify; width: 500px;; padding-bottom: 30px;"><br><br><br>
+		<a href="http://www.arede.inf.br/noticias/6434-game-que-transforma-deputadoes-em-time-de-futebol-vence-desafio-participa-br" target="_blank" style="float:left; width:33%; text-align: center;"><img alt="" src="/static/img/pecbrasil/arede-rodape.jpg"/></a>
+		<a href="http://www.brasil.gov.br/ciencia-e-tecnologia/2013/12/idealizadores-de-aplicativos-cidadaos-sao-premiados" target="_blank" style="float:left; width:33%; text-align: center;"><img alt="" src="/static/img/pecbrasil/portalbrasil-rodape.jpg"/></a>
+		<a href="http://www.softex.br/softex-participa-da-solenidade-de-premiacao-do-1o-desafio-de-ideias-para-aplicativos-do-participa-br/" target="_blank" style="float:left; width:33%; text-align: center;"><img alt="" src="/static/img/pecbrasil/softex-rodape.jpg"/></a>
+		<br><br><br>
+	</div>
+
+
+
+  <div id="container" style="height: 350px;">
+	{% set frame = 'true' %}
+	 	{% include "account/login.html" %}
+	
+	</div>
+
+
+<div id="container" > 	
+ 	<div  class="pecHomebottom">
+
+		 <div style="margin-left:20px" class="fb-like-box" 
+		 data-href="http://www.facebook.com/PoliticaEsporteClube" data-width="220" data-height="350"
+									data-colorscheme="light" data-show-faces="true"
+			data-header="false" data-stream="false" data-show-border="false"></div>
 
     </div>
     
-	<div  class="pecHomebottom">
-		<h1>{% trans %}Contato{% endtrans %}</h1>
-    <form id="ask_form" action="/ask/contact/" method="post">
-      {{form.hidden_tag()}}
-        <label for="question">{% trans %}Pergunta{% endtrans %}</label>
-        {{ form.question(id="question", placeholder="Ex. De onde vieram os dados?") }}
-        <br/>
-         <label for="email">{% trans %}Email{% endtrans %}</label>
-        {{ form.email(id="email", placeholder="my@email.com") }}
-        <br/>
-        {% for error in form.errors.question %}
-        <span style="color: red;">[{{ error }}]</span>
-        {% endfor %}
-  
-  <br/>
-  		<label for="wysiwyg_textarea">{% trans %}Mensagem{% endtrans %}</label>
-        {{ form.body(id="wysiwyg_textarea") }}
-        {% for error in form.errors.body %}
-        <span style="color: red;">[{{ error }}]</span>
-        {% endfor %}
-      
-      <br/>
-      
-      <a href="#ask_form" class="submit" onclick='document.forms["ask_form"].submit()'>
-        <div class="decision">
-          <div class="text">{% trans %}Pergunte a nossa equipe!{% endtrans %}!</div>
-          <div class="arrow"></div>
-        </div>
-      </a>
-      
-    </form>
-    </div>
+    
    
+	<div  class="pecHomebottom">
+			<h1>{% trans %}Contato{% endtrans %}</h1>
+		    <form id="ask_form" action="/ask/contact/" method="post">
+		      {{formAsk.hidden_tag()}}
+		        <label for="question">{% trans %}Pergunta{% endtrans %}</label>
+		        {{ formAsk.question(id="question", placeholder="Ex. De onde vieram os dados?") }}
+		        <br/>
+		         <label for="email">{% trans %}Email{% endtrans %}</label>
+		        {{ formAsk.email(id="email", placeholder="my@email.com") }}
+		        <br/>
+		        {% for error in formAsk.errors.question %}
+		        <span style="color: red;">[{{ error }}]</span>
+		        {% endfor %}
+		  
+		  <br/>
+		  		<label for="wysiwyg_textarea">{% trans %}Mensagem{% endtrans %}</label>
+		        {{ formAsk.body(id="wysiwyg_textarea") }}
+		        {% for error in formAsk.errors.body %}
+		        <span style="color: red;">[{{ error }}]</span>
+		        {% endfor %}
+		      
+		      <br/>
+		      
+		      <a href="#ask_form" class="submit" onclick='document.forms["ask_form"].submit()'>
+		        <div class="decision">
+		          <div class="text">{% trans %}Pergunte a nossa equipe!{% endtrans %}!</div>
+		          <div class="arrow"></div>
+		        </div>
+		      </a>
+		      
+		    </form>
+    </div>
+    
 </div>
 
 {% endblock %}
