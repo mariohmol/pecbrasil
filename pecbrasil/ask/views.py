@@ -9,6 +9,8 @@ from pecbrasil.account.models import User
 from pecbrasil.ask.models import Question, Reply, Status, Vote, TYPE_QUESTION, TYPE_REPLY, Flag
 from pecbrasil.ask.forms import AskForm, ReplyForm, SearchForm
 from pecbrasil.utils import strip_html,send_mail
+from pecbrasil.politica.services import PoliticaServices    
+politicaServices = PoliticaServices()  
 
 import urllib2, urllib
 
@@ -180,7 +182,7 @@ def contact():
             mensag += "<br/> Pergunta:" + form.question.data
         if form.body.data:
             mensag += "<br/> Observacoes:" + form.body.data
-        mensag += "<br/> IP:" + request.remote_addr           
+        mensag += "<br/> IP:" + politicaServices.getIPUser(request=request)           
             
             
         send_mail(form.question.data, ["mariohmol@gmail.com"],mensag)

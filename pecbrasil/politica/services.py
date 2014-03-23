@@ -591,3 +591,15 @@ class PoliticaServices(object):
                 #db.session.execute("update rodada set max_votacao=%s, max_presenca=%s,max_proposicao=%s,max_despesa=%s where id=%s",[novo[0],novo[1],novo[2],novo[3],novo[4]])
         db.session.commit()
         
+        
+###########
+# GERAL
+###########
+
+    def getIPUser(self,request):
+        if not request.headers.getlist("X-Forwarded-For"):
+           ip = request.remote_addr
+        else:
+           ip = request.headers.getlist("X-Forwarded-For")[0]
+        return ip
+        
