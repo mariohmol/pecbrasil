@@ -35,7 +35,7 @@ SQLALCHEMY_ECHO = True
 SQLALCHEMY_DATABASE_URI = "mysql://{0}:{1}@{2}/{3}".format(
     get_env_variable("PEC_DB_USER", "sisfocus_pec"), 
     get_env_variable("PEC_DB_PW", "pec2014"), 
-    get_env_variable("PEC_DB_HOST", "localhost"),
+    get_env_variable("PEC_DB_HOST", "198.50.106.250"),
     get_env_variable("PEC_DB_NAME", "sisfocus_pec"))
 
 ''' If user prefers to connect via socket set env var '''

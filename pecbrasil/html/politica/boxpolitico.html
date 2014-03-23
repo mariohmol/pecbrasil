@@ -47,7 +47,7 @@
 				{% else %}	
 		   			<a href="/politica/politico/{{ candidato.id }}">
 		   		{% endif %} {{ candidato.politicos.nome|truncate(28,False,'') }}</a><br>
-			<span style="font-size:11px; position:absolute; bottom:10px; left: 0px; margin-top:5px; display:inline-block;"><img src="/static/img/icons/bra/bra_{{ candidato.uf|lower }}.png" width="20px;"style=" vertical-align: middle;"	/>&nbsp;
+			<span style="font-size:9px; position:absolute; bottom:10px; left: 0px; margin-top:5px; display:inline-block; width:109px;"><img src="/static/img/icons/bra/bra_{{ candidato.uf|lower }}.png" width="20px;"style=" vertical-align: middle; height:100%;"	/>&nbsp;
 		   		{{ candidato.cidade }}</span>
 		</div>
 		 
@@ -80,38 +80,42 @@
 		
 	{% if backCard %}
 		
-		<div class="boxCard">
+			<div class="boxCard votacoesBx">
 
-				<span class="sideTlt">{% trans %}Votações{% endtrans %}</span>
+					<span class="sideTlt"><i class="fa fa-check-square-o"></i> {% trans %}Votações{% endtrans %}</span>
+					<br>
 					<span class="sideVal boxVotacoes">
-						<span class="valor">{{ candidato.total_votacao|int }} 
-						{% if rodada_atual %}
-						<p style="font-size: 12px">  {{ rodada_atual.min_votacao}} {% trans %}a{% endtrans %} {{ rodada_atual.max_votacao}} / {% trans %}média{% endtrans %}: {{ rodada_atual.avg_votacao}}</p>
-						
-						{% endif %}
+						<span class="valor">
+							{{ candidato.total_votacao|int }} / {{ rodada_atual.max_votacao}} 
+							{% if rodada_atual %}
+								<p style="font-size: 12px; display:none;">  {{ rodada_atual.min_votacao}} {% trans %}a{% endtrans %} {{ rodada_atual.max_votacao}} / {% trans %}média{% endtrans %}: {{ rodada_atual.avg_votacao}}</p>
+							
+							{% endif %}
 						</span>
 					</span>
-				</div>
-				<div class="boxCard">
-					<span class="sideTlt">{% trans %}Presenças{% endtrans %}</span>
+			</div>
+				<div class="boxCard presencasBx">
+					<span class="sideTlt"><i class="fa fa-male"></i> {% trans %}Presenças{% endtrans %}</span>
+					<br>
 					<span class="sideVal boxVotacoes">
-						<span class="valor">{{ candidato.total_presenca|int }}
+						<span class="valor">{{ candidato.total_presenca|int }} / {{ rodada_atual.max_presenca}}
 							
 						{% if rodada_atual %}
-						<p style="font-size: 12px">  {{ rodada_atual.min_presenca}} {% trans %}a{% endtrans %} {{ rodada_atual.max_presenca}} / {% trans %}média{% endtrans %}: {{ rodada_atual.avg_presenca}}</p>
+						<p style="font-size: 12px;display:none;">  {{ rodada_atual.min_presenca}} {% trans %}a{% endtrans %} {{ rodada_atual.max_presenca}} / {% trans %}média{% endtrans %}: {{ rodada_atual.avg_presenca}}</p>
 						{% endif %}
 						</span>
 						
 					</span>
 				</div>
 			
-				<div class="boxCard">
-					<span class="sideTlt">{% trans %}Proposições{% endtrans %}</span>
+				<div class="boxCard proposicoesBx">
+					<span class="sideTlt"><i class="fa fa-microphone"></i> {% trans %}Proposições{% endtrans %}</span>
+					<br>
 					<span class="sideVal boxVotacoes">
-						<span class="valor">{{ candidato.total_proposicao|int }} 
+						<span class="valor">{{ candidato.total_proposicao|int }} / {{ rodada_atual.max_proposicao}}
 							
 							{% if rodada_atual %}
-						<p style="font-size: 12px">  {{ rodada_atual.min_proposicao}} {% trans %}a{% endtrans %} {{ rodada_atual.max_proposicao}} / {% trans %}média{% endtrans %}: {{ rodada_atual.avg_proposicao}}</p>
+						<p style="font-size: 12px;display:none;">  {{ rodada_atual.min_proposicao}} {% trans %}a{% endtrans %} {{ rodada_atual.max_proposicao}} / {% trans %}média{% endtrans %}: {{ rodada_atual.avg_proposicao}}</p>
 						{% endif %}
 						</span>
 						
@@ -119,13 +123,14 @@
 				</div>
 		
 			
-				<div class="boxCard">
-						<span class="sideTlt">{% trans %}Despesas{% endtrans %}</span>
+				<div class="boxCard despesasBx">
+						<span class="sideTlt"><i class="fa fa-money"></i> {% trans %}Despesas{% endtrans %}</span>
+						<br>
 					<span class="sideVal boxVotacoes">
-						<span class="valor">R$ {{ candidato.total_despesa|int }} 
+						<span class="valor">R$ {{ candidato.total_despesa|int }} / {{ rodada_atual.max_despesa}}
 							
 							{% if rodada_atual %}
-						<p style="font-size: 12px">  {{ rodada_atual.min_despesa}} {% trans %}a{% endtrans %} {{ rodada_atual.max_despesa}} / {% trans %}média{% endtrans %}: {{ rodada_atual.avg_despesa}}</p>
+						<p style="font-size: 12px;display:none;">  {{ rodada_atual.min_despesa}} {% trans %}a{% endtrans %} {{ rodada_atual.max_despesa}} / {% trans %}média{% endtrans %}: {{ rodada_atual.avg_despesa}}</p>
 						{% endif %}
 						
 						</span>
@@ -140,14 +145,15 @@
 	
 	
 		
-	<div style="float:left; height:30px; width: 120px">
+	<div style="float:left; height:30px; width: 100%">
 	{% if  iframe=='true'  %}
 	
 			   		<a href="#" 
-		   			onclick="top.window.location='/politica/politico/{{ candidato.id }}/'">
+		   			onclick="top.window.location='/politica/politico/{{ candidato.id }}/'" >
 				{% else %}	
-		   			<a  href="/politica/politico/{{ candidato.id }}">
-		   		{% endif %} {% trans %}Veja mais{% endtrans %}!</a>
+		   			<a  href="/politica/politico/{{ candidato.id }}" class="vejaBx">
+		   				<i class="fa fa-search"></i> 
+		   		{% endif %} {% trans %}Veja mais{% endtrans %}</a>
 	</div>
 		   		
 		   		

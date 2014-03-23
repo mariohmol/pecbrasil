@@ -50,7 +50,7 @@ body {
     outline: 0 none;
     padding: 0;
     word-wrap: break-word;
-    font-family: "MohaveSemiBold"!important;
+    font-family: "Open Sans"!important;
 }
 a:link, a:visited {
     text-decoration: none;
@@ -1178,6 +1178,7 @@ position: absolute;
 bottom: 0px;
 right: 2px;
 width: 43px;
+font-family: Open Sans!important;
 }
 
 #boxPoliticoUltima .field-content{
@@ -1255,11 +1256,11 @@ float: left;
 
 
 #boxPoliticoInfo{
-	font-size: 19px;
+	font-size: 15px;
 	margin-left: 0px;
 	text-align: left;
 	width: 90%;
-	line-height: 19px;
+	line-height: 15px;
 	position: absolute;
 	bottom: 0px;
 	height: 78px;
@@ -1758,9 +1759,9 @@ content: "" !important;
 	color: #FFF;
 	background-color: #133783;
 	border-color: #133783;
-	font-size: 14px;
+	font-size: 12px;
 	margin-left: 5px;
-	margin-top: 2px;
+	margin-top: 0px;
 	float: right;
 }
 
@@ -2626,13 +2627,14 @@ fieldset[disabled] .btn-youtube.active {
 
 /* #################################### NOVO PEC ##########################################*/
 
-.pec {
-	font-family: "MohaveSemiBold"!important;
+.pec, .pecHome {
+	font-family: "Open Sans"!important;
+    font-size:18px!important;
 }
 
 
 
-
+h1,h2,h3 {font-family: "MohaveSemiBold"!important;}
 
 
 
@@ -2654,7 +2656,7 @@ fieldset[disabled] .btn-youtube.active {
 	color:white;
 	padding:10px;
 	display: inline-block;
-	font-size: 19px;
+	font-size: 13px;
 }
 .cabecalho ul {width:auto; float:left; margin:0px;}
 .cabecalho .qdUser {
@@ -2662,7 +2664,7 @@ fieldset[disabled] .btn-youtube.active {
 	width:350px;
 	text-align: right;
 	color:white;
-	font-size: 16px;
+	font-size: 13px;
 	margin-top:10px;
 }
 .cabecalho li {
@@ -2703,6 +2705,7 @@ fieldset[disabled] .btn-youtube.active {
 	text-align: center;
 	width: 100%;
 	margin-top: 270px;
+    font-family: "MohaveSemiBold"!important;
 }
 
 .texto-topo span {
@@ -2772,13 +2775,24 @@ fieldset[disabled] .btn-youtube.active {
 .sidePolitico hr {border-top:1px solid #27AE60; border-bottom:1px solid #FFFF4D; float:left; width:100%; }
 .backCard .boxCard{
 	float:left; 
-	width: 140px;
-	margin-bottom: 10px;
+	width: 152px;
+	margin-bottom: 0px;
+    border-bottom: 1px solid white;
+    padding:8px 0px;
+    text-align: center;
 }
+.backCard .boxCard .sideTlt { font-size:13px; color:##ccc;}
+.backCard .boxCard .sideVal { font-size:17px; text-shadow:1px 0px 1px #27ae60; }
 
+.votacoesBx { background-color: #f1f1f1; color: #999; }
+.presencasBx { background-color: #e1e1e1; color: #999; }
+.proposicoesBx { background-color: #f1f1f1; color: #999; }
+.despesasBx { background-color: #e1e1e1; color: #999; }
+.vejaBx { padding: 5px 2px;background-color: #27AE60;color: #fff; text-align:center;display: inline-block;width: 100%; font-size:13px;}
+.vejaBx:hover { text-decoration: none; background-color: #2ECC71; color: white;}
 
 .infoQd h1 { font-size:40px; font-family: "MohaveBold"!important; color: #2ECC71; text-shadow: 1px 1px 0px #27ae60; }
-.infoQd .sideTlt { float:left; width:100%; color: #777; text-align:center; font-size:18px;}
+.infoQd .sideTlt { float:left; width:100%; color: #777; text-align:center; font-size:15px;}
 .infoQd .sideVal { float:left; width:100%; height:52px; color: #27AE60; font-size:35px!important; line-height:31px!important; font-family: "MohaveBold"!important; text-shadow: 1px 1px 0px #2ECC71; font-size:25px;}
 .infoQd .valGd { font-size:35px!important; line-height:31px!important; }
 .infoQd .sideVal span { font-family:"Mohave"; color:#fff; text-shadow: 0px 1px 5px #888; display:block;  font-size:18px;}
@@ -2791,7 +2805,7 @@ fieldset[disabled] .btn-youtube.active {
 
 .biografia{ 
 		width: 668px!important; height: auto; background-color:#f1f1f1!important; 
-		border-radius: 5px; box-shadow: 0px 0px 1px #888; padding: 5px 10px;}
+		border-radius: 5px; box-shadow: 0px 0px 1px #888; padding: 5px 10px; font-size:15px;}
 
 
 
@@ -2801,7 +2815,7 @@ fieldset[disabled] .btn-youtube.active {
 .sidePolitico .valorDespesas { font-size:35px; font-family: "MohaveBold"; color:#27AE60; text-shadow: 1px 1px 0px #2ecc71; }
 .sidePolitico .boxVotacoes .valor { font-size: 45px; color: #27AE60; text-shadow:1px 1px 0px #2ecc71; width:100%; font-family: "MohaveBold"; }
 .ctPolitico h1{ font-size:40px; color: #27AE60; margin: 0px;}
-.ctPolitico #contato { font-size: 20px; color:#666; }
+.ctPolitico #contato { font-size: 15px; color:#666; }
 .ctPolitico #profile0 { width: auto!important; }
 .actLegenda { margin:10px 0px; cursor:pointer; display:inline-block;}
 .lgn_despesas li { font-family:"Open Sans"; width:48%; letter-spacing:-1px; margin-right:10px;  float:left; padding:0px!important; height:35px; }
@@ -2810,12 +2824,40 @@ fieldset[disabled] .btn-youtube.active {
 g.parent text.name { text-shadow: 1px 1px 2px #888;}
 
 body.general .decision {
-font-family:"Open Sans";	color:#27ae60!important;font-size:13px!important; line-height:14px!important; letter-spacing: 0px;
-box-shadow: 0px 0px 1px #888; border-radius:3px; background-color:#fffb00!important;
+font-family: "Open Sans";
+color: #FFF!important;
+font-size: 14px!important;
+line-height: 14px!important;
+letter-spacing: 0px;
+
+background-color: #999!important;
+float: left;
+margin: 0!important;
+width: 100%;
+padding: 20px 10px!important;
+height:58px;
 }
 body.general .help, body.guide .help { 
-font-family:"Open Sans"; color:#fff!important;font-size:13px!important; line-height:14px!important; letter-spacing: 0px;
-box-shadow: 0px 0px 1px #888; border-radius:3px; background-color:#27ae60!important;
+font-family: "Open Sans";
+color: #FFF!important;
+font-size: 14px!important;
+line-height: 14px!important;
+letter-spacing: 0px;
+
+background-color: #27AE60!important;
+float: left;
+margin: 0!important;
+width: 100%;
+padding: 20px 10px!important;
+height: 58px;
+}
+body.general .help i, body.guide .help i{
+    font-size:20px;
+    margin: 0 5px 15px 0;
+}
+body.general .help:hover, body.guide .help:hover {
+    text-decoration: none;
+    color: yellow!important;
 }
 
 
@@ -2881,4 +2923,7 @@ div.popover {
           transition: opacity 0.6s;
   z-index: 5001;
 }
+
+
+
 
