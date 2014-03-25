@@ -1,0 +1,152 @@
+<!-- extend from about base layout -->
+{% extends "templates/site.html" %}
+
+{% block title %}: {% trans %}About the Site{% endtrans %}{% endblock %}
+
+{% block body %}
+  
+  {% if proposicoes %}
+  
+  
+ <div id="container">
+	  
+	
+	<div class="col-md-3 sidePolitico"> 
+	    <div id="guide_title">{% trans %}Veja mais{% endtrans %}</div>
+		    
+		    <a onclick="slide(this.id)" id="app0" class="app_links decision short icon tree_map">
+		{% trans %}Informações Gerais{% endtrans %}</a>
+			
+		<a onclick="slide(this.id)" id="app1" class="app_links decision short icon tree_map">
+			
+		{% trans %}Votações{% endtrans %}</a>
+		
+		<a onclick="slide(this.id)" id="app2" class="app_links decision short icon tree_map">
+			
+		{% trans %}Votações Detalhada{% endtrans %}</a>
+		
+		<a onclick="slide(this.id)" id="app3" class="app_links decision short icon tree_map">
+		 {% trans %}Opinião Pública{% endtrans %}</a>
+		 
+	
+	</div>
+	  
+	  
+	  
+	<div class="col-md-9 ctPolitico"> 
+	
+	
+		<div id="profile0" class="lightbox guide_app infoQd" style="width: 100%!important; height: auto;">	
+			
+		
+				<h1> {% trans %}Proposição{% endtrans %}: {{ proposicoes.sigla }} </h1>
+				
+				{% if proposicoes.candidaturas.name_pt %}
+				<h2> {% trans %}Autor{% endtrans %} {{ proposicoes.candidaturas.name_pt }}  </h2>
+				{% endif %}
+				{% trans %}Status{% endtrans %}: {{ proposicoes.status }}
+				<br/>
+				
+				<pre>{{ proposicoes.desc|trim }}]</pre>
+		</div>
+		
+		<div id="profile1" class="lightbox guide_app biografia profile_partido"
+	
+			style="">
+			
+			<h2>{% trans %}Votações{% endtrans %}</h2>
+			
+		<iframe id="iframe3" src="/grafico/bubblesvotacoes/{{ proposicoes.id }}" 
+			style="width: 858px; min-height: 700px; "></iframe>
+				    
+			  
+	    </div>
+	    
+		<div id="profile2" class="lightbox guide_app biografia profile_partido"
+	
+			style="">
+			
+			<h2>{% trans %}Votações{% endtrans %}</h2>
+			
+				   
+		<iframe id="iframe3"
+			alt="/proposicao/listarvotacao/{{ proposicoes.id }}/all/true"
+			style="width: 648px; height: 600px"> </iframe>  
+			  
+	    </div>
+	    
+	  <div id="profile3" class="lightbox guide_app biografia profile_partido"
+	
+			style="">
+			<h2>{% trans %}Opinião Pública{% endtrans %}</h2>
+			
+				 <div>
+			   <a href="/proposicao/avaliar/{{ proposicoes.id }}"> {% trans %}Dê sua opiniao{% endtrans %}    </a>
+			  </div>
+				{% set achou="False" %}
+				     {% for timevotacao in proposicoes.timevotacao.limit(10) %}
+				     {% set achou="True" %}
+				     <hr/>
+				     <div>
+				     	{{ timevotacao.times.nome }} em {{ timevotacao.data }}, 
+				     	
+				     	{% trans %}votou{% endtrans %} 
+						{% if timevotacao.voto == 1 %}
+				       	{% trans %}Sim{% endtrans %}
+				       
+				       {% elif timevotacao.voto == 2 %}
+				       	{% trans %}Não{% endtrans %}
+				      
+			       			
+			       			{% else %}
+			       			-
+				       {% endif %}
+				        <br/>
+				     	{% trans %}Necessidade{% endtrans %}: {% include "proposicao/avaliarNota.html" %}<br/>
+				     	<pre> {{ timevotacao.desc }}</pre>
+				     </div>	
+				     	
+				     	
+				     {% endfor %}
+				     
+				     {% if achou=="False" %}
+				     <div>
+				     {% trans %}Não existem comentários sobre esta proposição. Seja o primeiro a fazer!{% endtrans %}
+				      </div>	
+				     {% endif %}
+		</div>
+	</div>
+    
+    
+	<script>
+      
+    var width = window.innerWidth-380,
+        height = window.innerHeight-149,
+        builds = {},
+        sliding = false,
+        selected = null,
+        scrollinterval = null
+
+    d3.selectAll(".guide_app")
+      //.style("width",width+"px")
+      //.style("height",height+"px")
+      .each(function(){ 
+        var p = this.id.substring(7),
+            t = this.offsetTop-10 //78
+        builds[p] = {"loaded": false, "top": t}
+       
+        if (p == 1) {
+          load(p)
+          select(p)
+        }
+      })
+      initSlides();
+  </script>
+  
+    {% else %}
+		    A proposição não foi encontrada
+		    {% endif %}
+		    
+{% endblock %}
+
+</div>

@@ -1,0 +1,306 @@
+{% extends "templates/site.html" %} 
+
+{% block title %}: {% trans
+%}Politicos{% endtrans %}{% endblock %} {% block body %} 
+
+
+{% if politicos %}
+
+	
+	
+<div class="container">
+
+
+<div class="col-md-3 sidePolitico"> 
+	<img src="/static/img/pec/fotos/{{ politicos.politicos.id_original }}.jpg" style="box-shadow:0px 1px 1px #888;border-radius:5px;border:7px solid #f4f4f4; width: 100%; margin-top:50px;" />
+	
+	
+	<h1>veja mais</h1>
+	
+	    <a onclick="slide(this.id)" id="app0" class="app_links decision short icon tree_map">
+	<i class="fa fa-info-circle"></i> {% trans %}Informações Gerais{% endtrans %}</a>
+	
+	<a onclick="slide(this.id)" id="app2" class="app_links help short icon tree_map">
+	<i class="fa fa-calendar"></i> {% trans %}Última semana{% endtrans %}</a>
+	
+	<a onclick="slide(this.id)" id="app3" class="app_links help short icon tree_map">
+	 <i class="fa fa-users"></i> {% trans %}Compare este político{% endtrans %} </a>
+
+	<a onclick="slide(this.id)" id="app4" class="app_links help short icon tree_map">
+	 <i class="fa fa-money"></i> {% trans %}Despesas{% endtrans %} </a>
+	 
+	 <a onclick="slide(this.id)" id="app5" class="app_links help short icon tree_map">
+	 <i class="fa fa-dollar"></i> {% trans %}Despesa total{% endtrans %} </a>
+	 
+	  <a onclick="slide(this.id)" id="app6" class="app_links help short icon tree_map">
+	 <i class="fa fa-search"></i> {% trans %}Histórico de Despesas{% endtrans %} </a>
+	 
+	 
+	
+	
+		<a onclick="slide(this.id)" id="app7" class="app_links help short icon tree_map">
+	<i class="fa fa-microphone"></i> {% trans %}Proposições{% endtrans %} </a>
+	
+	<a onclick="slide(this.id)" id="app8" class="app_links help short icon tree_map">
+	 <i class="fa fa-check-square-o"></i> {% trans %}Votações{% endtrans %} </a>
+	 <!-- 
+	 	<a onclick="slide(this.id)" id="app9" class="app_links help short icon tree_map">
+	{% trans %}Comissões{% endtrans %} </a>
+	-->
+	
+	 <!-- 
+	 
+	  	<a onclick="slide(this.id)" id="app7" class="app_links help short icon tree_map">
+	Processos </a>
+	
+	 	<a onclick="slide(this.id)" id="app7" class="app_links decision short icon tree_map">
+	 Repasse </a>
+	  -->
+	 	
+	
+	
+</div>
+<div class="col-md-9 ctPolitico"> 
+
+	<div id="profile0" class="lightbox guide_app infoQd" style="width: 100%!important; height: auto;">
+		<div style="float:right; width: 130px; text-align: right; box-shadow: 0px 0px 5px #888;padding: 0px;background-color: #2ECC70;border-radius: 5px;">
+			<span class="sideTlt" style="background-color:#27AE60;  color: white; border-radius: 5px 5px 0 0;padding: 10px 0;">{% trans %}TOTAL de pontos{% endtrans %}</span>
+			<span class="sideVal valGd" style="color: #ff0; padding: 19px 0px;text-align:center;font-size: 41px!important;">{{ politicos.pontuacao_total }}<br><span>{% trans %}pontos{% endtrans %}</span></span>
+			
+			<span class="sideTlt" style="font-size: 15px; margin-top: 40px;text-align: center; color: white; padding:5px; background-color:#27AE60">{% trans %}Última rodada{% endtrans %}</span>
+			<span class="sideVal" style="font-size: 20px; height:auto;padding: 10px 0;text-align: center;font-size: 32px!important;">{{ politicos.pontuacao_ultima }}<br><span style="margin-top:0px;">{% trans %}pontos{% endtrans %}</span></span>
+		</div>
+		<div style="float:left; width: 520px;">
+			<div id="titulo" style="color:#27AE60; font-size: 20px;">
+				<h1>{{ politicos.politicos.nome }}</h1>
+				<div id="contato"><a href="/politica/partido/{{ politicos.partidos.id }}"> <img src="/static/img/pecbrasil/partidos/{{ politicos.partidos.sigla|lower}}.jpg" width="30"></a> DEPUTADO FEDERAL</div>
+			</div>
+			<div id="candidato" style="float: left; width: 100%;">
+				<div id="local" style="float: left; width: 100%; margin-bottom:10px; ">
+					<div id="contato"><img src="/static/img/icons/bra/bra_{{ politicos.uf|lower }}.png" width="30"> {{ politicos.cidade }} / {{ politicos.uf }}</div>
+				</div>
+				
+
+		<h2 style="    font-size: 20px;    color: #d4d4d4; margin-bottom:0px!important;">{% trans %}Biografia{% endtrans %}</h2>
+		
+		<span style="font-size:15px;">Nascido em 	{{ politicos.politicos.nascimento }} 
+		<br/>
+		Slogan de campanha: {{ politicos.politicos.desc_pt }}
+		<br/>
+	</span>
+				<!-- 
+				<div style="float:left; height:70px; width: auto;">
+					<span class="sideTlt" style="text-align: left;">Despesas</span>
+					<span class="sideCt">
+						<span class="cifraoDespesas">R$</span><span class="valorDespesas">{{ politicos.total_despesa|int }}</span>
+					</span>
+				</div>
+				 -->
+				<hr class="regCinza">
+				<h3 style="color: #ccc;">Informações gerais</h3>
+				<div style="float:left; height:70px; width: 120px">
+				<span class="sideTlt"><i class="fa fa-check-square-o"></i> {% trans %}Votações{% endtrans %}</span>
+					<span class="sideVal boxVotacoes">
+						<span class="valor">{{ politicos.total_votacao|int }}</span><br>
+					</span>
+				</div>
+				<div style="float:left; height:70px; width: 120px">
+					<span class="sideTlt"><i class="fa fa-male"></i> {% trans %}Presenças{% endtrans %}</span>
+					<span class="sideVal boxVotacoes">
+						<span class="valor">{{ politicos.total_presenca|int }}</span>
+						
+					</span>
+				</div>
+				
+				<div style="float:left; height:70px; width: 120px">
+						<span class="sideTlt"><i class="fa fa-money"></i> {% trans %}Despesas{% endtrans %}</span>
+					<span class="sideVal boxVotacoes">
+						<span class="valor">R$ {{ politicos.total_despesa|int }}</span>
+					</span>
+				</div>
+				<div style="float:left; height:70px; width: 120px">
+					<span class="sideTlt"><i class="fa fa-microphone"></i> {% trans %}Proposições{% endtrans %}</span>
+					<span class="sideVal boxVotacoes">
+						<span class="valor">{{ politicos.total_proposicao|int }}</span>
+						
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<!-- 
+	<div id="profile1" class=" guide_app"
+		style="width: 921px; height: 1050px;">
+		<h2>Dados somente do político</h2>
+		{% set iframeId = 'iframe1' %} 
+		{% include "grafico/painel.html" %}
+		<iframe id="iframe1"
+			src="/grafico/stacked/{{ politicos.partidos.sigla }}/{{ politicos.id }}"
+			style="width: 1000px; height: 600px"></iframe>
+	</div>
+
+ -->
+
+
+
+	<div id="profile1" class="profileFechado  guide_app " style="margin-top:0px!important;">
+		<h2>{% trans %}Comparação aos outros políticos do{% endtrans %} {{ politicos.partidos.sigla }}
+			
+			<br> 
+			
+			<span style="font-size:12px; font-style: italic; color:#777; font-family:'Open Sans'">{{ politicos.politicos.nome }}
+			{% trans %}em comparação ao{% endtrans %} {{ politicos.partidos.sigla }}</span></h2>
+		{% set iframeId = 'iframe2' %} 
+		{% set anoOption = 'true' %}
+		  {% set funcOption = 'false' %}
+		{% include "grafico/painel.html" %}
+
+		<iframe id="iframe2"
+			src="/grafico/treemap/{{ politicos.partidos.sigla }}/{{ politicos.id }}"
+			style="width:  648px!important; height: 600px"> </iframe>
+	</div>
+
+
+	<div id="profile3" class="profileFechado  guide_app "
+
+		>
+		<h2>{% trans %}Comparação durante o tempo{% endtrans %} </h2>
+		{% set iframeId = 'iframe3' %} 
+			{% set anoOption = 'true' %}
+		  {% set funcOption = 'false' %}
+		  
+		{% include "grafico/painel.html" %}<br>
+
+		<iframe id="iframe3"
+			alt="/grafico/stacked/{{ politicos.partidos.sigla }}/{{ politicos.id }}"
+			style="width: 648px; height: 600px"> </iframe>
+	</div>
+	
+	
+	<div id="profile4" class="profileFechado  guide_app ">
+		 <h2>{% trans %}Despesas por categoria{% endtrans %}</h2>
+		  {% set iframeId = 'iframe4' %} 
+		 {% set valOption = 'false' %}
+		 	{% set anoOption = 'true' %}
+		  {% set funcOption = 'false' %}
+		  {% include "grafico/painel.html" %}
+		<br>
+		<iframe id="iframe4"
+		
+			alt="/despesa/treemap/all/{{ politicos.id }}"
+			style="width: 648px; height: 600px"> </iframe>
+			<h4 class="actLegenda"> {% trans %}Legenda{% endtrans %}</h4>
+			{% include "despesa/legenda.html" %}
+	</div>
+	
+	<div id="profile5" class=" guide_app profileFechado">
+		<h2>{% trans %}Despesas ao longo do campeonato{% endtrans %}</h2>	
+		 {% set iframeId = 'iframe5' %} 
+		 {% set valOption = 'false' %}
+		 	{% set anoOption = 'true' %}
+		  {% set funcOption = 'false' %}
+		 {% include "grafico/painel.html" %}<br>
+		<iframe id="iframe5"
+			alt="/despesa/stacked/all/{{ politicos.id }}"
+			style="width: 648px; height: 600px"> </iframe><br class="clear">
+			<h4 class="actLegenda"> {% trans %}Legenda{% endtrans %}</h4>
+			{% include "despesa/legenda.html" %}
+		
+	</div>
+	
+	<div id="profile6" class="profileFechado  guide_app ">
+		<h2>{% trans %}Despesas{% endtrans %}</h2>
+		
+			<iframe id="iframe6"
+			alt="/politico/despesa/{{ politicos.id }}"
+			style="width: 648px; height: 600px"> Carregando... </iframe>
+			{% include "despesa/legenda.html" %}
+	</div>
+	
+
+	
+	<div id="profile7" class="profileFechado  guide_app ">		
+			<h2>{% trans %}Proposições{% endtrans %}</h2>
+			<br>
+			<iframe id="iframe7"			alt="/proposicao/listar/{{ politicos.id }}/all/frame"
+			style="width: 648px; height: 600px"></iframe>
+	</div>
+	
+		<div id="profile8" class="profileFechado  guide_app ">
+			<h2>{% trans %}Votação{% endtrans %}</h2>
+			<br>
+			<iframe id="iframe8"
+			alt="/politico/votacao/{{ politicos.id }}/all/true"
+			style="width: 648px; height: 600px"> </iframe>
+	</div>	
+	<!--
+	<div id="profile9" class="profileFechado  guide_app ">
+			<h2>{% trans %}Comissões{% endtrans %}</h2>
+			<br>
+			<iframe id="iframe9"
+			alt="/orgao/listar/{{ politicos.id }}/all/true"
+			style="width: 648px; height: 600px"> </iframe>
+	</div>
+	-->
+		<!-- 
+		<div id="profile7" class=" guide_app"
+		style="width: 921px; height: 1050px;">	
+			<iframe id="iframe7"
+			alt="/politico/repasse/{{ politicos.id }}"
+			style="width: 900px; height: 600px"></iframe>
+	</div>
+	
+		<div id="profile7" class=" guide_app"
+		style="width: 668px!important; height: auto; background-color:#f1f1f1!important; border-radius: 5px; box-shadow: 0px 0px 1px #888; padding: 5px 10px; ">		
+			<h2>Processos</h2>
+			<iframe id="iframe7"
+			alt="/politico/processo/{{ politicos.id }}"
+			style="width: 648px; height: 600px"> </iframe>
+	</div>
+	 -->
+	
+	
+
+
+</div>
+</div>
+
+
+
+	<script>
+
+
+	var width = window.innerWidth-380,
+	    height = window.innerHeight-149,
+	    builds = {},
+	    sliding = false,
+	    selected = null,
+	    scrollinterval = null
+
+	d3.selectAll(".guide_app")
+	  //.style("width",width+"px")
+	  //.style("height",height+"px")
+	  .each(function(){ 
+	    var p = this.id.substring(7),
+	        t = this.offsetTop-10 //78
+	    builds[p] = {"loaded": false, "top": t}
+	 
+	    if (p == 1) {
+	      load(p)
+	      select(p)
+	    }
+	  })
+	  
+	  initSlides();
+  </script>
+  
+  
+
+{% endif %}
+
+{% endblock %}
+

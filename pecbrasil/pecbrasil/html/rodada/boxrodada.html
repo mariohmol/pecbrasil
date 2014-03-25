@@ -1,0 +1,6 @@
+<span style="font-size:30px; text-shadow: 1px 1px 1px #888; color:white">{{ rodada.semana }}</span> 
+
+<br/>
+<p style="font-size: 10px;">
+{{ rodada.inicio|datetime('%d/%m/%Y') }} {% trans %}a{% endtrans %} {{ rodada.fim|datetime('%d/%m/%Y') }} 
+</p>

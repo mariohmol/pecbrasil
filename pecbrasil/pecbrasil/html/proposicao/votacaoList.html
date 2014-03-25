@@ -1,0 +1,58 @@
+<!-- extend from about base layout -->
+{% if frame %}
+	{% extends "templates/clean.html" %}
+{% else %}
+	{% extends "templates/site.html" %}
+{% endif %}
+
+{% block title %}: {% trans %}Votação{% endtrans %}{% endblock %}
+
+{% block content %}
+  
+  {% if votacoes %}
+   <table><tr>
+  <td> {% trans %}Político{% endtrans %} </td>
+      <td> {% trans %}Proposicão{% endtrans %} </td>
+      <td> {% trans %}Voto{% endtrans %} </td>
+     </tr>
+     
+     {% for votacao in votacoes %}
+     	{% if votacao.candidaturas.name_pt  %}
+		     <tr>
+		     <td>
+		     
+		      {% if frame  %}	
+				   			<a href="#" onclick="top.window.location='/politica/politico/{{ votacao.candidatura }}/'">
+				   		
+				   		{% else %}	
+				   			<a href="/politica/politico/{{ votacao.candidatura }}/">
+				   		{% endif %}	
+		      {{ votacao.candidaturas.name_pt }}
+		     </a>
+		     </td>
+		      <td>
+		      
+		      {% if frame  %}	
+				   			<a href="#" onclick="top.window.location='/proposicao/ver/{{ votacao.proposicao }}/'">
+				   		
+				   		{% else %}	
+				   			<a href="/proposicao/ver/{{ votacao.proposicao }}/">
+				   		{% endif %}	
+				   		
+		      {{ votacao.proposicoes.sigla }}</a>
+		      </td>
+		      <td>
+		      {% include "proposicao/boxvoto.html" %}
+		      </td>
+		      </tr>
+		 {% endif %}
+    {% endfor %}
+    </table>
+    {% else %}
+    {% trans %}Não foram encontradas proposições de autoria deste político{% endtrans %}
+    {% endif %}
+    
+    
+    
+{% endblock %}
+

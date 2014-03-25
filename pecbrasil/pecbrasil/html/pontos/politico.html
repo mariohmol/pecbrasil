@@ -1,0 +1,26 @@
+<!-- extend from about base layout -->
+{% extends "templates/site.html" %}
+
+{% block title %}: {% trans %}About the Site{% endtrans %}{% endblock %}
+
+{% block content %}
+  <h1>{% trans %}Politico{% endtrans %}</h1>
+  
+     {% for time in politicos %}
+      <a href="/pontos/rodada/{{ time.id }}">{{ time.id }}</a>
+      
+      
+ {{ time.pontos }} -    <br/>
+ {{ time.presenca }}   <br/>
+ {{ time.proposicao }}   <br/>
+  {{ time.proposicao }}   <br/>
+    {{ time.candidatura }}   <br/>
+ 
+    
+      <hr/>
+    {% endfor %}
+    
+<br/>
+    
+{% endblock %}
+
