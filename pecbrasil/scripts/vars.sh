@@ -1,0 +1,11 @@
+export PEC_OAUTH_GOOGLE_ID=1
+export PEC_OAUTH_GOOGLE_SECRET=1
+export PEC_OAUTH_TWITTER_ID=1
+export PEC_OAUTH_TWITTER_SECRET=1
+export PEC_OAUTH_FACEBOOK_ID=1
+export PEC_OAUTH_FACEBOOK_SECRET=1
+export PEC_DB_USER=pecbrasil
+export PEC_DB_PW=pecbrasil321
+export PEC_DB_HOST=localhost
+export PEC_DB_NAME=pecbrasil
+export PEC_REDIS_HOST=localhost

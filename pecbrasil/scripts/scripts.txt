@@ -1,0 +1,798 @@
+CREATE  TABLE `politico` (
+  `id` INT NOT NULL  AUTO_INCREMENT,
+  `nome` VARCHAR(200) NULL ,
+  `nascimento` DATETIME NULL ,
+  `desc_en` TEXT NULL ,
+  `desc_pt` TEXT NULL ,
+  `partido` VARCHAR(5) NULL ,
+  `candidatura` INT NULL ,  
+  PRIMARY KEY (`id`) );
+  
+
+CREATE  TABLE `partido` (
+  `id` INT NOT NULL  AUTO_INCREMENT,
+  `name_en` VARCHAR(200) NULL ,
+  `name_pt` VARCHAR(200) NULL ,
+  `sigla` VARCHAR(20) NULL ,
+  `codigo` VARCHAR(50) NULL ,
+  `nascimento` DATETIME NULL ,
+  `desc_en` TEXT NULL ,
+  `desc_pt` TEXT NULL ,
+   `keywords_en` VARCHAR(200) NULL ,
+  `keywords_pt` VARCHAR(200) NULL ,
+  `color` VARCHAR(7) NULL ,  
+  `politico_total` DECIMAL(5,2) NULL ,  
+	  
+	`pontuacao_total` DECIMAL(5,2) NULL ,	
+	`pontuacao_ultima` DECIMAL(5,2) NULL ,	  
+	`pontuacao_tendencia` DECIMAL(5,2) NULL ,
+	
+		
+	`total_votacao` DECIMAL(5,2) NULL ,	  
+	`total_presenca` DECIMAL(5,2) NULL ,	
+	`total_processo` DECIMAL(5,2) NULL ,	
+	`total_proposicao` DECIMAL(5,2) NULL ,	  
+	`total_despesa` DECIMAL(5,2) NULL ,
+  PRIMARY KEY (`id`) );
+  
+  
+CREATE  TABLE `time` (
+  `id` INT NOT NULL  AUTO_INCREMENT,
+  `nome` VARCHAR(200) NULL ,
+  `desc` TEXT NULL ,
+ `keywords` VARCHAR(200) NULL ,
+  `color` VARCHAR(7) NULL ,  
+  `user_id` INT NULL ,
+  	`pontuacao_total` INT NULL ,	
+	`pontuacao_ultima` INT NULL ,	  
+	`pontuacao_tendencia` INT NULL ,
+  PRIMARY KEY (`id`) );
+  
+CREATE  TABLE `timecandidato` (
+  `time` INT NOT NULL ,
+  `candidatura` INT NOT NULL ,
+  `posicao` INT NOT NULL ,
+  PRIMARY KEY (`time`,`candidatura`) );
+  
+CREATE  TABLE `rodada` (
+  `id` INT NOT NULL  AUTO_INCREMENT,
+  `inicio` DATETIME NULL ,
+  `fim` DATETIME NULL ,
+  `semana` INT NOT NULL,
+   `ano` INT NOT NULL,
+  PRIMARY KEY (`id`) );
+  
+CREATE  TABLE `rodadapontos` (
+  `rodada` INT NOT NULL ,
+  `time` INT NOT NULL ,
+  `pontos` DECIMAL(5,2)  NULL ,
+  PRIMARY KEY (`time`,`rodada`) );
+  
+CREATE  TABLE `candidatura` (
+  `id` INT NOT NULL  AUTO_INCREMENT,
+   `name_en` VARCHAR(200) NULL ,
+  `name_pt` VARCHAR(200) NULL ,
+  `desc_en` TEXT NULL ,
+  `desc_pt` TEXT NULL ,
+   `keywords_en` VARCHAR(200) NULL ,
+  `keywords_pt` VARCHAR(200) NULL ,
+  `inicio` DATETIME NULL ,
+  `fim` DATETIME NULL ,
+  `color` VARCHAR(7) NULL ,
+  `partido` INT NOT NULL ,
+  `politico` INT NOT NULL ,  
+  	`pontuacao_total` DECIMAL(5,2) NULL ,	
+	`pontuacao_ultima` DECIMAL(5,2) NULL ,	  
+	`pontuacao_tendencia` DECIMAL(5,2) NULL ,
+	`uf` VARCHAR(50) NULL ,
+	`cidade` VARCHAR(200) NULL ,
+	`cargo` VARCHAR(200) NULL ,
+	`situacao` VARCHAR(200) NULL ,
+	
+  PRIMARY KEY (`id`) );
+  
+CREATE  TABLE `pontuacao` (
+  `rodada` INT NOT NULL ,
+ 
+  `candidatura` INT NOT NULL ,
+  `pontos` DECIMAL(5,2)  NULL ,
+  `presenca` DECIMAL(5,2)  NULL ,
+  `tendencia_presenca` DECIMAL(5,2)  NULL ,
+  `total_presenca` DECIMAL(5,2)  NULL ,
+  `proposicao` DECIMAL(5,2)  NULL ,
+  `tendencia_proposicao` DECIMAL(5,2)  NULL ,
+  `total_proposicao` DECIMAL(5,2)  NULL ,
+  PRIMARY KEY (`candidatura`,`rodada`) );
+
+CREATE  TABLE `account_user` (
+  `id` INT NOT NULL  AUTO_INCREMENT,
+   `password` VARCHAR(255) NULL ,
+  `google_id` VARCHAR(120) NULL ,
+  `twitter_id` VARCHAR(120) NULL ,
+  `facebook_id` VARCHAR(120) NULL ,
+  `nickname` VARCHAR(64) NULL ,
+  `email` VARCHAR(120) NULL ,
+  `fullname` VARCHAR(200) NULL ,
+  `country` VARCHAR(80) NULL ,
+  `language` VARCHAR(20) NULL ,
+  `gender` VARCHAR(10) NULL ,
+  `website` VARCHAR(150) NULL ,
+  `role` SMALLINT NULL ,
+  `bio` VARCHAR(256) NULL ,
+  `image` VARCHAR(256) NULL ,
+  `last_seen` DATETIME NULL ,
+  PRIMARY KEY (`id`) );
+  
+
+
+CREATE TABLE `liga` (
+  `id_liga` int(11) NOT NULL AUTO_INCREMENT,
+  `nome_liga` varchar(150) NOT NULL,
+  `criador_liga` int(11) NOT NULL,
+  `data_liga` datetime NOT NULL,
+  `publico_liga` int(11) NOT NULL,
+  `desc_liga` text NOT NULL,
+  PRIMARY KEY (`id_liga`)
+) ;
+
+  
+
+CREATE  TABLE `ligapontos` (
+  `ligajogador_ligapontos` INT NOT NULL ,
+  `rodada_ligapontos` INT NOT NULL ,
+  `pontos_ligapontos` DECIMAL(6,2) NULL ,
+  PRIMARY KEY (`ligajogador_ligapontos`, `rodada_ligapontos`) );
+
+
+CREATE TABLE `ligajogador` (
+  `id_ligajogador` int(11) NOT NULL AUTO_INCREMENT,
+  `user_ligajogador` int(11) NOT NULL,
+  `data_ligajogador` date DEFAULT NULL,
+  `liga_ligajogador` int(11) NOT NULL,
+  `status_ligajogador` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_ligajogador`)
+);
+
+
+DROP TABLE IF EXISTS `partido`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `partido` (
+  `id` int(11) NOT NULL,
+  `name_en` varchar(200) DEFAULT NULL,
+  `name_pt` varchar(200) DEFAULT NULL,
+  `sigla` varchar(20) DEFAULT NULL,
+  `codigo` varchar(50) DEFAULT NULL,
+  `nascimento` datetime DEFAULT NULL,
+  `desc_en` text,
+  `desc_pt` text,
+  `keywords_en` varchar(200) DEFAULT NULL,
+  `keywords_pt` varchar(200) DEFAULT NULL,
+  `color` varchar(7) DEFAULT NULL,
+  `pontuacao_total` decimal(9,2) DEFAULT NULL,
+  `pontuacao_ultima` decimal(9,2) DEFAULT NULL,
+  `pontuacao_tendencia` decimal(9,2) DEFAULT NULL,
+  `total_votacao` decimal(9,2) DEFAULT NULL,
+  `total_presenca` decimal(9,2) DEFAULT NULL,
+  `total_processo` decimal(9,2) DEFAULT NULL,
+  `total_proposicao` decimal(9,2) DEFAULT NULL,
+  `total_despesa` decimal(15,2) DEFAULT NULL,
+  `politico_total` decimal(9,2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `partido`
+--
+
+INSERT INTO `partido` VALUES (1,'Partido Social Democrático','Partido Social Democrático','PSD','1',NULL,NULL,NULL,NULL,NULL,'#DBDB8D',NULL,903.00,58.70,3632.00,10605.00,1.00,2343.00,9460911.00,59.00),(10,'PARTIDO REPUBLICANO BRASILEIRO','PARTIDO REPUBLICANO BRASILEIRO','PRB','10',NULL,NULL,NULL,NULL,NULL,'#55c768',NULL,147.00,9.04,546.00,2331.00,0.00,285.00,1849356.00,7.00),(11,'PARTIDO PROGRESSISTA','PARTIDO PROGRESSISTA','PP','11',NULL,NULL,NULL,NULL,NULL,'#f6660e',NULL,741.00,58.63,2668.00,12897.00,0.00,1062.00,7069330.00,33.00),(12,'PARTIDO DEMOCRÁTICO TRABALHISTA','PARTIDO DEMOCRÁTICO TRABALHISTA','PDT','12',NULL,NULL,NULL,NULL,NULL,'#acdb0a',NULL,312.00,18.06,1227.00,5520.00,6.00,360.00,2707021.00,12.00),(13,'PARTIDO DOS TRABALHADORES','PARTIDO DOS TRABALHADORES','PT','13',NULL,NULL,NULL,NULL,NULL,'#ff0606',NULL,1233.00,90.25,5232.00,24168.00,0.00,3555.00,12851294.00,56.00),(14,'PARTIDO TRABALHISTA BRASILEIRO','PARTIDO TRABALHISTA BRASILEIRO','PTB','14',NULL,NULL,NULL,NULL,NULL,'#389731',NULL,243.00,13.40,905.00,4353.00,0.00,861.00,2370145.00,11.00),(15,'PARTIDO DO MOVIMENTO DEMOCRÁTICO BRASILEIRO','PARTIDO DO MOVIMENTO DEMOCRÁTICO BRASILEIRO','PMDB','15',NULL,NULL,NULL,NULL,NULL,'#318c97',NULL,1137.00,60.49,4403.00,21549.00,1.00,3222.00,11108359.00,50.00),(16,'PARTIDO SOCIALISTA DOS TRABALHADORES UNIFICADO','PARTIDO SOCIALISTA DOS TRABALHADORES UNIFICADO','PSTU','16',NULL,NULL,NULL,NULL,NULL,'#ae0606',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0.00),(17,'PARTIDO SOCIAL LIBERAL','PARTIDO SOCIAL LIBERAL','PSL','17',NULL,NULL,NULL,NULL,NULL,'#76e44b',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0.00),(19,'PARTIDO TRABALHISTA NACIONAL','PARTIDO TRABALHISTA NACIONAL','PTN','19',NULL,NULL,NULL,NULL,NULL,'#6d6161',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0.00),(20,'PARTIDO SOCIAL CRISTÃO','PARTIDO SOCIAL CRISTÃO','PSC','20',NULL,NULL,NULL,NULL,NULL,'#fb51f1',NULL,129.00,6.94,509.00,2328.00,0.00,645.00,1519640.00,6.00),(21,'PARTIDO COMUNISTA BRASILEIRO','PARTIDO COMUNISTA BRASILEIRO','PCB','21',NULL,NULL,NULL,NULL,NULL,'#de0505',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0.00),(22,'PARTIDO DA REPÚBLICA','PARTIDO DA REPÚBLICA','PR','22',NULL,NULL,NULL,NULL,NULL,'#546b05',NULL,534.00,28.13,1920.00,9636.00,0.00,651.00,5402872.00,24.00),(23,'PARTIDO POPULAR SOCIALISTA','PARTIDO POPULAR SOCIALISTA','PPS','23',NULL,NULL,NULL,NULL,NULL,'#97313d',NULL,144.00,6.82,540.00,2697.00,0.00,753.00,1258314.00,6.00),(25,'DEMOCRATAS','DEMOCRATAS','DEM','25',NULL,NULL,NULL,NULL,NULL,'#978c31',NULL,411.00,23.99,1554.00,7905.00,0.00,1263.00,4770845.00,19.00),(27,'PARTIDO SOCIAL DEMOCRATA CRISTÃO','PARTIDO SOCIAL DEMOCRATA CRISTÃO','PSDC','27',NULL,NULL,NULL,NULL,NULL,'#fbf665',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0.00),(28,'PARTIDO RENOVADOR TRABALHISTA BRASILEIRO','PARTIDO RENOVADOR TRABALHISTA BRASILEIRO','PRTB','28',NULL,NULL,NULL,NULL,NULL,'#1c6d06',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0.00),(29,'PARTIDO DA CAUSA OPERÁRIA','PARTIDO DA CAUSA OPERÁRIA','PCO','29',NULL,NULL,NULL,NULL,NULL,'#4c0b11',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0.00),(31,'PARTIDO HUMANISTA DA SOLIDARIEDADE','PARTIDO HUMANISTA DA SOLIDARIEDADE','PHS','31',NULL,NULL,NULL,NULL,NULL,'#7dc7c7',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0.00),(33,'PARTIDO DA MOBILIZAÇÃO NACIONAL','PARTIDO DA MOBILIZAÇÃO NACIONAL','PMN','33',NULL,NULL,NULL,NULL,NULL,'#f6a778',NULL,30.00,0.95,90.00,483.00,28.00,24.00,228766.00,1.00),(36,'PARTIDO TRABALHISTA CRISTÃO','PARTIDO TRABALHISTA CRISTÃO','PTC','36',NULL,NULL,NULL,NULL,NULL,'#fbf202',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0.00),(40,'PARTIDO SOCIALISTA BRASILEIRO','PARTIDO SOCIALISTA BRASILEIRO','PSB','40',NULL,NULL,NULL,NULL,NULL,'#4646e4',NULL,342.00,30.70,1512.00,7062.00,1.00,1209.00,3478758.00,16.00),(43,'PARTIDO VERDE','PARTIDO VERDE','PV','43',NULL,NULL,NULL,NULL,NULL,'#00c721',NULL,123.00,8.42,526.00,2685.00,1.00,342.00,1296156.00,6.00),(44,'PARTIDO REPUBLICANO PROGRESSISTA','PARTIDO REPUBLICANO PROGRESSISTA','PRP','44',NULL,NULL,NULL,NULL,NULL,'#5579bc',NULL,12.00,1.95,62.00,375.00,0.00,3.00,278518.00,1.00),(45,'PARTIDO DA SOCIAL DEMOCRACIA BRASILEIRA','PARTIDO DA SOCIAL DEMOCRACIA BRASILEIRA','PSDB','45',NULL,NULL,NULL,NULL,NULL,'#0c0ce4',NULL,807.00,44.16,2792.00,14430.00,104.00,1776.00,7242609.00,34.00),(50,'PARTIDO SOCIALISMO E LIBERDADE','PARTIDO SOCIALISMO E LIBERDADE','PSOL','50',NULL,NULL,NULL,NULL,NULL,'#5282fb',NULL,60.00,1.83,275.00,1044.00,0.00,465.00,307602.00,2.00),(65,'PARTIDO COMUNISTA DO BRASIL','PARTIDO COMUNISTA DO BRASIL','PC do B','65',NULL,NULL,NULL,NULL,NULL,'#6b0505',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0.00),(70,'PARTIDO TRABALHISTA DO BRASIL','PARTIDO TRABALHISTA DO BRASIL','PT do B','70',NULL,NULL,NULL,NULL,NULL,'#dbca0a',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0.00);
+
+
+INSERT INTO `partido` VALUES (71,'Solidariedade','Solidariedade','SDD','1',NULL,NULL,NULL,NULL,NULL,'#DBDB8D',NULL,903.00,58.70,3632.00,10605.00,1.00,2343.00,9460911.00,59.00);
+INSERT INTO `partido` VALUES (72,'Partido Republicano da Ordem Social','Partido Republicano da Ordem Social','PROS','1',NULL,NULL,NULL,NULL,NULL,'#DBDB8D',NULL,903.00,58.70,3632.00,10605.00,1.00,2343.00,9460911.00,59.00);
+
+
+UPDATE `partido` SET `name_en`='Partido Social Democrático', `name_pt`='Partido Social Democrático' WHERE `sigla`='PSD';
+
+
+export DATAMINAS_DB_NAME=ps
+export DATAMINAS_DB_PW=123456
+export DATAMINAS_DB_USER=root
+export DATAMINAS_SECRET_KEY=a
+export PEC_OAUTH_GOOGLE_ID=1
+export PEC_OAUTH_GOOGLE_SECRET=1
+export PEC_OAUTH_TWITTER_ID=1
+export PEC_OAUTH_TWITTER_SECRET=1
+export PEC_OAUTH_FACEBOOK_ID=1
+export PEC_OAUTH_FACEBOOK_SECRET=1
+export PEC_DB_USER=root
+export PEC_DB_PW=123456
+export PEC_DB_HOST=localhost
+export PEC_DB_NAME=dataminas
+export PEC_REDIS_HOST=localhost
+
+
+
+CREATE TABLE IF NOT EXISTS `tipoproposicao` (
+  `id_tipoproposicao` int(11) NOT NULL AUTO_INCREMENT,
+  `nome_tipoproposicao` varchar(250) DEFAULT NULL,
+    `sigla_tipoproposicao` varchar(50) DEFAULT NULL,
+    originalid_tipoproposicao  varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_tipoproposicao`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1293 ;
+
+
+
+CREATE TABLE IF NOT EXISTS `statusproposicao` (
+  `id_statusproposicao` int(11) NOT NULL AUTO_INCREMENT,
+  `nome_statusproposicao` varchar(250) DEFAULT NULL,
+  `sigla_statusproposicao` varchar(50) DEFAULT NULL,
+  originalid_statusproposicao  varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_statusproposicao`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1  ;
+
+--
+-- Dumping data for table `statusproposicao`
+--
+
+INSERT INTO `statusproposicao` (`originalid_statusproposicao`, `nome_statusproposicao`) VALUES
+(900, 'Aguardando Autógrafos na Mesa'),
+(901, 'Aguardando constituição de Comissão Temporária '),
+(902, 'Aguardando criação de Comissão Temporária'),
+(903, 'Aguardando Deliberação'),
+(904, 'Aguardando Deliberação de Recurso'),
+(905, 'Aguardando Despacho do Presidente da Câmara dos Deputados'),
+(906, 'Aguardando Distribuição'),
+(907, 'Aguardando Designação de Relator'),
+(910, 'Aguardando Encaminhamento'),
+(911, 'Aguardando instalação de Comissão Temporária'),
+(912, 'Aguardando Leitura e Publicação'),
+(914, 'Aguardando Originais para Envio ao Arquivo'),
+(915, 'Aguardando Parecer'),
+(917, 'Aguardando Recebimento'),
+(918, 'Aguardando Recurso'),
+(920, 'Aguardando Deliberação do Presidente'),
+(921, 'Aguardando Resposta '),
+(922, 'Aguardando Vistas'),
+(923, 'Arquivada'),
+(924, 'Pronta para Pauta'),
+(925, 'Tramitando em Conjunto'),
+(926, 'Aguardando Retorno '),
+(927, 'Aguardando Apensação'),
+(928, 'Aguardando Análise de Parecer'),
+(929, 'Aguardando Redação Final'),
+(930, 'Enviada ao Arquivo'),
+(931, 'Aguardando Remessa ao Arquivo'),
+(932, 'Aguardando Definição Encaminhamento'),
+(933, 'Aguardando Conhecimento'),
+(934, 'Aguardando despacho de Emenda'),
+(935, 'Aguardando despacho de Substitutivo'),
+(936, 'Aguardando Providências Internas'),
+(937, 'Vetado totalmente'),
+(939, 'Aguardando Apreciacao do Veto'),
+(940, 'Aguardando Despacho de Arquivamento '),
+(950, 'Retirado pelo Autor'),
+(1000, 'Aguardando Recebimento para Publicação - Relatadas'),
+(1010, 'Aguardando Informações do DCD - Novas'),
+(1020, 'Aguardando Encaminhamento à Publicação'),
+(1030, 'Aguardando Informações do DCD - Relatadas'),
+(1040, 'Aguardando Encaminhamento à CCP para Publicação'),
+(1050, 'Aguardando análise de prazo recursal'),
+(1052, 'Aguardando Abertura de Prazo para Recurso'),
+(1060, 'Encaminhada à Publicação'),
+(1070, 'Aguardando Envio ao Executivo'),
+(1080, 'Aguardando Recebimento para Publicação - Novas'),
+(1090, 'Aguardando Análise'),
+(1110, 'Aguardando Despacho do Presidente'),
+(1120, 'Devolvida ao Autor'),
+(1140, 'Transformado em Norma Jurídica'),
+(1150, 'Aguardando Sanção'),
+(1160, 'Aguardando Remessa à Sanção'),
+(1161, 'Outros'),
+(1170, 'Aguardando Parecer - Ag. devolução Relator não-membro'),
+(1180, 'Aguardando Apoiamento'),
+(1200, 'Aguardando Autorização do Despacho'),
+(1230, 'Transformado em nova proposição'),
+(1250, 'Inativa Sinopse (Carga Jan/2001)'),
+(1260, 'Desmembrada '),
+(1270, 'Aguardando Envio à Redação Final'),
+(1280, 'Comissão em funcionamento'),
+(1285, 'Tramitação do Requerimento Finalizada'),
+(1290, 'Aguardando Indexação'),
+(1291, 'Aguardando Indexação (Substituição de Versão)'),
+(1292, 'Perdeu a Eficácia');
+
+
+ALTER TABLE `proposicao` ADD COLUMN `favor` INT NULL  AFTER `autor` ,
+ ADD COLUMN `contra` INT NULL  AFTER `favor` , 
+ ADD COLUMN `abstencao` INT NULL  AFTER `contra` ;
+ 
+ ALTER TABLE `pontuacao` ADD COLUMN 
+   `rodada_numero` INT NOT NULL;
+   
+   ALTER TABLE `pontuacao` ADD COLUMN 
+    `rodada_ano` INT NOT NULL;
+
+ALTER TABLE `votacaocandidato`  
+ADD COLUMN `id` INT(11) NOT NULL AUTO_INCREMENT  AFTER `proposicao` 
+, ADD PRIMARY KEY (`id`) ;
+
+alter table `ligapontos` add liga_ligapontos integer;
+alter table `ligapontos` add time_ligapontos integer;
+ALTER TABLE `ligapontos` DROP `ligajogador_ligapontos`;
+
+insert into  ligapontos
+select rodada,pontos,10,time from rodadapontos where rodada=1
+
+ALTER TABLE `ligajogador` ADD `pontos_ligajogador` INT NULL;
+
+
+
+CREATE TABLE IF NOT EXISTS `ask_question` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `question` varchar(140) DEFAULT NULL,
+  `app` varchar(60) DEFAULT NULL,
+  `body` text,
+  `timestamp` datetime DEFAULT NULL,
+  `status_id` int(11) DEFAULT NULL,
+  `status_notes` text,
+  `slug` varchar(140) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `status_id` (`status_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+
+
+
+CREATE TABLE IF NOT EXISTS `ask_status` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `ask_status`
+--
+
+INSERT INTO `ask_status` (`id`, `name`) VALUES
+(1, 'Pending'),
+(2, 'Approved'),
+(3, 'Rejected'),
+(4, 'Duplicate');
+
+
+
+
+ALTER TABLE `ask_question` ADD `language` VARCHAR( 2 ) NULL 
+
+
+CREATE TABLE IF NOT EXISTS `ask_vote` (
+  `type` smallint(6) NOT NULL,
+  `type_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`type`,`type_id`,`user_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `proposicao` CHANGE COLUMN `tipo` `tipo` VARCHAR(200) NULL DEFAULT NULL  ;
+
+ALTER TABLE `proposicao` CHANGE COLUMN `autor` `autor` VARCHAR(500) NULL DEFAULT NULL  ;
+
+ALTER TABLE `despesacandidato` ADD COLUMN `id_despesacandidato` INT NOT NULL AUTO_INCREMENT  AFTER `ativo` 
+, ADD PRIMARY KEY (`id_despesacandidato`) ;
+
+
+CREATE TABLE IF NOT EXISTS `orgaocandidato` (
+  `orgao` int(11) DEFAULT NULL,
+  `candidatura` int(11) DEFAULT NULL,
+  `cargo` int(11) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+
+CREATE TABLE IF NOT EXISTS `orgao` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `desc` text,
+  `tipo` int(11) DEFAULT NULL,
+  `sigla` varchar(30) DEFAULT NULL,
+  `original_cf` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+
+
+CREATE TABLE IF NOT EXISTS `tipoorgao` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(200) DEFAULT NULL,
+  `desc` text,
+  `original_cf` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+ALTER TABLE `orgao` ADD `totalmembros` INT NULL 
+
+ALTER TABLE `pontuacao` ADD COLUMN `atualizado` DATETIME NULL  AFTER `rodada_ano` ;
+
+delete FROM `rodadapontos` where time not in (select id from time)
+
+
+alter table time add column fundacao date null
+
+ALTER TABLE `rodada` ADD `ativo` INT NULL ;
+
+ALTER TABLE `pontuacao` ADD `processo` INT NULL ;
+ALTER TABLE `pontuacao` ADD `tendencia_processo` INT NULL ;
+ALTER TABLE `pontuacao` ADD `total_processo` INT NULL ;
+ALTER TABLE `pontuacao` ADD `votacao` INT NULL ;
+ALTER TABLE `pontuacao` ADD `tendencia_votacao` INT NULL ;
+ALTER TABLE `pontuacao` ADD `total_votacao` INT NULL ;
+ALTER TABLE `pontuacao` ADD `despesa` INT NULL ;
+ALTER TABLE `pontuacao` ADD `tendencia_despesa` INT NULL ;
+ALTER TABLE `pontuacao` ADD `total_despesa` INT NULL ;
+
+ALTER TABLE `candidatura` ADD `total_votacao` INT NULL ;
+ALTER TABLE `candidatura` ADD `total_presenca` INT NULL ;
+ALTER TABLE `candidatura` ADD `total_processo` INT NULL ;
+ALTER TABLE `candidatura` ADD `total_proposicao` INT NULL ;    
+ALTER TABLE `candidatura` ADD `total_despesa` INT NULL ;    
+    
+    
+     
+    
+    
+
+CREATE TABLE IF NOT EXISTS `processocandidato` (
+  `processo` int(11) NOT NULL,
+  `candidatura` int(11) NOT NULL,
+  `desc` text,
+  `status` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`processo`,`candidatura`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+
+CREATE TABLE IF NOT EXISTS `votacao` (
+  `status` varchar(30) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sigla` varchar(30) NOT NULL,
+  `desc` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+    
+
+CREATE TABLE IF NOT EXISTS `votacaocandidato` (
+  `time` int(11) NOT NULL,
+  `candidatura` int(11) NOT NULL,
+  `voto` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+--PARTIDO TRABALHISTA DO BRASIL
+update partido set color ='#0'  where id =34 	;
+	update partido set color ='#0b8b17'  where id =  	35 ;
+	--	PARTIDO SOCIALISMO E LIBERDADE  
+	update partido set color ='#e50f0f'  where id =  	36 ;
+	--	PARTIDO SOCIALISTA BRASILEIRO  
+	update partido set color ='#0b8b59'  where id =  	37 ;
+	--	PARTIDO TRABALHISTA NACIONAL 
+	update partido set color ='#1' where id =  	38 	;
+	--PARTIDO HUMANISTA DA SOLIDARIEDADE
+	update partido set color ='#e52d0f'  where id =  	39 ;
+	--	PARTIDO DA MOBILIZAÃ‡ÃƒO NACIONAL
+	update partido set color ='#448b0b'  where id =  	40 ;
+	--	PARTIDO POPULAR SOCIALISTA 
+	update partido set color ='#2'  where id =  	41 	;
+	--PARTIDO VERDE 
+	update partido set color ='#3'  where id =  	42 	;
+	--PARTIDO PROGRESSISTA
+	update partido set color ='#4'  where id =  	43 	;
+	--PARTIDO DEMOCRÃTICO TRABALHISTA 
+	update partido set color ='#5'  where id =  	44 	;
+	--PARTIDO COMUNISTA BRASILEIRO
+	update partido set color ='#6'  where id =  	45 	;
+	--PARTIDO COMUNISTA DO BRASIL
+	update partido set color ='#7'  where id =  	46 	;
+	--PARTIDO REPUBLICANO BRASILEIRO
+	
+	update partido set color ='#8b140b'  where id =  	47 	;
+	--PARTIDO DOS TRABALHADORES 
+	
+	update partido set color ='#0b328b'  where id =  	48 	;
+	--PARTIDO REPUBLICANO PROGRESSISTA 
+	
+	update partido set color ='#0b328b'  where id =  	49 	;
+	--PARTIDO DA REPÃšBLICA 
+	
+	update partido set color ='#530b8b'  where id =  	50 	;
+	--PARTIDO DA SOCIAL DEMOCRACIA BRASILEIRA 0b658b
+	
+	update partido set color ='#9'  where id =  	51 	;
+	--PARTIDO SOCIALISTA DOS TRABALHADORES UNIFICADO
+	update partido set color ='#f0c311'  where id =  	52 	;
+	--PARTIDO SOCIAL CRISTÃƒO 
+	update partido set color ='#230b8b'  where id =  	53 	;
+	--PARTIDO SOCIAL LIBERAL 
+	update partido set color ='#10'  where id =  	54 	;
+	--PARTIDO DO MOVIMENTO DEMOCRÃTICO BRASILEIRO
+	update partido set color ='#c9f011'  where id =  	55 	;
+	--PARTIDO TRABALHISTA CRISTÃƒO 
+	update partido set color ='#11'  where id =  	56 	;
+	--PARTIDO RENOVADOR TRABALHISTA BRASILEIRO
+	update partido set color ='#12'  where id =  	57 	;
+	--PARTIDO DA CAUSA OPERÃRIA 8b860b
+	update partido set color ='#8b3e0b'  where id =  	58 	;
+	--DEMOCRATAS 
+	update partido set color ='#13'  where id =  	59 	;
+	--PARTIDO SOCIAL DEMOCRATA CRISTÃƒO edf011
+	update partido set color ='#14'  where id =  	60 	;
+	--PARTIDO TRABALHISTA BRASILEIRO
+
+
+
+
+
+update partido set color ='#0'  where id =34 	;
+	update partido set color ='#0b8b17'  where id =  	35 ;
+	update partido set color ='#e50f0f'  where id =  	36 ;
+	update partido set color ='#0b8b59'  where id =  	37 ;
+	update partido set color ='#9d975a' where id =  	38 	;
+	update partido set color ='#e52d0f'  where id =  	39 ;
+	update partido set color ='#448b0b'  where id =  	40 ;
+	update partido set color ='#f2bbb5'  where id =  	41 	;
+	update partido set color ='#d2f2b5'  where id =  	42 	;
+	update partido set color ='#b5f2be'  where id =  	43 	;
+	update partido set color ='#f2b5b7'  where id =  	44 	;
+	update partido set color ='#e4b5f2'  where id =  	45 	;
+	update partido set color ='#3b3a3b'  where id =  	46 	;
+	update partido set color ='#8b140b'  where id =  	47 	;
+	update partido set color ='#0b328b'  where id =  	48 	;
+	update partido set color ='#530b8b'  where id =  	49 	;
+	update partido set color ='#119ff0'  where id =  	50 	;
+	update partido set color ='#11cef0'  where id =  	51 	;
+	update partido set color ='#f0c311'  where id =  	52 	;
+	update partido set color ='#230b8b'  where id =  	53 	;
+	update partido set color ='#11f0ed'  where id =  	54 	;
+	update partido set color ='#c9f011'  where id =  	55 	;
+	update partido set color ='#b5f2f1'  where id =  	56 	;
+	update partido set color ='#6a6855'  where id =  	57 	;
+	update partido set color ='#8b3e0b'  where id =  	58 	;
+	update partido set color ='#629d5a'  where id =  	59 	;
+	update partido set color ='#e2e37c'  where id =  	60 	;
+	
+	
+	UPDATE `partido` SET  color = '#' + color where color not like '%#%'
+
+
+ALTER TABLE `partido` ADD COLUMN `pontuacao_total_media` DECIMAL( 9, 2 ) NULL DEFAULT NULL 
+
+
+/usr/local/apache/logs/error_log
+/usr/local/cpanel/logs/error_log
+/home/politica/public_html/error_log
+
+ProxyPass /login !
+
+alter table time add column fundacao date null
+
+ALTER TABLE `rodada` ADD `ativo` INT NULL ;
+
+ALTER TABLE `pontuacao` ADD `processo` INT NULL ;
+ALTER TABLE `pontuacao` ADD `tendencia_processo` INT NULL ;
+ALTER TABLE `pontuacao` ADD `total_processo` INT NULL ;
+ALTER TABLE `pontuacao` ADD `votacao` INT NULL ;
+ALTER TABLE `pontuacao` ADD `tendencia_votacao` INT NULL ;
+ALTER TABLE `pontuacao` ADD `total_votacao` INT NULL ;
+ALTER TABLE `pontuacao` ADD `despesa` INT NULL ;
+ALTER TABLE `pontuacao` ADD `tendencia_despesa` INT NULL ;
+ALTER TABLE `pontuacao` ADD `total_despesa` INT NULL ;
+
+ALTER TABLE `candidatura` ADD `total_votacao` INT NULL ;
+ALTER TABLE `candidatura` ADD `total_presenca` INT NULL ;
+ALTER TABLE `candidatura` ADD `total_processo` INT NULL ;
+ALTER TABLE `candidatura` ADD `total_proposicao` INT NULL ;    
+ALTER TABLE `candidatura` ADD `total_despesa` INT NULL ;    
+    
+    
+     
+    
+    
+
+CREATE TABLE IF NOT EXISTS `processocandidato` (
+  `processo` int(11) NOT NULL,
+  `candidatura` int(11) NOT NULL,
+  `desc` text,
+  `status` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`processo`,`candidatura`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+
+CREATE TABLE IF NOT EXISTS `votacao` (
+  `status` varchar(30) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sigla` varchar(30) NOT NULL,
+  `desc` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+    
+
+CREATE TABLE IF NOT EXISTS `votacaocandidato` (
+  `time` int(11) NOT NULL,
+  `candidatura` int(11) NOT NULL,
+  `voto` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+--PARTIDO TRABALHISTA DO BRASIL
+update partido set color ='#0'  where id =34 	;
+	update partido set color ='#0b8b17'  where id =  	35 ;
+	--	PARTIDO SOCIALISMO E LIBERDADE  
+	update partido set color ='#e50f0f'  where id =  	36 ;
+	--	PARTIDO SOCIALISTA BRASILEIRO  
+	update partido set color ='#0b8b59'  where id =  	37 ;
+	--	PARTIDO TRABALHISTA NACIONAL 
+	update partido set color ='#1' where id =  	38 	;
+	--PARTIDO HUMANISTA DA SOLIDARIEDADE
+	update partido set color ='#e52d0f'  where id =  	39 ;
+	--	PARTIDO DA MOBILIZAÃ‡ÃƒO NACIONAL
+	update partido set color ='#448b0b'  where id =  	40 ;
+	--	PARTIDO POPULAR SOCIALISTA 
+	update partido set color ='#2'  where id =  	41 	;
+	--PARTIDO VERDE 
+	update partido set color ='#3'  where id =  	42 	;
+	--PARTIDO PROGRESSISTA
+	update partido set color ='#4'  where id =  	43 	;
+	--PARTIDO DEMOCRÃTICO TRABALHISTA 
+	update partido set color ='#5'  where id =  	44 	;
+	--PARTIDO COMUNISTA BRASILEIRO
+	update partido set color ='#6'  where id =  	45 	;
+	--PARTIDO COMUNISTA DO BRASIL
+	update partido set color ='#7'  where id =  	46 	;
+	--PARTIDO REPUBLICANO BRASILEIRO
+	
+	update partido set color ='#8b140b'  where id =  	47 	;
+	--PARTIDO DOS TRABALHADORES 
+	
+	update partido set color ='#0b328b'  where id =  	48 	;
+	--PARTIDO REPUBLICANO PROGRESSISTA 
+	
+	update partido set color ='#0b328b'  where id =  	49 	;
+	--PARTIDO DA REPÃšBLICA 
+	
+	update partido set color ='#530b8b'  where id =  	50 	;
+	--PARTIDO DA SOCIAL DEMOCRACIA BRASILEIRA 0b658b
+	
+	update partido set color ='#9'  where id =  	51 	;
+	--PARTIDO SOCIALISTA DOS TRABALHADORES UNIFICADO
+	update partido set color ='#f0c311'  where id =  	52 	;
+	--PARTIDO SOCIAL CRISTÃƒO 
+	update partido set color ='#230b8b'  where id =  	53 	;
+	--PARTIDO SOCIAL LIBERAL 
+	update partido set color ='#10'  where id =  	54 	;
+	--PARTIDO DO MOVIMENTO DEMOCRÃTICO BRASILEIRO
+	update partido set color ='#c9f011'  where id =  	55 	;
+	--PARTIDO TRABALHISTA CRISTÃƒO 
+	update partido set color ='#11'  where id =  	56 	;
+	--PARTIDO RENOVADOR TRABALHISTA BRASILEIRO
+	update partido set color ='#12'  where id =  	57 	;
+	--PARTIDO DA CAUSA OPERÃRIA 8b860b
+	update partido set color ='#8b3e0b'  where id =  	58 	;
+	--DEMOCRATAS 
+	update partido set color ='#13'  where id =  	59 	;
+	--PARTIDO SOCIAL DEMOCRATA CRISTÃƒO edf011
+	update partido set color ='#14'  where id =  	60 	;
+	--PARTIDO TRABALHISTA BRASILEIRO
+
+
+
+
+
+update partido set color ='#0'  where id =34 	;
+	update partido set color ='#0b8b17'  where id =  	35 ;
+	update partido set color ='#e50f0f'  where id =  	36 ;
+	update partido set color ='#0b8b59'  where id =  	37 ;
+	update partido set color ='#9d975a' where id =  	38 	;
+	update partido set color ='#e52d0f'  where id =  	39 ;
+	update partido set color ='#448b0b'  where id =  	40 ;
+	update partido set color ='#f2bbb5'  where id =  	41 	;
+	update partido set color ='#d2f2b5'  where id =  	42 	;
+	update partido set color ='#b5f2be'  where id =  	43 	;
+	update partido set color ='#f2b5b7'  where id =  	44 	;
+	update partido set color ='#e4b5f2'  where id =  	45 	;
+	update partido set color ='#3b3a3b'  where id =  	46 	;
+	update partido set color ='#8b140b'  where id =  	47 	;
+	update partido set color ='#0b328b'  where id =  	48 	;
+	update partido set color ='#530b8b'  where id =  	49 	;
+	update partido set color ='#119ff0'  where id =  	50 	;
+	update partido set color ='#11cef0'  where id =  	51 	;
+	update partido set color ='#f0c311'  where id =  	52 	;
+	update partido set color ='#230b8b'  where id =  	53 	;
+	update partido set color ='#11f0ed'  where id =  	54 	;
+	update partido set color ='#c9f011'  where id =  	55 	;
+	update partido set color ='#b5f2f1'  where id =  	56 	;
+	update partido set color ='#6a6855'  where id =  	57 	;
+	update partido set color ='#8b3e0b'  where id =  	58 	;
+	update partido set color ='#629d5a'  where id =  	59 	;
+	update partido set color ='#e2e37c'  where id =  	60 	;
+	
+	
+	UPDATE `partido` SET  color = '#' + color where color not like '%#%'
+
+
+
+
+
+
+CREATE TABLE IF NOT EXISTS `candidaturatotal` (
+  `id` int(11) NOT NULL AUTO_INCREMENT, 
+  `partido` int(11) NOT NULL,
+  `candidatura` int(11) NOT NULL,
+  `pontuacao_total` decimal(5,2) DEFAULT NULL,
+  `pontuacao_ultima` decimal(5,2) DEFAULT NULL,
+  `pontuacao_tendencia` decimal(5,2) DEFAULT NULL,
+  `id_original` int(11) DEFAULT NULL,
+  `total_votacao` int(11) DEFAULT NULL,
+  `total_presenca` int(11) DEFAULT NULL,
+  `total_processo` int(11) DEFAULT NULL,
+  `total_proposicao` int(11) DEFAULT NULL,
+  `total_despesa` int(11) DEFAULT NULL,
+  `ano`  int(11) ,
+  PRIMARY KEY (`id`)
+) ;
+
+yes | cp -rf xxx yyy
+cp /home/sisfocus/public_html/ftp2/data/* /home/politica/pecbrasil/data/
+python import.py -o runVotacaoCandidato -a P > log.txt
+python import.py -o runPontuacao -a P > log.txt
+python import.py -o runDespesas -a P > log.txt
+python import.py -o runProposicao -a P > log.txt
+
+CREATE TABLE IF NOT EXISTS `partidototal` (
+  `id` int(11) NOT NULL AUTO_INCREMENT, 
+  `partido` int(11) NOT NULL,
+  `sigla` varchar(20) DEFAULT NULL,
+  `codigo` varchar(50) DEFAULT NULL,
+  `pontuacao_total` decimal(9,2) DEFAULT NULL,
+  `pontuacao_ultima` decimal(9,2) DEFAULT NULL,
+  `pontuacao_tendencia` decimal(9,2) DEFAULT NULL,
+  `total_votacao` decimal(9,2) DEFAULT NULL,
+  `total_presenca` decimal(9,2) DEFAULT NULL,
+  `total_processo` decimal(9,2) DEFAULT NULL,
+  `total_proposicao` decimal(9,2) DEFAULT NULL,
+  `total_despesa` decimal(15,2) DEFAULT NULL,
+  `politico_total` decimal(9,2) DEFAULT NULL,
+  `pontuacao_total_media` decimal(9,2) DEFAULT NULL,
+  `ano`  int(11) ,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `rodada` ADD `avg_presenca` DECIMAL( 5, 2 ) NULL AFTER `min_despesa` ,
+ADD `avg_proposicao` DECIMAL( 5, 2 ) NULL AFTER `avg_presenca` ,
+ADD `avg_votacao` DECIMAL( 5, 2 ) NULL AFTER `avg_proposicao` ,
+ADD `avg_despesa` DECIMAL( 5, 2 ) NULL AFTER `avg_votacao` 
+
+
+ALTER TABLE `rodada` CHANGE `min_despesa` `min_despesa` DECIMAL( 10, 2 ) NULL DEFAULT NULL ;
+
+ALTER TABLE `rodada` CHANGE `avg_despesa` `avg_despesa` INT NULL DEFAULT NULL ;
+
+ALTER TABLE `rodada` CHANGE `min_despesa` `min_despesa` INT NULL DEFAULT NULL ;
+
+ALTER TABLE `rodada` CHANGE `max_despesa` `max_despesa` INT NULL DEFAULT NULL ;
+
+ALTER TABLE  `despesacandidato` ADD  `ano` INT NULL
+
+http://localhost:8084/account/complete_login/
+
+ERROS
+nos graficos mostrar apenas rodadas ativa, aplicar filtros em attrs
+
+contato@politicaesporteclube.com
