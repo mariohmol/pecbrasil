@@ -43,16 +43,61 @@
     <span class="row">{% trans %}Analise os dados e eleja seus políticos. Ganhe pontos a cada semana dependendo da atuação de cada um dos seus escolhidos. Os pontos
       de cada representante é o resultado da análise semanaldos principais índices de
       contribuição na cena política nacional <sup>*</sup>{% endtrans %}.</span><br>
-		<img alt="" src="/static/img/pecbrasil/passo-home.jpg"/>
 		
-		<br><br>
+		
+		</span>
 
-		<span style="font-size:12px"><sup>*</sup> As rodadas são analisadas pelos desempenho semanal dos políticos de acordo com os dados fornecidos pelo Portal de Transparência da Câmara Federal <a href="#" title="Ir para o site"><i class="fa fa-sign-in"></i></a></span>
+		
+
+		<div style="float:left; width:63%;">
+			<img width="100%" src="/static/img/pecbrasil/passo-home.jpg"/><br><br>
+			<span style="font-size:12px; float:left; width:100%;"><sup>*</sup> As rodadas são analisadas pelos desempenho semanal dos políticos de acordo com os dados fornecidos pelo Portal de Transparência da Câmara Federal <a href="http://www2.camara.leg.br/transparencia" target='_blank' title="Ir para o site"><i class="fa fa-external-link"></i></a></span>
+
+		</div>
+		<style>
+			.signBx a { 
+				color: white; 
+				-webkit-transition-duration: 0.2s;
+				-moz-transition-duration: 0.2s;
+				-ms-transition-duration: 0.2s;
+				-o-transition-duration: 0.2s;
+				transition-duration: 0.2s;
+			}
+			.signBx a:hover { text-decoration:none;}
+			
+		</style>
+		<div class="signBx" style="float:right; width:33%; background-color:#27ae60; border-radius:5px; box-shadow: 0px 0px 0px 3px #E6C400; padding:10px;">
+		
+			
+				<h1 style="color:#fff!important; font-size:46px; margin-top:0px; padding-top:0px;">Monte seu time agora!</h1>
+				<span style="font-size:15px; float:left; color:#165832; padding-bottom:10px;width:100%;">Inicie seu <b style="color:white">cadastro</b> selecionando qual rede social você gostaria de linkar à sua conta do Política Esporte Clube.</span><br>
+		<form action="/account/login/" method="post" name="login">
+			
+				{{ form.hidden_tag() }}
+				
+			{% for pr in providers %} <a id="{{ pr }}" style="font-size:55px;" class="fa fa-{% if pr=='Google' %}{{ pr|lower }}-plus{% else %}{{ pr|lower }}{% endif %}-square"
+					href="javascript:;">&nbsp;</a> 
+			{% endfor %}
+		</form>
+	</div>
+
+<script type="text/javascript">
+	d3.selectAll(".login_button_social").on(d3plus.evt.click, function() {
+		var pr = this.id.toLowerCase()
+		console.log(pr);
+		form = document.forms['login'];
+		form.elements['provider'].value = pr;
+		this.parentNode.submit();
+		d3.event.preventDefault();
+		return false;
+	})
+</script>
 
 		
 	</div>
 
 </div>
+<br><br>
 </div>
 
 <div class="divisor">
@@ -179,58 +224,6 @@
 
 
 
-  <div id="container" style="height: 450px;">
-	{% set frame = 'true' %}
-	 	{% include "account/login.html" %}
-	
-	</div>
-
-
-<div id="container" > 	
- 	<div  class="pecHomebottom">
-
-		 <div style="margin-left:20px" class="fb-like-box" 
-		 data-href="http://www.facebook.com/PoliticaEsporteClube" data-width="220" data-height="350"
-									data-colorscheme="light" data-show-faces="true"
-			data-header="false" data-stream="false" data-show-border="false"></div>
-
-    </div>
-    
-    
-   
-	<div  class="pecHomebottom">
-			<h1>{% trans %}Contato{% endtrans %}</h1>
-		    <form id="ask_form" action="/ask/contact/" method="post">
-		      {{formAsk.hidden_tag()}}
-		        <label for="question">{% trans %}Pergunta{% endtrans %}</label>
-		        {{ formAsk.question(id="question", placeholder="Ex. De onde vieram os dados?") }}
-		        <br/>
-		         <label for="email">{% trans %}Email{% endtrans %}</label>
-		        {{ formAsk.email(id="email", placeholder="my@email.com") }}
-		        <br/>
-		        {% for error in formAsk.errors.question %}
-		        <span style="color: red;">[{{ error }}]</span>
-		        {% endfor %}
-		  
-		  <br/>
-		  		<label for="wysiwyg_textarea">{% trans %}Mensagem{% endtrans %}</label>
-		        {{ formAsk.body(id="wysiwyg_textarea") }}
-		        {% for error in formAsk.errors.body %}
-		        <span style="color: red;">[{{ error }}]</span>
-		        {% endfor %}
-		      
-		      <br/>
-		      
-		      <a href="#ask_form" class="submit" onclick='document.forms["ask_form"].submit()'>
-		        <div class="decision">
-		          <div class="text">{% trans %}Pergunte a nossa equipe!{% endtrans %}!</div>
-		          <div class="arrow"></div>
-		        </div>
-		      </a>
-		      
-		    </form>
-    </div>
-    
-</div>
+  
 
 {% endblock %}
