@@ -238,7 +238,7 @@ class PoliticaServices(object):
         return politicos
   
     def getRodada(self,rodada_id=None):
-        if rodada_id is None:
+        if rodada_id is None or rodada_id=='all':
             rodada = self.rodadaAtual()
         else:
             rodada = Rodada.query.filter(Rodada.id==rodada_id).first()

@@ -44,17 +44,20 @@ def ultimarodada(rodada_id=None,time_id=None):
     
     titulo="Veja sua pontuacao da rodada"
     log=""
+    rodada_atual = db.session.merge(session['rodada_atual'])
     if time_id is not None:
         time = politicaServices.meuTime(time_id)
         
         if time is not None:
+            rodadaPontos=politicaServices.rodadaPontosByTime(time.id,rodada_id)
+            
             if enviar == 'True':
                 send_mail(titulo,[time.user.email],   
-                          render_template("comunicado/ultimarodada.html",time=time,rodada=rodada,pontos=pontos,politicos=politicos))
+                          render_template("comunicado/ultimarodada.html",time=time,rodada=rodada,rodadaPontos=rodadaPontos,rodada_atual=rodada_atual,politicos=politicos))
             total=total+1
             log=log+"\n"+time.user.email+ " - "+str(time.id)+" - "+time.nome
-            rodadaPontos=politicaServices.rodadaPontosByTime(time.id,rodada_id)
-            return render_template("comunicado/ultimarodada.html",time=time,rodada=rodada,rodadaPontos=rodadaPontos,politicos=politicos)
+            
+            return render_template("comunicado/ultimarodada.html",time=time,rodada=rodada,rodadaPontos=rodadaPontos,rodada_atual=rodada_atual,politicos=politicos)
     else:
         times = Time.query.all()
         for time in times:
@@ -63,9 +66,15 @@ def ultimarodada(rodada_id=None,time_id=None):
                 log=log+"\n"+time.user.email+ " - "+str(time.id)+" - "+time.nome
                 rodadaPontos=politicaServices.rodadaPontosByTime(time.id,rodada_id)
                 if enviar == 'True':
-                    send_mail(titulo,[time.user.email],  
-                              render_template("comunicado/ultimarodada.html",time=time,rodada=rodada,rodadaPontos=rodadaPontos,politicos=politicos))
+                    print "Enviando "+time.user.email
+                    try:
+                        send_mail(titulo,[time.user.email],  
+                              render_template("comunicado/ultimarodada.html",time=time,rodada=rodada,rodadaPontos=rodadaPontos,rodada_atual=rodada_atual,politicos=politicos))
+                    except:
+                        print "Unexpected error:"  
     
+                     
+                    
     return render_template("comunicado/statuscomunicado.html",titulo=titulo,total=total,log=log)
 
 @mod.route('/abrecampeonato/')
@@ -114,7 +123,12 @@ def criartime(time_id=None):
         rows = db.session.fetchall()
         total=0
         for row in rows:
-            send_mail(titulo,[row[0]],  render_template("comunicado/criartime.html",email=row[0],nickname=row[1],fullname=row[2]))
+            print "Enviando "+row[0]
+            try:
+                send_mail(titulo,[row[0]],  render_template("comunicado/criartime.html",email=row[0],nickname=row[1],fullname=row[2]))
+            except:
+                print "Unexpected error:"
+
             total=total+1
             log=log+","+time.user.email
                 
@@ -139,7 +153,12 @@ def retornar(time_id=None):
         rows = db.session.fetchall()
         total=0
         for row in rows:
-            send_mail(titulo,row[0],  render_template("comunicado/retornar.html",email=row[0],nickname=row[1],fullname=row[2]))
+            print "Enviando "+row[0]
+            try:
+                send_mail(titulo,[row[0]],  render_template("comunicado/retornar.html",email=row[0],nickname=row[1],fullname=row[2]))
+            except:
+                print "Unexpected error:"
+
             total=total+1
             log=log+","+time.user.email
                     
