@@ -602,4 +602,5 @@ class PoliticaServices(object):
         else:
            ip = request.headers.getlist("X-Forwarded-For")[0]
         return ip
+
         
