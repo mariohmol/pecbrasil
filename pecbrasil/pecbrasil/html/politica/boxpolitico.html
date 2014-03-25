@@ -1,0 +1,204 @@
+ <!-- pontuacao_total acaoBoxPolitico iframe backCard -->
+{% if candidato %}
+			   
+	   <div id="boxPolitico" >
+	   <div class="card">
+		   <div class="frontCard" style="background: url('/static/img/pec/fotos/{{ candidato.politicos.id_original }}.jpg') no-repeat #f4f4f4; background-size: 100% 70%;">
+	   
+		   <div id="boxPoliticoPartido">
+		   	<div class="field-content">
+		   		
+		   		 
+		   		{% if  iframe=='true'  %}	
+		   			<a href="#" onclick="top.window.location='/politica/partido/{{ candidato.partidos.id }}'">
+		   		
+		   		{% else %}	
+		   			<a href="/politica/partido/{{ candidato.partidos.id }}">
+		   		{% endif %}	
+		   		
+		   		
+		   		<img style="border: 5px solid #f4f4f4; position: absolute; top:0px; right:0px;top: 150px;   
+		   		width: auto; height: 40px;" src="/static/img/pecbrasil/partidos/{{ candidato.partidos.sigla|lower}}.jpg" width="50">
+		   		</a>
+		   		 
+		   		
+	
+		   	</div>
+		   
+		   </div>
+	   
+	   	<!-- 	<div id="boxPoliticoCargo">Dep. Federal</div>  -->
+	   
+		   
+	{% if posicao and posicao < 100 %}	
+	
+	{% endif %}
+		
+
+
+
+		
+		
+		
+		<div id="boxPoliticoInfo"> 
+			{% if  iframe=='true'  %}
+			   		<a href="#" 
+		   			onclick="top.window.location='/politica/politico/{{ candidato.id }}/'">
+				{% else %}	
+		   			<a href="/politica/politico/{{ candidato.id }}">
+		   		{% endif %} {{ candidato.politicos.nome|truncate(28,False,'') }}</a><br>
+			<span style="font-size:9px; position:absolute; bottom:10px; left: 0px; margin-top:5px; display:inline-block; width:109px;"><img src="/static/img/icons/bra/bra_{{ candidato.uf|lower }}.png" width="20px;"style=" vertical-align: middle; height:100%;"	/>&nbsp;
+		   		{{ candidato.cidade }}</span>
+		</div>
+		 
+		<h5 id="boxPoliticoUltima">
+					<div class="field-content" >
+					{% if pontuacao_total %}
+					
+						{{ pontuacao_total }}
+					
+					{% else %}
+					
+						{{ candidato.pontuacao_total|int }}
+					
+					{% endif %}
+					</div>
+				</h5>
+	
+		
+		
+	
+
+		</div>
+		
+		
+	
+		
+		<div class="backCard">
+		
+		
+		
+	{% if backCard %}
+		
+			<div class="boxCard votacoesBx">
+
+					<span class="sideTlt"><i class="fa fa-check-square-o"></i> {% trans %}Votações{% endtrans %}</span>
+					<br>
+					<span class="sideVal boxVotacoes">
+						<span class="valor">
+							{{ candidato.total_votacao|int }} / {{ rodada_atual.max_votacao}} 
+							{% if rodada_atual %}
+								<p style="font-size: 12px; display:none;">  {{ rodada_atual.min_votacao}} {% trans %}a{% endtrans %} {{ rodada_atual.max_votacao}} / {% trans %}média{% endtrans %}: {{ rodada_atual.avg_votacao}}</p>
+							
+							{% endif %}
+						</span>
+					</span>
+			</div>
+				<div class="boxCard presencasBx">
+					<span class="sideTlt"><i class="fa fa-male"></i> {% trans %}Presenças{% endtrans %}</span>
+					<br>
+					<span class="sideVal boxVotacoes">
+						<span class="valor">{{ candidato.total_presenca|int }} / {{ rodada_atual.max_presenca}}
+							
+						{% if rodada_atual %}
+						<p style="font-size: 12px;display:none;">  {{ rodada_atual.min_presenca}} {% trans %}a{% endtrans %} {{ rodada_atual.max_presenca}} / {% trans %}média{% endtrans %}: {{ rodada_atual.avg_presenca}}</p>
+						{% endif %}
+						</span>
+						
+					</span>
+				</div>
+			
+				<div class="boxCard proposicoesBx">
+					<span class="sideTlt"><i class="fa fa-microphone"></i> {% trans %}Proposições{% endtrans %}</span>
+					<br>
+					<span class="sideVal boxVotacoes">
+						<span class="valor">{{ candidato.total_proposicao|int }} / {{ rodada_atual.max_proposicao}}
+							
+							{% if rodada_atual %}
+						<p style="font-size: 12px;display:none;">  {{ rodada_atual.min_proposicao}} {% trans %}a{% endtrans %} {{ rodada_atual.max_proposicao}} / {% trans %}média{% endtrans %}: {{ rodada_atual.avg_proposicao}}</p>
+						{% endif %}
+						</span>
+						
+					</span>
+				</div>
+		
+			
+				<div class="boxCard despesasBx">
+						<span class="sideTlt"><i class="fa fa-money"></i> {% trans %}Despesas{% endtrans %}</span>
+						<br>
+					<span class="sideVal boxVotacoes">
+						<span class="valor">R$ {{ candidato.total_despesa|int }} / {{ rodada_atual.max_despesa}}
+							
+							{% if rodada_atual %}
+						<p style="font-size: 12px;display:none;">  {{ rodada_atual.min_despesa}} {% trans %}a{% endtrans %} {{ rodada_atual.max_despesa}} / {% trans %}média{% endtrans %}: {{ rodada_atual.avg_despesa}}</p>
+						{% endif %}
+						
+						</span>
+					</span>
+				</div>
+		
+		
+		
+		   
+	{% endif %}
+	
+	
+	
+		
+	<div style="float:left; height:30px; width: 100%">
+	{% if  iframe=='true'  %}
+	
+			   		<a href="#" 
+		   			onclick="top.window.location='/politica/politico/{{ candidato.id }}/'" >
+				{% else %}	
+		   			<a  href="/politica/politico/{{ candidato.id }}" class="vejaBx">
+		   				<i class="fa fa-search"></i> 
+		   		{% endif %} {% trans %}Veja mais{% endtrans %}</a>
+	</div>
+		   		
+		   		
+	{% if acaoBoxPolitico == 'alterar' %}
+	     
+ 		<a href="/politica/selecionar-politicos/{{ candidato.id }}/{{ posicao }}/false">
+			
+				{% trans %}Alterar{% endtrans %}
+				</a>
+	
+	{% endif %}
+
+	{% if acaoBoxPolitico == 'selecionar' %}
+			{% set exists = [] %}
+			
+			{% if politicosSelecionados %}
+				{% for timecandidato in politicosSelecionados.candidatos.all() %}
+		
+		
+					{% if candidato.id == timecandidato.candidatura %}
+					{% trans %}Selecionado!{% endtrans %}
+						 {% if exists.append(1) %}{% endif %}
+					{% endif %}
+				{% endfor %}
+				
+				
+			{% endif %}
+			
+				
+
+			{% if not exists %}
+				
+			 	<a href="/politica/selecionar-politicos/{{ candidato.id }}/{{ posicao }}/{{ gravar }}">
+			{% trans %}Selecionar{% endtrans %}
+				<!--  <img src="/static/img/pec/botao_selecionar.png"/>  -->
+				</a>
+			{% endif %}
+		
+		
+	{% endif %}
+	</div>
+	
+{% endif %}
+
+
+	</div>
+
+</div>

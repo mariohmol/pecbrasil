@@ -149,10 +149,8 @@
 
 	<div id="profile1" class="profileFechado  guide_app " style="margin-top:0px!important;">
 		<h2>{% trans %}Comparação aos outros políticos do{% endtrans %} {{ politicos.partidos.sigla }}
-			
-			<br> 
-			
-			<span style="font-size:12px; font-style: italic; color:#777; font-family:'Open Sans'">{{ politicos.politicos.nome }}
+		
+			<span style="font-size:14px; font-style: italic; color:#777; font-family:'Open Sans'; float:left; 100%">{{ politicos.politicos.nome }}
 			{% trans %}em comparação ao{% endtrans %} {{ politicos.partidos.sigla }}</span></h2>
 		{% set iframeId = 'iframe2' %} 
 		{% set anoOption = 'true' %}

@@ -1,0 +1,36 @@
+<!-- extend from about base layout -->
+{% extends "templates/clean.html" %}
+
+{% block title %}: {% trans %}About the Site{% endtrans %}{% endblock %}
+
+ <style>
+ 	body { background-color:#f1f1f1!important; font-family:"Open Sans"!important; font-size:12px!important; }
+ </style>
+{% block content %}
+ 
+ 
+  <table style="margin: 0px!important; font-family:'Open Sans'"><tr>
+  	
+      <td colspan="2"> {% trans %}Categoria{% endtrans %} </td>
+       <td  align="center">{% trans %}Rodada{% endtrans %} </td>
+     <td  align="center"> {% trans %}Valor{% endtrans %} </td>
+     </tr>
+     
+     {% for despesa in despesas %}
+     <tr 
+     style="
+     
+     background-color: {{ despesa.categorias.cor_despesatipo }}; color:white; font-size:12px; ">
+     <td width="5%"><img src="/static/img/icons/perfil/{{ despesa.categorias.id_despesatipo }}.png" style="width:30px; vertical-align:middle; margin-right:10px;"></td>
+      <td>{{ despesa.categorias.nome_despesatipo }}</td>
+       <td align="center">
+       	{% set rodada = despesa.rodadas %}
+       	{% include "rodada/boxrodada.html" %}
+       </td>
+     <td  align="center"><span style="font-size:15px; text-shadow: 1px 1px 1px #888; color:white">R$</span><span class="valorDespesas" style="font-size:30px; text-shadow: 1px 1px 1px #888; color:white">{{ despesa.valor }}</span></td>
+      
+      </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
+

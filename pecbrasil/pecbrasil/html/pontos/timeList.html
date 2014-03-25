@@ -1,0 +1,17 @@
+<!-- extend from about base layout -->
+{% extends "templates/site.html" %}
+
+{% block title %}: {% trans %}About the Site{% endtrans %}{% endblock %}
+
+{% block content %}
+  <h1>{% trans %}Pontos do Time{% endtrans %}</h1>
+  
+  
+     {% for candidato in times %}
+     
+
+      <br/>
+    {% endfor %}
+    
+{% endblock %}
+

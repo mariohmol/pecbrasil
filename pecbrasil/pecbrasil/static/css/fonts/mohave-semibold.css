@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'MohaveSemiBold';
+    src: url('mohave-semibold.eot');
+    src: url('mohave-semibold.eot') format('embedded-opentype'),
+         url('mohave-semibold.woff') format('woff'),
+         url('mohave-semibold.ttf') format('truetype'),
+         url('mohave-semibold.svg#MohaveSemiBold') format('svg');
+}

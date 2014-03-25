@@ -1322,7 +1322,7 @@ float: left;
 }
 
 .backCard {
-	background-color: white;
+	background-color: #f8f8f8;
     font-size: 16px;
 }
 
@@ -2789,7 +2789,7 @@ h1,h2,h3 {font-family: "MohaveSemiBold"!important;}
 .presencasBx { background-color: #e1e1e1; color: #999; }
 .proposicoesBx { background-color: #f1f1f1; color: #999; }
 .despesasBx { background-color: #e1e1e1; color: #999; }
-.vejaBx { padding: 5px 2px;background-color: #27AE60;color: #fff; text-align:center;display: inline-block;width: 100%; font-size:13px;}
+.vejaBx { padding: 2px 0px;background-color: #27AE60;color: #fff; text-align:center;display: inline-block;width: 100%; font-size:13px;}
 .vejaBx:hover { text-decoration: none; background-color: #2ECC71; color: white;}
 
 .infoQd h1 { font-size:40px; font-family: "MohaveBold"!important; color: #2ECC71; text-shadow: 1px 1px 0px #27ae60; }

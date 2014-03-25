@@ -1,0 +1,26 @@
+{% if frame %}
+	{% extends "templates/clean.html" %}
+{% else %}
+	{% extends "templates/site.html" %}
+{% endif %}
+
+{% block title %}: {% trans %}Pontuação dos Políticos nas Rodadas{% endtrans %}{% endblock %}
+
+{% block body %}
+  
+<table style="width:100%;float: left;">
+   
+
+	       {% set posicao = 0 %}
+     {% for rodada in rodadas %}
+	    
+					      
+				  {% set pontuacao_total = rodada.pontos %}
+				   {% set candidato = rodada.candidaturas %}
+				   		{% set posicao = posicao + 1 %}
+				      	{% include "politica/boxpolitico.html" %}
+      
+    {% endfor %}
+
+{% endblock %}
+

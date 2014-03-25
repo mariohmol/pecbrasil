@@ -1,0 +1,192 @@
+ {% extends "templates/clean.html" %}
+
+{% block content %}
+ 
+ {% set divId = 'treemapPartidoDiv' %}
+ {% set func_value = '' %}
+{% include "grafico/painelTotalIframe.html" %}
+
+  	<script src="/static/js/src/viz/tree_map.js"></script>
+  
+<div id="treemapPartidoDiv"></div>
+  
+  
+  <script>
+  
+  var viz = d3plus.viz()
+ 
+    d3.json("/attrs/rodada", function(rodada){
+	d3.json("/attrs/partidototal", function(data){
+      
+		
+		  var attrs = {}
+		  data.partidos.forEach(function(a){
+			  
+			a.pontuacao_total_media =  a.pontuacao_total /  a.politico_total
+			a.pontuacao_ultima_media =  a.pontuacao_ultima /  a.pontuacao_ultima
+			a.pontuacao_tendencia_media =  a.pontuacao_tendencia /  a.pontuacao_tendencia
+			a.total_votacao_media =  a.total_votacao /  a.politico_total
+			a.total_presenca_media =  a.total_presenca /  a.politico_total
+			a.total_processo_media =  a.total_processo /  a.politico_total
+			a.total_proposicao_media =  a.total_proposicao /  a.politico_total
+			a.total_despesa_media =  a.total_despesa /  a.politico_total
+			a.name_pt = a.partidos.name_pt      
+			a.color = a.partidos.color    
+	        //a.candidatura = a.id
+	        //a.rodadaNome = rodada[a.rodada]	       
+	       	attrs[a.id] = a
+	   	})
+ 
+      viz
+        .type("tree_map")
+        .id("id")
+        .attrs(attrs)
+        .text("name_pt")
+        .value("pontuacao_total_media")
+        
+        .font("Open Sans")
+        .font_weight("lighter")
+        .depth(0)
+        .year(2014)
+        .year_var("ano")
+        
+        
+       // .tooltip_info(["partidoNome","name_pt", "pontos", "nome_rodada" ,"proposicao"])
+    
+       .color('color')
+          .aggs({"total_despesa":"mean","proposicao":"mean","presenca":"mean"
+        	  ,"votacao":"mean","despesa":"mean","processo":"mean"})
+        	  
+      d3.select("#treemapPartidoDiv")
+        .datum(data.partidos)
+        .call(viz)
+	  
+	  })
+	})
+	initChartVars('{{ divId }}',"total_despesa", "media");
+  /*
+    d3.json("/attrs/rodada", function(rodada){
+	d3.json("/attrs/partido", function(partido){
+	d3.json("/attrs/candidatura", function(attr){
+		d3.json("/attrs/candidatura", function(data){
+	    
+	         var attrs = {}
+      attr.candidaturas.forEach(function(a){
+        a.candidatura = a.id
+        partido.partidos.forEach(function(p){
+        	if(p.id == a.partido){
+	          	a.partidoNome = p.name_pt
+	          	a.partidoSigla = p.sigla
+	          	a.color = p.color
+	          }		          
+         
+        })
+        attrs[a.id] = a
+      })
+      
+      clicker = function(obj) {
+        //parent.window.location="/politica/partido/"+obj
+      }
+  
+      viz
+        .type("tree_map")
+        .id(["partido","candidatura"])
+        .attrs(attrs)
+        .text(["partidoNome","name_pt"])
+        .value("votacao_total")
+         .click_function(clicker)
+        .year_var("rodada")
+        .font("Open Sans")
+        .font_weight("lighter")
+        //.year(2)
+        
+        
+        
+        .tooltip_info(["partidoNome","name_pt", "pontos", "nome_rodada" ,"proposicao"])
+        //.name_array(["partidoNome","partidoNome"])        
+        //.nesting(["partido","candidatura"])
+        //.depth(1)
+       .color('color')
+         //.aggs({"pontos":"mean"})
+          .aggs({"pontos":"mean","proposicao":"mean","presenca":"mean"
+        	  ,"votacao":"mean","despesa":"mean","processo":"mean"})
+        	  
+      d3.select("#treemapPartidoDiv")
+        .datum(data.candidaturas)
+        .call(viz)
+	  
+	  })
+	})
+})   
+
+  })
+  
+  
+  */
+  
+/*
+  
+  d3.json("/attrs/rodada", function(rodada){
+	d3.json("/attrs/partido", function(partido){
+	d3.json("/attrs/candidatura", function(attr){
+	  d3.json("/attrs/pontuacaorodada/3", function(data){
+	    
+	         var attrs = {}
+      attr.candidaturas.forEach(function(a){
+        a.candidatura = a.id
+        partido.partidos.forEach(function(p){
+        	if(p.id == a.partido){
+	          	a.partidoNome = p.name_pt
+	          	a.partidoSigla = p.sigla
+	          	a.color = p.color
+	          }		          
+         
+        })
+        attrs[a.id] = a
+      })
+      
+       data.pontuacoes.forEach(function(a){
+    	// a.proposicaoPC =   
+       })
+      
+      clicker = function(obj) {
+        //parent.window.location="/politica/partido/"+obj
+      }
+  
+      viz
+        .type("tree_map")
+        .id(["partido","candidatura"])
+        .attrs(attrs)
+        .text(["partidoNome","name_pt"])
+        .value("pontos")
+         .click_function(clicker)
+        .year_var("rodada")
+        .font("Open Sans")
+        .font_weight("lighter")
+        //.year(2)
+        
+        
+        
+        .tooltip_info(["partidoNome","name_pt", "pontos", "nome_rodada" ,"proposicao"])
+        //.name_array(["partidoNome","partidoNome"])        
+        .nesting(["partido","candidatura"])
+        .depth(1)
+       .color('color')
+         //.aggs({"pontos":"mean"})
+          .aggs({"pontos":"mean","proposicao":"mean","presenca":"mean"
+        	  ,"votacao":"mean","despesa":"mean","processo":"mean"})
+        	  
+      d3.select("#treemapPartidoDiv")
+        .datum(data.pontuacoes)
+        .call(viz)
+	  
+	  })
+	})
+})   
+
+  })
+  
+  */
+  
+  </script>
+{% endblock %}

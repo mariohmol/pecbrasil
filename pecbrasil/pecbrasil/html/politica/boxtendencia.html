@@ -1,0 +1,53 @@
+<div id="boxPoliticoTendencia">
+
+
+{% if candidato.pontuacao_ultima > 25 %}
+			<img src="/static/img/pec/card_seta5.png" />
+			<img src="/static/img/pec/card_seta4.png" />
+			<img src="/static/img/pec/card_seta3.png" />
+			<img src="/static/img/pec/card_seta2.png" />
+			<img src="/static/img/pec/card_seta1.png" />
+		{% endif %}
+		
+		
+{% if candidato.pontuacao_ultima > 20 and  candidato.pontuacao_ultima <= 25 %}
+			<img src="/static/img/pec/card_seta5_off.png" />
+			<img src="/static/img/pec/card_seta4.png" />
+			<img src="/static/img/pec/card_seta3.png" />
+			<img src="/static/img/pec/card_seta2.png" />
+			<img src="/static/img/pec/card_seta1.png" />
+		{% endif %}
+		
+
+
+	{% if candidato.pontuacao_ultima > 15 and  candidato.pontuacao_ultima <= 20 %}
+	
+			<img src="/static/img/pec/card_seta5_off.png" />
+			<img src="/static/img/pec/card_seta4_off.png" />
+			<img src="/static/img/pec/card_seta3.png" />
+			<img src="/static/img/pec/card_seta2.png" />
+			<img src="/static/img/pec/card_seta1.png" />
+		{% endif %}
+		
+			{% if candidato.pontuacao_ultima > 10 and  candidato.pontuacao_ultima <= 15 %}
+	
+			<img src="/static/img/pec/card_seta5_off.png" />
+			<img src="/static/img/pec/card_seta4_off.png" />
+			<img src="/static/img/pec/card_seta3_off.png" />
+			<img src="/static/img/pec/card_seta2.png" />
+			<img src="/static/img/pec/card_seta1.png" />
+		{% endif %}
+		
+
+	
+
+	
+
+	{% if candidato.pontuacao_ultima <= 10 %}
+			<img src="/static/img/pec/card_seta5_off.png" />
+			<img src="/static/img/pec/card_seta4_off.png" />
+			<img src="/static/img/pec/card_seta3_off.png" />
+			<img src="/static/img/pec/card_seta2_off.png" />
+			<img src="/static/img/pec/card_seta1.png" />
+		{% endif %}
+	</div>	

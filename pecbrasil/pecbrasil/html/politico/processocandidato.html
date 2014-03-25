@@ -1,0 +1,38 @@
+<!-- extend from about base layout -->
+{% extends "templates/clean.html" %}
+
+{% block title %}: {% trans %}About the Site{% endtrans %}{% endblock %}
+
+{% block content %}
+ 
+
+ <style>
+ 	body { background-color:#f1f1f1!important; font-family:"Open Sans"!important; font-size:12px!important; }
+ </style>
+  
+  {% if processos %}
+	   <table><tr>
+	  <td> candidatura </td>
+	      <td> processo </td>
+	       <td> status </td>
+	     <td> desc </td>
+	     </tr>
+	     
+	     {% for processo in processos %}
+	     <tr>
+	     <td>{{ processo.candidatura }}</td>
+	      <td>{{ processo.processo }}</td>
+	       <td>{{ processo.status }}</td>
+	     <td>{{ processo.desc }}</td>
+	      
+	      </tr>
+	    {% endfor %}
+	    </table>
+	    {% else %}
+	    Não foram encontrados processos para este político.
+    {% endif %}
+    
+    
+    
+{% endblock %}
+
