@@ -1,0 +1,30 @@
+<!-- extend from about base layout -->
+{% extends "templates/site.html" %}
+
+{% block title %}: {% trans %}Liga{% endtrans %}{% endblock %}
+
+{% block body %}
+  <h1>{% trans %}Liga{% endtrans %}</h1>
+  
+  <br/>
+  {% trans %}Crie sua liga agora e convide seus amigos para participar!{% endtrans %}
+  <br/>
+  <a href="/liga/criar/">
+  {% trans %}Criar Liga{% endtrans %}
+  </a>
+  
+   <br/>
+   
+   		{% set frame = 'true' %}
+      	{% include "comunicado/convideamigosform.html" %}
+    <br/>
+  
+  <h2>{% trans %}Veja as ligas{% endtrans %}:</h2>
+     {% for liga in ligas %}
+      <a href="/liga/ver/{{ liga.id_liga }}">{{ liga.nome_liga }}</a>
+   
+      <br/>
+    {% endfor %}
+    
+{% endblock %}
+

@@ -1,0 +1,82 @@
+{% extends "templates/clean.html" %}
+
+{% block content %}
+
+ {% set divId = 'stackedDiv' %}
+{% include "grafico/painelIframe.html" %}
+
+<div id="stackedDiv"></div>
+  
+  
+  
+ 
+ 	<script src="/static/js/src/viz/stacked.js"></script>
+ 	
+<script>
+
+d3.json("/attrs/partido", function(partido){
+	d3.json("/attrs/candidatura", function(attr){
+	  d3.json("/attrs/pontuacao", function(data){
+	  	
+	  	    
+       
+      var attrs = {}
+        attr.candidaturas.forEach(function(a){
+          a.candidatura = a.id
+          partido.partidos.forEach(function(p){
+            if(p.id == a.partido) {
+            	a.partidoNome = p.name_pt;
+            	a.partidoSigla = p.sigla
+            	a.color = p.color
+            }
+          });
+          attrs[a.id] = a
+        })
+    
+        /**
+        
+        Unexpected value NaN parsing x2 attribute.
+	
+
+this.setAttribute(name, i(t));
+
+d3.js (linha 7698)
+Unexpected value NaN parsing x1 attribute.
+	
+
+this.setAttribute(name, i(t));
+
+d3.js (linha 7698)
+Unexpected value NaNpx parsing x attribute.
+	
+
+this.setAttribute(name, i(t));
+
+*/
+        viz = d3plus.viz()
+          .type("stacked")
+          .id_var("candidatura")
+          .attrs(attrs)
+          .text_var("partidoNome") //
+          .value("pontos")
+           //.tooltip_info({"short": {"":["val_usd"]}, "long": {"": ["val_usd"], "calcs": ["distance", "complexity", "rca"]}})
+         // .tooltip_info([ "partido", "partidoNome", "pontos", "rodada"])
+          //.nesting(["partido","candidatura"])
+          //.depth("partido")
+          .xaxis_var("rodada")
+          .year_var("rodada")
+          .font("Open Sans")
+          .font_weight("lighter")
+          //.stack_type("monotone")
+          //.layout("share")
+        	//.color('color')
+        d3.select("#stackedDiv")
+          .datum(data.pontuacoes)
+          .call(viz)
+    
+    })
+  })
+})
+</script>
+
+{% endblock %}

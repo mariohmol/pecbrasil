@@ -1,0 +1,15 @@
+<!-- extend from about base layout -->
+{% extends "templates/clean.html" %}
+
+{% block title %}: {% trans %}About the Site{% endtrans %}{% endblock %}
+
+{% block content %}
+  <h1>{% trans %}Repasse{% endtrans %}</h1>
+  
+  
+     {% for repasse in repasses %}
+      <a >{{ repasse.id }}</a>
+    {% endfor %}
+    
+{% endblock %}
+

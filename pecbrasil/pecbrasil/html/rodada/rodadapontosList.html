@@ -1,0 +1,16 @@
+<!-- extend from about base layout -->
+{% extends "templates/site.html" %}
+
+{% block title %}: {% trans %}Pontos da Rodada{% endtrans %}{% endblock %}
+
+{% block content %}
+  <h1>{% trans %}Rodada Pontos{% endtrans %}</h1>
+  
+  
+     {% for rodadaponto in rodadapontos %}
+      <a class="app_links decision short icon {{ rodadaponto.rodada }}" 
+      id="app{{ rodadaponto.rodada }}" onclick="slide(this.id)">{{ rodadaponto.rodada }}</a>
+    {% endfor %}
+    
+{% endblock %}
+

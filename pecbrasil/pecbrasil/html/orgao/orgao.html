@@ -1,0 +1,101 @@
+<!-- extend from about base layout -->
+{% extends "templates/site.html" %}
+
+{% block title %}: {% trans %}Órgão{% endtrans %}{% endblock %}
+
+{% block body %}
+  
+  {% if orgao %}
+  
+  
+ <div id="container">
+	  
+	
+	<div class="col-md-3 sidePolitico"> 
+	    <div id="guide_title">{% trans %}Veja mais{% endtrans %}</div>
+		    
+		    <a onclick="slide(this.id)" id="app0" class="app_links decision short icon tree_map">
+		{% trans %}Informações Gerais{% endtrans %}</a>
+			
+		<a onclick="slide(this.id)" id="app1" class="app_links decision short icon tree_map">
+			
+		{% trans %}Membros{% endtrans %}</a>
+		
+		<a onclick="slide(this.id)" id="app2" class="app_links decision short icon tree_map">
+			
+		{% trans %}Últimas Tramitações{% endtrans %}</a>
+		
+	</div>
+	  
+	  
+	  
+	<div class="col-md-9 ctPolitico"> 
+	
+	
+		<div id="profile0" class="lightbox guide_app infoQd" style="width: 100%!important; height: auto;">	
+			
+		
+				<h1> {% trans %}orgao{% endtrans %}: {{ orgao.sigla }} </h1>
+				
+			
+				
+				<pre>{{ orgao.desc|trim }}]</pre>
+		</div>
+		
+		<div id="profile1" class="lightbox guide_app biografia profile_partido"
+	
+			style="">
+			
+			<h2>{% trans %}Membros{% endtrans %}</h2>
+			
+			<br>
+			<iframe id="iframe1"			alt="/orgao/membros/{{ orgao.id }}/frame"
+			style="width: 648px; height: 600px"></iframe>	    
+			  
+	    </div>
+	    
+		<div id="profile2" class="lightbox guide_app biografia profile_partido"
+	
+			style="">
+			
+			<h2>{% trans %}Últimas Tramitações{% endtrans %}</h2>
+	    
+	
+			<br>
+			<iframe id="iframe2"			alt="/orgao/membros/{{ orgao.id }}/frame"
+			style="width: 648px; height: 600px"></iframe>	    
+	</div>
+    
+    
+	<script>
+      
+    var width = window.innerWidth-380,
+        height = window.innerHeight-149,
+        builds = {},
+        sliding = false,
+        selected = null,
+        scrollinterval = null
+
+    d3.selectAll(".guide_app")
+      //.style("width",width+"px")
+      //.style("height",height+"px")
+      .each(function(){ 
+        var p = this.id.substring(7),
+            t = this.offsetTop-10 //78
+        builds[p] = {"loaded": false, "top": t}
+       
+        if (p == 1) {
+          load(p)
+          select(p)
+        }
+      })
+      initSlides();
+  </script>
+  
+    {% else %}
+		    {% trans %}O orgao não foi encontrado{% endtrans %}
+		    {% endif %}
+		    
+{% endblock %}
+
+</div>

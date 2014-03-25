@@ -1,0 +1,1185 @@
+# Translations template for PROJECT.
+# Copyright (C) 2014 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2014-02-25 17:26-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.3\n"
+
+#: pecbrasil/ask/views.py:92 pecbrasil/ask/views.py:120
+#: pecbrasil/liga/views.py:86
+msgid "You need to be logged in to vote."
+msgstr ""
+
+#: pecbrasil/ask/views.py:150
+msgid "You need to be logged in to flag replies."
+msgstr ""
+
+#: pecbrasil/html/home.html:17 pecbrasil/html/ask/teste.html:33
+#: pecbrasil/html/orgao/orgao.html:15
+#: pecbrasil/html/orgao/orgaocandidato.html:15
+#: pecbrasil/html/politica/boxpolitico.html:141
+#: pecbrasil/html/politica/boxtime.html:87
+#: pecbrasil/html/politica/partido.html:15
+#: pecbrasil/html/proposicao/proposicao.html:15
+#: pecbrasil/html/rodada/rodadaList.html:31
+msgid "Veja mais"
+msgstr ""
+
+#: pecbrasil/html/home.html:20
+msgid "Como Funciona"
+msgstr ""
+
+#: pecbrasil/html/home.html:23 pecbrasil/html/home.html:69
+msgid "Políticos que mais pontuaram na última rodada"
+msgstr ""
+
+#: pecbrasil/html/home.html:26
+msgid "Partidos que mais pontuaram na última rodada"
+msgstr ""
+
+#: pecbrasil/html/home.html:32
+msgid "Atuação dos políticos em relação a seu partido"
+msgstr ""
+
+#: pecbrasil/html/home.html:40 pecbrasil/html/about/pecbrasil.html:9
+msgid "O P.E.C. BRASIL É O JOGO QUE O PAÍS PRECISA"
+msgstr ""
+
+#: pecbrasil/html/home.html:42
+msgid ""
+"Eleja seus políticos e ganhe pontos a cada semana. Os pontos\n"
+"      de cada representante é uma análise dos principais índices de\n"
+"      contribuição na cena política nacional"
+msgstr ""
+
+#: pecbrasil/html/home.html:55
+msgid "CONHEÇA ALGUMAS DAS"
+msgstr ""
+
+#: pecbrasil/html/home.html:55
+msgid "FERRAMENTAS"
+msgstr ""
+
+#: pecbrasil/html/home.html:55
+msgid "QUE VOCÊ USARÁ PARA"
+msgstr ""
+
+#: pecbrasil/html/home.html:55
+msgid "COMPARAR"
+msgstr ""
+
+#: pecbrasil/html/home.html:55
+msgid "OS DEPUTADOS"
+msgstr ""
+
+#: pecbrasil/html/home.html:86
+msgid "Partidos que mais pontuaram na última"
+msgstr ""
+
+#: pecbrasil/html/home.html:162
+msgid "QUEM ESTÁ FALANDO SOBRE O"
+msgstr ""
+
+#: pecbrasil/html/home.html:162
+msgid "POLÍTICA ESPORTE CLUBE"
+msgstr ""
+
+#: pecbrasil/html/home.html:185 pecbrasil/html/admin/admin_questions.html:3
+#: pecbrasil/html/admin/admin_questions.html:12 pecbrasil/html/ask/ask.html:34
+msgid "Question"
+msgstr ""
+
+#: pecbrasil/html/home.html:202 pecbrasil/html/ask/ask.html:54
+msgid "Pergunte a nossa equipe!"
+msgstr ""
+
+#: pecbrasil/html/about/pecbrasil.html:4 pecbrasil/html/grafico/geomap.html:4
+#: pecbrasil/html/grafico/network.html:4 pecbrasil/html/grafico/rings.html:4
+#: pecbrasil/html/grafico/scatter.html:4
+#: pecbrasil/html/politica/candidatura.html:4
+#: pecbrasil/html/politica/candidaturaList.html:4
+#: pecbrasil/html/politica/import.html:4
+#: pecbrasil/html/politica/partidoList.html:4
+#: pecbrasil/html/politica/politicoList.html:4
+#: pecbrasil/html/politica/pontuacao.html:4
+#: pecbrasil/html/politica/pontuacaoList.html:4
+#: pecbrasil/html/politica/rodada.html:4
+#: pecbrasil/html/politica/rodadaList.html:4
+#: pecbrasil/html/politica/rodadapontos.html:4
+#: pecbrasil/html/politica/rodadapontosList.html:4
+#: pecbrasil/html/politica/time.html:4
+#: pecbrasil/html/politico/despesacandidato.html:4
+#: pecbrasil/html/politico/despesacandidatoList.html:4
+#: pecbrasil/html/politico/processocandidato.html:4
+#: pecbrasil/html/politico/processocandidatoList.html:4
+#: pecbrasil/html/politico/repasse.html:4
+#: pecbrasil/html/politico/repasseList.html:4
+#: pecbrasil/html/politico/votacaocandidato.html:4
+#: pecbrasil/html/politico/votacaocandidatoList.html:4
+#: pecbrasil/html/pontos/politico.html:4
+#: pecbrasil/html/pontos/politicoList.html:4
+#: pecbrasil/html/pontos/rodada.html:4 pecbrasil/html/pontos/time.html:4
+#: pecbrasil/html/pontos/timeList.html:4
+#: pecbrasil/html/proposicao/proposicao.html:4
+msgid "About the Site"
+msgstr ""
+
+#: pecbrasil/html/about/pecbrasil.html:11
+msgid ""
+"Eleja seus políticos e ganhe pontos a cada semana. Os pontos de cada "
+"representante é uma"
+msgstr ""
+
+#: pecbrasil/html/about/pecbrasil.html:12
+msgid "análise dos principais índices de contribuição na cena política nacional"
+msgstr ""
+
+#: pecbrasil/html/about/pecbrasil.html:14
+msgid ""
+"Contabilizando indicadores de assiduidade (presença no Congresso "
+"Nacional) e proposições, você pode selecionar os deputados"
+msgstr ""
+
+#: pecbrasil/html/about/pecbrasil.html:15
+msgid ""
+"que melhor lhe representa e acompanhar seu desempenho, semana a semana, "
+"conhecendo sobre sua carreira e acumulo de pontos!"
+msgstr ""
+
+#: pecbrasil/html/about/pecbrasil.html:17
+msgid "Curtiu? Jogue e compartilhe. O país agradece!"
+msgstr ""
+
+#: pecbrasil/html/about/pecbrasil.html:21
+msgid "REGRAS"
+msgstr ""
+
+#: pecbrasil/html/about/regras.html:4
+msgid "Regras"
+msgstr ""
+
+#: pecbrasil/html/account/index.html:23
+msgid "Activity sorted by date"
+msgstr ""
+
+#: pecbrasil/html/account/index.html:27
+msgid "All"
+msgstr ""
+
+#: pecbrasil/html/account/index.html:29
+msgid "Starred Apps"
+msgstr ""
+
+#: pecbrasil/html/account/index.html:31
+msgid "Questions"
+msgstr ""
+
+#: pecbrasil/html/account/index.html:33
+msgid "Replies"
+msgstr ""
+
+#: pecbrasil/html/account/login.html:1 pecbrasil/html/general/access.html:3
+msgid "Login"
+msgstr ""
+
+#: pecbrasil/html/account/login.html:9
+msgid "ENTRE"
+msgstr ""
+
+#: pecbrasil/html/account/login.html:15
+msgid "Acessar"
+msgstr ""
+
+#: pecbrasil/html/account/login.html:22
+msgid "Remember Me"
+msgstr ""
+
+#: pecbrasil/html/account/login.html:31
+msgid "OU CRIE UMA CONTA"
+msgstr ""
+
+#: pecbrasil/html/admin/admin_questions.html:13
+msgid "User"
+msgstr ""
+
+#: pecbrasil/html/admin/admin_questions.html:14
+msgid "Date"
+msgstr ""
+
+#: pecbrasil/html/admin/admin_questions_edit.html:3
+msgid "Edit Question"
+msgstr ""
+
+#: pecbrasil/html/admin/admin_questions_edit.html:16
+#: pecbrasil/html/ask/answer.html:59
+msgid "Asked by"
+msgstr ""
+
+#: pecbrasil/html/admin/admin_questions_edit.html:24
+#: pecbrasil/html/proposicao/avaliar.html:15
+#: pecbrasil/html/proposicao/proposicao.html:47
+#: pecbrasil/html/proposicao/proposicaoList.html:16
+msgid "Status"
+msgstr ""
+
+#: pecbrasil/html/admin/admin_questions_edit.html:27
+msgid "Pergunta"
+msgstr ""
+
+#: pecbrasil/html/admin/admin_questions_edit.html:28
+msgid "Enter your answer..."
+msgstr ""
+
+#: pecbrasil/html/admin/admin_questions_edit.html:33
+msgid "Update"
+msgstr ""
+
+#: pecbrasil/html/admin/admin_users.html:3
+msgid "Admin Panel"
+msgstr ""
+
+#: pecbrasil/html/admin/admin_users.html:24
+msgid "Email"
+msgstr ""
+
+#: pecbrasil/html/admin/admin_users.html:25
+msgid "Full Name"
+msgstr ""
+
+#: pecbrasil/html/admin/admin_users.html:26
+msgid "Nick Name"
+msgstr ""
+
+#: pecbrasil/html/admin/admin_users.html:27
+msgid "Role"
+msgstr ""
+
+#: pecbrasil/html/ask/answer.html:5
+msgid "Pergunte"
+msgstr ""
+
+#: pecbrasil/html/ask/answer.html:27 pecbrasil/html/ask/answer.html:91
+msgid "Points"
+msgstr ""
+
+#: pecbrasil/html/ask/answer.html:46 pecbrasil/html/ask/ask.html:48
+msgid "Tags"
+msgstr ""
+
+#: pecbrasil/html/ask/answer.html:75
+msgid ""
+"Sabrina has not answered this question yet. Feel free to start the "
+"conversation below."
+msgstr ""
+
+#: pecbrasil/html/ask/answer.html:83
+msgid "Responses"
+msgstr ""
+
+#: pecbrasil/html/ask/answer.html:111
+msgid "Respond to"
+msgstr ""
+
+#: pecbrasil/html/ask/answer.html:123
+msgid "New Response"
+msgstr ""
+
+#: pecbrasil/html/ask/answer.html:124
+msgid "Leave a Response"
+msgstr ""
+
+#: pecbrasil/html/ask/answer.html:144
+msgid "Reply"
+msgstr ""
+
+#: pecbrasil/html/ask/ask.html:4 pecbrasil/html/ask/questions.html:4
+#: pecbrasil/html/ask/teste.html:4
+msgid "Ask Sabrina"
+msgstr ""
+
+#: pecbrasil/html/ask/ask.html:19 pecbrasil/html/ask/questions.html:13
+msgid "What would you like to know?"
+msgstr ""
+
+#: pecbrasil/html/ask/ask.html:21
+msgid "You need to login for this functionality."
+msgstr ""
+
+#: pecbrasil/html/ask/ask.html:62
+msgid "Click here to login"
+msgstr ""
+
+#: pecbrasil/html/ask/contact.html:4
+#: pecbrasil/html/comunicado/abrecampeonato.html:4
+#: pecbrasil/html/liga/criar-liga.html:4 pecbrasil/html/liga/ligaList.html:4
+#: pecbrasil/html/liga/ligaList.html:7
+msgid "Liga"
+msgstr ""
+
+#: pecbrasil/html/ask/contact.html:9
+msgid "Contato enviado com sucesso"
+msgstr ""
+
+#: pecbrasil/html/ask/questions.html:22 pecbrasil/html/ask/teste.html:16
+msgid "Order"
+msgstr ""
+
+#: pecbrasil/html/ask/questions.html:24 pecbrasil/html/ask/teste.html:18
+msgid "Top Voted"
+msgstr ""
+
+#: pecbrasil/html/ask/questions.html:26 pecbrasil/html/ask/teste.html:20
+msgid "Newest"
+msgstr ""
+
+#: pecbrasil/html/ask/questions.html:40
+msgid "Cannot find your answer here?"
+msgstr ""
+
+#: pecbrasil/html/ask/questions.html:41 pecbrasil/html/ask/teste.html:34
+msgid "Submit your question to Escritorio!"
+msgstr ""
+
+#: pecbrasil/html/comunicado/abrecampeonato.html:7
+msgid "Ligas"
+msgstr ""
+
+#: pecbrasil/html/comunicado/abrecampeonato.html:10
+#: pecbrasil/html/comunicado/convideamigos.html:10
+#: pecbrasil/html/politica/meu-partido.html:16
+#: pecbrasil/html/politica/politicoList.html:13
+#: pecbrasil/html/politica/selecionar-politicos.html:12
+msgid "Nome"
+msgstr ""
+
+#: pecbrasil/html/comunicado/abrecampeonato.html:13
+msgid "Criado em"
+msgstr ""
+
+#: pecbrasil/html/comunicado/abrecampeonato.html:22
+msgid "Liga Pública"
+msgstr ""
+
+#: pecbrasil/html/comunicado/abrecampeonato.html:24
+msgid "Mudar para Privado"
+msgstr ""
+
+#: pecbrasil/html/comunicado/abrecampeonato.html:26
+msgid "Liga Privada"
+msgstr ""
+
+#: pecbrasil/html/comunicado/abrecampeonato.html:29
+msgid "Mudar para Público"
+msgstr ""
+
+#: pecbrasil/html/comunicado/abrecampeonato.html:49
+msgid "Certeza que deseja excluir a liga?"
+msgstr ""
+
+#: pecbrasil/html/comunicado/abrecampeonato.html:50
+msgid "Excluir Liga"
+msgstr ""
+
+#: pecbrasil/html/comunicado/abrecampeonato.html:55
+msgid "Entrar na Liga"
+msgstr ""
+
+#: pecbrasil/html/comunicado/abrecampeonato.html:60
+#: pecbrasil/html/politica/meu-partido.html:69
+msgid "Compartilhe"
+msgstr ""
+
+#: pecbrasil/html/comunicado/abrecampeonato.html:60
+msgid "com seus amigos para que conheçam esta liga"
+msgstr ""
+
+#: pecbrasil/html/comunicado/convideamigos.html:4
+#: pecbrasil/html/comunicado/statuscomunicado.html:4
+msgid "Convide Amigos"
+msgstr ""
+
+#: pecbrasil/html/comunicado/convideamigos.html:7
+msgid "Convide seus Amigos para o Política Esporte Clube"
+msgstr ""
+
+#: pecbrasil/html/comunicado/statuscomunicado.html:7
+msgid "Comunicado"
+msgstr ""
+
+#: pecbrasil/html/comunicado/statuscomunicado.html:12
+msgid "Envios"
+msgstr ""
+
+#: pecbrasil/html/despesa/boxdespesa.html:3
+msgid "Veja mais informações sobre esta categoria de despesa"
+msgstr ""
+
+#: pecbrasil/html/despesa/boxdespesa.html:4
+msgid "aqui"
+msgstr ""
+
+#: pecbrasil/html/despesa/legenda.html:3
+msgid "ASSINATURA DE PUBLICACOES"
+msgstr ""
+
+#: pecbrasil/html/despesa/legenda.html:5
+msgid "COMBUSTÍVEIS E LUBRIFICANTES"
+msgstr ""
+
+#: pecbrasil/html/despesa/legenda.html:7
+msgid "CONSULTORIAS, PESQUISAS E TRABALHOS TÉCNICOS"
+msgstr ""
+
+#: pecbrasil/html/despesa/legenda.html:9
+msgid "DIVULGACAO DA ATIVIDADE PARLAMENTAR"
+msgstr ""
+
+#: pecbrasil/html/despesa/legenda.html:11
+msgid "COMBUSTIVEIS E LUBRIFICANTES"
+msgstr ""
+
+#: pecbrasil/html/despesa/legenda.html:13
+msgid "CONSULTORIAS"
+msgstr ""
+
+#: pecbrasil/html/despesa/legenda.html:15
+msgid "EMISSAO BILHETE AEREO"
+msgstr ""
+
+#: pecbrasil/html/despesa/legenda.html:17
+msgid "FORNECIMENTO DE ALIMENTACAO DO PARLAMENTAR"
+msgstr ""
+
+#: pecbrasil/html/despesa/legenda.html:19
+msgid "HOSPEDAGEM ,EXCETO DO PARLAMENTAR NO DISTRITO FEDERAL"
+msgstr ""
+
+#: pecbrasil/html/despesa/legenda.html:21
+msgid "LOCACAO DE VEICULOS AUTOMOTORES OU FRETAMENTO"
+msgstr ""
+
+#: pecbrasil/html/despesa/legenda.html:23
+msgid "MANUTENCAO DE ESCRITORIO DE APOIO A ATIVIDADE"
+msgstr ""
+
+#: pecbrasil/html/despesa/legenda.html:25
+msgid "PASSAGENS AEREAS E FRETAMENTO DE AERONAVES"
+msgstr ""
+
+#: pecbrasil/html/despesa/legenda.html:27
+msgid "SERVICO DE SEGURANCA PRESTADO POR EMPRESA ESPECIALIZADA"
+msgstr ""
+
+#: pecbrasil/html/despesa/legenda.html:29
+msgid "SERVICOS POSTAIS"
+msgstr ""
+
+#: pecbrasil/html/despesa/legenda.html:31
+msgid "TELEFONIA"
+msgstr ""
+
+#: pecbrasil/html/general/404.html:12
+msgid "Oh no! The page you've requested does not exist."
+msgstr ""
+
+#: pecbrasil/html/general/access.html:142
+#, python-format
+msgid ""
+"%(note)s: This site is a work in progress. We are working hard everyday "
+"to fix bugs and improve the user experience."
+msgstr ""
+
+#: pecbrasil/html/general/access.html:142
+msgid "Note"
+msgstr ""
+
+#: pecbrasil/html/grafico/geomap.html:7 pecbrasil/html/grafico/network.html:7
+#: pecbrasil/html/grafico/rings.html:7 pecbrasil/html/grafico/scatter.html:7
+msgid " "
+msgstr ""
+
+#: pecbrasil/html/liga/criar-liga.html:9 pecbrasil/html/liga/ligaList.html:13
+msgid "Criar Liga"
+msgstr ""
+
+#: pecbrasil/html/liga/criar-liga.html:17
+msgid "Se deseja que o público em geral possa ver e entrar na sua liga"
+msgstr ""
+
+#: pecbrasil/html/liga/ligaList.html:10
+msgid "Crie sua liga agora e convide seus amigos para participar!"
+msgstr ""
+
+#: pecbrasil/html/liga/ligaList.html:18
+msgid "Veja as ligas"
+msgstr ""
+
+#: pecbrasil/html/orgao/orgao.html:4 pecbrasil/html/orgao/orgaoList.html:8
+#: pecbrasil/html/orgao/orgaocandidato.html:4
+#: pecbrasil/html/orgao/orgaocandidatoList.html:8
+msgid "Órgão"
+msgstr ""
+
+#: pecbrasil/html/orgao/orgao.html:18
+#: pecbrasil/html/orgao/orgaocandidato.html:18
+#: pecbrasil/html/politica/partido.html:18
+#: pecbrasil/html/politica/politico.html:20
+#: pecbrasil/html/proposicao/proposicao.html:18
+#: pecbrasil/html/rodada/rodada.html:21
+msgid "Informações Gerais"
+msgstr ""
+
+#: pecbrasil/html/orgao/orgao.html:22 pecbrasil/html/orgao/orgao.html:49
+#: pecbrasil/html/orgao/orgaocandidato.html:22
+#: pecbrasil/html/orgao/orgaocandidato.html:49
+msgid "Membros"
+msgstr ""
+
+#: pecbrasil/html/orgao/orgao.html:26 pecbrasil/html/orgao/orgao.html:61
+#: pecbrasil/html/orgao/orgaocandidato.html:26
+#: pecbrasil/html/orgao/orgaocandidato.html:61
+msgid "Últimas Tramitações"
+msgstr ""
+
+#: pecbrasil/html/orgao/orgao.html:38
+#: pecbrasil/html/orgao/orgaocandidato.html:38
+msgid "orgao"
+msgstr ""
+
+#: pecbrasil/html/orgao/orgao.html:96
+#: pecbrasil/html/orgao/orgaocandidato.html:96
+msgid "O orgao não foi encontrado"
+msgstr ""
+
+#: pecbrasil/html/politica/boxpolitico.html:83
+#: pecbrasil/html/politica/boxtime.html:70
+#: pecbrasil/html/politica/politico.html:44
+#: pecbrasil/html/politica/politico.html:91
+#: pecbrasil/html/politica/resumopolitico.html:27
+#: pecbrasil/html/politico/votacaocandidatoList.html:7
+#: pecbrasil/html/proposicao/proposicao.html:22
+#: pecbrasil/html/proposicao/proposicao.html:57
+#: pecbrasil/html/proposicao/proposicao.html:69
+msgid "Votações"
+msgstr ""
+
+#: pecbrasil/html/politica/boxpolitico.html:93
+#: pecbrasil/html/politica/politico.html:97
+#: pecbrasil/html/politica/resumopolitico.html:28
+msgid "Presenças"
+msgstr ""
+
+#: pecbrasil/html/politica/boxpolitico.html:105
+#: pecbrasil/html/politica/partido.html:32
+#: pecbrasil/html/politica/partido.html:99
+#: pecbrasil/html/politica/politico.html:41
+#: pecbrasil/html/politica/politico.html:111
+#: pecbrasil/html/politica/politico.html:224
+msgid "Proposições"
+msgstr ""
+
+#: pecbrasil/html/politica/boxpolitico.html:117
+#: pecbrasil/html/politica/politico.html:29
+#: pecbrasil/html/politica/politico.html:105
+#: pecbrasil/html/politica/politico.html:213
+#: pecbrasil/html/politica/resumopolitico.html:31
+#: pecbrasil/html/politico/despesacandidatoList.html:7
+msgid "Despesas"
+msgstr ""
+
+#: pecbrasil/html/politica/boxpolitico.html:149
+msgid "Alterar"
+msgstr ""
+
+#: pecbrasil/html/politica/boxpolitico.html:162
+msgid "Selecionado!"
+msgstr ""
+
+#: pecbrasil/html/politica/boxpolitico.html:175
+msgid "Selecionar"
+msgstr ""
+
+#: pecbrasil/html/politica/candidatura.html:7
+#: pecbrasil/html/politica/import.html:7
+msgid "Candidatura"
+msgstr ""
+
+#: pecbrasil/html/politica/candidaturaList.html:7
+msgid "Candidaturas"
+msgstr ""
+
+#: pecbrasil/html/politica/criar-partido.html:2
+msgid ""
+"About\n"
+"the Site"
+msgstr ""
+
+#: pecbrasil/html/politica/criar-partido.html:7
+msgid "Criar Partido"
+msgstr ""
+
+#: pecbrasil/html/politica/meu-partido.html:4
+#: pecbrasil/html/politica/meu-partido.html:12
+#: pecbrasil/html/politica/selecao.html:4
+msgid "Meu Partido"
+msgstr ""
+
+#: pecbrasil/html/politica/meu-partido.html:14
+msgid "Presidente"
+msgstr ""
+
+#: pecbrasil/html/politica/meu-partido.html:46
+#: pecbrasil/html/politica/meu-partido.html:50
+#: pecbrasil/html/politica/meu-partido.html:54
+#: pecbrasil/html/politica/meu-partido.html:58
+msgid "Escolha um político para cadeira"
+msgstr ""
+
+#: pecbrasil/html/politica/meu-partido.html:69
+msgid "com seus amigos para que conheçam seu time"
+msgstr ""
+
+#: pecbrasil/html/politica/meu-partido.html:79
+msgid "Certeza que deseja excluir?"
+msgstr ""
+
+#: pecbrasil/html/politica/meu-partido.html:80
+msgid "Excluir Partido"
+msgstr ""
+
+#: pecbrasil/html/politica/partido.html:6
+msgid "Partido:  "
+msgstr ""
+
+#: pecbrasil/html/politica/partido.html:22
+#: pecbrasil/html/politica/partido.html:55
+msgid "Participação do partido em todo campeonato"
+msgstr ""
+
+#: pecbrasil/html/politica/partido.html:25
+#: pecbrasil/html/politica/partido.html:73
+msgid "Desempenho do partido na última rodada"
+msgstr ""
+
+#: pecbrasil/html/politica/partido.html:29
+#: pecbrasil/html/politica/partido.html:88
+msgid "Dados dos políticos"
+msgstr ""
+
+#: pecbrasil/html/politica/partidoList.html:7
+msgid "Partidos"
+msgstr ""
+
+#: pecbrasil/html/politica/partidoList.html:22
+msgid "Todos os partidos"
+msgstr ""
+
+#: pecbrasil/html/politica/partidoList.html:26
+msgid "Sigla"
+msgstr ""
+
+#: pecbrasil/html/politica/partidoList.html:31
+msgid "Nome do Partido"
+msgstr ""
+
+#: pecbrasil/html/politica/politico.html:3 pecbrasil/html/pontos/time.html:7
+msgid "Politicos"
+msgstr ""
+
+#: pecbrasil/html/politica/politico.html:23
+#: pecbrasil/html/politica/politico.html:157
+msgid "Última semana"
+msgstr ""
+
+#: pecbrasil/html/politica/politico.html:26
+msgid "Compare com outros políticos"
+msgstr ""
+
+#: pecbrasil/html/politica/politico.html:32
+msgid "Despesas durante o Campeonato"
+msgstr ""
+
+#: pecbrasil/html/politica/politico.html:35
+msgid "Histórico de Despesas"
+msgstr ""
+
+#: pecbrasil/html/politica/politico.html:47
+#: pecbrasil/html/politica/politico.html:239
+msgid "Comissões"
+msgstr ""
+
+#: pecbrasil/html/politica/politico.html:65
+msgid "TOTAL de pontos"
+msgstr ""
+
+#: pecbrasil/html/politica/politico.html:66
+#: pecbrasil/html/politica/politico.html:69
+msgid "pontos"
+msgstr ""
+
+#: pecbrasil/html/politica/politico.html:68
+msgid "Última rodada"
+msgstr ""
+
+#: pecbrasil/html/politica/politico.html:141
+msgid "Biografia"
+msgstr ""
+
+#: pecbrasil/html/politica/politico.html:158
+msgid "em comparação ao"
+msgstr ""
+
+#: pecbrasil/html/politica/politico.html:173
+msgid "Comparação aos outros políticos do"
+msgstr ""
+
+#: pecbrasil/html/politica/politico.html:187
+msgid "Despesas  na Ultima Rodada"
+msgstr ""
+
+#: pecbrasil/html/politica/politico.html:193
+#: pecbrasil/html/politica/politico.html:207
+msgid "Legenda"
+msgstr ""
+
+#: pecbrasil/html/politica/politico.html:198
+msgid "Despesas ao longo do campeonato"
+msgstr ""
+
+#: pecbrasil/html/politica/politico.html:231
+#: pecbrasil/html/politica/politicoList.html:18
+#: pecbrasil/html/politica/selecionar-politicos.html:17
+#: pecbrasil/html/proposicao/votacaoList.html:8
+msgid "Votação"
+msgstr ""
+
+#: pecbrasil/html/politica/politicoList.html:10
+#: pecbrasil/html/pontos/politicoList.html:7
+msgid "Políticos"
+msgstr ""
+
+#: pecbrasil/html/politica/politicoList.html:12
+#: pecbrasil/html/politica/selecionar-politicos.html:11
+msgid "Ordernar por"
+msgstr ""
+
+#: pecbrasil/html/politica/politicoList.html:14
+#: pecbrasil/html/politica/selecionar-politicos.html:13
+msgid "Partido"
+msgstr ""
+
+#: pecbrasil/html/politica/politicoList.html:15
+#: pecbrasil/html/politica/selecionar-politicos.html:14
+msgid "Despesa"
+msgstr ""
+
+#: pecbrasil/html/politica/politicoList.html:16
+#: pecbrasil/html/politica/selecionar-politicos.html:15
+msgid "Presença"
+msgstr ""
+
+#: pecbrasil/html/politica/politicoList.html:17
+#: pecbrasil/html/politica/selecionar-politicos.html:16
+#: pecbrasil/html/politico/votacaocandidatoList.html:11
+#: pecbrasil/html/proposicao/proposicao.html:42
+#: pecbrasil/html/proposicao/proposicaoList.html:8
+msgid "Proposição"
+msgstr ""
+
+#: pecbrasil/html/politica/politicoList.html:20
+#: pecbrasil/html/politica/selecaoList.html:15
+#: pecbrasil/html/politica/selecionar-politicos.html:19
+#: pecbrasil/html/pontos/rodada.html:10
+msgid "Pontos"
+msgstr ""
+
+#: pecbrasil/html/politica/politicoList.html:21
+#: pecbrasil/html/politica/selecionar-politicos.html:20
+msgid "Última Semana"
+msgstr ""
+
+#: pecbrasil/html/politica/politicoList.html:25
+#: pecbrasil/html/politica/selecionar-politicos.html:24
+msgid "Ordenação crescente"
+msgstr ""
+
+#: pecbrasil/html/politica/politicoList.html:27
+#: pecbrasil/html/politica/politicoList.html:31
+#: pecbrasil/html/politica/selecionar-politicos.html:26
+#: pecbrasil/html/politica/selecionar-politicos.html:30
+msgid "Mudar sentido"
+msgstr ""
+
+#: pecbrasil/html/politica/politicoList.html:29
+#: pecbrasil/html/politica/selecionar-politicos.html:28
+msgid "Ordenação decrescente"
+msgstr ""
+
+#: pecbrasil/html/politica/politicoList.html:76
+#: pecbrasil/html/politica/selecionar-politicos.html:42
+msgid "buscar"
+msgstr ""
+
+#: pecbrasil/html/politica/politicoList.html:96
+msgid "Não foram encontrados políticos nesta pesquisa"
+msgstr ""
+
+#: pecbrasil/html/politica/pontuacao.html:7
+msgid "Pontuacao"
+msgstr ""
+
+#: pecbrasil/html/politica/pontuacaoList.html:7
+msgid "Pontuacoes"
+msgstr ""
+
+#: pecbrasil/html/politica/resumopolitico.html:25
+msgid "DEPUTADO FEDERAL"
+msgstr ""
+
+#: pecbrasil/html/politica/resumopolitico.html:26
+msgid "Total de Pontos"
+msgstr ""
+
+#: pecbrasil/html/politica/resumopolitico.html:26
+msgid "Pontos da"
+msgstr ""
+
+#: pecbrasil/html/politica/resumopolitico.html:27
+msgid "Última Rodada"
+msgstr ""
+
+#: pecbrasil/html/politica/resumopolitico.html:29
+msgid "Processos"
+msgstr ""
+
+#: pecbrasil/html/politica/resumopolitico.html:30
+msgid "Proposiçoes"
+msgstr ""
+
+#: pecbrasil/html/politica/rodada.html:7
+#: pecbrasil/html/politico/despesacandidato.html:15
+#: pecbrasil/html/pontos/rodada.html:10 pecbrasil/html/rodada/rodada.html:8
+#: pecbrasil/html/rodada/rodada.html:11 pecbrasil/html/rodada/rodadaList.html:8
+#: pecbrasil/html/rodada/rodadaList.html:15
+msgid "Rodada"
+msgstr ""
+
+#: pecbrasil/html/politica/rodadaList.html:7
+#: pecbrasil/html/rodada/rodadaList.html:11
+msgid "Rodadas"
+msgstr ""
+
+#: pecbrasil/html/politica/rodadapontos.html:7
+#: pecbrasil/html/rodada/rodadapontos.html:7
+msgid "Rodada Ponto"
+msgstr ""
+
+#: pecbrasil/html/politica/rodadapontosList.html:7
+#: pecbrasil/html/rodada/rodadapontosList.html:7
+msgid "Rodada Pontos"
+msgstr ""
+
+#: pecbrasil/html/politica/selecao.html:12
+msgid "Seleção"
+msgstr ""
+
+#: pecbrasil/html/politica/selecao.html:45
+msgid "Pontuação no Campeonato"
+msgstr ""
+
+#: pecbrasil/html/politica/selecaoList.html:4
+#: pecbrasil/html/politica/selecaoList.html:8
+msgid "Seleções"
+msgstr ""
+
+#: pecbrasil/html/politica/selecaoList.html:12
+msgid "Posição"
+msgstr ""
+
+#: pecbrasil/html/politica/selecaoList.html:14
+msgid "Nome do Time"
+msgstr ""
+
+#: pecbrasil/html/politica/selecionar-politicos.html:4
+msgid "Selecione um político para sua bancada"
+msgstr ""
+
+#: pecbrasil/html/politica/time.html:7
+msgid "Times"
+msgstr ""
+
+#: pecbrasil/html/politico/boxvotacao.html:36
+msgid "Votos"
+msgstr ""
+
+#: pecbrasil/html/politico/boxvotacao.html:36
+#: pecbrasil/html/proposicao/avaliarPosicao.html:3
+#: pecbrasil/html/proposicao/boxvoto.html:8
+#: pecbrasil/html/proposicao/proposicao.html:95
+msgid "Sim"
+msgstr ""
+
+#: pecbrasil/html/politico/boxvotacao.html:37
+#: pecbrasil/html/proposicao/avaliarPosicao.html:9
+#: pecbrasil/html/proposicao/boxvoto.html:11
+#: pecbrasil/html/proposicao/proposicao.html:98
+msgid "Não"
+msgstr ""
+
+#: pecbrasil/html/politico/boxvotacao.html:38
+msgid "Abstenção"
+msgstr ""
+
+#: pecbrasil/html/politico/boxvotacao.html:46
+msgid "Voto do Candidato"
+msgstr ""
+
+#: pecbrasil/html/politico/boxvotacao.html:52
+#: pecbrasil/html/proposicao/avaliar.html:13
+#: pecbrasil/html/proposicao/proposicao.html:45
+#: pecbrasil/html/proposicao/proposicaoList.html:14
+msgid "Autor"
+msgstr ""
+
+#: pecbrasil/html/politico/despesacandidato.html:14
+msgid "Categoria"
+msgstr ""
+
+#: pecbrasil/html/politico/despesacandidato.html:16
+msgid "Valor"
+msgstr ""
+
+#: pecbrasil/html/politico/processocandidatoList.html:7
+msgid "Processo"
+msgstr ""
+
+#: pecbrasil/html/politico/repasse.html:7
+#: pecbrasil/html/politico/repasseList.html:7
+msgid "Repasse"
+msgstr ""
+
+#: pecbrasil/html/politico/votacaocandidato.html:23
+#: pecbrasil/html/politico/votacaocandidatoList.html:35
+msgid "Não foram encontrados votacoes para este politico"
+msgstr ""
+
+#: pecbrasil/html/politico/votacaocandidatoList.html:12
+#: pecbrasil/html/proposicao/votacaoList.html:16
+msgid "Voto"
+msgstr ""
+
+#: pecbrasil/html/pontos/politico.html:7
+msgid "Politico"
+msgstr ""
+
+#: pecbrasil/html/pontos/pontuacaorodada.html:7
+msgid "Pontuação dos Políticos nas Rodadas"
+msgstr ""
+
+#: pecbrasil/html/pontos/rodada.html:7 pecbrasil/html/pontos/rodadaList.html:7
+msgid "Pontuação nas Rodadas"
+msgstr ""
+
+#: pecbrasil/html/pontos/timeList.html:7
+msgid "Pontos do Time"
+msgstr ""
+
+#: pecbrasil/html/proposicao/avaliar.html:9
+msgid "Avalia a proposição"
+msgstr ""
+
+#: pecbrasil/html/proposicao/avaliar.html:25
+msgid "Qual é a sua opinião?"
+msgstr ""
+
+#: pecbrasil/html/proposicao/avaliar.html:33
+msgid "Contra"
+msgstr ""
+
+#: pecbrasil/html/proposicao/avaliar.html:38
+msgid "Qual é a importância desta proposição para você?"
+msgstr ""
+
+#: pecbrasil/html/proposicao/avaliar.html:40
+#: pecbrasil/html/proposicao/avaliarNota.html:3
+msgid "Péssimo"
+msgstr ""
+
+#: pecbrasil/html/proposicao/avaliar.html:43
+#: pecbrasil/html/proposicao/avaliarNota.html:9
+msgid "Ruim"
+msgstr ""
+
+#: pecbrasil/html/proposicao/avaliar.html:46
+#: pecbrasil/html/proposicao/avaliarNota.html:15
+msgid "Regular"
+msgstr ""
+
+#: pecbrasil/html/proposicao/avaliar.html:49
+#: pecbrasil/html/proposicao/avaliarNota.html:21
+msgid "Bom"
+msgstr ""
+
+#: pecbrasil/html/proposicao/avaliar.html:52
+#: pecbrasil/html/proposicao/avaliarNota.html:27
+msgid "Muito bom"
+msgstr ""
+
+#: pecbrasil/html/proposicao/avaliar.html:56
+msgid "Deixe seu comentário"
+msgstr ""
+
+#: pecbrasil/html/proposicao/boxvoto.html:15
+msgid "Obstrução"
+msgstr ""
+
+#: pecbrasil/html/proposicao/proposicao.html:26
+msgid "Votações Detalhada"
+msgstr ""
+
+#: pecbrasil/html/proposicao/proposicao.html:29
+#: pecbrasil/html/proposicao/proposicao.html:81
+msgid "Opinião Pública"
+msgstr ""
+
+#: pecbrasil/html/proposicao/proposicao.html:84
+msgid "Dê sua opiniao"
+msgstr ""
+
+#: pecbrasil/html/proposicao/proposicao.html:93
+msgid "votou"
+msgstr ""
+
+#: pecbrasil/html/proposicao/proposicao.html:105
+msgid "Necessidade"
+msgstr ""
+
+#: pecbrasil/html/proposicao/proposicao.html:114
+msgid "Não existem comentários sobre esta proposição. Seja o primeiro a fazer!"
+msgstr ""
+
+#: pecbrasil/html/proposicao/proposicaoList.html:15
+#: pecbrasil/html/proposicao/votacaoList.html:15
+msgid "Proposicão"
+msgstr ""
+
+#: pecbrasil/html/proposicao/proposicaoList.html:17
+msgid "Descrição"
+msgstr ""
+
+#: pecbrasil/html/proposicao/proposicaoList.html:41
+#: pecbrasil/html/proposicao/votacaoList.html:52
+msgid "Não foram encontradas proposições de autoria deste político"
+msgstr ""
+
+#: pecbrasil/html/proposicao/votacaoList.html:14
+msgid "Político"
+msgstr ""
+
+#: pecbrasil/html/rodada/boxrodada.html:5
+msgid "a"
+msgstr ""
+
+#: pecbrasil/html/rodada/rodada.html:19
+msgid "veja mais"
+msgstr ""
+
+#: pecbrasil/html/rodada/rodada.html:24 pecbrasil/html/rodada/rodada.html:44
+msgid "Políticos que mais pontuaram"
+msgstr ""
+
+#: pecbrasil/html/rodada/rodada.html:27 pecbrasil/html/rodada/rodada.html:56
+msgid "Times que mais pontuaram"
+msgstr ""
+
+#: pecbrasil/html/rodada/rodada.html:38
+#: pecbrasil/html/rodada/rodadaList.html:17
+msgid "Início"
+msgstr ""
+
+#: pecbrasil/html/rodada/rodada.html:39
+#: pecbrasil/html/rodada/rodadaList.html:18
+msgid "Fim"
+msgstr ""
+
+#: pecbrasil/html/rodada/rodadaList.html:19
+msgid "Detalhes"
+msgstr ""
+
+#: pecbrasil/html/rodada/rodadapontos.html:4
+#: pecbrasil/html/rodada/rodadapontosList.html:4
+msgid "Pontos da Rodada"
+msgstr ""
+
+#: pecbrasil/html/templates/base.html:6 pecbrasil/html/templates/clean.html:7
+msgid "Política Esporte Clube"
+msgstr ""
+
+#: pecbrasil/html/templates/site.html:7
+msgid "INÍCIO"
+msgstr ""
+
+#: pecbrasil/html/templates/site.html:8
+msgid "PEC BRASIL"
+msgstr ""
+
+#: pecbrasil/html/templates/site.html:9
+msgid "CLASSIFICAÇÃO"
+msgstr ""
+
+#: pecbrasil/html/templates/site.html:10
+msgid "TOP 100"
+msgstr ""
+
+#: pecbrasil/html/templates/site.html:11
+msgid "PARTIDOS"
+msgstr ""
+
+#: pecbrasil/html/templates/site.html:12
+msgid "LIGAS"
+msgstr ""
+
+#: pecbrasil/html/templates/site.html:15
+msgid "MEU PARTIDO"
+msgstr ""
+
+#: pecbrasil/html/templates/site.html:16
+msgid "SAIR"
+msgstr ""
+
+#: pecbrasil/html/templates/site.html:22
+msgid "Olá"
+msgstr ""
+
+#: pecbrasil/html/templates/site.html:22
+msgid "Minha Conta"
+msgstr ""
+
+#: pecbrasil/html/templates/site.html:30
+msgid "Faça Login"
+msgstr ""
+
+#: pecbrasil/html/templates/site.html:40
+msgid "Faça login com Facebook"
+msgstr ""
+
+#: pecbrasil/html/templates/site.html:65
+msgid "compare os deputados federais"
+msgstr ""
+
+#: pecbrasil/html/templates/site.html:66
+msgid "e escale os melhores para o seu time"
+msgstr ""
+
