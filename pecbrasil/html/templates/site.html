@@ -135,37 +135,8 @@
 		</div>
 		<div class="col-md-4">
 			
-			<h1 style="    color: white;    font-size: 26px;">{% trans %}Contato{% endtrans %}</h1>
-		    <form id="ask_form" action="/ask/contact/" method="post" style="line-height:11px;">
-		      {{formAsk.hidden_tag()}}
-		        <label for="question">{% trans %}Pergunta{% endtrans %}</label><br>
-		        {{ formAsk.question(id="question", placeholder="Ex. De onde vieram os dados?", style="width: 100%; border: none; border-radius: 4px; font-size:12px; line-height:12px;") }}
-		        <br/><br>
-		         <label for="email">{% trans %}Email{% endtrans %}</label><br>
-		        {{ formAsk.email(id="email", placeholder="meu@email.com", style="width: 100%; border: none; border-radius: 4px; font-size:12px; line-height:12px;") }}
-		        <br/><br>
-		        {% for error in formAsk.errors.question %}
-		        <span style="color: red;">[{{ error }}]</span>
-		        {% endfor %}
-		  
-		 
-		  		<label for="wysiwyg_textarea">{% trans %}Mensagem{% endtrans %}</label><br>
-		        {{ formAsk.body(id="wysiwyg_textarea", style="width: 100%; border: none; height:95px; border-radius: 4px; font-size:12px; line-height:12px;") }}
-		        {% for error in formAsk.errors.body %}
-		        <span style="color: red;">[{{ error }}]</span>
-		        {% endfor %}
-		      
-		      <br/>
-		      
-		      <a href="#ask_form" class="submit" onclick='document.forms["ask_form"].submit()'>
-		        <div class="decision">
-		          <div class="text">{% trans %}Pergunte a nossa equipe!{% endtrans %}!</div>
-		          <div class="arrow"></div>
-		        </div>
-		      </a>
-		      
-		    </form>
-
+			{% block rodape %}
+			{% endblock %}
 
 
 		</div>
