@@ -114,14 +114,61 @@
 
 <div class="rodape">
 	<div class="container">
-		<img alt="" style="float:left" src="/static/img/pecbrasil/logo-rodape.png"/>
-		<!--
-		<div style="float:right; width:400px; color:#2ECC71; text-align:right; font-size:40px;">
-			<i class="fa fa-facebook-square"></i>
-			<i class="fa fa-twitter-square"></i>
-			<i class="fa fa-youtube-square"></i>
+		<div class="col-md-4">
+			<h1 style="    color: white;    font-size: 26px;">Política Esporte Clube</h1>
+			<span style="font-size:12px; text-align:justify; color: #333">Fantasy game que utiliza os dados da participação política de cada deputador no plenário (Presença, Despesas, etc). Dados disponibilizados pelo Portal da Transparência da Câmara Federal <a href="http://www2.camara.leg.br/transparencia" target='_blank' style="color:white;" title="Ir para o site"><i class="fa fa-external-link"></i></a>.<br> Monte seu time com os políticos que mais pontuam e dispute as ligas, mostrando que sua equipe é a melhor bancada política do Brasil.</span>
+			<h1 style="    color: white;    font-size: 20px;">Compartilhe</h1>
+			<span style="font-size:35px">
+				<a href="#" style="color:white;" title="Acompanhe"><i class="fa fa-facebook-square"></i></a>
+				<a href="#" style="color:white;" title="Acompanhe"><i class="fa fa-twitter-square"></i></a>
+				<a href="#" style="color:white;" title="Acompanhe"><i class="fa fa-linkedin-square"></i></a>
+			</span>
 		</div>
-		-->
+		<div class="col-md-4">
+			<h1 style="    color: white;    font-size: 26px;">Quem curte?</h1>
+			<div style="margin-left:-10px" class="fb-like-box" 
+		 data-href="http://www.facebook.com/PoliticaEsporteClube" data-width="290" data-height="250"
+									data-colorscheme="dark" data-show-faces="true"
+			data-header="false" data-stream="false" data-show-border="false"></div>
+
+
+		</div>
+		<div class="col-md-4">
+			
+			<h1 style="    color: white;    font-size: 26px;">{% trans %}Contato{% endtrans %}</h1>
+		    <form id="ask_form" action="/ask/contact/" method="post" style="line-height:11px;">
+		      {{formAsk.hidden_tag()}}
+		        <label for="question">{% trans %}Pergunta{% endtrans %}</label><br>
+		        {{ formAsk.question(id="question", placeholder="Ex. De onde vieram os dados?", style="width: 100%; border: none; border-radius: 4px; font-size:12px; line-height:12px;") }}
+		        <br/><br>
+		         <label for="email">{% trans %}Email{% endtrans %}</label><br>
+		        {{ formAsk.email(id="email", placeholder="meu@email.com", style="width: 100%; border: none; border-radius: 4px; font-size:12px; line-height:12px;") }}
+		        <br/><br>
+		        {% for error in formAsk.errors.question %}
+		        <span style="color: red;">[{{ error }}]</span>
+		        {% endfor %}
+		  
+		 
+		  		<label for="wysiwyg_textarea">{% trans %}Mensagem{% endtrans %}</label><br>
+		        {{ formAsk.body(id="wysiwyg_textarea", style="width: 100%; border: none; height:95px; border-radius: 4px; font-size:12px; line-height:12px;") }}
+		        {% for error in formAsk.errors.body %}
+		        <span style="color: red;">[{{ error }}]</span>
+		        {% endfor %}
+		      
+		      <br/>
+		      
+		      <a href="#ask_form" class="submit" onclick='document.forms["ask_form"].submit()'>
+		        <div class="decision">
+		          <div class="text">{% trans %}Pergunte a nossa equipe!{% endtrans %}!</div>
+		          <div class="arrow"></div>
+		        </div>
+		      </a>
+		      
+		    </form>
+
+
+
+		</div>
 	</div>
 </div>
 

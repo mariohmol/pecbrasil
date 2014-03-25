@@ -5,3 +5,4 @@ nbproject/
 .pydevproject
 *.pyc
 log.txt
+config.py
