@@ -142,5 +142,13 @@ def retornar(time_id=None):
             send_mail(titulo,row[0],  render_template("comunicado/retornar.html",email=row[0],nickname=row[1],fullname=row[2]))
             total=total+1
             log=log+","+time.user.email
+<<<<<<< HEAD
                     
+=======
+<<<<<<< HEAD
+                    
+=======
+                    
+>>>>>>> 4c1441279a5877441451f62dfbfb52a0f675e27f
+>>>>>>> 1e56bce78ac59d9c18e2c711be8545a053dc5a8d
     return render_template("comunicado/statuscomunicado.html",titulo=titulo,total=total,log=log)    
