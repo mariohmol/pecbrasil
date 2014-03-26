@@ -145,28 +145,18 @@
 	
 	
 		
-	<div style="float:left; height:30px; width: 100%">
-	{% if  iframe=='true'  %}
-	
-			   		<a href="#" 
-		   			onclick="top.window.location='/politica/politico/{{ candidato.id }}/'" >
-				{% else %}	
-		   			<a  href="/politica/politico/{{ candidato.id }}" class="vejaBx">
-		   				<i class="fa fa-search"></i> 
-		   		{% endif %} {% trans %}Veja mais{% endtrans %}</a>
-	</div>
-		   		
+		
 		   		
 	{% if acaoBoxPolitico == 'alterar' %}
 	     
- 		<a href="/politica/selecionar-politicos/{{ candidato.id }}/{{ posicao }}/false">
-			
+ 		<a href="/politica/selecionar-politicos/{{ candidato.id }}/{{ posicao }}/false" class="vejaBx">
+			<i class="fa fa-search"></i> 
 				{% trans %}Alterar{% endtrans %}
 				</a>
 	
-	{% endif %}
+	
 
-	{% if acaoBoxPolitico == 'selecionar' %}
+	{% elif acaoBoxPolitico == 'selecionar' %}
 			{% set exists = [] %}
 			
 			{% if politicosSelecionados %}
@@ -186,14 +176,29 @@
 
 			{% if not exists %}
 				
-			 	<a href="/politica/selecionar-politicos/{{ candidato.id }}/{{ posicao }}/{{ gravar }}">
+			 	<a href="/politica/selecionar-politicos/{{ candidato.id }}/{{ posicao }}/{{ gravar }}" class="vejaBx">
 			{% trans %}Selecionar{% endtrans %}
-				<!--  <img src="/static/img/pec/botao_selecionar.png"/>  -->
+				<i class="fa fa-search"></i> 
 				</a>
 			{% endif %}
 		
-		
+	{% else %}
+	<div style="float:left; height:30px; width: 100%">
+				{% if  iframe=='true'  %}
+	
+			   		<a href="#" class="vejaBx"
+		   			onclick="top.window.location='/politica/politico/{{ candidato.id }}/'" >
+				{% else %}	
+		   			<a  href="/politica/politico/{{ candidato.id }}" class="vejaBx">
+		   				
+		   		{% endif %} 
+		   		
+		   		<i class="fa fa-search"></i> 
+		   		{% trans %}Veja mais{% endtrans %}</a>
+		</div>
+		   			
 	{% endif %}
+	
 	</div>
 	
 {% endif %}
