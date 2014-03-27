@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'MohaveBold';
+    src: url('mohave-bold.eot');
+    src: url('mohave-bold.eot') format('embedded-opentype'),
+         url('mohave-bold.woff') format('woff'),
+         url('mohave-bold.ttf') format('truetype'),
+         url('mohave-bold.svg#MohaveBold') format('svg');
+}
