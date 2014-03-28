@@ -1,2 +1,2 @@
-F:\Projetos\pecbrasil\pecm\platforms\android\CordovaLib\ant-build\AndroidManifest.xml : \
-F:\Projetos\pecbrasil\pecm\platforms\android\CordovaLib\AndroidManifest.xml \
+C:\Rafael\projetos\pecmobile\platforms\android\CordovaLib\ant-build\AndroidManifest.xml : \
+C:\Rafael\projetos\pecmobile\platforms\android\CordovaLib\AndroidManifest.xml \
