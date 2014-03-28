@@ -69,7 +69,7 @@ def enviaUltimaRodada(time,rodada_id,titulo,rodada,politicos,rodada_atual,enviar
     log=""
     if time is not None and time.user is not None:
         
-        log=log+"\n"+time.user.email+ " - "+str(time.id)+" - "+time.nome
+        log=log+"\n"+str(time.user.email)+ " - "+str(time.id)+" - "+str(time.nome)
         rodadaPontos=politicaServices.rodadaPontosByTime(time.id,rodada_id)
         if enviar == 'True':
             send_mail(titulo,[time.user.email],  
