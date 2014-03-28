@@ -1,9 +1,10 @@
 from sqlalchemy import func, distinct
 from flask import Blueprint, request, render_template, g,flash, Response, make_response, send_file, jsonify, session, redirect, url_for
-
+from datetime import datetime
 
 from pecbrasil import db
 from pecbrasil.politica.models import Candidatura, Pontuacao,Time,Rodada,RodadaPontos
+from pecbrasil.liga.models import Convite
 from pecbrasil.utils import exist_or_404, gzip_data, cached_query
 from pecbrasil.politica.services import PoliticaServices
 from pecbrasil.comunicado.forms import ConvidarForm
@@ -22,10 +23,13 @@ def convideamigos(time_id=None):
     form=ConvidarForm()
     if form.validate_on_submit():
         time = politicaServices.meuTime(g.user.id)
-    
-        send_mail(titulo,[form.email.data],   render_template("comunicado/convideamigos.html",form=form,time=time,obs=form.obs.data))
-    
-        return render_template("comunicado/retornarpublico.html",titulo=titulo) 
+        emails = form.email.data.split(',')
+        for email in emails:
+            send_mail(titulo,[email],   render_template("comunicado/convideamigos.html",form=form,time=time,obs=form.obs.data))
+            convite = Convite(email=email,dataenvio=datetime.datetime.now(),usuario=g.user.id)
+            db.session.add(convite)        
+            db.session.commit()
+        return render_template("comunicado/convideamigosform.html",titulo=titulo,enviado='S',form=form) 
     else:
         return render_template("comunicado/convideamigosform.html",form=form)        
 
