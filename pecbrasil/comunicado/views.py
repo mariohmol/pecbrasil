@@ -67,7 +67,7 @@ def ultimarodada(rodada_id=None,time_id=None):
 def enviaUltimaRodada(time,rodada_id,titulo,rodada,politicos,rodada_atual,enviar):
     
     log=""
-    if time is not None:
+    if time is not None and time.user is not None:
         
         log=log+"\n"+time.user.email+ " - "+str(time.id)+" - "+time.nome
         rodadaPontos=politicaServices.rodadaPontosByTime(time.id,rodada_id)
