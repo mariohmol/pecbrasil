@@ -43,3 +43,18 @@ class LigaPontos(db.Model, AutoSerialize):
     
     def __repr__(self):
         return '<LigaPontos %r>' % (self.ligajogador_ligapontos)
+    
+
+class Convite(db.Model, AutoSerialize):
+
+    __tablename__ = 'convite'
+    __public__ = ('id_convite','usuario',  'email', 'dataenvio')
+    id_convite = db.Column(db.Integer, primary_key=True)
+    usuario = db.Column(db.Integer, db.ForeignKey(User.id), primary_key=True)
+    email = db.Column(db.String(150))
+    dataenvio = db.Column(db.DateTime)
+    datacadastro = db.Column(db.DateTime)
+    dataponto = db.Column(db.DateTime)
+    
+    
+    

@@ -1,9 +1,10 @@
 from sqlalchemy import func, distinct
 from flask import Blueprint, request, render_template, g,flash, Response, make_response, send_file, jsonify, session, redirect, url_for
-
+from datetime import datetime
 
 from pecbrasil import db
 from pecbrasil.politica.models import Candidatura, Pontuacao,Time,Rodada,RodadaPontos
+from pecbrasil.liga.models import Convite
 from pecbrasil.utils import exist_or_404, gzip_data, cached_query
 from pecbrasil.politica.services import PoliticaServices
 from pecbrasil.comunicado.forms import ConvidarForm
@@ -22,10 +23,13 @@ def convideamigos(time_id=None):
     form=ConvidarForm()
     if form.validate_on_submit():
         time = politicaServices.meuTime(g.user.id)
-    
-        send_mail(titulo,[form.email.data],   render_template("comunicado/convideamigos.html",form=form,time=time,obs=form.obs.data))
-    
-        return render_template("comunicado/retornarpublico.html",titulo=titulo) 
+        emails = form.email.data.split(',')
+        for email in emails:
+            send_mail(titulo,[email],   render_template("comunicado/convideamigos.html",form=form,time=time,obs=form.obs.data))
+            convite = Convite(email=email,dataenvio=datetime.datetime.now(),usuario=g.user.id)
+            db.session.add(convite)        
+            db.session.commit()
+        return render_template("comunicado/convideamigosform.html",titulo=titulo,enviado='S',form=form) 
     else:
         return render_template("comunicado/convideamigosform.html",form=form)        
 
@@ -37,36 +41,40 @@ def ultimarodada(rodada_id=None,time_id=None):
     if enviar is None:
         enviar='True'
     rodada=politicaServices.getRodada(rodada_id)
+    if rodada is None:
+        return
     rodada_id=rodada.id
     total=0
     
     politicos=politicaServices.topPoliticosRodada(tamanho=5)
-    
+    rodada_atual = db.session.merge(session['rodada_atual'])
     titulo="Veja sua pontuacao da rodada"
     log=""
-    if time_id is not None:
-        time = politicaServices.meuTime(time_id)
-        
+    if time_id is not None and time_id<>"all":
+        time = politicaServices.verTime(id=time_id)
         if time is not None:
-            if enviar == 'True':
-                send_mail(titulo,[time.user.email],   
-                          render_template("comunicado/ultimarodada.html",time=time,rodada=rodada,pontos=pontos,politicos=politicos))
-            total=total+1
-            log=log+"\n"+time.user.email+ " - "+str(time.id)+" - "+time.nome
+            log = log + enviaUltimaRodada(time,rodada_id,titulo,rodada,politicos,rodada_atual,enviar)
             rodadaPontos=politicaServices.rodadaPontosByTime(time.id,rodada_id)
-            return render_template("comunicado/ultimarodada.html",time=time,rodada=rodada,rodadaPontos=rodadaPontos,politicos=politicos)
+            return render_template("comunicado/ultimarodada.html",time=time,rodada=rodada,rodadaPontos=rodadaPontos,politicos=politicos,rodada_atual=rodada_atual)
     else:
         times = Time.query.all()
+        total=0
         for time in times:
-            if time is not None:
-                total=total+1
-                log=log+"\n"+time.user.email+ " - "+str(time.id)+" - "+time.nome
-                rodadaPontos=politicaServices.rodadaPontosByTime(time.id,rodada_id)
-                if enviar == 'True':
-                    send_mail(titulo,[time.user.email],  
-                              render_template("comunicado/ultimarodada.html",time=time,rodada=rodada,rodadaPontos=rodadaPontos,politicos=politicos))
-    
+            total=total+1
+            log = log + enviaUltimaRodada(time,rodada_id,titulo,rodada,politicos,rodada_atual,enviar)
     return render_template("comunicado/statuscomunicado.html",titulo=titulo,total=total,log=log)
+
+def enviaUltimaRodada(time,rodada_id,titulo,rodada,politicos,rodada_atual,enviar):
+    
+    log=""
+    if time is not None:
+        
+        log=log+"\n"+time.user.email+ " - "+str(time.id)+" - "+time.nome
+        rodadaPontos=politicaServices.rodadaPontosByTime(time.id,rodada_id)
+        if enviar == 'True':
+            send_mail(titulo,[time.user.email],  
+                      render_template("comunicado/ultimarodada.html",time=time,rodada=rodada,rodadaPontos=rodadaPontos,politicos=politicos,rodada_atual=rodada_atual))
+    return log  
 
 @mod.route('/abrecampeonato/')
 @mod.route('/abrecampeonato/<time_id>')

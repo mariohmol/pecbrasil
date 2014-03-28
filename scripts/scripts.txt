@@ -788,7 +788,20 @@ ALTER TABLE `rodada` CHANGE `min_despesa` `min_despesa` INT NULL DEFAULT NULL ;
 
 ALTER TABLE `rodada` CHANGE `max_despesa` `max_despesa` INT NULL DEFAULT NULL ;
 
-ALTER TABLE  `despesacandidato` ADD  `ano` INT NULL
+ALTER TABLE  `despesacandidato` ADD  `ano` INT NULL;
+
+
+
+
+CREATE TABLE IF NOT EXISTS `convite` (
+  `id_convite` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario` int(11) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `dataenvio` datetime DEFAULT NULL,
+  `datacadastro` date DEFAULT NULL,
+  `dataponto` date DEFAULT NULL,
+  PRIMARY KEY (`id_convite`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 http://localhost:8084/account/complete_login/
 
