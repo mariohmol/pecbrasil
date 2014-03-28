@@ -87,7 +87,8 @@
 		console.log(pr);
 		form = document.forms['login'];
 		form.elements['provider'].value = pr;
-		_gaq.push(['_trackEvent', 'Cadastro', pr , 'Home']);
+		//_gaq.push(['_trackEvent', 'Cadastro', pr , 'Home']);
+		pageTracker._trackEvent( 'Cadastro', pr , 'Home')
 		this.parentNode.submit();
 		d3.event.preventDefault();
 		return false;
