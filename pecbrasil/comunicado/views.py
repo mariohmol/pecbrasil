@@ -41,36 +41,40 @@ def ultimarodada(rodada_id=None,time_id=None):
     if enviar is None:
         enviar='True'
     rodada=politicaServices.getRodada(rodada_id)
+    if rodada is None:
+        return
     rodada_id=rodada.id
     total=0
     
     politicos=politicaServices.topPoliticosRodada(tamanho=5)
-    
+    rodada_atual = db.session.merge(session['rodada_atual'])
     titulo="Veja sua pontuacao da rodada"
     log=""
-    if time_id is not None:
-        time = politicaServices.meuTime(time_id)
-        
+    if time_id is not None and time_id<>"all":
+        time = politicaServices.verTime(id=time_id)
         if time is not None:
-            if enviar == 'True':
-                send_mail(titulo,[time.user.email],   
-                          render_template("comunicado/ultimarodada.html",time=time,rodada=rodada,pontos=pontos,politicos=politicos))
-            total=total+1
-            log=log+"\n"+time.user.email+ " - "+str(time.id)+" - "+time.nome
+            log = log + enviaUltimaRodada(time,rodada_id,titulo,rodada,politicos,rodada_atual,enviar)
             rodadaPontos=politicaServices.rodadaPontosByTime(time.id,rodada_id)
-            return render_template("comunicado/ultimarodada.html",time=time,rodada=rodada,rodadaPontos=rodadaPontos,politicos=politicos)
+            return render_template("comunicado/ultimarodada.html",time=time,rodada=rodada,rodadaPontos=rodadaPontos,politicos=politicos,rodada_atual=rodada_atual)
     else:
         times = Time.query.all()
+        total=0
         for time in times:
-            if time is not None:
-                total=total+1
-                log=log+"\n"+time.user.email+ " - "+str(time.id)+" - "+time.nome
-                rodadaPontos=politicaServices.rodadaPontosByTime(time.id,rodada_id)
-                if enviar == 'True':
-                    send_mail(titulo,[time.user.email],  
-                              render_template("comunicado/ultimarodada.html",time=time,rodada=rodada,rodadaPontos=rodadaPontos,politicos=politicos))
-    
+            total=total+1
+            log = log + enviaUltimaRodada(time,rodada_id,titulo,rodada,politicos,rodada_atual,enviar)
     return render_template("comunicado/statuscomunicado.html",titulo=titulo,total=total,log=log)
+
+def enviaUltimaRodada(time,rodada_id,titulo,rodada,politicos,rodada_atual,enviar):
+    
+    log=""
+    if time is not None:
+        
+        log=log+"\n"+time.user.email+ " - "+str(time.id)+" - "+time.nome
+        rodadaPontos=politicaServices.rodadaPontosByTime(time.id,rodada_id)
+        if enviar == 'True':
+            send_mail(titulo,[time.user.email],  
+                      render_template("comunicado/ultimarodada.html",time=time,rodada=rodada,rodadaPontos=rodadaPontos,politicos=politicos,rodada_atual=rodada_atual))
+    return log  
 
 @mod.route('/abrecampeonato/')
 @mod.route('/abrecampeonato/<time_id>')
