@@ -116,7 +116,7 @@ function infinite_scroll(selection){
       }
       
       // call this on page load
-      maybe_fetch();
+      //maybe_fetch();
       
     })
   }

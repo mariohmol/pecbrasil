@@ -475,25 +475,21 @@ class PoliticaServices(object):
         db.session.execute("update rodadapontos p set p.ativo=0 where rodada > (select max(r.id) from rodada r where  r.ativo =1)")
         #update ligajogador l set l.pontos_ligajogador= (SELECT sum(p.pontos_ligapontos) FROM ligapontos p where p.time_ligapontos = l.user_ligajogador)
         db.session.execute("update rodadapontos p set p.ativo=1 where rodada <= (select max(r.id) from rodada r where  r.ativo =1)")
+        self.updatePosicaoTimes()
         db.session.commit() 
     
-    def updatePontuacaoTimesRodados(self,rodada,campo,anoatual):    
-        db.session.execute("SELECT p.time,sum(p.pontos) FROM rodadapontos p,rodada r where r.id = p.rodada and r.ano='"+anoatual+"' and r.ativo =1 and p.rodada=%s group by p.time",[rodada])
-        rows = db.session.fetchall()
-        for row in rows:
-            candidato=row[0]
-            total=row[1]
-            if campo=="pontuacao_total":
-                db.session.execute("update time set pontuacao_total = %s where id = %s",[total,candidato] )
-            else:
-                db.session.execute("update time set pontuacao_ultima = %s where id = %s",[total,candidato] )
-            print row[1] 
+   
+        
+    def updatePosicaoTimes(self):
+        rows = db.session.execute("SELECT id FROM time order by pontuacao_total desc")
+        pos=1
+        for row in rows:       
+            id=row[0]
+            db.session.execute("update time set posicao="+str(pos)+"  where id="+str(id))
+            pos=pos+1
         db.session.commit()
             
-    def updatePontuacaoTimes(self):
-        rodada=rodada.getMaxRodada()
-        self.updatePontuacaoTimesRodados(rodada,"pontuacao_total")
-        self.updatePontuacaoTimesRodados(rodada-1,"pontuacao_ultima")
+        
     
        
   ###########################
@@ -573,6 +569,8 @@ class PoliticaServices(object):
         db.session.execute(sql)
         db.session.commit()
         
+        self.cleanRedisCache()
+        
 
     def updateRodadaMaxMinAutomatic(self):
         sqlRodada="SELECT * FROM `rodada` where ativo='1' order by fim desc"
@@ -604,3 +602,12 @@ class PoliticaServices(object):
         else:
            ip = request.headers.getlist("X-Forwarded-For")[0]
         return ip        
+    
+    def cleanRedisCache(self):
+        import redis
+        r = redis.Redis()
+        for cache_key in r.keys():
+            if "session:" not in cache_key:
+                r.delete(cache_key)
+            else:
+                print cache_key
