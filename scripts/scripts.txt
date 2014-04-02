@@ -791,7 +791,7 @@ ALTER TABLE `rodada` CHANGE `max_despesa` `max_despesa` INT NULL DEFAULT NULL ;
 ALTER TABLE  `despesacandidato` ADD  `ano` INT NULL;
 
 
-
+ALTER TABLE `time` ADD `posicao` INT NULL ;
 
 CREATE TABLE IF NOT EXISTS `convite` (
   `id_convite` int(11) NOT NULL AUTO_INCREMENT,

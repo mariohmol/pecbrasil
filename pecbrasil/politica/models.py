@@ -175,7 +175,7 @@ class Pontuacao(db.Model, AutoSerialize):
 
 class Time(db.Model, AutoSerialize):
     __tablename__ = 'time'
-    __public__ = ('id', 'nome',  'color','fundacao')
+    __public__ = ('id', 'nome',  'color','fundacao','pontuacao_total','posicao')
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(200))
     fundacao = db.Column(db.DateTime)
@@ -186,6 +186,7 @@ class Time(db.Model, AutoSerialize):
     pontuacao_total = db.Column(db.Integer)
     pontuacao_ultima = db.Column(db.Integer)
     pontuacao_tendencia = db.Column(db.Integer)
+    posicao = db.Column(db.Integer)
     candidatos = db.relationship("TimeCandidato", backref = 'times', lazy = 'dynamic')
     votacoes = db.relationship("TimeVotacao", backref = 'times', lazy = 'dynamic')
     rodadapontos = db.relationship("RodadaPontos", backref = 'times', lazy = 'dynamic')

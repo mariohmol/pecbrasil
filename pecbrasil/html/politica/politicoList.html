@@ -96,6 +96,53 @@
     {% trans %}Não foram encontrados políticos nesta pesquisa{% endtrans %}.
     {% endif %}
    </div>
+   <!--
+   <div class="feed">
+   	
+   	 <table style="width:100%;float: left;">
+    <thead>
+      <tr>
+      	 <th>{% trans %}Posição{% endtrans %} </th>
+	     
+	     <th>{% trans %}Nome do Time{% endtrans %}</th>
+	      <th>{% trans %}Pontos{% endtrans %}</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+   	
+   </div>
+   
+   -->
+    <script src="/static/js/utils/utils.infinite_scroll.js"></script>
+
+<script>
+
+function item_formatter(container_el, activities){
+  
+ 
+   var attrs_enter = d3.select(container_el).select("tbody").selectAll("tr")
+    .data(activities, function(d){ return d.id; })
+    .enter().append("tr")
+    
+	attrs_enter.append("td").text(function(d){ return d.name_pt; })
+ 
+  
+ // $.get('http://localhost:8084/politica/boxpolitico/20',function(data){ attrs_enter.append("td").html(data)})
+    
+	
+  
+	
+}
+
+var is = infinite_scroll().format_items(item_formatter);
+
+//d3.select(".feed").call(is.url("/attrs/candidatura/"))
+  
+</script>
+   
+   
 </div>    
 {% endblock %}
 

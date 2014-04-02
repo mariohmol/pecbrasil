@@ -41,7 +41,7 @@ function infinite_scroll(selection){
           offset = 0;
         }
         // console.log(fetching, offset, loading_div_y, innerHeight, refresh)
-        if ((!fetching && offset >= 0 && loading_div_y < innerHeight) || refresh) {
+        if ((!fetching && offset >= 0 && offset<100 && loading_div_y < innerHeight) || refresh) {
           fetch();
         }
 
@@ -75,7 +75,7 @@ function infinite_scroll(selection){
       // call to the server
       function display(error, new_data) {
         
-        activities = new_data.activities || new_data.data || new_data.candidaturas;
+        activities = new_data.activities || new_data.data || new_data.candidaturas|| new_data.times;
   
         // we're obviously no longer fetching
         fetching = false;
@@ -124,7 +124,7 @@ function infinite_scroll(selection){
   scroll.url = function(value) {
     if(!arguments.length) return url;
     if(value.split("?")[0] != url.split("?")[0]){
-      refresh = true;
+      //refresh = true;
     }
     url = value;
     return scroll;

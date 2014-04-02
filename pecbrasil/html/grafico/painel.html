@@ -11,7 +11,7 @@ label {
  
 {% if valOption != 'false' %}
 <div style="float:left; width:450px;">
-<h3>Tipo</h3>
+<h3>{% trans %}Dados{% endtrans %}</h3>
 	<input type="radio" name="{{ iframeId }}_depth"
 	id="{{ iframeId }}_depth_pontos"
 		onclick="getElementByIframeId('{{ iframeId }}','pontos').click()" 		
@@ -44,7 +44,7 @@ label {
 
 	 {% if anoOption == 'true' %}
 	 <div style="float:left; width:200px;">
-	<h3>Ano</h3>
+	<h3>{% trans %}Ano{% endtrans %}</h3>
 			 <input type="radio" name="{{ iframeId }}_ano" 
 		id="{{ iframeId }}_ano_2013" checked="checked"
 			onclick="getElementByIframeId('{{ iframeId }}','ano2013').click()">
@@ -60,7 +60,7 @@ label {
 		  
 	 {% if funcOption == 'true' %}	  
 	
-	
+	<h3>{% trans %}Tipo{% endtrans %}</h3>
 	<input type="radio" name="{{ iframeId }}_func" 
 	id="{{ iframeId }}_func_media" checked="checked"
 		onclick="getElementByIframeId('{{ iframeId }}','media').click()">

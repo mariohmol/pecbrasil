@@ -79,48 +79,6 @@
     
     <h2>{% trans %}Ranking Completo{% endtrans %} </h2>
     
-    <table style="width:100%;float: left;">
-    <tr>
-	     <td>{% trans %}Posição{% endtrans %} </td>
-	     
-	     <td>{% trans %}Nome do Time{% endtrans %}</td>
-	      <td>{% trans %}Pontos{% endtrans %}</td>
-	     <!--
-	      <td>Presidente</td>
-	       <td>Fundação</td>
--->
-	</tr>
-	{% set posicao =0 %}
-     {% for t3Time in topTimes %}
-     
-     {% set posicao =posicao+1 %}
-     <tr>
-     
-     <td>{{ posicao }} </td>
-     
-      <td><a href="/politica/selecao/{{ t3Time.id }}">{{ t3Time.nome }}</a> </td>
-      
-      
-     <td>
-     {% if t3Time.pontuacao_total %}
-      {{ t3Time.pontuacao_total }} pts
-      
-      {% else %}
-      	0 pts
-      
-      {% endif%}
-      
-      </td>
-      
-      <!--  
-	     <td>{{ t3Time.fundador }} </td>
-	     
-	     <td>{{ t3Time.data }} </td>
--->
-	</tr>
-    {% endfor %}
-    </table>
-    
     <!-- 
     <table style="width:100%;float: left;">
      {% if verTime %}
@@ -141,6 +99,52 @@
     </tr>
     </table>
      -->
+     
+     
+     
+<div class="feed">
+  
+  <table style="width:100%;float: left;">
+    <thead>
+      <tr>
+      	 <th>{% trans %}Posição{% endtrans %} </th>
+	     
+	     <th>{% trans %}Nome do Time{% endtrans %}</th>
+	      <th>{% trans %}Pontos{% endtrans %}</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+</div>
+     
+     <script src="/static/js/utils/utils.infinite_scroll.js"></script>
+
+<script>
+
+function item_formatter(container_el, activities){
+  
+  var attrs_enter = d3.select(container_el).select("tbody").selectAll("tr")
+    .data(activities, function(d){ return d.id; })
+    .enter().append("tr")
+    
+	
+ attrs_enter.append("td").text(function(d){ return d.posicao; })
+  attrs_enter.append("td").text(function(d){ return d.nome; })
+  attrs_enter.append("td").text(function(d){ return d.pontuacao_total; })
+  
+	
+}
+
+var is = infinite_scroll().format_items(item_formatter);
+
+d3.select(".feed")
+  .call(is.url("/attrs/time/"))
+  
+</script>
+
+
     
 {% endblock %}
 
