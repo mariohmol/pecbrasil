@@ -3,22 +3,22 @@
 			   
 	   <div id="boxPolitico" >
 	   <div class="card">
-		   <div class="frontCard" style="background: url('/static/img/pec/fotos/{{ candidato.politicos.id_original }}.jpg') no-repeat #f4f4f4; background-size: 100% 70%;">
+		   <div class="frontCard" style="background: url('{{dominio}}/static/img/pec/fotos/{{ candidato.politicos.id_original }}.jpg') no-repeat #f4f4f4; background-size: 100% 70%;">
 	   
 		   <div id="boxPoliticoPartido">
 		   	<div class="field-content">
 		   		
 		   		 
 		   		{% if  iframe=='true'  %}	
-		   			<a href="#" onclick="top.window.location='/politica/partido/{{ candidato.partidos.id }}'">
+		   			<a href="#" onclick="top.window.location='{{dominio}}/politica/partido/{{ candidato.partidos.id }}'">
 		   		
 		   		{% else %}	
-		   			<a href="/politica/partido/{{ candidato.partidos.id }}">
+		   			<a href="{{dominio}}/politica/partido/{{ candidato.partidos.id }}">
 		   		{% endif %}	
 		   		
 		   		
 		   		<img style="border: 5px solid #f4f4f4; position: absolute; top:0px; right:0px;top: 150px;   
-		   		width: auto; height: 40px;" src="/static/img/pecbrasil/partidos/{{ candidato.partidos.sigla|lower}}.jpg" width="50">
+		   		width: auto; height: 40px;" src="{{dominio}}/static/img/pecbrasil/partidos/{{ candidato.partidos.sigla|lower}}.jpg" width="50">
 		   		</a>
 		   		 
 		   		
@@ -43,11 +43,13 @@
 		<div id="boxPoliticoInfo"> 
 			{% if  iframe=='true'  %}
 			   		<a href="#" 
-		   			onclick="top.window.location='/politica/politico/{{ candidato.id }}/'">
+		   			onclick="top.window.location='{{dominio}}/politica/politico/{{ candidato.id }}/'">
 				{% else %}	
-		   			<a href="/politica/politico/{{ candidato.id }}">
+		   			<a href="{{dominio}}/politica/politico/{{ candidato.id }}">
 		   		{% endif %} {{ candidato.politicos.nome|truncate(28,False,'') }}</a><br>
-			<span style="font-size:9px; position:absolute; bottom:10px; left: 0px; margin-top:5px; display:inline-block; width:109px;"><img src="/static/img/icons/bra/bra_{{ candidato.uf|lower }}.png" width="20px;"style=" vertical-align: middle; height:100%;"	/>&nbsp;
+			<span style="font-size:9px; position:absolute; bottom:10px; left: 0px; margin-top:5px; display:inline-block; width:109px;">
+				<img src="{{dominio}}/static/img/icons/bra/bra_{{ candidato.uf|lower }}.png" width="20px;"style=" vertical-align: middle; height:100%;"
+					/>&nbsp;
 		   		{{ candidato.cidade }}</span>
 		</div>
 		 
@@ -149,7 +151,7 @@
 		   		
 	{% if acaoBoxPolitico == 'alterar' %}
 	     
- 		<a href="/politica/selecionar-politicos/{{ candidato.id }}/{{ posicao }}/false" class="vejaBx">
+ 		<a href="{{dominio}}/politica/selecionar-politicos/{{ candidato.id }}/{{ posicao }}/false" class="vejaBx">
 			<i class="fa fa-search"></i> 
 				{% trans %}Alterar{% endtrans %}
 				</a>
@@ -176,7 +178,7 @@
 
 			{% if not exists %}
 				
-			 	<a href="/politica/selecionar-politicos/{{ candidato.id }}/{{ posicao }}/{{ gravar }}" class="vejaBx">
+			 	<a href="{{dominio}}/politica/selecionar-politicos/{{ candidato.id }}/{{ posicao }}/{{ gravar }}" class="vejaBx">
 			{% trans %}Selecionar{% endtrans %}
 				<i class="fa fa-search"></i> 
 				</a>
@@ -187,9 +189,9 @@
 				{% if  iframe=='true'  %}
 	
 			   		<a href="#" class="vejaBx"
-		   			onclick="top.window.location='/politica/politico/{{ candidato.id }}/'" >
+		   			onclick="top.window.location='{{dominio}}/politica/politico/{{ candidato.id }}/'" >
 				{% else %}	
-		   			<a  href="/politica/politico/{{ candidato.id }}" class="vejaBx">
+		   			<a  href="{{dominio}}/politica/politico/{{ candidato.id }}" class="vejaBx">
 		   				
 		   		{% endif %} 
 		   		

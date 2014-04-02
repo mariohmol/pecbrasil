@@ -34,7 +34,9 @@ class PoliticaServices(object):
     def meusCandidatos(self,userId=None): 
         return TimeCandidato.query.filter_by(user_id=userId).join(Time).order_by(TimeCandidato.posicao.asc()).join(Candidatura).first()  
  
-       
+    def timesFaltandoPolitico(self):
+        return db.session.execute("select * from time where (select count(*) from timecandidato tc where tc.time=time.id)<4")
+            
     def top3Time(self):  
         return Time.query.order_by(Time.pontuacao_total.desc()).limit(3)
     

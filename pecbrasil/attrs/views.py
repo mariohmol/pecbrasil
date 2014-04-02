@@ -19,10 +19,11 @@ def page_not_found(error):
 @mod.before_request
 def before_request():
     limit = request.args.get('limit')  
+    offset = request.args.get('offset')  
     cache_id = request.path + g.locale
     # first lets test if this query is cached
     cached_q = cached_query(cache_id)
-    if cached_q and request.is_xhr and limit is None:
+    if cached_q and request.is_xhr and limit is None and offset is None:
     # if cached_q:
         return cached_q
 
@@ -52,11 +53,12 @@ def after_request(response):
 def attrs_candidatura(candidatura_id=None,partido_sigla=None):
 
     offset = request.args.get('offset', 0)
-    limit = request.args.get('limit', 10000)    
-
+    limit = request.args.get('limit', 10)    
+    print limit
+    print "opaaaaaaaaaaaa"
     ret = None
     if candidatura_id == 'all' and partido_sigla is not None and partido_sigla <> 'all':
-        ret = politicaServices.candidaturaByPartido(partido_sigla) 
+        ret = politicaServices.candidaturaByPartido(partido_sigla,limit=limit) 
     elif candidatura_id == 'all' and partido_sigla is None:
         ret = Candidatura.query.limit(limit).offset(offset).all()
     elif candidatura_id is not None and candidatura_id<>'all':
@@ -301,12 +303,12 @@ def attrs_orgaocandidato(orgao_id=None):
 @mod.route('/time/<time_id>/<liga_id>')
 def attrs_time(time_id=None,liga_id=None):
     offset = request.args.get('offset', 0)
-    limit = request.args.get('limit', 10000)  
+    limit = request.args.get('limit', 5)  
     
     if time_id is None:
-        ret = Time.query.limit(limit).offset(offset).all()
+        ret = Time.query.order_by(Time.pontuacao_total.desc()).limit(limit).offset(offset).all()
     else:
-        ret = Time.query.filter_by(id=time_id).limit(limit).offset(offset).all()
+        ret = Time.query.filter_by(id=time_id).order_by(Time.pontuacao_total.desc()).limit(limit).offset(offset).all()
     items = [q.serialize() for q in ret]
     return jsonify({"times":items})
 

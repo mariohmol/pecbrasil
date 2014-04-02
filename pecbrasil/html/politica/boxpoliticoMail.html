@@ -1,0 +1,68 @@
+{% if candidato %}
+			   
+	   <div id="boxPolitico" >
+	   <div class="card">
+		   <div class="frontCard" style="background: url('{{dominio}}/static/img/pec/fotos/{{ candidato.politicos.id_original }}.jpg') no-repeat #f4f4f4; background-size: 100% 70%;">
+	   
+		   <div id="boxPoliticoPartido">
+		   	<div class="field-content">
+		   		
+		   		 
+		   		{% if  iframe=='true'  %}	
+		   			<a href="#" onclick="top.window.location='{{dominio}}/politica/partido/{{ candidato.partidos.id }}'">
+		   		
+		   		{% else %}	
+		   			<a href="{{dominio}}/politica/partido/{{ candidato.partidos.id }}">
+		   		{% endif %}	
+		   		
+		   		
+		   		<img style="border: 5px solid #f4f4f4; position: absolute; top:0px; right:0px;top: 150px;   
+		   		width: auto; height: 40px;" src="{{dominio}}/static/img/pecbrasil/partidos/{{ candidato.partidos.sigla|lower}}.jpg" width="50">
+		   		</a>
+		   		 
+		   		
+	
+		   	</div>
+		   
+		   </div>
+	   
+	   	<!-- 	<div id="boxPoliticoCargo">Dep. Federal</div>  -->
+	   
+		   
+		
+	<div id="boxPoliticoInfo"> 
+			{% if  iframe=='true'  %}
+			   		<a href="#" 
+		   			onclick="top.window.location='{{dominio}}/politica/politico/{{ candidato.id }}/'">
+				{% else %}	
+		   			<a href="{{dominio}}/politica/politico/{{ candidato.id }}">
+		   		{% endif %} {{ candidato.politicos.nome|truncate(28,False,'') }}</a><br>
+			<span style="font-size:9px; position:absolute; bottom:10px; left: 0px; margin-top:5px; display:inline-block; width:109px;">
+				<img src="{{dominio}}/static/img/icons/bra/bra_{{ candidato.uf|lower }}.png" width="20px;"style=" vertical-align: middle; height:100%;"
+					/>&nbsp;
+		   		{{ candidato.cidade }}</span>
+		</div>
+		 
+		<h5 id="boxPoliticoUltima">
+					<div class="field-content" >
+					{% if pontuacao_total %}
+					
+						{{ pontuacao_total }}
+					
+					{% else %}
+					
+						{{ candidato.pontuacao_total|int }}
+					
+					{% endif %}
+					</div>
+				</h5>
+	
+		</div>
+		
+	
+{% endif %}
+
+
+	</div>
+
+</div>

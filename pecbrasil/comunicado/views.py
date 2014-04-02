@@ -76,6 +76,25 @@ def enviaUltimaRodada(time,rodada_id,titulo,rodada,politicos,rodada_atual,enviar
                       render_template("comunicado/ultimarodada.html",time=time,rodada=rodada,rodadaPontos=rodadaPontos,politicos=politicos,rodada_atual=rodada_atual))
     return log  
 
+@mod.route('/timeincompleto/')
+@mod.route('/timeincompleto/<time_id>')
+def timeincompleto(time_id=None): 
+    titulo="Complete seu time"
+    log=""
+    enviar = request.args.get('enviar')
+    total=0
+    if enviar is None:
+        enviar='True'
+    rows=politicaServices.timesFaltandoPolitico()
+    for row in rows:
+        time_id=row[0]
+        time = politicaServices.verTime(id=time_id)
+        if enviar == 'True':
+            send_mail(titulo,[time.user.email],  render_template("comunicado/timeincompleto.html",time=time))
+        log=log+","+time.user.email
+        total=total+1
+    return render_template("comunicado/statuscomunicado.html",titulo=titulo,total=total,log=log)  
+            
 @mod.route('/abrecampeonato/')
 @mod.route('/abrecampeonato/<time_id>')
 def abrecampeonato(time_id=None): 

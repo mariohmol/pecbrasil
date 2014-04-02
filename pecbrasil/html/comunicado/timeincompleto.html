@@ -1,0 +1,35 @@
+{% extends "templates/comunicado.html" %}
+
+
+{% block title %}: {% trans %}Seu time está incompleto{% endtrans %}{% endblock %}
+
+{% block body %}
+  <h1>{% trans %}Olá{% endtrans %} {{ time.nome }} </h1>
+
+
+      <h2> {% trans %}Percebemos que você está com um time em que está faltando escolher políticos para completar sua bancada.{% endtrans %}
+      	
+      	</h2>
+      	
+      	<br/> 
+      
+       <h2> {% trans %}Sem completar seu time você deixará de ganhar pontos importantes para o campeonato{% endtrans %}
+      	</h2>
+	
+	<br/> 
+	
+	  <h2> {% trans %}Aproveite a oportunidade para criar uma liga e chame seus amigos para competir.{% endtrans %}
+      	</h2>
+      	
+      	<br/> 
+      	
+      	 <h2> {% trans %}Mostre que você é o melhor em política!.{% endtrans %}
+      	</h2>
+	
+	 <br/>
+   <h3>{% trans %}Entre no 	{% endtrans %}
+   <a href="http://politicaesporteclube.com">Política Esporte Clube</a> {% trans %}e deixa seu time ainda mais forte!{% endtrans %}</h3>
+    <br/>
+    {% trans %}Equipe Política Esporte Clube{% endtrans %}
+{% endblock %}
+
