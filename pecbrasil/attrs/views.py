@@ -20,19 +20,21 @@ def page_not_found(error):
 def before_request():
     limit = request.args.get('limit')  
     offset = request.args.get('offset')  
-    cache_id = request.path + g.locale
+    cache_id = request.path + g.locale + str(limit) + str(offset)
+
     # first lets test if this query is cached
     cached_q = cached_query(cache_id)
-    if cached_q and request.is_xhr and limit is None and offset is None:
+    if cached_q: # and request.is_xhr and limit is None and offset is None:
     # if cached_q:
         return cached_q
 
 @mod.after_request
 def after_request(response):
-
+    limit = request.args.get('limit')  
+    offset = request.args.get('offset') 
     # if response.status_code != 302:
-    if response.status_code != 302 and request.is_xhr:
-        cache_id = request.path + g.locale
+    if response.status_code != 302: # and request.is_xhr
+        cache_id = request.path + g.locale + str(limit) + str(offset)
         # test if this query was cached, if not add it
         cached_q = cached_query(cache_id)
         if cached_q is None:
@@ -303,12 +305,12 @@ def attrs_orgaocandidato(orgao_id=None):
 @mod.route('/time/<time_id>/<liga_id>')
 def attrs_time(time_id=None,liga_id=None):
     offset = request.args.get('offset', 0)
-    limit = request.args.get('limit', 5)  
+    limit = request.args.get('limit', 50)  
     
     if time_id is None:
-        ret = Time.query.order_by(Time.pontuacao_total.desc()).limit(limit).offset(offset).all()
+        ret = Time.query.order_by(Time.posicao).limit(limit).offset(offset).all()
     else:
-        ret = Time.query.filter_by(id=time_id).order_by(Time.pontuacao_total.desc()).limit(limit).offset(offset).all()
+        ret = Time.query.filter_by(id=time_id).order_by(Time.posicao).limit(limit).offset(offset).all()
     items = [q.serialize() for q in ret]
     return jsonify({"times":items})
 
