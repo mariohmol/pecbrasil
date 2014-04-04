@@ -3,6 +3,7 @@ function infinite_scroll(selection){
       refresh = false,
       remove = false,
       offset = 0,
+      order = null,
       format_items = function(d){ return d };
   
   // Initialize variables
@@ -21,9 +22,11 @@ function infinite_scroll(selection){
       inf_loading_div.data([container_el])
         .enter().append("div")
         .attr("class", "infinite_loading")
+        .each(function(){
+          infinite_loading = dataviva.ui.loading(".infinite_loading")
+        })
       
-      var loading = dataviva.ui.loading(".infinite_loading")
-      loading.text("Loading more items").show()
+      infinite_loading.text(dataviva.format.text("loading_items")).show()
       
       // The item we're going to listen on for scrolling
       d3.select(window)
@@ -40,8 +43,8 @@ function infinite_scroll(selection){
         if(isNaN(offset)){
           offset = 0;
         }
-        // console.log(fetching, offset, loading_div_y, innerHeight, refresh)
-        if ((!fetching && offset >= 0 && offset<100 && loading_div_y < innerHeight) || refresh) {
+        // console.log(fetching, offset, loading_div_y-50, innerHeight, refresh)
+        if ((!fetching && offset >= 0 && offset < 10 && loading_div_y-50 < innerHeight) || refresh) {
           fetch();
         }
 
@@ -53,20 +56,22 @@ function infinite_scroll(selection){
         refresh = false;
   
         // conver url to Location object
-        var a = document.createElement('a');
-        a.href = url;
-        
+        a = url
         // decide whether to use '?' or '&'
-        if(a.search.length > 0){
-          a.href = a.href + "&offset="+offset
+        if(a.indexOf("?") >= 0){
+          a += "&offset="+offset
         }
         else {
-          a.href = a.href + "?offset="+offset
+          a += "?offset="+offset
         }
-  
+        
+        if (order) {
+          a += "&order="+order
+        }
+        
         // Here we set the header X-Requested-With to XMLHttpRequest so the 
         // server knows it's an AJAX call
-        d3.json(a.href)
+        d3.json(a)
           .header("X-Requested-With", "XMLHttpRequest")
           .get(display);
       }
@@ -116,7 +121,7 @@ function infinite_scroll(selection){
       }
       
       // call this on page load
-      //maybe_fetch();
+      maybe_fetch();
       
     })
   }
@@ -124,7 +129,7 @@ function infinite_scroll(selection){
   scroll.url = function(value) {
     if(!arguments.length) return url;
     if(value.split("?")[0] != url.split("?")[0]){
-      //refresh = true;
+      refresh = true;
     }
     url = value;
     return scroll;
@@ -145,6 +150,12 @@ function infinite_scroll(selection){
   scroll.offset = function(value) {
     if(!arguments.length) return offset;
     offset = value;
+    return scroll;
+  }
+  
+  scroll.order = function(value) {
+    if(!arguments.length) return order;
+    order = value;
     return scroll;
   }
   

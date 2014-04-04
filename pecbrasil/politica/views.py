@@ -57,9 +57,10 @@ def politico(nome=None,order=None):
     
     if politicos <> None and isinstance(politicos, list) and len(politicos)>1:
         url="politica/politicoList.html" 
-    else:
+    elif isinstance(politicos, list) and len(politicos)==1:
         url="politica/politico.html"
-        if  isinstance(politicos, list) and len(politicos)==1: politicos = politicos[0]
+    else:
+        url="politica/politicoList.html" 
     
     return render_template(url,orderby=order, form=form,rodada_atual=rodada_atual,estado=estado,orderdirec=orderdirec,
                                 politicos = politicos)

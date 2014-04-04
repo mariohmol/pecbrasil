@@ -11,11 +11,29 @@
 
 <h1>{% trans %}Seleção{% endtrans %} {{ time.nome }}</h1>
  
+ {% if time.fundacao %}
+<h2>{% trans %}Fundação{% endtrans %} {{ time.fundacao }}</h2>
+{% endif %}
+
+{% if time.pontuacao_total %}
+<h2>{% trans %}Pontos{% endtrans %} {{ time.pontuacao_total }}</h2>
+{% endif %}
+
+{% if time.posicao  %}
+<h2>{% trans %}Ranking{% endtrans %} {{ time.posicao }}</h2>
+{% endif %}
+
+{% if time.desc  %}
+<pre> {{ time.desc }} </pre>
+{% endif %}
+
+    
 
 {% set posicao1=true %}
 {% set posicao2=true %}
 {% set posicao3=true %}
 {% set posicao4=true %}
+
 
 {% set acaoBoxPolitico = 'alterar' %} 
 {% for candidatura in time.candidatos.all() %}
@@ -44,6 +62,13 @@
 		style="width: 668px!important; height: auto; background-color:#f1f1f1!important; border-radius: 5px; box-shadow: 0px 0px 1px #888; padding: 5px 10px;">
 		<h2>{% trans %}Pontuação no Campeonato{% endtrans %}</h2>
 
+
+	{% set iframeId = 'iframe2' %} 
+			 {% set anoOption = 'true' %}
+			  {% set valOption = 'false' %}
+			 
+			{% include "grafico/painel.html" %}
+			
 		<iframe id="iframe2"
 			src="/grafico/selecaostacked/{{ time.id }}"
 			style="width:  648px!important; height: 600px"> </iframe>

@@ -473,7 +473,10 @@ class PoliticaServices(object):
         db.session.execute("update time c set c.pontuacao_tendencia = (SELECT avg(pontos)/c.pontuacao_ultima FROM rodadapontos p ,rodada r where r.id = p.rodada and r.ano='"+anoatual+"' and r.ativo =1 and p.time = c.id group by p.time )")
         
         db.session.execute("update rodadapontos p set p.ativo=0 where rodada > (select max(r.id) from rodada r where  r.ativo =1)")
-        #update ligajogador l set l.pontos_ligajogador= (SELECT sum(p.pontos_ligapontos) FROM ligapontos p where p.time_ligapontos = l.user_ligajogador)
+        
+        sql="update ligajogador l set l.pontos_ligajogador= (SELECT sum(p.pontos_ligapontos) FROM ligapontos p "
+        db.session.execute(sql+"  where p.time_ligapontos = l.user_ligajogador and p.liga_ligapontos = l.liga_ligajogador)")
+        
         db.session.execute("update rodadapontos p set p.ativo=1 where rodada <= (select max(r.id) from rodada r where  r.ativo =1)")
         self.updatePosicaoTimes()
         db.session.commit() 
@@ -538,10 +541,11 @@ class PoliticaServices(object):
         db.session.commit()
         
         #[ ] Inserir ponto  liga
-        sql="insert into   ligapontos SELECT p.rodada,sum(p.pontos),l.liga_ligajogador,tc.time  ";
+        db.session.execute("delete from ligapontos where rodada_ligapontos="+rodada)
+        sql="insert into   ligapontos SELECT p.rodada,sum(p.pontos),l.liga_ligajogador,l.user_ligajogador  ";
         sql=sql + "FROM timecandidato tc, pontuacao p,ligajogador l,rodada r ";
         sql=sql + "WHERE p.candidatura = tc.candidatura and l.user_ligajogador = tc.candidatura and ";
-        sql=sql + "r.id = p.rodada and r.inicio > l.data_ligajogador and rodada="+rodada+ " group by p.rodada,tc.time,l.liga_ligajogador";
+        sql=sql + "r.id = p.rodada and r.fim >= l.data_ligajogador and rodada="+rodada+ " group by p.rodada,tc.time,l.liga_ligajogador";
         db.session.execute(sql)
         db.session.commit()
         self.updateRodadaInicioFim()
@@ -566,9 +570,15 @@ class PoliticaServices(object):
         self.updateRodadaInicioFim()
         
         sql="update  despesacandidato d set d.ano =  ( select r.ano from rodada r where d.rodada =  r.id ) where id_despesacandidato >0 and d.ano is null"
-        db.session.execute(sql)
-        db.session.commit()
+        db.session.execute(sql)        
         
+        sql="delete FROM ligajogador where user_ligajogador not in (select id from time)"
+        db.session.execute(sql)
+        
+        sql="delete FROM liga where criador_liga not in (select id from time)"
+        db.session.execute(sql)
+        
+        db.session.commit()
         self.cleanRedisCache()
         
 

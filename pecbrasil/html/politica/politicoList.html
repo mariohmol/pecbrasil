@@ -86,7 +86,7 @@
    {% set backCard = 'True' %}
    
    		{% set posicao = posicao + 1 %}
-      	{% include "politica/boxpolitico.html" %}
+       	{% include "politica/boxpolitico.html" %}
       
     
     {% endfor %}
@@ -96,7 +96,7 @@
     {% trans %}Não foram encontrados políticos nesta pesquisa{% endtrans %}.
     {% endif %}
    </div>
-   <!--
+  
    <div class="feed">
    	
    	 <table style="width:100%;float: left;">
@@ -114,7 +114,6 @@
    	
    </div>
    
-   -->
     <script src="/static/js/utils/utils.infinite_scroll.js"></script>
 
 <script>
@@ -126,9 +125,77 @@ function item_formatter(container_el, activities){
     .data(activities, function(d){ return d.id; })
     .enter().append("tr")
     
-	attrs_enter.append("td").text(function(d){ return d.name_pt; })
- 
-  
+	inicio = attrs_enter.append("td")
+	card = inicio.append("div").attr("id","boxPoliticoPartido")
+	.append("div")
+	card.attr("class","field-content")
+	
+	frontCard=card.append("div")
+	
+	frontCard.attr("class","frontCard")
+	frontCard.attr("style",
+	
+		function(d){ return "background: url('{{dominio}}/static/img/pec/fotos/"+d.id_original+".jpg') no-repeat #f4f4f4; background-size: 100% 70%;"; }
+	)
+	
+	
+	boxPoliticoPartido=frontCard.append("div").attr("id","boxPoliticoPartido")
+	contboxPoliticoPartido = boxPoliticoPartido.append("div").attr("class","field-content")
+	
+		
+		   	
+		   		{% if  iframe=='true'  %}	
+		   		link=contboxPoliticoPartido.append("a").attr("href","#")
+		   		.attr("onclick",
+					function(d){ return "top.window.location='{{dominio}}/politica/partido/"+d.partido; }
+					
+					)
+		   		
+		   		{% else %}	
+		   		link=contboxPoliticoPartido.append("a").
+		   		attr("href",
+					function(d){ return "{{dominio}}/politica/partido/"+d.partido; }
+					
+					)
+					
+		   		{% endif %}	
+		   		
+		   		link.append("img")
+		   		.attr("style","border: 5px solid #f4f4f4; position: absolute; top:0px; right:0px;top: 150px;   width: auto; height: 40px;")
+		   		.attr("src",
+					function(d){ return "{{dominio}}/static/img/pecbrasil/partidos/"+d.partido+".jpg"; }
+					
+					)
+		   	
+		   	
+		   	boxPoliticoInfo=frontCard.append("div").attr("id","boxPoliticoInfo")
+		   	
+			   	{% if  iframe=='true'  %}
+			   	contboxPoliticoInfo=boxPoliticoInfo.append("a").attr("href","#").attr("onclick",
+						function(d){ return "top.window.location='{{dominio}}/politica/politico/"+d.id; }
+						
+						)
+			   	{% else %}	
+			   		contboxPoliticoInfo = boxPoliticoInfo.append("a").attr("href",
+						function(d){ return "{{dominio}}/politica/politico/"+d.id; }
+						
+						)
+					
+				{% endif %} 
+				
+					contboxPoliticoInfo.text(function(d){ return d.name_pt; })
+				spanBI = boxPoliticoInfo.append("span")
+				.attr("style","font-size:9px; position:absolute; bottom:10px; left: 0px; margin-top:5px; display:inline-block; width:109px;")
+				spanBI.append("img").attr("src",
+						function(d){ return "{{dominio}}/static/img/icons/bra/bra_"+d.uf+".png"; }
+						
+					).attr("style","width: 20px; vertical-align: middle; height:100%;")
+					.text(function(d){ return d.cidade; })
+		
+		
+	
+	
+	  
  // $.get('http://localhost:8084/politica/boxpolitico/20',function(data){ attrs_enter.append("td").html(data)})
     
 	
@@ -144,5 +211,10 @@ var is = infinite_scroll().format_items(item_formatter);
    
    
 </div>    
+<!--
+			
+	
+	
+	 -->
 {% endblock %}
 

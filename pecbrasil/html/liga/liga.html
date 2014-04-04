@@ -83,7 +83,8 @@
       <table>
       <tr>
       	<td>{% trans %}Seleção{% endtrans %}</td>
-      	<td>{% trans %}Pontos{% endtrans %}</td>
+      	<td>{% trans %}Pontos na Liga{% endtrans %}</td>
+      	<td>{% trans %}Pontuação Geral{% endtrans %}</td>
       	<td>{% trans %}Entrada{% endtrans %}</td>
       	{% if liga.criador_time.id == meutime %}
     
@@ -92,33 +93,53 @@
     	{% endif %}
     	
       	</tr>
+      	
+      	
      {% for jogador in liga.ligajogador.all() %}
-       <tr><td>
-        <a href="/politica/selecao/{{ jogador.time.id }}">
-        {{ jogador.time.nome }}</a>
-      
-      {% if jogador.time.id == meutime %}  
-        <br/>-<br/>
-         <a 	
-         href="#"
-         
-         onclick="if(confirm('{% trans %}Certeza que deseja sair da liga? Se continuar perderá todos seus pontos conquistados na liga! Deseja continuar?{% endtrans %}'))
-			window.location='/liga/sairliga/{{ liga.id_liga }}'"
-		>
-        {% trans %}Sair da Liga{% endtrans %}</a>
-       {% endif %} 
+       <tr>
+       	
+       	<td>
+	        <a href="/politica/selecao/{{ jogador.time.id }}">
+	        {{ jogador.time.nome }}</a>
+	      
+	      {% if jogador.time.id == meutime %}  
+	        <br/>-<br/>
+	         <a 	
+	         href="#"
+	         
+	         onclick="if(confirm('{% trans %}Certeza que deseja sair da liga? Se continuar perderá todos seus pontos conquistados na liga! Deseja continuar?{% endtrans %}'))
+				window.location='/liga/sairliga/{{ liga.id_liga }}'"
+			>
+	        {% trans %}Sair da Liga{% endtrans %}</a>
+	       {% endif %} 
         
         </td>
+        
+        
         <td>
-        {% if jogador.time.pontuacao_total %}
-        	{{ jogador.time.pontuacao_total }} 
-        	{% else %}
-        	0 
-         {% endif %}
-         pts
+		        {% if jogador.pontos_ligajogador %}        
+		        	{{ jogador.pontos_ligajogador }} 
+		        	{% else %}
+		        	0 
+		         {% endif %}          pts
+        </td>
+        	
         <td>
-        {% trans %}Entrada{% endtrans %}: {{ jogador.data_ligajogador }}
- 	 </td>
+	        {% if jogador.time.pontuacao_total %}
+	        
+	        	{{ jogador.time.pontuacao_total }} 
+	        	{% else %}
+	        	0 
+	         {% endif %}
+	         pts
+	         
+	      </td>
+	      
+	      
+        <td>
+        	
+        		{% trans %}Entrada{% endtrans %}: {{ jogador.data_ligajogador }}
+ 	 	</td>
   	{% if liga.criador_time.id == meutime %}
     
     		<td>

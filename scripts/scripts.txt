@@ -803,6 +803,9 @@ CREATE TABLE IF NOT EXISTS `convite` (
   PRIMARY KEY (`id_convite`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+ALTER TABLE  `sisfocus_pec`.`ligapontos` DROP PRIMARY KEY ,
+ADD PRIMARY KEY (  `rodada_ligapontos` ,  `liga_ligapontos` ,  `time_ligapontos` )
+
 http://localhost:8084/account/complete_login/
 
 ERROS
