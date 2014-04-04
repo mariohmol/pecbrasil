@@ -4,6 +4,8 @@ from flask import Blueprint, request, jsonify, abort, g
 from pecbrasil import db
 from pecbrasil.politica.models import Candidatura,CandidaturaTotal, Pontuacao,Partido,PartidoTotal,Time,RodadaPontos,TimeCandidato 
 from pecbrasil.politica.models import DespesaTipo,Rodada,ProcessoCandidato,DespesaCandidato
+from pecbrasil.liga.models import LigaPontos,Liga,LigaJogador
+
 from pecbrasil.proposicao.models import VotacaoCandidato,Proposicao,TimeVotacao
 from pecbrasil.orgao.models import Orgao,OrgaoCandidato
 from pecbrasil.utils import exist_or_404, gzip_data, cached_query
@@ -307,8 +309,10 @@ def attrs_time(time_id=None,liga_id=None):
     offset = request.args.get('offset', 0)
     limit = request.args.get('limit', 50)  
     
-    if time_id is None:
+    if time_id is None and liga_id is None:
         ret = Time.query.order_by(Time.posicao).limit(limit).offset(offset).all()
+    elif time_id=='all' and liga_id is not None:
+        ret = Time.query.join(LigaJogador).filter_by(liga_ligajogador=liga_id).order_by(Time.posicao).limit(limit).offset(offset).all()
     else:
         ret = Time.query.filter_by(id=time_id).order_by(Time.posicao).limit(limit).offset(offset).all()
     items = [q.serialize() for q in ret]
@@ -354,6 +358,24 @@ def attrs_rodadapontos(time_id=None,rodada_id=None):
     items = [q.serialize() for q in ret]
     return jsonify({"rodadapontos":items})
 
+@mod.route('/ligapontos/')
+@mod.route('/ligapontos/<liga_id>')
+@mod.route('/ligapontos/<liga_id>/')
+@mod.route('/ligapontos/<liga_id>/<rodada_id>')
+@mod.route('/ligapontos/<liga_id>/<rodada_id>/')
+def attrs_ligapontos(liga_id=None,rodada_id=None):
+    if liga_id is None:
+        if rodada_id is None or rodada_id=="all":
+            ret = LigaPontos.query.all()
+        else:
+            ret = LigaPontos.query.filter_by(rodada_ligapontos=rodada_id).all() 
+    else:
+        if rodada_id is None or rodada_id=="all":
+            ret = LigaPontos.query.filter_by(liga_ligapontos=liga_id).all()
+        else:
+            ret = LigaPontos.query.filter_by(rodada_ligapontos=rodada_id,liga_ligapontos=liga_id).all()
+    items = [q.serialize() for q in ret]
+    return jsonify({"ligapontos":items})
 
 @mod.route('/rodada/')
 @mod.route('/rodada/<rodada_id>/')

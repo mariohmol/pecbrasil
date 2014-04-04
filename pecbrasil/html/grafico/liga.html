@@ -1,0 +1,63 @@
+{% extends "templates/clean.html" %}
+
+{% block content %}
+
+
+ {% set divId = 'stackedDiv' %}
+{% include "grafico/painelIframe.html" %}
+
+ 	<div id="stackedDiv"></div>
+
+<script src="/static/js/src/viz/stacked.js"></script>
+
+<script>
+	var viz = d3plus.viz()
+
+	d3.json("/attrs/time/{{ selecao }}/{{ liga }}", function(time) {
+		//d3.json("/attrs/candidaturatime/{{ selecao }}", function(candidato) {
+		//d3.json("/attrs/timecandidato/{{ selecao }}", function(timecandidato) {
+		d3.json("/attrs/rodada/", function(rodada) {
+			d3.json("/attrs/ligapontos/{{ liga }}", function(data) {
+
+				var attrs = {}
+				var novoRodada = {}
+					time.times.forEach(function(p) {
+						p.time=p.id
+						p.time_ligapontos=p.id
+						attrs[p.id]=p
+					})
+					
+					rodada.rodadas.forEach(function(p) {
+						novoRodada[p.id]=p
+					})
+					
+					data.ligapontos.forEach(function(p) {
+						p.ano=novoRodada[p.rodada_ligapontos].ano
+						p.semana=novoRodada[p.rodada_ligapontos].semana
+						p.nome = attrs[p.time_ligapontos].nome
+					})
+		
+
+				viz.type("stacked")
+				.id("time_ligapontos").attrs(attrs)
+				.text("nome")
+						.value("pontos_ligapontos")
+						.yaxis("pontos_ligapontos")
+          		.xaxis("semana")
+          		.unique_axis("x")
+				.stack_type("monotone")
+				//.year_var("ano")
+				//.year("2013")
+				//.tooltip_info([ "pontos", "rodada", "timeNome" ])
+
+				
+				d3.select("#stackedDiv").datum(data.ligapontos).call(viz)
+
+			//})		})
+			})
+		})
+	})
+</script>
+
+
+{% endblock %}

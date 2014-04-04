@@ -91,8 +91,10 @@ def scatter():
 @mod.route('/selecaostacked/<selecao>/<liga>')
 @mod.route('/selecaostacked/<selecao>/<liga>/')
 def selecaostacked(selecao=None,liga=None):    
-    if selecao is not  None:
+    if selecao is not  None and selecao<>'all':
         return render_template("grafico/selecao.html",selecao=selecao ,liga=liga)
+    elif liga is not None:
+        return render_template("grafico/liga.html",selecao=selecao ,liga=liga)
     
 
 @mod.route('/mapasvg/')
