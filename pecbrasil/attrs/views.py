@@ -57,9 +57,8 @@ def after_request(response):
 def attrs_candidatura(candidatura_id=None,partido_sigla=None):
 
     offset = request.args.get('offset', 0)
-    limit = request.args.get('limit', 10)    
-    print limit
-    print "opaaaaaaaaaaaa"
+    limit = request.args.get('limit', 100)    
+
     ret = None
     if candidatura_id == 'all' and partido_sigla is not None and partido_sigla <> 'all':
         ret = politicaServices.candidaturaByPartido(partido_sigla,limit=limit) 
