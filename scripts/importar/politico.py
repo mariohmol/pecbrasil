@@ -23,7 +23,7 @@ def addPolitico(nome,nascimento=None,desc_pt=None,partido=None,id_original=None,
         cursor.execute("update politico set id_original = "+id_original+",desc_pt='"+desc_pt+"',nome='"+nome+"' , nascimento='"+nascimento+"' where id = "+str(row[0])+ ";")
         print "Atualizado politico"
         #nascimento=STR_TO_DATE('"+nascimento+"', '%d/%m/%Y')
-    return getPolitico(nome,id_original) 
+    return getPolitico(nome,id_original,cursor=cursor) 
 
 def getPolitico(nome=None,id_original=None,cursor=None):   
     if nome is None:
