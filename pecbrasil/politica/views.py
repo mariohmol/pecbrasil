@@ -58,7 +58,9 @@ def politico(nome=None,order=None):
     if politicos <> None and isinstance(politicos, list) and len(politicos)>1:
         url="politica/politicoList.html" 
     elif isinstance(politicos, list) and len(politicos)==1:
+        politicos=politicos[0]
         url="politica/politico.html"
+                
     else:
         url="politica/politicoList.html" 
     
