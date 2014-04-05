@@ -137,7 +137,7 @@ def runCandidaturas(cursor=None):
         ExpCandidaturas_ID = line[8]
         
 
-        if ExpCandidaturas_Nome and ExpCandidaturas_Ano=="2010" and ExpCandidaturas_DescSituacao == "ELEITO": 
+        if ExpCandidaturas_Nome and ExpCandidaturas_Ano=="2010": # and ExpCandidaturas_DescSituacao == "ELEITO": 
             addCandidatura(titulo=ExpCandidaturas_Titulo,nome=ExpCandidaturas_Nome,
                            partidoNome=ExpCandidaturas_Partido,
                            uf=ExpCandidaturas_UF,
