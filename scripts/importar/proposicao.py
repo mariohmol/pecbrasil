@@ -79,7 +79,7 @@ def addTipoProposicao(id,nome=None,sigla=None,cursor=None):
     cursor.execute("INSERT INTO `tipoproposicao` (`nome_tipoproposicao`, `sigla_tipoproposicao`,originalid_tipoproposicao) VALUES (%s,%s,%s)",[nome,sigla,id])
     return getTipoProposicao(id,nome,sigla,cursor)
 
-def runProposicao(cursor=None):         
+def runProposicao(cursor=None,anoFilter=None,semanaFilter=None):         
     csv_reader = utils.openCSV('data/ExpProposicao.csv')
     proposicaoSQL=""
     siglaAtual=None
