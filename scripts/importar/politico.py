@@ -5,7 +5,7 @@ import datetime
 import codecs 
 from mako.filters import trim
 import utils
-#import partido
+import partido
 
 #cursor = utils.getCursorConnection()
 
@@ -18,10 +18,10 @@ def addPolitico(nome,nascimento=None,desc_pt=None,partido=None,id_original=None,
     nascimento = utils.formatDate(nascimento)
     if row is None:
         cursor.execute("insert into politico (nome,nascimento,desc_pt,partido,id_original) values (%s,%s,%s,%s,%s)",[nome,nascimento,desc_pt,partido,id_original])
-        #print "Inserido politico "           
+        print "Inserido politico "           
     else:
         cursor.execute("update politico set id_original = "+id_original+",desc_pt='"+desc_pt+"',nome='"+nome+"' , nascimento='"+nascimento+"' where id = "+str(row[0])+ ";")
-        #print "Atualizado politico"
+        print "Atualizado politico"
         #nascimento=STR_TO_DATE('"+nascimento+"', '%d/%m/%Y')
     return getPolitico(nome,id_original) 
 
@@ -82,7 +82,7 @@ def getCandidatura(nome=None,politico=None,id_original=None,cursor=None):
         for row in rows:
             return row
         
-    if nome is not None and politico is not None:       
+    if nome is not None and politico is not None and isinstance(nome,int) and isinstance(politico,int):       
         cursor.execute("select id from candidatura where  id_original = %s or id_original = %s",[politico,nome] )
         rows = cursor.fetchall()
         for row in rows:

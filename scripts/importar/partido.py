@@ -12,7 +12,7 @@ import utils
 #    PARTIDO
 ###########
 def addPartido(nome,sigla=None,codigo=None,cursor=None):    
-    row = getPartido(nome)  
+    row = getPartido(nome,cursor=cursor)  
     if row is None:
         row = getPartidoByCodigo(codigo,cursor=cursor)
     if row is None:
