@@ -337,7 +337,7 @@ message="Invite friends: {0}".format(name)
 '''
 def send_mail(title, recipients,message):
     import re
-    if recipients is None:
+    if recipients is None or len(recipients)<1:
         return
     EMAIL_REGEX = re.compile(r"[^@]+@[^@]+\.[^@]+")
     for email in recipients:
