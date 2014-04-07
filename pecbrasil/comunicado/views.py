@@ -100,7 +100,7 @@ def timeincompleto(time_id=None):
                 except:
                     print "Error EMail"
             
-        log=log+","+time.user.email
+        log=log+","+str(time.user.email)
         total=total+1
     if time_id is not None:
         return render_template("comunicado/timeincompleto.html",time=time)
