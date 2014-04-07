@@ -74,8 +74,11 @@ def enviaUltimaRodada(time,rodada_id,titulo,rodada,politicos,rodada_atual,enviar
         #log=log+"\n"+str(time.user.email)+ " - "+str(time.id)+" - "+str(time.nome)
         rodadaPontos=politicaServices.rodadaPontosByTime(time.id,rodada_id)
         if enviar == 'True':
-            send_mail(titulo,[time.user.email],  
+            try:
+                send_mail(titulo,[time.user.email],  
                       render_template("comunicado/ultimarodada.html",time=time,rodada=rodada,rodadaPontos=rodadaPontos,politicos=politicos,rodada_atual=rodada_atual))
+            except e:
+                    print e
     return log  
 
 @mod.route('/timeincompleto/')
@@ -92,7 +95,11 @@ def timeincompleto(time_id=None):
         timeid=row[0]
         time = politicaServices.verTime(id=timeid)
         if enviar == 'True':
-            send_mail(titulo,[time.user.email],  render_template("comunicado/timeincompleto.html",time=time))
+                try:
+                    send_mail(titulo,[time.user.email],  render_template("comunicado/timeincompleto.html",time=time))
+                except e:
+                    print e
+            
         log=log+","+time.user.email
         total=total+1
     if time_id is not None:
@@ -138,7 +145,11 @@ def criartime(time_id=None):
     if time_id is not None:
         time = politicaServices.meuTime(time_id)
         if time is not None:
-            send_mail(titulo,[time.user.email],   render_template("comunicado/criartime.html",time=time))
+            try:
+                send_mail(titulo,[time.user.email],   render_template("comunicado/criartime.html",time=time))
+            except e:
+                    print "Unexpected error:"
+                    print e
             total=total+1
             log=log+","+time.user.email
     else:
@@ -146,7 +157,11 @@ def criartime(time_id=None):
         rows = db.session.fetchall()
         total=0
         for row in rows:
-            send_mail(titulo,[row[0]],  render_template("comunicado/criartime.html",email=row[0],nickname=row[1],fullname=row[2]))
+            try:
+                send_mail(titulo,[row[0]],  render_template("comunicado/criartime.html",email=row[0],nickname=row[1],fullname=row[2]))
+            except e:
+                    print "Unexpected error:"
+                    print e
             total=total+1
             log=log+","+time.user.email
                 
@@ -163,7 +178,11 @@ def retornar(time_id=None):
     if time_id is not None:
         time = politicaServices.meuTime(time_id)
         if time is not None:
-            send_mail(titulo,time.user.email,   render_template("comunicado/retornar.html",time=time))
+            try:
+                send_mail(titulo,time.user.email,   render_template("comunicado/retornar.html",time=time))
+            except e:
+                    print "Unexpected error:"
+                    print e
             total=total+1
             log=log+","+time.user.email
     else:
@@ -171,7 +190,11 @@ def retornar(time_id=None):
         rows = db.session.fetchall()
         total=0
         for row in rows:
-            send_mail(titulo,row[0],  render_template("comunicado/retornar.html",email=row[0],nickname=row[1],fullname=row[2]))
+            try:
+                send_mail(titulo,row[0],  render_template("comunicado/retornar.html",email=row[0],nickname=row[1],fullname=row[2]))
+            except e:
+                    print "Unexpected error:"
+                    print e
             total=total+1
             log=log+","+time.user.email
 

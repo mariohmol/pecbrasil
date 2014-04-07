@@ -345,6 +345,7 @@ def send_mail(title, recipients,message):
             return
         
     from pecbrasil import mail
+
     msg = Message(title,sender="Politica Esporte Clube <contato@politicaesporteclube.com>",recipients=recipients)
     msg.body = message
     msg.html = msg.body
