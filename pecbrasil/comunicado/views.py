@@ -77,8 +77,8 @@ def enviaUltimaRodada(time,rodada_id,titulo,rodada,politicos,rodada_atual,enviar
             try:
                 send_mail(titulo,[time.user.email],  
                       render_template("comunicado/ultimarodada.html",time=time,rodada=rodada,rodadaPontos=rodadaPontos,politicos=politicos,rodada_atual=rodada_atual))
-            except e:
-                    print e
+            except:
+                    print "Error EMail"
     return log  
 
 @mod.route('/timeincompleto/')
@@ -97,8 +97,8 @@ def timeincompleto(time_id=None):
         if enviar == 'True':
                 try:
                     send_mail(titulo,[time.user.email],  render_template("comunicado/timeincompleto.html",time=time))
-                except e:
-                    print e
+                except:
+                    print "Error EMail"
             
         log=log+","+time.user.email
         total=total+1
@@ -147,9 +147,9 @@ def criartime(time_id=None):
         if time is not None:
             try:
                 send_mail(titulo,[time.user.email],   render_template("comunicado/criartime.html",time=time))
-            except e:
+            except:
                     print "Unexpected error:"
-                    print e
+                    print "Error EMail"
             total=total+1
             log=log+","+time.user.email
     else:
@@ -159,9 +159,9 @@ def criartime(time_id=None):
         for row in rows:
             try:
                 send_mail(titulo,[row[0]],  render_template("comunicado/criartime.html",email=row[0],nickname=row[1],fullname=row[2]))
-            except e:
+            except:
                     print "Unexpected error:"
-                    print e
+                    print "Error EMail"
             total=total+1
             log=log+","+time.user.email
                 
@@ -180,9 +180,9 @@ def retornar(time_id=None):
         if time is not None:
             try:
                 send_mail(titulo,time.user.email,   render_template("comunicado/retornar.html",time=time))
-            except e:
+            except:
                     print "Unexpected error:"
-                    print e
+                    print "Error EMail"
             total=total+1
             log=log+","+time.user.email
     else:
@@ -192,9 +192,9 @@ def retornar(time_id=None):
         for row in rows:
             try:
                 send_mail(titulo,row[0],  render_template("comunicado/retornar.html",email=row[0],nickname=row[1],fullname=row[2]))
-            except e:
+            except:
                     print "Unexpected error:"
-                    print e
+                    print "Error EMail"
             total=total+1
             log=log+","+time.user.email
 
