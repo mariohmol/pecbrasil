@@ -89,13 +89,16 @@ def timeincompleto(time_id=None):
         enviar='True'
     rows=politicaServices.timesFaltandoPolitico()
     for row in rows:
-        time_id=row[0]
-        time = politicaServices.verTime(id=time_id)
+        timeid=row[0]
+        time = politicaServices.verTime(id=timeid)
         if enviar == 'True':
             send_mail(titulo,[time.user.email],  render_template("comunicado/timeincompleto.html",time=time))
         log=log+","+time.user.email
         total=total+1
-    return render_template("comunicado/statuscomunicado.html",titulo=titulo,total=total,log=log)  
+    if time_id is not None:
+        return render_template("comunicado/timeincompleto.html",time=time)
+    else:
+        return render_template("comunicado/statuscomunicado.html",titulo=titulo,total=total,log=log)  
             
 @mod.route('/abrecampeonato/')
 @mod.route('/abrecampeonato/<time_id>')
