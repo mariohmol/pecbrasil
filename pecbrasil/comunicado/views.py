@@ -47,7 +47,7 @@ def ultimarodada(rodada_id=None,time_id=None):
     total=0
     
     dominio=""
-    dominio="http://localhost:8084"
+    #dominio="http://localhost:8084"
     politicos=politicaServices.topPoliticosRodada(tamanho=5)
     rodada_atual = db.session.merge(session['rodada_atual'])
     titulo="Veja sua pontuacao da rodada"
