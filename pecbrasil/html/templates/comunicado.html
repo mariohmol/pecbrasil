@@ -2,25 +2,219 @@
 <html lang="{{ g.locale }}">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />-->
     <title>
-      pecbrasil {% block title %}{% endblock %}
+      Política Esporte Clube {% block title %}{% endblock %}
     </title>
-    <link rel="shortcut icon" href="http://politicaesporteclube.com/static/img/favicon.ico?v=2"/>
-
-<link href="http://politicaesporteclube.com/static/css/fonts/mohave.css" rel="stylesheet" type="text/css">
-<link href="http://politicaesporteclube.com/static/css/fonts/mohave-bold.css" rel="stylesheet" type="text/css">
-<link href="http://politicaesporteclube.com/static/css/fonts/mohave-semibold.css" rel="stylesheet" type="text/css">
-     <link href="http://politicaesporteclube.com/static/css/pec.css" rel="stylesheet" type="text/css">
-     <link href='http://politicaesporteclube.com/static/css/opensans.css' rel='stylesheet' type='text/css'>
-
-<link href="http://politicaesporteclube.com/static/css/styles.guide.css" rel="stylesheet" type="text/css">
-<link href="http://politicaesporteclube.com/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="http://politicaesporteclube.com/static/css/bootstrap-responsive.css" rel="stylesheet" type="text/css">
-<link href="http://politicaesporteclube.com/static/css/font-awesome.min.css" rel="stylesheet">
-
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+      
+    <link rel="shortcut icon" href="{{ dominio }}/static/img/favicon.ico?v=2"/>
     
+    {% if not dominio %}
+    	{% set dominio = "http://politicaesporteclube.com" %}
+    {% endif %}
+    
+    <style>
+    		
+		
+		#boxPoliticoTotal{
+		  margin-left: 28px;
+		 height: 50px;
+		    padding-left: 20px;
+		    padding-top: 5px;
+		    width: 68px;
+		 float: left;
+		 font-size: 30pt;
+		color: #DDDDDD;
+		background-image: url("/static/img/pec/seta_pontuacao.png");
+		margin-top: 0px;
+		margin-bottom: 0px;
+		
+		}
+		
+		#boxPoliticoUltima{
+		color: #444444;
+		position: absolute;
+		bottom: 0px;
+		right: 2px;
+		width: 43px;
+		font-family: Open Sans!important;
+		}
+		
+		#boxPoliticoUltima .field-content{
+		font-size: 14pt;
+		 background-image: url("/static/img/pec/card_ponto_semanapassada.png");
+		color: #DDDDDD;
+		
+		
+		height: 43px;
+		   text-align:center;
+		    padding-top: 10px;
+		    width: 43px;
+		}
+		
+		
+		#boxPoliticoTendencia{
+		  float: left;
+		color: #444444;
+		text-align: center;
+		    width: 36px;
+		margin-top: -32px;
+		}
+		
+		
+		
+		
+		#boxPolitico .field-content a{
+		color: #444444;
+		 font-size: 8pt;
+		}
+		
+		#boxPolitico h4 .field-content a{
+		color: #444444;
+		 font-size: 23px;
+		text-decoration: none;
+		font-family: "MohaveSemiBold";
+		}
+		
+		#boxPolitico h4{
+		min-height: 50px;
+		font-family: "MohaveSemiBold";
+		margin: 0;
+		}
+		
+		#boxPolitico img{
+		border: none;
+		}
+		
+		#boxPoliticoImagem{
+		 float: left;
+		width: 59px;
+		 margin-top: 0px;
+		height: 80px;
+		
+		}
+		#boxPoliticoImagem img{
+		border: 2px solid #333333;
+		border-radius: 5px;
+		
+		
+		    width: 59px;
+		    background-color: #FFFFFF;
+		}
+		
+		#boxPoliticoLateral{ 
+		float: left;
+		    width: 115px;
+		}
+		
+		#boxPoliticoUltimaSemana{
+			float: left;
+		    margin-left: 7px;
+		    width: 72px;
+		}
+		
+		
+		#boxPoliticoInfo{
+			font-size: 15px;
+			margin-left: 0px;
+			text-align: left;
+			width: 90%;
+			line-height: 15px;
+			position: absolute;
+			bottom: 0px;
+			height: 78px;
+		}
+		
+		#boxPolitico {
+			text-align: left;
+		
+		    border-radius: 5px;
+		    float: left;
+			min-height: 270px;
+		   width: 162px;
+			margin: 5px;
+			height: 300px;
+			position: relative;
+			
+				
+		      -webkit-perspective: 648px;
+		         -moz-perspective: 648px;
+		           -o-perspective: 648px;
+		              perspective: 648px;	
+		
+		
+		}
+		.card {
+		    -webkit-transition: 0.6s;
+		    -webkit-transform-style: preserve-3d;
+		    -moz-transition: 0.6s;
+		    -moz-transform-style: preserve-3d;
+		    transition: 0.6s;
+		    transform-style: preserve-3d;
+		    position: relative;
+		    padding: 8px 1px 1px 8px;
+			border: 5px solid rgb(244, 244, 244);
+			box-shadow: 0px 2px 1px #888;
+			height:290px;
+			-webkit-perspective: 1000;
+					-moz-perspective: 1000;
+					perspective: 1000;
+		}
+		
+		.frontCard, .backCard {
+		    width: 152px;
+		    height: 280px;
+		    position: absolute;
+		    overflow: hidden;
+		    display:block;
+					top: 0;
+					left: 0;
+					 -webkit-backface-visibility: hidden;
+		         -moz-backface-visibility: hidden;
+		           -o-backface-visibility: hidden;
+		              backface-visibility: hidden;
+		}
+		
+		.frontCard {
+		   
+		    z-index: 2;
+		}
+		
+		.backCard {
+			background-color: white;
+		    font-size: 16px;
+		}
+		
+		#boxPolitico:hover .card .backCard { 
+			z-index: 100; 
+			-webkit-transform: rotateY(180deg);
+		    -moz-transform: rotateY(180deg);
+		    transform: rotateY(180deg);
+			}
+		    #boxPolitico:hover .card .frontCard { z-index: 1; }
+		
+		#boxPolitico:hover .card, #boxPolitico.hover .card, #flip-toggle.flip .flipper {
+		    -webkit-transform: rotateY(180deg);
+		    -moz-transform: rotateY(180deg);
+		    transform: rotateY(180deg);
+		    filter: FlipH;
+		    -ms-filter: "FlipH";
+		}
+		  #boxPoliticoPartido {
+		width: 100%;
+		float: left;
+		  height: 20px;
+		  font-size: 12px;
+		} 
+		
+		#boxPoliticoCargo{
+		height: 34px;
+		width: 120px;
+		float: left;
+		}
+
+    	
+    </style>
+
 
     {% block head %}
     {% endblock %}
@@ -29,15 +223,15 @@
   </head>
   
   <body style="margin: 0; font-family:'Open Sans'">
-<img src="http://politicaesporteclube.com/static/img/pecbrasil/mail_header.jpg" width="100%"/>
+<img src="{{ dominio }}/static/img/pecbrasil/mail_header.jpg" width="100%"/>
     {% block content %}
     {% endblock %}
     
     {% block body %}
     {% endblock %}
     <br/>
-    <img src="http://politicaesporteclube.com/static/img/pecbrasil/jogueagora.png" /><br/>
-   <img src="http://politicaesporteclube.com/static/img/pecbrasil/mail_footer.jpg"   width="100%"/>
+    <img src="{{ dominio }}/static/img/pecbrasil/jogueagora.png" /><br/>
+   <img src="{{ dominio }}/static/img/pecbrasil/mail_footer.jpg"   width="100%"/>
     
   </body>
 </html>

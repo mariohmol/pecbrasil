@@ -46,6 +46,8 @@ def ultimarodada(rodada_id=None,time_id=None):
     rodada_id=rodada.id
     total=0
     
+    dominio=""
+    dominio="http://localhost:8084"
     politicos=politicaServices.topPoliticosRodada(tamanho=5)
     rodada_atual = db.session.merge(session['rodada_atual'])
     titulo="Veja sua pontuacao da rodada"
@@ -55,14 +57,14 @@ def ultimarodada(rodada_id=None,time_id=None):
         if time is not None:
             log = log + enviaUltimaRodada(time,rodada_id,titulo,rodada,politicos,rodada_atual,enviar)
             rodadaPontos=politicaServices.rodadaPontosByTime(time.id,rodada_id)
-            return render_template("comunicado/ultimarodada.html",time=time,rodada=rodada,rodadaPontos=rodadaPontos,politicos=politicos,rodada_atual=rodada_atual)
+            return render_template("comunicado/ultimarodada.html",dominio=dominio,time=time,rodada=rodada,rodadaPontos=rodadaPontos,politicos=politicos,rodada_atual=rodada_atual)
     else:
         times = Time.query.all()
         total=0
         for time in times:
             total=total+1
             log = log + enviaUltimaRodada(time,rodada_id,titulo,rodada,politicos,rodada_atual,enviar)
-    return render_template("comunicado/statuscomunicado.html",titulo=titulo,total=total,log=log)
+    return render_template("comunicado/statuscomunicado.html",dominio=dominio,titulo=titulo,total=total,log=log)
 
 def enviaUltimaRodada(time,rodada_id,titulo,rodada,politicos,rodada_atual,enviar):
     
