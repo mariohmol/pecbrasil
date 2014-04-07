@@ -336,6 +336,13 @@ title="Hello"
 message="Invite friends: {0}".format(name)
 '''
 def send_mail(title, recipients,message):
+    import re
+
+    EMAIL_REGEX = re.compile(r"[^@]+@[^@]+\.[^@]+")
+    for email in recipients:
+        if not EMAIL_REGEX.match(email):
+            return
+        
     from pecbrasil import mail
     msg = Message(title,sender="Politica Esporte Clube <contato@politicaesporteclube.com>",recipients=recipients)
     msg.body = message
