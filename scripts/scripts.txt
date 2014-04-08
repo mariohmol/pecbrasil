@@ -813,5 +813,13 @@ nos graficos mostrar apenas rodadas ativa, aplicar filtros em attrs
 
 contato@politicaesporteclube.com
 
+
+	ALTER TABLE `rodada` ADD `avg_pontuacao` DECIMAL( 5, 2 ) NULL;
+	ALTER TABLE `rodada` ADD `min_pontuacao` DECIMAL( 5, 2 ) NULL;
+	ALTER TABLE `rodada` ADD `max_pontuacao` DECIMAL( 5, 2 ) NULL;
+
+
+	ALTER TABLE `candidatura` ADD `email` varchar( 200 ) NULL;
+
 update partido set color = '#27AE60' where codigo =2;
 update partido set color = '#2A6496' where codigo =5;
