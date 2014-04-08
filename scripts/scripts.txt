@@ -812,3 +812,6 @@ ERROS
 nos graficos mostrar apenas rodadas ativa, aplicar filtros em attrs
 
 contato@politicaesporteclube.com
+
+update partido set color = '#27AE60' where codigo =2;
+update partido set color = '#2A6496' where codigo =5;

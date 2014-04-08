@@ -19,12 +19,13 @@ def addPartido(nome,sigla=None,codigo=None,cursor=None):
         cursor.execute("insert into partido (name_en,name_pt,sigla,codigo,id) values (%s,%s,%s,%s,%s)",[nome,nome, sigla,codigo,codigo])
         print "Inserido partido "            
     else:
-        cursor.execute("update partido set name_pt = '"+nome+"',name_en = '"+nome+"' where codigo = %s",[codigo] )
+        cursor.execute("update partido set name_pt = '"+nome+"',name_en = '"+nome+"',sigla = '"+sigla+"' where codigo = %s",[codigo] )
         print "update partido set name_pt = '"+nome+"',name_en = '"+nome+"' where codigo = "+str(codigo) + ";"
     return getPartido(nome,cursor=cursor)
 
 def getPartido(nome,cursor=None):   
     cursor.execute("select id from partido where name_en = %s or sigla=%s",[nome,nome] )
+    print "select id from partido where name_en = %s or sigla="+nome
     rows = cursor.fetchall()
     for row in rows:
         return row    
