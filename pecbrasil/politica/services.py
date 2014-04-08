@@ -589,13 +589,19 @@ class PoliticaServices(object):
         #MAX
         for row in rows:            
             id=row[0]        
-            sql="SELECT max( total_votacao ) , max( total_presenca ) ,  max( total_proposicao ) , max( total_despesa ),min( total_votacao ) , min( total_presenca ) ,  min( total_proposicao ) , min( total_despesa ),avg( total_votacao ) , avg( total_presenca ) ,  avg( total_proposicao ) , avg( total_despesa ),rodada FROM `pontuacao` where rodada = "+str(id)+" group by rodada"
+            sql="SELECT max( total_votacao ) , max( total_presenca ) ,  max( total_proposicao ) , max( total_despesa ),min( total_votacao ) , min( total_presenca ) "
+            sql=sql+ " ,  min( total_proposicao ) , min( total_despesa ),avg( total_votacao ) , avg( total_presenca ) ,  avg( total_proposicao ) , avg( total_despesa )"
+            sql=sql+" , max( pontos ),min( pontos ),avg( pontos ),rodada FROM `pontuacao` where rodada = "+str(id)+" group by rodada"
             print sql
             novos = db.session.execute(sql)
             #novos = db.session.fetchall()
             for novo in novos:  
                 print novo[0]              
-                sql="update rodada set max_votacao="+ str(novo[0])+ ", max_presenca="+ str(novo[1])+ ",max_proposicao="+ str(novo[2])+ ",max_despesa="+ str(novo[3])+ ",min_votacao="+ str(novo[4])+ ", min_presenca="+ str(novo[5])+ ",min_proposicao="+ str(novo[6])+ ",min_despesa="+ str(novo[7])+ ", avg_votacao="+ str(novo[8])+ ", avg_presenca="+ str(novo[9])+ ",avg_proposicao="+ str(novo[10])+ ",avg_despesa="+ str(novo[11])+ "  where id="+ str(novo[12])
+                sql="update rodada set max_votacao="+ str(novo[0])+ ", max_presenca="+ str(novo[1])+ ",max_proposicao="+ str(novo[2])+ ",max_despesa="+ str(novo[3])
+                sql=sql+ ",min_votacao="+ str(novo[4])+ ", min_presenca="+ str(novo[5])+ ",min_proposicao="+ str(novo[6])+ ",min_despesa="+ str(novo[7])
+                sql=sql+ ", avg_votacao="+ str(novo[8])+ ", avg_presenca="+ str(novo[9])+ ",avg_proposicao="+ str(novo[10])+ ",avg_despesa="+ str(novo[11])
+                sql=sql+ ", max_pontuacao="+ str(novo[12])+ ", min_pontuacao="+ str(novo[13])+ ",avg_pontuacao="+ str(novo[14])
+                sql=sql+ "  where id="+ str(novo[15])
                 print sql
                 db.session.execute(sql)
                 #db.session.execute("update rodada set max_votacao=%s, max_presenca=%s,max_proposicao=%s,max_despesa=%s where id=%s",[novo[0],novo[1],novo[2],novo[3],novo[4]])

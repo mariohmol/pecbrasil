@@ -30,8 +30,13 @@
 			a.total_processo_media =  a.total_processo /  a.politico_total
 			a.total_proposicao_media =  a.total_proposicao /  a.politico_total
 			a.total_despesa_media =  a.total_despesa /  a.politico_total
-			a.name_pt = a.partidos.name_pt      
-			a.color = a.partidos.color    
+			if(a.partidos){
+				a.name_pt = a.partidos.name_pt      
+				a.color = a.partidos.color  
+			}  else{
+				a.name_pt = ""      
+				a.color = ""
+			}
 	        //a.candidatura = a.id
 	        //a.rodadaNome = rodada[a.rodada]	       
 	       	attrs[a.id] = a

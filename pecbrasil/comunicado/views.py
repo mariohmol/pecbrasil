@@ -198,4 +198,53 @@ def retornar(time_id=None):
             total=total+1
             log=log+","+time.user.email
 
-    return render_template("comunicado/statuscomunicado.html",titulo=titulo,total=total,log=log)    
+    return render_template("comunicado/statuscomunicado.html",titulo=titulo,total=total,log=log)   
+
+
+@mod.route('/politicoultimarodada')
+@mod.route('/politicoultimarodada/<rodada_id>')
+@mod.route('/politicoultimarodada/<rodada_id>/<time_id>')
+def politicoultimarodada(rodada_id=None,time_id=None):
+    enviar = request.args.get('enviar')
+    if enviar is None:
+        enviar='True'
+    rodada=politicaServices.getRodada(rodada_id)
+    if rodada is None:
+        return
+    rodada_id=rodada.id
+    total=0
+    
+    dominio=""
+    #dominio="http://localhost:8084"
+    politicos=politicaServices.topPoliticosRodada(tamanho=5)
+    rodada_atual = db.session.merge(session['rodada_atual'])
+    titulo="Veja sua pontuacao da rodada"
+    log=""
+    if time_id is not None and time_id<>"all":
+        time = politicaServices.verTime(id=time_id)
+        if time is not None:
+            log = log + enviaPoliticoUltimaRodada(time,rodada_id,titulo,rodada,politicos,rodada_atual,enviar)
+            rodadaPontos=politicaServices.rodadaPontosByTime(time.id,rodada_id)
+            return render_template("comunicado/politicoultimarodada.html",dominio=dominio,time=time,rodada=rodada,rodadaPontos=rodadaPontos,politicos=politicos,rodada_atual=rodada_atual)
+    else:
+        candidatos = Candidatura.query.all()
+        total=0
+        for candidato in candidatos:
+            total=total+1
+            log = log + enviaPoliticoUltimaRodada(time,rodada_id,titulo,rodada,politicos,rodada_atual,enviar)
+    return render_template("comunicado/statuscomunicado.html",dominio=dominio,titulo=titulo,total=total,log=log) 
+
+def enviaPoliticoUltimaRodada(candidato,rodada_id,titulo,rodada,politicos,rodada_atual,enviar):
+    
+    log=""
+    if candidato is not None and candidato.email is not None:
+        
+        #log=log+"\n"+str(time.user.email)+ " - "+str(time.id)+" - "+str(time.nome)
+        rodadaPontos=politicaServices.rodadaPontosByTime(candidato.id,rodada_id)
+        if enviar == 'True':
+            try:
+                send_mail(titulo,[candidato.email],  
+                      render_template("comunicado/politicoultimarodada.html",candidato=candidato,rodada=rodada,rodadaPontos=rodadaPontos,politicos=politicos,rodada_atual=rodada_atual))
+            except:
+                    print "Error EMail"
+    return log  

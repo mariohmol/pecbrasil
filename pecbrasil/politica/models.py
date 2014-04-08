@@ -76,6 +76,7 @@ class Candidatura(db.Model, AutoSerialize):
     cidade = db.Column(db.String(200))
     cargo = db.Column(db.String(200))
     situacao = db.Column(db.String(200))    
+    email = db.Column(db.String(200))  
     inicio = db.Column(db.DateTime)
     fim = db.Column(db.DateTime)
     color = db.Column(db.String(7))
@@ -115,6 +116,9 @@ class Rodada(db.Model, AutoSerialize):
     pontuacoes = db.relationship("Pontuacao", backref = 'rodadas', lazy = 'dynamic')
     nome_rodada = db.Column(db.String(50))
     
+    max_pontuacao  = db.Column(db.Integer)
+    min_pontuacao  = db.Column(db.Integer)  
+    avg_pontuacao  = db.Column(db.Integer)  
     max_presenca  = db.Column(db.Integer)
     min_presenca  = db.Column(db.Integer)
     avg_presenca  = db.Column(db.Integer)

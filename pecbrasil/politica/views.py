@@ -211,7 +211,17 @@ def selecionarPoliticos(idpolitico=None,posicao=None,gravar=None):
         
         #nao logado
         return redirect(url_for('general.home'))
-    
+
+@mod.route('/alterar-politicos/<time>/<idpolitico>/<posicao>', methods=['GET', 'POST'])
+def alterarPoliticos(time=None,idpolitico=None,posicao=None):
+    chave = request.args.get('chave')
+    TimeCandidato.query.filter_by(time=time, posicao=posicao).delete()
+    db.session.commit()
+    timeCand = TimeCandidato(time=time, posicao=posicao,    candidatura=idpolitico)
+    db.session.add(timeCand)
+    db.session.commit()
+    return "OK"
+   
 #        SERVICOS: verTime
 @mod.route('/meu-partido/', methods=['GET', 'POST'])
 @mod.route('/meu-partido/<time>', methods=['GET', 'POST'])
@@ -221,6 +231,11 @@ def verPartido(time=None):
     if g.user is None or not g.user.is_authenticated():
         return   redirect(url_for('politica.criarPartido'))
     
+ 
+ 
+### ### ### ### ### ### ### ### ###  
+### TESTES ###
+### ### ### ### ### ### ### ### ### 
     timeRetorno = politicaServices.meuTime(g.user.id) 
     if timeRetorno is None:
         return   redirect(url_for('politica.criarPartido'))
@@ -243,11 +258,20 @@ def verPartido(time=None):
     return render_template("politica/meu-partido.html",  rodada_atual=rodaA ,  time_form=time_form, form=form,            time = timeRetorno,user=g.user, time_id=time)
 
 
- 
- 
-### ### ### ### ### ### ### ### ###  
-### TESTES ###
-### ### ### ### ### ### ### ### ### 
+
+@mod.route('/excluirtime')
+@mod.route('/excluirtime/')
+def excluirtime():
+    time = session['user_time']
+    if time is None:
+        time= politicaServices.verTime(g.user)
+        time = Time.query.filter_by(id=time.id).delete()
+    else:
+        Time.query.filter_by(id=time).delete()
+    db.session.commit()
+    return redirect(url_for('politica.criarPartido'))
+
+
 
 @mod.route('/partido/')
 @mod.route('/partidos/')
@@ -310,16 +334,4 @@ def pontuacao(name=None):
         pontuacoes = Pontuacao.query.all()
         return render_template("politica/pontuacaoList.html",
                         pontuacoes = pontuacoes)
-
-@mod.route('/excluirtime')
-@mod.route('/excluirtime/')
-def excluirtime():
-    time = session['user_time']
-    if time is None:
-        time= politicaServices.verTime(g.user)
-        time = Time.query.filter_by(id=time.id).delete()
-    else:
-        Time.query.filter_by(id=time).delete()
-    db.session.commit()
-    return redirect(url_for('politica.criarPartido'))
 
