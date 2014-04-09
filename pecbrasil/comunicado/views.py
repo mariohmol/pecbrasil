@@ -269,7 +269,7 @@ def geral(time_id=None):
         time = politicaServices.verTime(id=time_id)
         if time is not None and time.user is not None:
             if enviar == "True":
-                log = log +  send_mail(titulo,[time.user.email], render_template("comunicado/geral.html",time=time))
+                send_mail(titulo,[time.user.email], render_template("comunicado/geral.html",time=time))
             
             return render_template("comunicado/geral.html",time=time)
     else:
@@ -279,6 +279,6 @@ def geral(time_id=None):
             total=total+1
             if time is not None and time.user is not None:
                 if enviar == "True":                
-                    log = log + send_mail(titulo,[time.user.email], render_template("comunicado/geral.html",time=time))
+                    send_mail(titulo,[time.user.email], render_template("comunicado/geral.html",time=time))
     return render_template("comunicado/statuscomunicado.html",dominio=dominio,titulo=titulo,total=total,log=log) 
 
