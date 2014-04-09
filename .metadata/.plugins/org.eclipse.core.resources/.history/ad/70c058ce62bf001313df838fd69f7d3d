@@ -44,10 +44,14 @@
                 <p class="event listening">Conectando no dispositivo..</p>
                 <p class="event received">Device is Ready</p>
             </div>
-            <p class=""><a href="classificacao.html">Classificação</a>
+            <p class="event received"><a href="classificacao.html">Classificação</a>
             </p>
         </div>
         
+    <button onclick="login()">Login</button>
+    <button onclick="askForWritePerm()">Write Permissions</button> 
+    <button onclick="facebookWallPost()">Wall Post</button> 
+    <button onclick="logout()">Logout</button>
 
 <!--         <a href="#" id="login-facebook" onclick="login()"></a> -->
 
@@ -57,28 +61,7 @@
   
         
         <div id="log"></div>
-        
-        <button onclick="login()">Login</button>
-<script>
-    document.addEventListener('deviceready', function() {
-                try {
-                    alert('Device is ready! Make sure you set your app_id below this alert.');
-                    FB.init({ 
-                      appId: "208773702609294", 
-                      nativeInterface: CDV.FB, 
-                      useCachedDialogs: false 
-                    });
-                    document.getElementById('data').innerHTML = "";
-                } catch (e) {
-                    alert(e);
-                }
-            }, false);
 
-            $(document).on("ready", function () {
-                //$('#log').html('jQuery loaded');
-
-            });
-</script>
 
   </body>
 </html>

@@ -1,0 +1,32 @@
+<!-- extend from about base layout -->
+{% if frame %}
+	{% extends "templates/clean.html" %}
+{% else %}
+	{% extends "templates/site.html" %}
+{% endif %}
+
+{% block title %}: {% trans %}Votação{% endtrans %}{% endblock %}
+
+{% block content %}
+  
+  {% if votacoes %}
+   <table><tr>
+  <td> {% trans %}Político{% endtrans %} </td>
+      <td> {% trans %}Proposicão{% endtrans %} </td>
+      <td> {% trans %}Voto{% endtrans %} </td>
+     </tr>
+     
+     {% for acao in acoes %}
+     	{% if votacao.candidaturas.name_pt  %}
+		     
+	
+    {% endfor %}
+    </table>
+    {% else %}
+    {% trans %}Não foram encontradas proposições de autoria deste político{% endtrans %}
+    {% endif %}
+    
+    
+    
+{% endblock %}
+

@@ -823,3 +823,17 @@ contato@politicaesporteclube.com
 
 update partido set color = '#27AE60' where codigo =2;
 update partido set color = '#2A6496' where codigo =5;
+
+
+CREATE TABLE IF NOT EXISTS `proposicaoacao` (
+  `id_proposicaoacao` int(11) NOT NULL AUTO_INCREMENT,
+  `nome_proposicaoacao` varchar(250) DEFAULT NULL,
+  `originalid_proposicaoacao` int(11) DEFAULT NULL,
+  `data_proposicaoacao` date DEFAULT NULL,
+  `proposicao_proposicaoacao` int(11) DEFAULT NULL,
+  `candidatura_proposicaoacao` int(11) DEFAULT NULL,
+  `status_proposicaoacao` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_proposicaoacao`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+ALTER TABLE `proposicao` ADD `datavotacao` DATE NULL 

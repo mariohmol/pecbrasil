@@ -29,56 +29,33 @@
     </head>
   <body>
     <script src="lib/jquery-1.9.1.min.js"></script>
-  <!-- cordova -->
-    <script src="cordova.js"></script>
-      <!-- cordova facebook plugin -->
-    <script src="cdv-plugin-fb-connect.js"></script>
-      <!-- facebook js sdk -->
-    <script src="facebook-js-sdk.js"></script>
-    <script src="js/pec.js"></script>
-    
-    
+
   <div class="app">
             <h1 style="color:white">Política Esporte Clube</h1>
             <div id="deviceready" class="blink">
-                <p class="event listening">Conectando no dispositivo..</p>
-                <p class="event received">Device is Ready</p>
+                <p class="event listening">Classificação</p>
             </div>
-            <p class=""><a href="classificacao.html">Classificação</a>
-            </p>
         </div>
         
+    <button onclick="login()">Login</button>
+    <button onclick="askForWritePerm()">Write Permissions</button> 
+    <button onclick="facebookWallPost()">Wall Post</button> 
+    <button onclick="logout()">Logout</button>
 
 <!--         <a href="#" id="login-facebook" onclick="login()"></a> -->
 
         <div id="data"></div>
 
         <div id="fb-root"></div>
-  
-        
+    <!-- cordova -->
+    <script src="cordova.js"></script>
+      <!-- cordova facebook plugin -->
+    <script src="cdv-plugin-fb-connect.js"></script>
+      <!-- facebook js sdk -->
+    <script src="facebook-js-sdk.js"></script>
+       
         <div id="log"></div>
-        
-        <button onclick="login()">Login</button>
-<script>
-    document.addEventListener('deviceready', function() {
-                try {
-                    alert('Device is ready! Make sure you set your app_id below this alert.');
-                    FB.init({ 
-                      appId: "208773702609294", 
-                      nativeInterface: CDV.FB, 
-                      useCachedDialogs: false 
-                    });
-                    document.getElementById('data').innerHTML = "";
-                } catch (e) {
-                    alert(e);
-                }
-            }, false);
 
-            $(document).on("ready", function () {
-                //$('#log').html('jQuery loaded');
-
-            });
-</script>
 
   </body>
 </html>

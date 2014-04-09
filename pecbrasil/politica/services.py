@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- 
 from pecbrasil.politica.models import Candidatura, Pontuacao,Partido,Time,RodadaPontos,TimeCandidato
 from pecbrasil.liga.models import Liga
-from pecbrasil.proposicao.models import Proposicao,TimeVotacao,VotacaoCandidato,Repasse,StatusProposicao,TipoProposicao
+from pecbrasil.proposicao.models import Proposicao,TimeVotacao,VotacaoCandidato,Repasse,StatusProposicao,TipoProposicao,ProposicaoAcao
 from pecbrasil.politica.models import Rodada,Politico,ProcessoCandidato,DespesaCandidato
 from pecbrasil.orgao.models import Orgao
 from pecbrasil.utils import clean_varrequest
@@ -247,6 +247,43 @@ class PoliticaServices(object):
         return rodada
 
   
+  
+     
+    ###########################
+    # PROPOSICAO
+    ###########################          
+    def proposicao(self,candidatura_id=None,partido_sigla=None):
+        ret = None
+        if candidatura_id == 'all' and partido_sigla is not None:
+            ret = Proposicao.query.outerjoin(Candidatura).filter_by(partido=partido_sigla).outerjoin(StatusProposicao).outerjoin(TipoProposicao).all()
+            #ret = candidaturaByPartido(partido_sigla) 
+        elif candidatura_id == 'all' and partido_sigla is None:
+            ret = Proposicao.query.all()
+        elif candidatura_id is not None and (partido_sigla is None or partido_sigla=="all"):
+            ret = Proposicao.query.outerjoin(Candidatura).filter_by(id=candidatura_id).outerjoin(StatusProposicao).outerjoin(TipoProposicao).all()
+        else:
+            ret = Proposicao.query.all()
+        return ret
+    
+    def proposicaoacao(self,dataInicio,proposicao_id=None,candidatura_id=None,partido_sigla=None):
+        ret = ProposicaoAcao.query.filter_by(data_proposicaoacao=dataInicio).outerjoin(Proposicao).outerjoin(StatusProposicao)
+        
+        
+        if proposicao_id is not None and proposicao_id <> 'all':
+            ret = ret.filter_by(id_proposicaoacao=proposicao_id)
+        elif candidatura_id == 'all' and partido_sigla is not None:
+            ret = ret.outerjoin(Candidatura).filter_by(partido=partido_sigla).outerjoin(StatusProposicao).outerjoin(TipoProposicao).all()
+            #ret = candidaturaByPartido(partido_sigla) 
+        elif candidatura_id == 'all' and partido_sigla is None:
+            ret = ret.all()
+        elif candidatura_id is not None and (partido_sigla is None or partido_sigla=="all"):
+            ret = ret.outerjoin(Candidatura).filter_by(id=candidatura_id).outerjoin(StatusProposicao).outerjoin(TipoProposicao).all()
+        else:
+            ret = ret.all()
+        return ret
+    
+    
+    
     ###########################
     # LIST TABELAS EM GERAL
     ###########################
@@ -311,20 +348,7 @@ class PoliticaServices(object):
             return Liga.query.filter_by(id_liga=liga_id).first()
         elif nome is not None:
             return Liga.query.filter_by(nome_liga=nome).first()
-            
-    def proposicao(self,candidatura_id=None,partido_sigla=None):
-        ret = None
-        if candidatura_id == 'all' and partido_sigla is not None:
-            ret = Proposicao.query.outerjoin(Candidatura).filter_by(partido=partido_sigla).outerjoin(StatusProposicao).outerjoin(TipoProposicao).all()
-            #ret = candidaturaByPartido(partido_sigla) 
-        elif candidatura_id == 'all' and partido_sigla is None:
-            ret = Proposicao.query.all()
-        elif candidatura_id is not None and (partido_sigla is None or partido_sigla=="all"):
-            ret = Proposicao.query.outerjoin(Candidatura).filter_by(id=candidatura_id).outerjoin(StatusProposicao).outerjoin(TipoProposicao).all()
-        else:
-            ret = Proposicao.query.all()
-        return ret
-    
+ 
          
     def orgao(self,candidatura_id=None,partido_sigla=None):
         ret = None
@@ -365,7 +389,7 @@ class PoliticaServices(object):
             ret = VotacaoCandidato.query.filter_by(id=candidatura_id).all()
         return ret
 
-
+#############################################
 ### SCRIPTS DO IMPORT
         
     def updatePontuacaoCandidatosSQL(self,anoatual):    

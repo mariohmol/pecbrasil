@@ -105,3 +105,18 @@ def votacao(proposicao_id=None):
         
     if proposicao_id is not None:
         return render_template("proposicao/votacao.html",      votacoes=votacoes) 
+    
+@mod.route('/acao/')
+@mod.route('/acao/<proposicao_id>')
+@mod.route('/acao/<proposicao_id>/<candidatura_id>')
+@mod.route('/acao/<proposicao_id>/<candidatura_id>/<partido_id>')
+def acao(proposicao_id=None,candidatura_id=None,partido_id=None):
+    dataInicio = request.args.get('inicio')
+    if dataInicio is None:
+        dataInicio= "01/10/2010"
+    acoes = politicaServices.proposicaoacao(dataInicio,proposicao_id=proposicao_id,candidatura_id=candidatura_id,partido_sigla=partido_id)
+        
+    if len(acoes)>1:
+        return render_template("proposicao/acaoList.html",      acoes=acoes) 
+    else:
+        return render_template("proposicao/acao.html",      acoes=acoes) 

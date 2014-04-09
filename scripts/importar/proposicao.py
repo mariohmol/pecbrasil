@@ -55,6 +55,11 @@ def getProposicao(sigla,cursor=None):
         return row
     return None
 
+
+
+##################
+# STATUS
+#####################
 def getStatusProposicao(id,nome=None,cursor=None):
     print nome+" get status"+id
     cursor.execute("select id_statusproposicao from statusproposicao where originalid_statusproposicao = %s",[id] )
@@ -67,6 +72,13 @@ def addStatusProposicao(id,nome=None,cursor=None):
     cursor.execute("INSERT INTO `statusproposicao` (`nome_statusproposicao`, `originalid_statusproposicao`) VALUES (%s,%s)",[nome,id])
     return getTipoProposicao(id=id,nome=nome,cursor=cursor)
 
+
+
+
+
+##################
+# TIPO
+#####################
 def getTipoProposicao(id,nome=None,sigla=None,cursor=None):
     print id+" gettipo "+nome+" -  sigla: "+sigla
     cursor.execute("select id_tipoproposicao from tipoproposicao where sigla_tipoproposicao = %s",[sigla] )
@@ -79,6 +91,60 @@ def addTipoProposicao(id,nome=None,sigla=None,cursor=None):
     cursor.execute("INSERT INTO `tipoproposicao` (`nome_tipoproposicao`, `sigla_tipoproposicao`,originalid_tipoproposicao) VALUES (%s,%s,%s)",[nome,sigla,id])
     return getTipoProposicao(id,nome,sigla,cursor)
 
+
+
+##################
+# ACAO
+#####################
+def getProposicaoAcao(id,siglaProposicao=None,cursor=None):
+    print id+" proposicaoacao "+siglaProposicao
+    cursor.execute("select id_proposicaoacao from proposicaoacao where originalid_proposicaoacao = %s",[id] )
+    rows = cursor.fetchall()
+    for row in rows:
+        return str(row[0])
+    return addTipoProposicao(id,nome,sigla,cursor=cursor)
+  
+def addProposicaoAcao(id,nome=None,data=None,status=None,siglaProposicao=None,candidatura=None,cursor=None):
+    
+    proposicao_proposicaoacao=getProposicao(siglaProposicao,cursor=cursor)
+    status_proposicaoacao=getStatusProposicao(status,cursor=cursor)
+  
+    cursor.execute("INSERT INTO `proposicaoacao` (`nome_proposicaoacao`, `originalid_proposicaoacao`,data_proposicaoacao,proposicao_proposicaoacao,"
+                   +"status_proposicaoacao,candidatura_proposicaoacao) VALUES (%s,%s,%s,%s,%s,%s)",[nome,id,data,proposicao_proposicaoacao,status_proposicaoacao,candidatura])
+    return getProposicaoAcao(id,cursor)
+
+
+
+
+
+##################
+# RUN PROPOSICAO ACAO
+#####################
+def runProposicaoAcao(cursor=None,anoFilter=None,semanaFilter=None):         
+    csv_reader = utils.openCSV('data/ExpProposicaoAcao.csv')
+    proposicaoSQL=""
+    siglaAtual=None
+    for line in csv_reader:
+        if line[1]:      
+            
+            
+            ProposicaoAcao_id    = line[0] 
+            ProposicaoAcao_nome   = line[1]  
+            ProposicaoAcao_data= line[2]  
+            ProposicaoAcao_status= line[3]  
+            ProposicaoAcao_siglaProposicao  = line[4]  
+            ProposicaoAcao_autor  = line[5]   
+            
+            autor = politico.getCandidatura(id_original=ideCadastro,cursor=cursor)
+            
+            proposicaoSQL=addProposicaoAcao(id=ProposicaoAcao_id,nome=ProposicaoAcao_nome,data=ProposicaoAcao_data,
+                                            status=ProposicaoAcao_status,siglaProposicao=ProposicaoAcao_siglaProposicao,candidatura_proposicaoacao=autor,cursor=cursor)
+    
+
+
+##################
+# RUN PROPOSICAO
+#####################
 def runProposicao(cursor=None,anoFilter=None,semanaFilter=None):         
     csv_reader = utils.openCSV('data/ExpProposicao.csv')
     proposicaoSQL=""

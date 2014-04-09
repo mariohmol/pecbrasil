@@ -1,0 +1,63 @@
+{% extends "templates/comunicado.html" %}
+
+{% block title %}: {% trans %}Pontuação da Rodada{% endtrans %}{% endblock %}
+
+{% block body %}
+ <h1>Olá {{time.nome}}, </h1>
+ <br/>
+ <h3>Comunicamos o fechamento da rodada {{rodada.semana}}/{{rodada.ano}} , entre os dias {{rodada.inicio}} e {{rodada.fim}}. <br/>
+ Nesta semana você fez {{ rodadaPontos.pontos }} pontos!!</h3>
+ <br/>
+ 
+ <h3> Veja mais informações sobre seu desempenho:</h3>
+
+
+ <h2> Pontos </h2>
+ 
+ Você teve X pontos nesta semana, no total {{ candidato.pontuacao_total|int }}. A maior pontuação encontrada é de {{ rodada_atual.max_votacao}}
+ 
+  
+ 
+ <h2> Presença </h2>
+ 
+ Você teve X presença nesta semana, no total {{ candidato.total_presenca|int }}. A maior presença encontrada é de {{ rodada_atual.max_presenca}}
+ 
+ 
+ <h2> Votações </h2>
+ 
+ Você teve X presença nesta semana, no total {{ candidato.total_votacao|int }}. O maior número de votações encontrada é de {{ rodada_atual.max_votacao}}
+ 
+ <h2> Proposições </h2>
+ 
+ Você teve X presença nesta semana, no total {{ candidato.total_proposicao|int }}. O maior número de proposições encontrada é de {{ rodada_atual.max_proposicao}}
+ 
+  <h2> Despesa </h2>
+ 
+ Você teve X presença nesta semana, no total {{ candidato.total_despesa|int }}. A maior presença encontrada é de {{ rodada_atual.max_despesa}}
+ 
+ 
+  
+ <h3>Aqui estão os políticos que mais pontuaram nesta rodada:</h3>
+  <div style='width: 100%; float: left;'>
+  {% set posicao = 0 %}
+  
+     {% for candidatoTmp in politicos %}
+     {% set candidato = candidatoTmp[0] %}
+
+   {% set backCard = 'True' %}
+   
+   		{% set posicao = posicao + 1 %}
+      	{% include "politica/boxpoliticoMail.html" %}
+      
+    
+    {% endfor %}
+   </div> 
+   <br/> <br/>
+   <h3>Entre no 
+   <a href="http://politicaesporteclube.com">Política Esporte Clube</a> e acompanhe a sua candidatura, compare com outros políticos do seu partido e da casa!</h3>
+   
+   Use estas informações para ajudar você e sua equipe na gestão da sua candidatura. Para mais informações entre em contato através do nosso site.
+    <br/>
+    Equipe Política Esporte Clube
+{% endblock %}
+
