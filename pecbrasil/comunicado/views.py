@@ -279,7 +279,11 @@ def geral(time_id=None):
         for time in times:
             total=total+1
             if time is not None and time.user is not None:
-                if enviar == "True":                
-                    send_mail(titulo,[time.user.email], render_template("comunicado/geral.html",time=time))
+                if enviar == "True":       
+                    try: 
+                        send_mail(titulo,[time.user.email], render_template("comunicado/geral.html",time=time))
+                    except:
+                        print "Unexpected error:"         
+                    
     return render_template("comunicado/statuscomunicado.html",dominio=dominio,titulo=titulo,total=total,log=log) 
 
