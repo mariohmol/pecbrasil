@@ -17,6 +17,8 @@ def run_server():
     # Set the configuration of the web server
     cherrypy.config.update({
         'engine.autoreload_on': True,
+        'log.error_file': 'site.log',
+        'environment': 'production',
         'log.screen': True,
         'server.socket_port': 8084,
         'server.socket_host': '0.0.0.0'
