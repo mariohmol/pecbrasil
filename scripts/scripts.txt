@@ -836,4 +836,4 @@ CREATE TABLE IF NOT EXISTS `proposicaoacao` (
   PRIMARY KEY (`id_proposicaoacao`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
-ALTER TABLE `proposicao` ADD `datavotacao` DATE NULL 
+ALTER TABLE `proposicao` ADD `datavotacao` DATE NULL ;

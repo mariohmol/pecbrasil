@@ -178,9 +178,6 @@ def selecionarPoliticos(idpolitico=None,posicao=None,gravar=None):
        
         if idpolitico is None or idpolitico=='0':
             politicos=politicaServices.verCandidatura(nome,order,orderdirec)
-            print politicos
-            print "eiola"
-            #politicos = politicaServices.topPoliticos()
             politicosSelecionados=politicaServices.verTime(id=time)
             return render_template("politica/selecionar-politicos.html",form=form,rodada_atual=rodada_atual,orderby=order,orderdirec=orderdirec,
                         politicos = politicos,posicao=1,time=time,politicosSelecionados=politicosSelecionados)
