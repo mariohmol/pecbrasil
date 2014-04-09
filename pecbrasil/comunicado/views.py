@@ -248,3 +248,37 @@ def enviaPoliticoUltimaRodada(candidato,rodada_id,titulo,rodada,politicos,rodada
             except:
                     print "Error EMail"
     return log  
+
+
+
+@mod.route('/geral')
+@mod.route('/geral/<time_id>')
+def geral(time_id=None):
+    enviar = request.args.get('enviar')
+    if enviar is None:
+        enviar='True'
+   
+    total=0
+    
+    dominio=""
+    #dominio="http://localhost:8084"
+    
+    titulo="Comunicado geral aos jogadores"
+    log=""
+    if time_id is not None and time_id<>"all":
+        time = politicaServices.verTime(id=time_id)
+        if time is not None and time.user is not None:
+            if enviar == "True":
+                log = log +  send_mail(titulo,[time.user.email], render_template("comunicado/geral.html",time=time))
+            
+            return render_template("comunicado/geral.html",time=time)
+    else:
+        times = Time.query.all()
+        total=0
+        for time in times:
+            total=total+1
+            if time is not None and time.user is not None:
+                if enviar == "True":                
+                    log = log + send_mail(titulo,[time.user.email], render_template("comunicado/geral.html",time=time))
+    return render_template("comunicado/statuscomunicado.html",dominio=dominio,titulo=titulo,total=total,log=log) 
+
