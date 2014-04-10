@@ -25,7 +25,10 @@ def convideamigos(time_id=None):
         time = politicaServices.meuTime(g.user.id)
         emails = form.email.data.split(',')
         for email in emails:
-            send_mail(titulo,[email],   render_template("comunicado/convideamigos.html",form=form,time=time,obs=form.obs.data))
+            try:
+                send_mail(titulo,[email],   render_template("comunicado/convideamigos.html",form=form,time=time,obs=form.obs.data))
+            except:
+                    print "Error EMail"
             convite = Convite(email=email,dataenvio=datetime.datetime.now(),usuario=g.user.id)
             db.session.add(convite)        
             db.session.commit()
@@ -278,9 +281,11 @@ def geral(time_id=None):
         total=0
         for time in times:
             total=total+1
+            print "olaa:"+str(time.user.email)
             if time is not None and time.user is not None:
                 if enviar == "True":       
                     try: 
+                        print "email:"+time.user.email
                         send_mail(titulo,[time.user.email], render_template("comunicado/geral.html",time=time))
                     except:
                         print "Unexpected error:"         
