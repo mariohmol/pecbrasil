@@ -5,7 +5,7 @@
 		    border-radius: 5px;
 		    float: left;
 			min-height: 270px;
-		   width: 162px;
+		   width: 142px;
 			margin: 5px;
 			height: 300px;
 			position: relative;
@@ -25,14 +25,14 @@
 		    padding: 8px 1px 1px 8px;
 			border: 5px solid rgb(244, 244, 244);
 			box-shadow: 0px 2px 1px #888;
-			height:290px;
+			height:245px;
 			-webkit-perspective: 1000;
 					-moz-perspective: 1000;
 					perspective: 1000;">
 		   <div class="frontCard" 
 		   
-		   style=" width: 152px;  z-index: 2;
-		    height: 280px;
+		   style=" width: 132px;  z-index: 2;
+		    height: 254px;
 		    position: absolute;
 		    overflow: hidden;
 		    display:block;
@@ -43,12 +43,12 @@
 		           -o-backface-visibility: hidden;
 		              backface-visibility: hidden;
 		              background: url('{{dominio}}/static/img/pec/fotos/{{ candidato.politicos.id_original }}.jpg') no-repeat #f4f4f4; background-size: 100% 70%;">
-	   
+	   <img style="width:100%;" src="{{dominio}}/static/img/pec/fotos/{{ candidato.politicos.id_original }}.jpg">
 		   <div id="boxPoliticoPartido" style="width: 100%;
-		float: left;
-		  height: 20px;
-		  font-size: 12px;">
-		   	<div class="field-content">
+		position: absolute;
+		  height: 10px;
+		  font-size: 12px; bottom: 97px">
+		   	<div class="field-content" style="position: relative">
 		   		
 		   		 
 		   		{% if  iframe=='true'  %}	
@@ -62,9 +62,7 @@
 		   		{% endif %}	
 		   		
 		   		
-		   		<img style="border: 5px solid #f4f4f4; position: absolute; top:0px; right:0px;top: 150px;   border: none;
-		   		width: auto; height: 40px;" src="{{dominio}}/static/img/pecbrasil/partidos/{{ candidato.partidos.sigla|lower}}.jpg" width="50">
-		   		</a>
+		   		
 		   		 
 		   		
 	
@@ -88,26 +86,26 @@
 			   		<a href="#" 
 		   			onclick="top.window.location='{{dominio}}/politica/politico/{{ candidato.id }}/'">
 				{% else %}	
-		   			<a href="{{dominio}}/politica/politico/{{ candidato.id }}">
+		   			<a style="color:#27ae60; font-size:10px" href="{{dominio}}/politica/politico/{{ candidato.id }}">
 		   		{% endif %} {{ candidato.politicos.nome|truncate(28,False,'') }}</a><br>
-			<span style="font-size:9px; position:absolute; bottom:10px; left: 0px; margin-top:5px; display:inline-block; width:109px;">
-				<img src="{{dominio}}/static/img/icons/bra/bra_{{ candidato.uf|lower }}.png" width="20px;"style=" vertical-align: middle; height:100%; border: none;"
+			<span style="font-size:9px; position:absolute; bottom:10px; line-height:7px; left: 0px; margin-top:5px; display:inline-block; width:109px;">
+				<img src="{{dominio}}/static/img/icons/bra/bra_{{ candidato.uf|lower }}.png" style="width:20px; vertical-align: middle;  border: none;"
 					/>&nbsp;
 		   		{{ candidato.cidade }}</span>
 		</div>
 		 
-		<h5 id="boxPoliticoUltima" style="	color: #444444;
+		<span id="boxPoliticoUltima" style="	color: #444444;
 		position: absolute;
-		bottom: 0px;
+		bottom: -20px;
 		right: 2px;
 		width: 43px;
 		font-family: Open Sans!important;">
 					<div class="field-content" style="font-size: 14pt;
-		 background-image: url("/static/img/pec/card_ponto_semanapassada.png");
+		 background-image: url('{{dominio}}/static/img/pec/card_ponto_semanapassada.png');
 		color: #DDDDDD;
 		
 		
-		height: 43px;
+		height: 33px;
 		   text-align:center;
 		    padding-top: 10px;
 		    width: 43px;">
@@ -121,7 +119,7 @@
 					
 					{% endif %}
 					</div>
-				</h5>
+				</span>
 	
 		</div>
 		
