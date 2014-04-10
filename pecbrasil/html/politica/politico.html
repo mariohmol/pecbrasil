@@ -164,6 +164,21 @@
 			style="width:  648px!important; height: 600px"> </iframe>
 	</div>
 
+	<div id="profile2" class="profileFechado  guide_app ">
+		<h2>{% trans %}Desempenho do político durante o tempo{% endtrans %} </h2>
+			
+			<br> 
+			
+		{% set iframeId = 'iframe3' %} 
+			{% set anoOption = 'true' %}
+		  {% set funcOption = 'false' %}
+		  
+		{% include "grafico/painel.html" %}<br>
+
+		<iframe id="iframe2"
+			alt="/grafico/stacked/all/{{ politicos.id }}"
+			style="width: 648px; height: 600px"> </iframe>
+	</div>
 
 	<div id="profile3" class="profileFechado  guide_app "
 

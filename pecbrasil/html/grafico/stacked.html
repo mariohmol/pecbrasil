@@ -23,8 +23,8 @@
    {% endif %}
    
 	if(partidoParam=='') {
-		linkCandidatura='/attrs/candidatura'
-		linkPontuacao='/attrs/pontuacao'
+		linkCandidatura='/attrs/candidatura/'+politicoid;
+		linkPontuacao='/attrs/pontuacao/'+politicoid;
 	}else{
 		linkCandidatura='/attrs/candidatura/all/'+partidoParam
 		linkPontuacao='/attrs/pontuacao/all/'+partidoParam
