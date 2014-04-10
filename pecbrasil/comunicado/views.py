@@ -29,7 +29,7 @@ def convideamigos(time_id=None):
                 send_mail(titulo,[email],   render_template("comunicado/convideamigos.html",form=form,time=time,obs=form.obs.data))
             except:
                     print "Error EMail"
-            convite = Convite(email=email,dataenvio=datetime.datetime.now(),usuario=g.user.id)
+            convite = Convite(email=email,dataenvio=datetime.now(),usuario=g.user.id)
             db.session.add(convite)        
             db.session.commit()
         return render_template("comunicado/convideamigosform.html",titulo=titulo,enviado='S',form=form) 
