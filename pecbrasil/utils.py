@@ -341,7 +341,8 @@ def send_mail(title, recipients,message):
         return
     EMAIL_REGEX = re.compile(r"[^@]+@[^@]+\.[^@]+")
     for email in recipients:
-        if email is None or email == "" or EMAIL_REGEX.match(email) :
+        print email
+        if email is None or email == "" or not EMAIL_REGEX.match(email) :
             return
         
     from pecbrasil import mail
@@ -349,4 +350,5 @@ def send_mail(title, recipients,message):
     msg = Message(title,sender="Politica Esporte Clube <contato@politicaesporteclube.com>",recipients=recipients)
     msg.body = message
     msg.html = msg.body
-    mail.send(msg)
+
+    return mail.send(msg)

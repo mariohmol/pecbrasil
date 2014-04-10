@@ -20,15 +20,17 @@ politicaServices = PoliticaServices()
 @mod.route('/convideamigos/<time_id>', methods=['GET', 'POST'])
 def convideamigos(time_id=None):  
     titulo="Convite para o Politica Esporte Clube"
+    print titulo
     form=ConvidarForm()
     if form.validate_on_submit():
         time = politicaServices.meuTime(g.user.id)
         emails = form.email.data.split(',')
+        
         for email in emails:
-            try:
-                send_mail(titulo,[email],   render_template("comunicado/convideamigos.html",form=form,time=time,obs=form.obs.data))
+            try:                
+                print send_mail(titulo,[email],   render_template("comunicado/convideamigos.html",form=form,time=time,obs=form.obs.data))
             except:
-                    print "Error EMail"
+                print "Error EMail"
             convite = Convite(email=email,dataenvio=datetime.now(),usuario=g.user.id)
             db.session.add(convite)        
             db.session.commit()
