@@ -25,5 +25,11 @@
      
     {% endfor %}
     
+    
+    {% if not rodadas %}
+    	{% trans %}<h1>Como não existem dados para este período, nenhum time pontuou nesta rodada.</h1>{% endtrans %}
+
+	{% endif %}
+    
 {% endblock %}
 

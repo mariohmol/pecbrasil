@@ -19,9 +19,13 @@ politicaServices = PoliticaServices()
 @mod.route('/ver/<name>')
 def rodada(name=None):
     rodadas = politicaServices.rodadas(name)
+    
     if name is not None:
+        anterior=politicaServices.anteriorRodada(inicio=rodadas.inicio)
+        proximo=politicaServices.proximaRodada(inicio=rodadas.inicio)
+        
         return render_template("rodada/rodada.html",
-                    rodadas = rodadas)
+                    rodadas = rodadas,anterior=anterior,proximo=proximo)
     else:
         return render_template("rodada/rodadaList.html",
                     rodadas = rodadas)

@@ -10,8 +10,32 @@
 {% block body %}
   <h1>{% trans %}Rodada{% endtrans %} {{ rodadas.semana }}/{{ rodadas.ano }}</h1>
   
-    <h3><a href="/rodada/">{% trans %}Veja outras rodadas{% endtrans %}</a></h3>
     
+    <h3> <table><tr>
+    	{% if proximo %}
+    	<td>
+    	<a href="/rodada/ver/{{proximo.id}}"> << {% trans %}Próxima Rodada{% endtrans %}</a> 
+    	</td>
+    	{% endif %}
+    	
+    
+    	
+    	<td>
+    	<a href="/rodada/">{% trans %}Veja outras rodadas{% endtrans %}</a>
+    	</td>
+    	
+    		{% if anterior %}
+    	<td>
+    	<a href="/rodada/ver/{{anterior.id}}">{% trans %}Rodada Anterior{% endtrans %} >> </a>
+    	</td>
+    	{% endif %}
+    	
+    	</tr>
+    	
+    	</table>
+    	
+    </h3>
+
 <div class="container">
 
 

@@ -246,8 +246,11 @@ class PoliticaServices(object):
             rodada = Rodada.query.filter(Rodada.id==rodada_id).first()
         return rodada
 
-  
-  
+    def proximaRodada(self,rodada_id=None,inicio=None):
+        return Rodada.query.filter(Rodada.inicio>inicio).order_by(Rodada.ano.asc(),Rodada.semana.asc()).first()
+        
+    def anteriorRodada(self,rodada_id=None,inicio=None):
+         return Rodada.query.filter(Rodada.inicio<inicio).order_by(Rodada.ano.desc(),Rodada.semana.desc()).first()  
      
     ###########################
     # PROPOSICAO

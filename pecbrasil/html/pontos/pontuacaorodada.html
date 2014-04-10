@@ -21,6 +21,11 @@
 				      	{% include "politica/boxpolitico.html" %}
       
     {% endfor %}
+    
+    {% if not rodadas %}
+    	{% trans %}<h1>Não existem dados para este período</h1>{% endtrans %}
+
+	{% endif %}
 
 {% endblock %}
 
