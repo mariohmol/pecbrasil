@@ -154,12 +154,12 @@
 			
 			<span style="font-size:12px; font-style: italic; color:#777; font-family:'Open Sans'">{{ politicos.politicos.nome }}
 			{% trans %}em comparação ao{% endtrans %} {{ politicos.partidos.sigla }}</span></h2>
-		{% set iframeId = 'iframe2' %} 
+		{% set iframeId = 'iframe1' %} 
 		{% set anoOption = 'true' %}
 		  {% set funcOption = 'false' %}
 		{% include "grafico/painel.html" %}
 
-		<iframe id="iframe2"
+		<iframe id="iframe1"
 			src="/grafico/treemap/{{ politicos.partidos.sigla }}/{{ politicos.id }}"
 			style="width:  648px!important; height: 600px"> </iframe>
 	</div>
@@ -169,7 +169,7 @@
 			
 			<br> 
 			
-		{% set iframeId = 'iframe3' %} 
+		{% set iframeId = 'iframe2' %} 
 			{% set anoOption = 'true' %}
 		  {% set funcOption = 'false' %}
 		  

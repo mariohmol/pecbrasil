@@ -40,7 +40,7 @@
 	  	
 		  
        
-			attrs=createCandidaturas(attr.candidaturas,partido.partidos)	;
+			attrs=createCandidaturas(attr.candidaturas,partido.partidos,politicoid)	;
 		  	attrsRodada=createRodadas(rodada.rodadas);
 		
 		var attrsNovo = {"rodada": attrsRodada, "candidatura": attrs}
@@ -55,7 +55,7 @@
 	   		})
 	   		
 	   		attr.candidaturas.forEach(function(a){
-	   			if(a.id==politicoid)
+	   			if(a.id==politicoid && partidoParam!='')
 	   				a.colorNovo='#000'
 	   		})
 	   		
@@ -77,10 +77,10 @@
           .id_var("candidatura")
           .attrs(attrs)
           .text_var("name_pt")
-          .value("presenca")
+          .value("pontos")
           //.tooltip_info([ "partidoNome", "pontos", "rodada","name_pt","candidatura"])
           
-          .yaxis("presenca")
+          .yaxis("pontos")
           .xaxis("inicio")
          .unique_axis("x")
 
@@ -89,8 +89,9 @@
            
           //.layout("share")          
           .year_var("rodada_ano")
-        
-        .color("colorNovo")
+        if(partidoParam=='')
+        	viz.color("color")
+        else viz.color("colorNovo")
         
         //Estes dois geram o erro do grouped com o nesting[depth] (depth =0,candidatura)
         //.nesting(["partido","candidatura"])

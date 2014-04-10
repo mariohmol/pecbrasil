@@ -11,7 +11,7 @@ function getElementByIframeId(iframe,id){
 
 function setChartValueFrame(divId,valor){
 	
-	viz.value(valor);
+	viz.value(valor).yaxis(valor);
 	setChartFuncFrame(divId,null);
 	
 	 $(document.getElementById(divId+'_depth_value')).val(valor);
@@ -57,7 +57,7 @@ function setChartFuncFrame(divId,valor){
 }
 
 	
-function createCandidaturas(attr_candidaturas,partido_partidos)	  {	
+function createCandidaturas(attr_candidaturas,partido_partidos,politicoid)	  {	
 	  	 var attrs = {}
 	      attr_candidaturas.forEach(function(a){
 	        a.candidatura = a.id
@@ -68,10 +68,8 @@ function createCandidaturas(attr_candidaturas,partido_partidos)	  {
 		          	a.color=p.color
 		          }	
 	          })	
-	          if(politicoid == a.candidatura){
+	          //if(politicoid == a.candidatura)	          	a.color='#000000'
 	          
-	          	a.color='#000000'
-	          }
 	        
 	       attrs[a.id] = a
 	   	})

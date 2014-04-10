@@ -398,6 +398,7 @@ CREATE TABLE IF NOT EXISTS `orgao` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `desc` text,
   `tipo` int(11) DEFAULT NULL,
+  totalmembros int(11) DEFAULT NULL,
   `sigla` varchar(30) DEFAULT NULL,
   `original_cf` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -837,3 +838,20 @@ CREATE TABLE IF NOT EXISTS `proposicaoacao` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 ALTER TABLE `proposicao` ADD `datavotacao` DATE NULL ;
+ALTER TABLE `proposicaoacao` ADD resultado_proposicaoacao varchar(300) DEFAULT NULL;
+ALTER TABLE `proposicaoacao` ADD link_proposicaoacao varchar(300) DEFAULT NULL;
+ALTER TABLE `proposicaoacao` ADD orgao_proposicaoacao int(11) DEFAULT NULL;
+
+
+
+
+http://www.camara.gov.br/SitCamaraWS/Orgaos.asmx/ObterAndamento?sigla=PL&numero=3962&ano=2008&dataIni=01/01/2009&codOrgao=
+<proposicao tipo="PL" numero="3962" ano="2008"><situacao>Tranformada no(a) Lei Ordinária 12154/2009</situacao><ementa>Cria a Superintendência Nacional de Previdência Complementar - PREVIC e dispõe sobre o seu pessoal, inclui a Câmara de Recursos da Previdência Complementar na estrutura básica do Ministério da Previdência Social, altera disposições referentes a auditores-fiscais da Receita Federal do Brasil, e dá outras providências.</ementa><idProposicao>408406</idProposicao><ultimaAcao><tramitacao><data>10/02/2010</data><codOrgao>4</codOrgao><orgao>MESA       - Mesa Diretora da Câmara dos Deputados</orgao><descricao>Recebimento do Ofício nº 60/10 (CN) comunicando veto parcial e solicitando indicação de membros para integrar a Comissão Mista incumbida de relatar o(s) veto(s).</descricao></tramitacao></ultimaAcao><andamento><tramitacao><data>23/12/2009</data><codOrgao>4</codOrgao><orgao>MESA      </orgao><descricao>Transformado na Lei Ordinária 12154/2009. DOU 24 12 09 PÁG 01 COL 01. Vetado parcialmente. Razões do veto: MSC 1.085/09-PE. DOU (Edição extra) 24 12 09 PÁG 8 COL 02.</descricao><inteiroTeor/></tramitacao>
+
+
+
+
+
+http://www.camara.gov.br/SitCamaraWS/Orgaos.asmx/ObterPauta?IDOrgao=2004&datIni=01/01/2012&datFim=30/04/2012
+<pauta orgao="CDC - DEFESA DO CONSUMIDOR" dataInicial="01/01/2012" dataFinal="30/04/2012"><reuniao><codReuniao>28742</codReuniao><data>25/4/2012</data><horario>10:00</horario><local>Anexo II, Plenário 08</local><estado>Encerrada (Final)   </estado><tipo>Reunião Deliberativa</tipo><tituloReuniao>Reunião Deliberativa Ordinária</tituloReuniao><objeto/><proposicoes><proposicao><sigla>REQ 111/2012 CDC</sigla><idProposicao>542239</idProposicao><ementa>Requer a criação da Subcomissão Especial da Comissão de Defesa do Consumidor para tratar das questões relativas às tarifas e taxas bancárias em especial os reajustes aplicados nos últimos meses.
+</ementa><resultado>Aprovado incluindo o número de membros em 7. </resultado></proposicao>

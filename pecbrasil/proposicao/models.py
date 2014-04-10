@@ -48,13 +48,16 @@ class Proposicao(db.Model, AutoSerialize):
     
 class ProposicaoAcao(db.Model, AutoSerialize):
     __tablename__ = 'proposicaoacao'
-    __public__ = ('id_proposicaoacao', 'nome_proposicaoacao',  'originalid_proposicaoacao', 'proposicao_proposicaoacao','data_proposicaoacao','status_proposicaoacao')
+    __public__ = ('id_proposicaoacao', 'nome_proposicaoacao',  'originalid_proposicaoacao', 'proposicao_proposicaoacao',
+                  'data_proposicaoacao','status_proposicaoacao','link_proposicaoacao','orgao_proposicaoacao')
     id_proposicaoacao = db.Column(db.Integer, primary_key=True)
     nome_proposicaoacao = db.Column(db.Text())
+    link_proposicaoacao = db.Column(db.String(300))
     originalid_proposicaoacao=db.Column(db.Integer)
     data_proposicaoacao=db.Column(db.Date)
     proposicao_proposicaoacao=db.Column(db.Integer,db.ForeignKey(Proposicao.id))    
     status_proposicaoacao=db.Column(db.Integer,db.ForeignKey(StatusProposicao.id_statusproposicao))
+    orgao_proposicaoacao=db.Column(db.Integer,db.ForeignKey(Orgao.id))
     def __repr__(self):
         return '<ProposicaoAcao %r>' % (self.time)
     
