@@ -52,7 +52,6 @@ def membros(orgao_id=None,frame=None):
     orgao = OrgaoCandidato.query.filter_by(orgao=orgao_id).all()
         
     if orgao_id is not None:
-        print "ENMTREEIII"
         return render_template("orgao/orgaocandidatoList.html",   frame=frame,   orgao=orgao)                   
        
     
