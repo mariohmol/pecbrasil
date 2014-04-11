@@ -1,6 +1,7 @@
 from pecbrasil import db
 from pecbrasil.utils import AutoSerialize
 from pecbrasil.politica.models import Candidatura,Time
+from pecbrasil.orgao.models import Orgao
 from pecbrasil.account.models import User
 
 
