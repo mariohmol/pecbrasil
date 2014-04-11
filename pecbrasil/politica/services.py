@@ -254,7 +254,12 @@ class PoliticaServices(object):
      
     ###########################
     # PROPOSICAO
-    ###########################          
+    ###########################         
+    def proposicaoCompleta(self,id=None):
+        ret = Proposicao.query.filter_by(id=proposicao_id).outerjoin(Candidatura).outerjoin(StatusProposicao)
+        ret = ret.outerjoin(TipoProposicao).first()
+        
+         
     def proposicao(self,candidatura_id=None,partido_sigla=None):
         ret = None
         if candidatura_id == 'all' and partido_sigla is not None:
@@ -285,7 +290,12 @@ class PoliticaServices(object):
             ret = ret.all()
         return ret
     
-    
+    def atualizaTipoVotacaoProposicao(self):
+        sql="update tipoproposicao set votacao_tipoproposicao=1 where id_tipoproposicao in ( "
+        sql=sql + " select distinct tipo from proposicao where id in (SELECT proposicao FROM `votacaocandidato`) )"
+        db.session.execute(sql)
+        db.session.commit()
+        
     
     ###########################
     # LIST TABELAS EM GERAL
@@ -370,13 +380,14 @@ class PoliticaServices(object):
     def votacao(self,proposicao_id=None,candidatura_id=None):
         ret = None
         if (candidatura_id == 'all' or candidatura_id is None) and proposicao_id is not None:
-            ret = VotacaoCandidato.query.filter_by(proposicao=proposicao_id).join(Candidatura).all() #.join(Candidatura)
+            ret = VotacaoCandidato.query.filter_by(proposicao=proposicao_id).join(Candidatura) #.join(Candidatura)
         elif candidatura_id == 'all' and proposicao_id is None:
-            ret = VotacaoCandidato.query.join(Candidatura).all()
+            ret = VotacaoCandidato.query.join(Candidatura)
         elif candidatura_id is not None and (proposicao_id is None or proposicao_id=="all"):
-            ret = VotacaoCandidato.query.filter_by(candidatura=candidatura_id).all()
+            ret = VotacaoCandidato.query.filter_by(candidatura=candidatura_id)
         else:
-            ret = VotacaoCandidato.query.join(Candidatura).all()
+            ret = VotacaoCandidato.query.join(Candidatura)
+        ret=ret.join(Partido).order_by(Partido.sigla,Candidatura.name_pt).all()
         return ret
     
     def repasse(self,candidatura_id=None,partido_sigla=None):

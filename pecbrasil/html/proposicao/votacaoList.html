@@ -12,7 +12,7 @@
   {% if votacoes %}
    <table><tr>
   <td> {% trans %}Político{% endtrans %} </td>
-      <td> {% trans %}Proposicão{% endtrans %} </td>
+   <td> {% trans %}Partido{% endtrans %} </td>
       <td> {% trans %}Voto{% endtrans %} </td>
      </tr>
      
@@ -27,20 +27,16 @@
 				   		{% else %}	
 				   			<a href="/politica/politico/{{ votacao.candidatura }}/">
 				   		{% endif %}	
-		      {{ votacao.candidaturas.name_pt }}
-		     </a>
+		      {{ votacao.candidaturas.name_pt }}       </a>
 		     </td>
-		      <td>
-		      
-		      {% if frame  %}	
-				   			<a href="#" onclick="top.window.location='/proposicao/ver/{{ votacao.proposicao }}/'">
-				   		
-				   		{% else %}	
-				   			<a href="/proposicao/ver/{{ votacao.proposicao }}/">
-				   		{% endif %}	
-				   		
-		      {{ votacao.proposicoes.sigla }}</a>
-		      </td>
+		     
+		     <td> 
+		      <img style="border: 5px solid #f4f4f4;  		width: auto; height: 40px;" src="{{dominio}}/static/img/pecbrasil/partidos/{{ votacao.candidaturas.partidos.sigla|lower}}.jpg" width="50">
+		   		<img src="{{dominio}}/static/img/icons/bra/bra_{{ votacao.candidaturas.uf|lower }}.png" style=" vertical-align: middle; 		height:40px"
+					/>&nbsp;
+		    
+		     </td>
+		     
 		      <td>
 		      {% include "proposicao/boxvoto.html" %}
 		      </td>

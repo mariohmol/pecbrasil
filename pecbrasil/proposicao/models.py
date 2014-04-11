@@ -12,6 +12,7 @@ class TipoProposicao(db.Model, AutoSerialize):
     nome_tipoproposicao = db.Column(db.Text())
     sigla_tipoproposicao = db.Column(db.Text())   
     originalid_tipoproposicao = db.Column(db.Integer)
+    votacao_tipoproposicao = db.Column(db.Integer()) #==1 se aceita votacao na camara
     proposicoes = db.relationship("Proposicao", backref = 'tipoproposicao', lazy = 'dynamic')
     def __repr__(self):
         return '<TipoProposicao %r>' % (self.time)

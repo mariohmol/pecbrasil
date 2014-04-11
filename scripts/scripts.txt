@@ -843,7 +843,11 @@ ALTER TABLE `proposicaoacao` ADD link_proposicaoacao varchar(300) DEFAULT NULL;
 ALTER TABLE `proposicaoacao` ADD orgao_proposicaoacao int(11) DEFAULT NULL;
 
 
+ALTER TABLE `tipoproposicao` ADD `votacao_tipoproposicao` TINYINT NULL ;
 
+update tipoproposicao set votacao_tipoproposicao=1 where id_tipoproposicao in (
+select distinct tipo from proposicao where id in (SELECT proposicao FROM `votacaocandidato`)
+) 
 
 http://www.camara.gov.br/SitCamaraWS/Orgaos.asmx/ObterAndamento?sigla=PL&numero=3962&ano=2008&dataIni=01/01/2009&codOrgao=
 <proposicao tipo="PL" numero="3962" ano="2008"><situacao>Tranformada no(a) Lei Ordinária 12154/2009</situacao><ementa>Cria a Superintendência Nacional de Previdência Complementar - PREVIC e dispõe sobre o seu pessoal, inclui a Câmara de Recursos da Previdência Complementar na estrutura básica do Ministério da Previdência Social, altera disposições referentes a auditores-fiscais da Receita Federal do Brasil, e dá outras providências.</ementa><idProposicao>408406</idProposicao><ultimaAcao><tramitacao><data>10/02/2010</data><codOrgao>4</codOrgao><orgao>MESA       - Mesa Diretora da Câmara dos Deputados</orgao><descricao>Recebimento do Ofício nº 60/10 (CN) comunicando veto parcial e solicitando indicação de membros para integrar a Comissão Mista incumbida de relatar o(s) veto(s).</descricao></tramitacao></ultimaAcao><andamento><tramitacao><data>23/12/2009</data><codOrgao>4</codOrgao><orgao>MESA      </orgao><descricao>Transformado na Lei Ordinária 12154/2009. DOU 24 12 09 PÁG 01 COL 01. Vetado parcialmente. Razões do veto: MSC 1.085/09-PE. DOU (Edição extra) 24 12 09 PÁG 8 COL 02.</descricao><inteiroTeor/></tramitacao>

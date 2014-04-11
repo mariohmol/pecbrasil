@@ -16,16 +16,23 @@
 		    
 		    <a onclick="slide(this.id)" id="app0" class="app_links decision short icon tree_map">
 		{% trans %}Informações Gerais{% endtrans %}</a>
-			
-		<a onclick="slide(this.id)" id="app1" class="app_links decision short icon tree_map">
-			
-		{% trans %}Votações{% endtrans %}</a>
 		
-		<a onclick="slide(this.id)" id="app2" class="app_links decision short icon tree_map">
-			
-		{% trans %}Votações Detalhada{% endtrans %}</a>
 		
-		<a onclick="slide(this.id)" id="app3" class="app_links decision short icon tree_map">
+		{% if proposicoes.tipoproposicao.votacao_tipoproposicao==1 %}
+			
+			<a onclick="slide(this.id)" id="app1" class="app_links decision short icon tree_map">
+			{% trans %}Votações{% endtrans %}</a>
+			
+			<a onclick="slide(this.id)" id="app2" class="app_links decision short icon tree_map">				
+			{% trans %}Votações Detalhada{% endtrans %}</a>
+			
+			
+			<a onclick="slide(this.id)" id="app3" class="app_links decision short icon tree_map">				
+			{% trans %}Tramitações{% endtrans %}</a>
+			
+		{% endif %}
+		
+		<a onclick="slide(this.id)" id="app4" class="app_links decision short icon tree_map">
 		 {% trans %}Opinião Pública{% endtrans %}</a>
 		 
 	
@@ -38,44 +45,69 @@
 	
 		<div id="profile0" class="lightbox guide_app infoQd" style="width: 100%!important; height: auto;">	
 			
-		
-				<h1> {% trans %}Proposição{% endtrans %}: {{ proposicoes.sigla }} </h1>
+		<h1>{{ proposicoes.sigla }} </h1>
+				<h2>{% trans %}Proposição{% endtrans %} : {{ proposicoes.tipoproposicao.nome_tipoproposicao }} 					</h2>
 				
 				{% if proposicoes.candidaturas.name_pt %}
-				<h2> {% trans %}Autor{% endtrans %} {{ proposicoes.candidaturas.name_pt }}  </h2>
+					<h2> {% trans %}Autor{% endtrans %}: {{ proposicoes.candidaturas.name_pt }}  </h2>
 				{% endif %}
-				{% trans %}Status{% endtrans %}: {{ proposicoes.status }}
+				
+				
+				{% if proposicoes.statusproposicao %}
+					{% trans %}Status{% endtrans %}: 
+					<input type="hidden" value="{{ proposicoes.status }}" id="hiddenstatus" />
+					
+					{{ proposicoes.statusproposicao.nome_statusproposicao }}
+				{% endif %}
 				<br/>
 				
 				<pre>{{ proposicoes.desc|trim }}]</pre>
 		</div>
 		
-		<div id="profile1" class="lightbox guide_app biografia profile_partido"
-	
-			style="">
+		
+			{% if proposicoes.tipoproposicao.votacao_tipoproposicao==1 %}
+					
+				<div id="profile1" class="lightbox guide_app biografia profile_partido"
 			
-			<h2>{% trans %}Votações{% endtrans %}</h2>
+					style="">
+					
+					<h2>{% trans %}Votações{% endtrans %}  </h2>
+					
+					<iframe id="iframe1" src="/grafico/bubblesvotacoes/{{ proposicoes.id }}" 
+					style="width: 858px; min-height: 700px; "></iframe>
+						    
+					  
+			    </div>
+			    
+				<div id="profile2" class="lightbox guide_app biografia profile_partido"
 			
-		<iframe id="iframe3" src="/grafico/bubblesvotacoes/{{ proposicoes.id }}" 
-			style="width: 858px; min-height: 700px; "></iframe>
-				    
-			  
-	    </div>
+					style="">
+					
+					<h2>{% trans %}Votações{% endtrans %}</h2>
+					
+						   
+					<iframe id="iframe2"
+					alt="/proposicao/listarvotacao/{{ proposicoes.id }}/all/true"
+					style="width: 648px; height: 600px"> </iframe>  
+					  
+			    </div>
+			    
+			    <div id="profile3" class="lightbox guide_app biografia profile_partido"
+			
+					style="">
+					
+					<h2>{% trans %}Tramitacoes{% endtrans %}</h2>
+					
+						   
+					<iframe id="iframe3"
+					alt="/proposicao/acao/{{ proposicoes.id }}"
+					style="width: 648px; height: 600px"> </iframe>  
+					  
+			    </div>
+	    {% endif %}
 	    
-		<div id="profile2" class="lightbox guide_app biografia profile_partido"
-	
-			style="">
-			
-			<h2>{% trans %}Votações{% endtrans %}</h2>
-			
-				   
-		<iframe id="iframe3"
-			alt="/proposicao/listarvotacao/{{ proposicoes.id }}/all/true"
-			style="width: 648px; height: 600px"> </iframe>  
-			  
-	    </div>
 	    
-	  <div id="profile3" class="lightbox guide_app biografia profile_partido"
+	  <div id="profile4" class="lightbox guide_app biografia profile_partido"
 	
 			style="">
 			<h2>{% trans %}Opinião Pública{% endtrans %}</h2>
