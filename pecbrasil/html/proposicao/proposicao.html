@@ -18,22 +18,22 @@
 		{% trans %}Informações Gerais{% endtrans %}</a>
 		
 		
+		<a onclick="slide(this.id)" id="app1" class="app_links decision short icon tree_map">				
+			{% trans %}Tramitações{% endtrans %}</a>
+		
+		<a onclick="slide(this.id)" id="app2" class="app_links decision short icon tree_map">
+		 {% trans %}Opinião Pública{% endtrans %}</a>
+		 
 		{% if proposicoes.tipoproposicao.votacao_tipoproposicao==1 %}
 			
-			<a onclick="slide(this.id)" id="app1" class="app_links decision short icon tree_map">
+			<a onclick="slide(this.id)" id="app3" class="app_links decision short icon tree_map">
 			{% trans %}Votações{% endtrans %}</a>
 			
-			<a onclick="slide(this.id)" id="app2" class="app_links decision short icon tree_map">				
+			<a onclick="slide(this.id)" id="app4" class="app_links decision short icon tree_map">				
 			{% trans %}Votações Detalhada{% endtrans %}</a>
-			
-			
-			<a onclick="slide(this.id)" id="app3" class="app_links decision short icon tree_map">				
-			{% trans %}Tramitações{% endtrans %}</a>
 			
 		{% endif %}
 		
-		<a onclick="slide(this.id)" id="app4" class="app_links decision short icon tree_map">
-		 {% trans %}Opinião Pública{% endtrans %}</a>
 		 
 	
 	</div>
@@ -64,78 +64,46 @@
 				<pre>{{ proposicoes.desc|trim }}]</pre>
 		</div>
 		
-		
-			{% if proposicoes.tipoproposicao.votacao_tipoproposicao==1 %}
-					
-				<div id="profile1" class="lightbox guide_app biografia profile_partido"
-			
-					style="">
-					
-					<h2>{% trans %}Votações{% endtrans %}  </h2>
-					
-					<iframe id="iframe1" src="/grafico/bubblesvotacoes/{{ proposicoes.id }}" 
-					style="width: 858px; min-height: 700px; "></iframe>
-						    
-					  
-			    </div>
-			    
-				<div id="profile2" class="lightbox guide_app biografia profile_partido"
-			
-					style="">
-					
-					<h2>{% trans %}Votações{% endtrans %}</h2>
-					
-						   
-					<iframe id="iframe2"
-					alt="/proposicao/listarvotacao/{{ proposicoes.id }}/all/true"
-					style="width: 648px; height: 600px"> </iframe>  
-					  
-			    </div>
-			    
-			    <div id="profile3" class="lightbox guide_app biografia profile_partido"
-			
-					style="">
-					
-					<h2>{% trans %}Tramitacoes{% endtrans %}</h2>
-					
-						   
-					<iframe id="iframe3"
-					alt="/proposicao/acao/{{ proposicoes.id }}"
-					style="width: 648px; height: 600px"> </iframe>  
-					  
-			    </div>
-	    {% endif %}
-	    
-	    
-	  <div id="profile4" class="lightbox guide_app biografia profile_partido"
+		  <div id="profile1" class="lightbox guide_app biografia profile_partido"
 	
 			style="">
+			
+			<h2>{% trans %}Tramitacoes{% endtrans %}</h2>
+			
+				   
+			<iframe id="iframe1"
+			src="/proposicao/acao/{{ proposicoes.id }}?frame=true"
+			style="width: 648px; height: 600px"> </iframe>  
+			  
+	    </div>
+	      
+	  <div id="profile2" class="lightbox guide_app biografia profile_partido"	style="">
 			<h2>{% trans %}Opinião Pública{% endtrans %}</h2>
 			
 				 <div>
-			   <a href="/proposicao/avaliar/{{ proposicoes.id }}"> {% trans %}Dê sua opiniao{% endtrans %}    </a>
-			  </div>
+			  	 	<a href="/proposicao/avaliar/{{ proposicoes.id }}"> {% trans %}Dê sua opiniao{% endtrans %}    </a>
+			  	</div>
 				{% set achou="False" %}
 				     {% for timevotacao in proposicoes.timevotacao.limit(10) %}
 				     {% set achou="True" %}
 				     <hr/>
 				     <div>
-				     	{{ timevotacao.times.nome }} em {{ timevotacao.data }}, 
-				     	
-				     	{% trans %}votou{% endtrans %} 
-						{% if timevotacao.voto == 1 %}
-				       	{% trans %}Sim{% endtrans %}
-				       
-				       {% elif timevotacao.voto == 2 %}
-				       	{% trans %}Não{% endtrans %}
-				      
-			       			
-			       			{% else %}
-			       			-
-				       {% endif %}
-				        <br/>
-				     	{% trans %}Necessidade{% endtrans %}: {% include "proposicao/avaliarNota.html" %}<br/>
-				     	<pre> {{ timevotacao.desc }}</pre>
+					     	{{ timevotacao.times.nome }} em {{ timevotacao.data }}, 
+					     	
+					     	{% trans %}votou{% endtrans %} 
+							{% if timevotacao.voto == 1 %}
+					       	{% trans %}Sim{% endtrans %}
+					       
+					       {% elif timevotacao.voto == 2 %}
+					       	{% trans %}Não{% endtrans %}
+					      
+				       			
+				       			{% else %}
+				       			-
+					       {% endif %}
+					        <br/>
+					     	{% trans %}Necessidade{% endtrans %}: {% include "proposicao/avaliarNota.html" %}<br/>
+					     	<pre> {{ timevotacao.desc }}</pre>
 				     </div>	
 				     	
 				     	
@@ -143,10 +111,45 @@
 				     
 				     {% if achou=="False" %}
 				     <div>
-				     {% trans %}Não existem comentários sobre esta proposição. Seja o primeiro a fazer!{% endtrans %}
+				     	{% trans %}Não existem comentários sobre esta proposição. Seja o primeiro a fazer!{% endtrans %}
 				      </div>	
 				     {% endif %}
 		</div>
+		
+			{% if proposicoes.tipoproposicao.votacao_tipoproposicao==1 %}
+					
+				<div id="profile3" class="lightbox guide_app biografia profile_partido"
+			
+					style="">
+					
+					<h2>{% trans %}Votações{% endtrans %}  </h2>
+					
+					<iframe id="iframe3" src="/grafico/bubblesvotacoes/{{ proposicoes.id }}" 
+					style="width: 858px; min-height: 700px; "></iframe>
+						    
+					  
+			    </div>
+			    
+				<div id="profile4" class="lightbox guide_app biografia profile_partido"
+			
+					style="">
+					
+					<h2>{% trans %}Votações{% endtrans %}</h2>
+					
+						   
+					<iframe id="iframe4"
+					alt="/proposicao/listarvotacao/{{ proposicoes.id }}/all/true"
+					style="width: 648px; height: 600px"> </iframe>  
+					  
+			    </div>
+			    
+			    
+	    {% endif %}
+	    
+	
+		
+		
+		
 	</div>
     
     

@@ -1,9 +1,23 @@
 <!-- extend from about base layout -->
-{% extends "templates/site.html" %}
+{% if frame %}
+	{% extends "templates/clean.html" %}
+{% else %}
+	{% extends "templates/site.html" %}
+{% endif %}
+
 
 {% block title %}: {% trans %}About the Site{% endtrans %}{% endblock %}
 
 {% block body %}
  
-		    {{acoes}}
+ 
+ {% if acoes %}
+	{% set acoes = acoes[0]%}	    
+		    <a href="/proposicao/ver/{{acoes.proposicoes.id}}"> {{acoes.proposicoes.sigla}} </a>
+  	
+  	- {{acoes.statusproposicao.nome_statusproposicao}} <br/>
+  	
+	{{acoes.nome_proposicaoacao}} - 	{{acoes.data_proposicaoacao}} 
+	
+	{% endif %}
 {% endblock %}

@@ -274,11 +274,15 @@ class PoliticaServices(object):
         return ret
     
     def proposicaoacao(self,dataInicio,proposicao_id=None,candidatura_id=None,partido_sigla=None):
-        ret = ProposicaoAcao.query.filter_by(data_proposicaoacao=dataInicio).outerjoin(Proposicao).outerjoin(StatusProposicao)
+        ret = ProposicaoAcao.query
+        if dataInicio:
+            ret=ret.filter_by(data_proposicaoacao=dataInicio)
+            
+        ret = ret.outerjoin(Proposicao).outerjoin(StatusProposicao)
         
         
         if proposicao_id is not None and proposicao_id <> 'all':
-            ret = ret.filter_by(id_proposicaoacao=proposicao_id)
+            ret = ret.filter(ProposicaoAcao.proposicao_proposicaoacao==proposicao_id).all()
         elif candidatura_id == 'all' and partido_sigla is not None:
             ret = ret.outerjoin(Candidatura).filter_by(partido=partido_sigla).outerjoin(StatusProposicao).outerjoin(TipoProposicao).all()
             #ret = candidaturaByPartido(partido_sigla) 
@@ -301,8 +305,9 @@ class PoliticaServices(object):
         return ret
                            
     def atualizaTipoVotacaoProposicao(self):
-        sql="update tipoproposicao set votacao_tipoproposicao=1 where id_tipoproposicao in ( "
-        sql=sql + " select distinct tipo from proposicao where id in (SELECT proposicao FROM `votacaocandidato`) )"
+        sql="update tipoproposicao set votacao_tipoproposicao=1 where id_tipoproposicao in ( select distinct tipo from proposicao where id in (SELECT proposicao FROM `votacaocandidato`) )"
+        db.session.execute(sql)
+        sql="update tipoproposicao set votacao_tipoproposicao=1 where id_tipoproposicao in (SELECT tipo FROM `proposicao` where datavotacao is not null)"
         db.session.execute(sql)
         db.session.commit()
         

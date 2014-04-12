@@ -113,16 +113,17 @@ def votacao(proposicao_id=None):
 def acao(proposicao_id=None,candidatura_id=None,partido_id=None):
     
     dataInicio = request.args.get('inicio')
-    if dataInicio is None:
-        dataInicio= "01/10/2010"
+    frame = request.args.get('frame')
+    #if dataInicio is None:
+    #    dataInicio= "01/10/2010"
     if proposicao_id:
         acoes = politicaServices.proposicaoacao(dataInicio,proposicao_id=proposicao_id,candidatura_id=candidatura_id,partido_sigla=partido_id)
     else:
         acoes      = politicaServices.ultimasProposicaoacao()
     if len(acoes)>1:
-        return render_template("proposicao/acaoList.html",      acoes=acoes) 
+        return render_template("proposicao/acaoList.html",      acoes=acoes,frame=frame) 
     else:
-        return render_template("proposicao/acao.html",      acoes=acoes) 
+        return render_template("proposicao/acao.html",      acoes=acoes,frame=frame) 
     
 @mod.route('/novidades/')
 @mod.route('/novidades/<proposicao_id>')
@@ -132,8 +133,8 @@ def novidades(proposicao_id=None,candidatura_id=None,partido_id=None):
     
     dataInicio = request.args.get('inicio')
     frame = request.args.get('frame')
-    if dataInicio is None:
-        dataInicio= "01/10/2010"
+    #if dataInicio is None:
+    #    dataInicio= "01/10/2010"
     if proposicao_id:
         acoes = politicaServices.proposicaoacao(dataInicio,proposicao_id=proposicao_id,candidatura_id=candidatura_id,partido_sigla=partido_id)
     else:
