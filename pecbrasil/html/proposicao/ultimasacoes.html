@@ -1,0 +1,77 @@
+<!-- extend from about base layout -->
+{% if frame %}
+	{% extends "templates/clean.html" %}
+{% else %}
+	{% extends "templates/site.html" %}
+{% endif %}
+
+{% block title %}: {% trans %}Ações{% endtrans %}{% endblock %}
+
+{% block content %}
+  
+  {% if acoes %}
+  
+  	<div style="width: 50%; float: left">
+  		<h2>Últimas Tramitaçoes</h2>
+		   <table>
+		     
+		     {% for acao in acoes %}
+		     <tr>
+				  <td> 
+				  	
+				  	{% if  frame=='true'  %}	
+		   			<a href="#" onclick="top.window.location='{{dominio}}/proposicao/ver/{{acao.proposicoes.id}}'">{{acao.proposicoes.sigla}} </a>
+		   		
+		   		{% else %}	
+		   				<a href="/proposicao/ver/{{acao.proposicoes.id}}"> {{acao.proposicoes.sigla}} </a>
+		   		{% endif %}	
+		   		
+		   		
+				  
+				  	
+				  	- {{acao.statusproposicao.nome_statusproposicao}} em {{acao.data_proposicaoacao}}  <br/>
+				  	
+				  	{{acao.nome_proposicaoacao}}
+		  		</td>
+		     </tr>
+		     
+		    {% endfor %}
+		    </table>
+	</div>
+    {% else %}
+    	{% trans %}Não foram encontradas proposições de autoria deste político{% endtrans %}
+    {% endif %}
+    
+    
+    
+     {% if votacoes %}
+    
+     <div style="width: 50%; float: left">
+     	 <h2>Últimas Votações</h2>
+		   <table>
+		     
+		     {% for acao in votacoes %}
+		     <tr>
+				  <td> 
+				  	
+				  	{% if  frame=='true'  %}	
+				  		<a href="#" onclick="top.window.location='{{dominio}}/proposicao/ver/{{acao.id}}'"> {{acao.sigla}} </a>
+			   		{% else %}	
+			   				<a href="/proposicao/ver/{{acao.id}}"> {{acao.sigla}} </a>
+			   		{% endif %}	
+		   		
+		   		 	
+				  	- {{acao.statusproposicao.nome_statusproposicao}} em {{acao.datavotacao}} <br/>
+				  	{{acao.desc}}
+		  		</td>
+		     </tr>
+		     
+		    {% endfor %}
+		    </table>
+		    </div>
+    {% else %}
+    	{% trans %}Não foram encontradas proposições de autoria deste político{% endtrans %}
+    {% endif %}
+    
+{% endblock %}
+
