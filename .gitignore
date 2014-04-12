@@ -4,6 +4,8 @@ nbproject/
 .project
 .pydevproject
 *.pyc
+*.log
+*.rdb
 log.txt
 config.py
 Thumbs.db
