@@ -2,6 +2,7 @@
 import utils
 import politico
 import proposicao
+from mako.filters import trim
 
 ''' Connect to DB '''
 #cursor = utils.getCursorConnection()
@@ -73,6 +74,31 @@ def runVotacaoCandidato(cursor=None):
             print proposicaoCand
             addVotacaoCandidato(proposicao=proposicaoCand,
                                 candidatura=politicoCand,voto=VotacaoDeputado_Voto,cursor=cursor)
+
+def runVotacaoProposicao(cursor=None):         
+    csv_reader = utils.openCSV('data/VotacoesProposicoes.csv')
+    #"update proposicao set favor=null, contra=null , abstencao=null where id>0"
+    print "runVotacaoProposicao:"
+    for line in csv_reader:
+        if line[1]:      
+             
+            codProposicao    = line[0]
+            nomeProposicao  = line[1]  
+            dataVotacao    = line[2]
+            dataVotacao=utils.formatDate(dataVotacao,'%d/%m/%Y','%Y-%m-%d')
+            
+            nomeProposicao= proposicao.propostaVinculada(nomeProposicao)
+            print "Proposicao:"+nomeProposicao
+            id = proposicao.getProposicao(sigla=nomeProposicao,cursor=cursor)
+            if not id:
+                id = proposicao.getProposicaoByOriginal(id=codProposicao,cursor=cursor)
+            
+            if not id:
+                continue
+            id=id[0]
+            print "Proposicao Encontrada:"+str(id)
+            cursor.execute("UPDATE proposicao SET datavotacao=%s where id = %s",[dataVotacao,id])
+         
 
 
 #runVotacaoCandidato()

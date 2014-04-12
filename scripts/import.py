@@ -13,6 +13,7 @@ from optparse import OptionParser
 
 #Exemplo de Chamada
 # python import.py -o runPontuacao -a L
+# python import.py -o runPontuacao -a D
 parser = OptionParser()
 parser.add_option("-o", "--opcao", dest="opcao",
                   help="escolha qual passo do processamento", metavar="OPCAO")
@@ -80,32 +81,23 @@ if opcao=="runCandidaturas":
 #Detalhes das informacoes usadas em pontuacao
 if opcao=="runDespesas":
     despesa.runDespesas(cursor=cursor,anoFilter=ano,semanaFilter=semana)
+    
 if opcao=="runProposicao":
     proposicao.runProposicao(cursor=cursor,anoFilter=ano,semanaFilter=semana)
+if opcao=="runProposicaoAcao":
+    proposicao.runProposicaoAcao(cursor=cursor)
+    
 if opcao=="runVotacaoCandidato":
     votacao.runVotacaoCandidato(cursor=cursor)
-
+if opcao=="runVotacaoProposicao":
+    votacao.runVotacaoProposicao(cursor=cursor)
+    
+    
 
 #Scripts de Pontuacao
 if opcao=="runPontuacao":
     rodada.runPontuacao(cursor=cursor,anoFilter=ano,semanaFilter=semana)
     
-    
-###################################
-# ESSES METODOS SAO EXECUTADOS PELA WEB
-####################################
-#if opcao=="updatePontuacaoCandidatosSQL":
-#    pontos.updatePontuacaoCandidatosSQL(cursor=cursor)
-#if opcao=="updatePontuacaoTimesSQL":
-#    pontos.updatePontuacaoTimesSQL(cursor=cursor)
-#if opcao=="updatePontuacaoPartidosSQL":
-#    pontos.updatePontuacaoPartidosSQL(cursor=cursor)
-#if opcao=="updateRodadaMaxMinAutomatic":
-#    pontos.updateRodadaMaxMinAutomatic(cursor=cursor)
-#if rodadaOption is not None and rodadaOption.is_digit():
-#    rodada.buildRodada(rodadaOption,2013)
-###################################
-
 
 #runDespesasCoding()
 #processosTest(depara)
