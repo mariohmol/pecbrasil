@@ -290,6 +290,16 @@ class PoliticaServices(object):
             ret = ret.all()
         return ret
     
+    def ultimasProposicaoacao(self):
+        ret = ProposicaoAcao.query.outerjoin(Proposicao).outerjoin(StatusProposicao)
+        ret=ret.order_by(ProposicaoAcao.data_proposicaoacao.desc()).limit(10).all()
+        return ret
+
+    def ultimasProposicaovotacao(self,total=10):
+        ret = Proposicao.query.outerjoin(TipoProposicao).outerjoin(StatusProposicao)
+        ret=ret.filter(Proposicao.datavotacao!=None).order_by(Proposicao.datavotacao.desc()).limit(total).all()
+        return ret
+                           
     def atualizaTipoVotacaoProposicao(self):
         sql="update tipoproposicao set votacao_tipoproposicao=1 where id_tipoproposicao in ( "
         sql=sql + " select distinct tipo from proposicao where id in (SELECT proposicao FROM `votacaocandidato`) )"

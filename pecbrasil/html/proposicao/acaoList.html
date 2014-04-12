@@ -5,21 +5,28 @@
 	{% extends "templates/site.html" %}
 {% endif %}
 
-{% block title %}: {% trans %}Votação{% endtrans %}{% endblock %}
+{% block title %}: {% trans %}Ações{% endtrans %}{% endblock %}
 
 {% block content %}
   
-  {% if votacoes %}
+  {% if acoes %}
    <table><tr>
-  <td> {% trans %}Político{% endtrans %} </td>
-      <td> {% trans %}Proposicão{% endtrans %} </td>
-      <td> {% trans %}Voto{% endtrans %} </td>
+  <td> {% trans %}Proposicão{% endtrans %} </td>
+      <td> {% trans %}Descrição{% endtrans %} </td>
+      <td> {% trans %}Data{% endtrans %} </td>
      </tr>
      
      {% for acao in acoes %}
-     	{% if votacao.candidaturas.name_pt  %}
-		     
-	
+     <br /><tr>
+  <td> 
+  	<a href="/proposicao/ver/{{acao.proposicoes.id}}"> {{acao.proposicoes.sigla}} </a>
+  	
+  	- {{acao.statusproposicao.nome_statusproposicao}}
+  		</td>
+      <td> 	{{acao.nome_proposicaoacao}} </td>
+      <td> 	{{acao.data_proposicaoacao}} </td>
+     </tr>
+     
     {% endfor %}
     </table>
     {% else %}

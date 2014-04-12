@@ -111,12 +111,34 @@ def votacao(proposicao_id=None):
 @mod.route('/acao/<proposicao_id>/<candidatura_id>')
 @mod.route('/acao/<proposicao_id>/<candidatura_id>/<partido_id>')
 def acao(proposicao_id=None,candidatura_id=None,partido_id=None):
+    
     dataInicio = request.args.get('inicio')
     if dataInicio is None:
         dataInicio= "01/10/2010"
-    acoes = politicaServices.proposicaoacao(dataInicio,proposicao_id=proposicao_id,candidatura_id=candidatura_id,partido_sigla=partido_id)
-        
+    if proposicao_id:
+        acoes = politicaServices.proposicaoacao(dataInicio,proposicao_id=proposicao_id,candidatura_id=candidatura_id,partido_sigla=partido_id)
+    else:
+        acoes      = politicaServices.ultimasProposicaoacao()
     if len(acoes)>1:
         return render_template("proposicao/acaoList.html",      acoes=acoes) 
     else:
         return render_template("proposicao/acao.html",      acoes=acoes) 
+    
+@mod.route('/novidades/')
+@mod.route('/novidades/<proposicao_id>')
+@mod.route('/novidades/<proposicao_id>/<candidatura_id>')
+@mod.route('/novidades/<proposicao_id>/<candidatura_id>/<partido_id>')
+def novidades(proposicao_id=None,candidatura_id=None,partido_id=None):
+    
+    dataInicio = request.args.get('inicio')
+    frame = request.args.get('frame')
+    if dataInicio is None:
+        dataInicio= "01/10/2010"
+    if proposicao_id:
+        acoes = politicaServices.proposicaoacao(dataInicio,proposicao_id=proposicao_id,candidatura_id=candidatura_id,partido_sigla=partido_id)
+    else:
+        acoes      = politicaServices.ultimasProposicaoacao()
+        
+    votacoes      = politicaServices.ultimasProposicaovotacao()
+    return render_template("proposicao/ultimasacoes.html",      acoes=acoes , votacoes=votacoes,frame=frame) 
+

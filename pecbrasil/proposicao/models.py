@@ -25,6 +25,7 @@ class StatusProposicao(db.Model, AutoSerialize):
     sigla_statusproposicao=db.Column(db.Text())
     originalid_statusproposicao=db.Column(db.Integer)
     proposicoes = db.relationship("Proposicao", backref = 'statusproposicao', lazy = 'dynamic')
+    proposicaoacao = db.relationship("ProposicaoAcao", backref = 'statusproposicao', lazy = 'dynamic')
     def __repr__(self):
         return '<StatusProposicao %r>' % (self.time)
 
@@ -39,10 +40,12 @@ class Proposicao(db.Model, AutoSerialize):
     data = db.Column(db.Date)
     datavotacao = db.Column(db.Date)
     tipo = db.Column(db.Integer,db.ForeignKey(TipoProposicao.id_tipoproposicao))
+    originalid = db.Column(db.Integer)
     favor = db.Column(db.Integer)
     contra = db.Column(db.Integer)
     abstencao = db.Column(db.Integer)
     votacaocandidato = db.relationship("VotacaoCandidato", backref = 'proposicoes', lazy = 'dynamic')
+    proposicaoacao = db.relationship("ProposicaoAcao", backref = 'proposicoes', lazy = 'dynamic')
     timevotacao = db.relationship("TimeVotacao", backref = 'proposicoes', lazy = 'dynamic')
     def __repr__(self):
         return '<Proposicao %r>' % (self.id)
