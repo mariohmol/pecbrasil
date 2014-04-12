@@ -1,5 +1,0 @@
-[11/Apr/2014:23:25:39] ENGINE Bus STARTING
-[11/Apr/2014:23:25:39] ENGINE Started monitor thread '_TimeoutMonitor'.
-[11/Apr/2014:23:25:39] ENGINE Started monitor thread 'Autoreloader'.
-[11/Apr/2014:23:25:39] ENGINE Serving on 0.0.0.0:8084
-[11/Apr/2014:23:25:39] ENGINE Bus STARTED

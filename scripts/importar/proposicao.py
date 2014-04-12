@@ -6,6 +6,7 @@ import codecs
 from mako.filters import trim
 import utils
 import politico
+import orgao
 
 ''' Connect to DB '''
 #cursor = utils.getCursorConnection()
@@ -15,7 +16,7 @@ depara=utils.runCoding()
 ##################
 #    Proposicao
 ###########
-def addProposicao(sigla,status=None,desc=None,candidatura=None,proposicaoSQL=None,data=None,autor=None,tipo=None,cursor=None):    
+def addProposicao(sigla,status=None,desc=None,candidatura=None,proposicaoSQL=None,data=None,autor=None,tipo=None,originalid=None,cursor=None):    
     
     row = getProposicao(sigla,cursor=cursor)   
     desc=utils.applyCoding(desc,depara) 
@@ -29,11 +30,11 @@ def addProposicao(sigla,status=None,desc=None,candidatura=None,proposicaoSQL=Non
     if candidatura is None:
         candidatura=0
     if row is None:
-        cursor.execute("INSERT INTO `proposicao` (`status`,  `sigla`, `desc`,candidatura,autor,data,tipo) VALUES (%s,%s,%s,%s,%s,%s,%s)",[status,sigla,desc,str(candidatura),autor,data,tipo])
+        cursor.execute("INSERT INTO `proposicao` (`status`,  `sigla`, `desc`,candidatura,autor,data,tipo,originalid) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)",[status,sigla,desc,str(candidatura),autor,data,tipo,originalid])
         print "Inserido Proposicao "            
     else:
         query = "update proposicao set `desc` = '"+desc+"',`status` = '"+status +        "',`autor` = '"+autor+"',`data` = '"+data+"',`tipo` = '"+tipo+"',`candidatura` = '"+ \
-        str(candidatura)+"' where sigla = '"+sigla+ "';"
+        str(candidatura)+"',originalid='"+originalid+"' where sigla = '"+sigla+ "';"
         print "Atualizando Proposicao "+sigla
         print query
         cursor.execute(query )
@@ -55,20 +56,29 @@ def getProposicao(sigla,cursor=None):
         return row
     return None
 
-
+def getProposicaoByOriginal(id,cursor=None):
+    cursor.execute("select id from proposicao where originalid = %s",[id] )
+    rows = cursor.fetchall()
+    for row in rows:
+        return row
 
 ##################
 # STATUS
 #####################
-def getStatusProposicao(id,nome=None,cursor=None):
-    print nome+" get status"+id
+def getStatusProposicao(id=None,nome=None,cursor=None):
+    print str(nome)+" get status"+str(id)
     cursor.execute("select id_statusproposicao from statusproposicao where originalid_statusproposicao = %s",[id] )
+    rows = cursor.fetchall()
+    for row in rows:
+        return str(row[0]) 
+    
+    cursor.execute("select id_statusproposicao from statusproposicao where nome_statusproposicao = %s",[nome] )
     rows = cursor.fetchall()
     for row in rows:
         return str(row[0]) 
     return addStatusProposicao(id=id,nome=nome,cursor=cursor)
 
-def addStatusProposicao(id,nome=None,cursor=None):
+def addStatusProposicao(id=None,nome=None,cursor=None):
     cursor.execute("INSERT INTO `statusproposicao` (`nome_statusproposicao`, `originalid_statusproposicao`) VALUES (%s,%s)",[nome,id])
     return getTipoProposicao(id=id,nome=nome,cursor=cursor)
 
@@ -79,66 +89,98 @@ def addStatusProposicao(id,nome=None,cursor=None):
 ##################
 # TIPO
 #####################
-def getTipoProposicao(id,nome=None,sigla=None,cursor=None):
-    print id+" gettipo "+nome+" -  sigla: "+sigla
+def getTipoProposicao(id=None,nome=None,sigla=None,cursor=None):
+    if not sigla:
+        sigla=nome
+    print str(id)+" gettipo "+str(nome)+" -  sigla: "+str(sigla)
     cursor.execute("select id_tipoproposicao from tipoproposicao where sigla_tipoproposicao = %s",[sigla] )
     rows = cursor.fetchall()
     for row in rows:
         return str(row[0])
     return addTipoProposicao(id,nome,sigla,cursor=cursor)
   
-def addTipoProposicao(id,nome=None,sigla=None,cursor=None):
+def addTipoProposicao(id=None,nome=None,sigla=None,cursor=None):
+    if not nome:
+        nome=sigla
     cursor.execute("INSERT INTO `tipoproposicao` (`nome_tipoproposicao`, `sigla_tipoproposicao`,originalid_tipoproposicao) VALUES (%s,%s,%s)",[nome,sigla,id])
-    return getTipoProposicao(id,nome,sigla,cursor)
+    print str(sigla)+"ADD TIPO PROPOSICAO"+str(nome)
+    return getTipoProposicao(id=id,nome=nome,sigla=sigla,cursor=cursor)
 
 
 
 ##################
 # ACAO
 #####################
-def getProposicaoAcao(id,siglaProposicao=None,cursor=None):
-    print id+" proposicaoacao "+siglaProposicao
-    cursor.execute("select id_proposicaoacao from proposicaoacao where originalid_proposicaoacao = %s",[id] )
+def getProposicaoAcao(id=None,proposicao=None,data=None,cursor=None):
+    print str(id)+" proposicaoacao "+str(proposicao)
+    if id:      
+        cursor.execute("select id_proposicaoacao from proposicaoacao where originalid_proposicaoacao = %s",[id] )
+        rows = cursor.fetchall()
+        for row in rows:
+            return str(row[0])
+    if proposicao and data:
+        cursor.execute("select id_proposicaoacao from proposicaoacao where proposicao_proposicaoacao = %s and data_proposicaoacao = %s",[proposicao,data] )
+        rows = cursor.fetchall()
+        for row in rows:
+            return str(row[0])    
+  
+def addProposicaoAcao(id=None,nome=None,siglaProposicao=None,data=None,status=None,orgao=None,candidatura=None,cursor=None):
+    
+    proposicao_proposicaoacao=getProposicao(siglaProposicao,cursor=cursor)
+    status_proposicaoacao=getStatusProposicao(nome=status,cursor=cursor)
+    print "Proposicao A Encontrada:"+str(proposicao_proposicaoacao[0])
+    sql="select id_proposicaoacao from proposicaoacao where data_proposicaoacao='"+str(data)+"' and proposicao_proposicaoacao='"+ str(proposicao_proposicaoacao[0])+ "'"
+    print sql
+    cursor.execute(sql)
     rows = cursor.fetchall()
     for row in rows:
         return str(row[0])
-    return addTipoProposicao(id,nome,sigla,cursor=cursor)
-  
-def addProposicaoAcao(id,nome=None,data=None,status=None,siglaProposicao=None,candidatura=None,cursor=None):
     
-    proposicao_proposicaoacao=getProposicao(siglaProposicao,cursor=cursor)
-    status_proposicaoacao=getStatusProposicao(status,cursor=cursor)
-  
     cursor.execute("INSERT INTO `proposicaoacao` (`nome_proposicaoacao`, `originalid_proposicaoacao`,data_proposicaoacao,proposicao_proposicaoacao,"
-                   +"status_proposicaoacao,candidatura_proposicaoacao) VALUES (%s,%s,%s,%s,%s,%s)",[nome,id,data,proposicao_proposicaoacao,status_proposicaoacao,candidatura])
-    return getProposicaoAcao(id,cursor)
-
-
-
+                   +"status_proposicaoacao,candidatura_proposicaoacao,orgao_proposicaoacao) VALUES (%s,%s,%s,%s,%s,%s,%s)",
+                   [nome,id,data,proposicao_proposicaoacao[0],status_proposicaoacao[0],candidatura,orgao[0]])
+    return getProposicaoAcao(proposicao=proposicao_proposicaoacao[0],data=data,cursor=cursor)
 
 
 ##################
 # RUN PROPOSICAO ACAO
 #####################
 def runProposicaoAcao(cursor=None,anoFilter=None,semanaFilter=None):         
-    csv_reader = utils.openCSV('data/ExpProposicaoAcao.csv')
+    csv_reader = utils.openCSV('data/TramitacaoOrgaoProposicao.csv')
     proposicaoSQL=""
     siglaAtual=None
     for line in csv_reader:
         if line[1]:      
             
+            ProposicaoAcao_tipo    = line[0]
+            ProposicaoAcao_numero   = line[1]
+            ProposicaoAcao_ano    = line[2]
+            ProposicaoAcao_situacao    = line[3]
+            ProposicaoAcao_ementa    = line[4]
+            ProposicaoAcao_idProposicao = line[5]   
+            ProposicaoAcao_data    = line[6]
+            ProposicaoAcao_codOrgao = line[7]   
+            ProposicaoAcao_orgao    = line[8]
+            ProposicaoAcao_descricao = line[9]   
             
-            ProposicaoAcao_id    = line[0] 
-            ProposicaoAcao_nome   = line[1]  
-            ProposicaoAcao_data= line[2]  
-            ProposicaoAcao_status= line[3]  
-            ProposicaoAcao_siglaProposicao  = line[4]  
-            ProposicaoAcao_autor  = line[5]   
+            ProposicaoAcao_Sigla= ProposicaoAcao_tipo + " " + ProposicaoAcao_numero + "/"+ ProposicaoAcao_ano 
+            ProposicaoAcao_data=utils.formatDate(ProposicaoAcao_data)
             
-            autor = politico.getCandidatura(id_original=ideCadastro,cursor=cursor)
             
-            proposicaoSQL=addProposicaoAcao(id=ProposicaoAcao_id,nome=ProposicaoAcao_nome,data=ProposicaoAcao_data,
-                                            status=ProposicaoAcao_status,siglaProposicao=ProposicaoAcao_siglaProposicao,candidatura_proposicaoacao=autor,cursor=cursor)
+            id = getProposicao(sigla=ProposicaoAcao_Sigla,cursor=cursor)
+            if not id:
+                id = getProposicaoByOriginal(id=ProposicaoAcao_idProposicao,cursor=cursor)
+            
+            if not id:
+                print "Proposicao Nao Encontrada:"+ProposicaoAcao_Sigla
+                continue
+            
+            #ProposicaoAcao_situacao
+            
+            orgaoId = orgao.addOrgao(sigla=ProposicaoAcao_orgao,original_cf=ProposicaoAcao_codOrgao,desc=ProposicaoAcao_orgao,cursor=cursor) 
+            
+            proposicaoSQL=addProposicaoAcao(nome=ProposicaoAcao_ementa,data=ProposicaoAcao_data,siglaProposicao=ProposicaoAcao_Sigla,
+                                            status=ProposicaoAcao_situacao,orgao=orgaoId,cursor=cursor)
     
 
 
@@ -231,9 +273,26 @@ def runProposicao(cursor=None,anoFilter=None,semanaFilter=None):
             status = getStatusProposicao(id=Proposicao_situacao ,   nome=Proposicao_descricao,cursor=cursor)
             
             proposicaoSQL=addProposicao(status=status,sigla=ExpVotacao_Sigla, autor=ExpVotacao_Autor,
-                                        data=ExpVotacao_Data,tipo=tipo,
+                                        data=ExpVotacao_Data,tipo=tipo,originalid=Proposicao_Id,
                                         desc=ExpVotacao_Desc,candidatura=row,proposicaoSQL=proposicaoSQL,cursor=cursor)
     #utils.writefile('data/Proposicoes.sql',proposicaoSQL)
             #addVotacaoCandidato(votacao,candidatura=politico,voto=None)
+            
+########################
+# UTILS
+####################
 
-#runProposicao()
+def separaSiglaNumeroAnoProposicao(entrada):
+    #PL 6025/2005
+    entrada=trim(entrada)
+
+
+def propostaVinculada(sigla):
+    sigla = trim(sigla)
+    siglas = sigla.split("=>")
+    for sig in siglas:
+        sigla=trim(sig)
+    return sigla   
+   
+#Fazer script para verifica proposicoes com data de votacao mas sem registros de votacaocandidato (jWEB)
+#Fazer script no qlikview para baixar proposicoes q foram votadas mas ainda nao extraidas (qlikview)
