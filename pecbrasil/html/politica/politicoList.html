@@ -9,8 +9,8 @@
   <div class="conteudo" style="text-align:left;">
   	<h1 style="color: #27ae60">{% trans %}Políticos{% endtrans %}</h1>
   	<div class="col-md-12">
-  	<div class="col-md-8">
-  	<span style="font-size:12px;">{% trans %}Filtrar{% endtrans %}:</span> 
+  	<div class="col-md-12">
+  	<span style="font-size:12px;">{% trans %}Ordenar{% endtrans %}:</span> 
   	<a class="btn {% if orderby == "name_pt" %} btn-info active {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/name_pt?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Nome{% endtrans %}</a> 
   	<a class="btn {% if orderby == "partido" %} btn-info active {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/partido?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Partido{% endtrans %}</a> 
   	<a class="btn {% if orderby == "total_despesa" %} btn-info active {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/total_despesa?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Despesa{% endtrans %}</a> 
@@ -20,9 +20,7 @@
   	 
   	<a class="btn {% if orderby == "pontuacao_total" %} btn-info active {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/pontuacao_total?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Pontos{% endtrans %}</a> 
   	<a class="btn {% if orderby == "pontuacao_ultima" %} btn-info active {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/pontuacao_ultima?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Última Semana{% endtrans %}</a>
-  	</div>
-  	<div class="col-md-4">
-  		<span style="font-size:12px;">{% trans %}Ordenar{% endtrans %}:</span> 
+  	<span style="font-size:12px; padding-left: 20px;">{% trans %}Pontuação{% endtrans %}:</span> 
   	{% if orderdirec == "asc" %}
  	
  	
@@ -32,7 +30,9 @@
  	
  	 <a class="btn btn-warning btn-xs"  href="?orderdirec=asc&estado={{estado}}">{% trans %}Menos pontos{% endtrans %}</a>
   	{% endif %}
+  	
   	</div>
+  	
   	<script>
   	var orderby="{{orderby}}";
   	var orderdirec="{{orderdirec}}";

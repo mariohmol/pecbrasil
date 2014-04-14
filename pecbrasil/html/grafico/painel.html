@@ -59,15 +59,18 @@ label {
 	 {% if funcOption == 'true' %}	  
 	
 	<h3>{% trans %}Tipo{% endtrans %}</h3>
-	<input type="radio" name="{{ iframeId }}_func" 
-	id="{{ iframeId }}_func_media" checked="checked"
-		onclick="getElementByIframeId('{{ iframeId }}','media').click()">
-	<label for="{{ iframeId }}_func_media">Média</label>
 	
-	<input type="radio" name="{{ iframeId }}_func" 
-	id="{{ iframeId }}_func_total"
-		onclick="getElementByIframeId('{{ iframeId }}','total').click()">
-	<label for="{{ iframeId }}_func_total">Total</label>
+	
+	
+	<button nname="{{ iframeId }}_func" 
+	id="{{ iframeId }}_func_media" checked="checked"
+		onclick="getElementByIframeId('{{ iframeId }}','media').click()" class="btn btn-info active btn-xs "
+		>Média</button>
+	
+	<button nname="{{ iframeId }}_func" 
+	id="{{ iframeId }}_func_total" checked="checked"
+		onclick="getElementByIframeId('{{ iframeId }}','total').click()" class="btn btn-success  btn-xs "
+		>Total</button>
 	
 	{% endif %}
 
