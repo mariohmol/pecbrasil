@@ -7,19 +7,19 @@
   
   <div style="text-align: center;">
   <div class="conteudo" style="text-align:left;">
-  	<h1>{% trans %}Políticos{% endtrans %}</h1>
+  	<h1 style="color: #27ae60">{% trans %}Políticos{% endtrans %}</h1>
   	<div class="col-md-12">
   	<div class="col-md-8">
   	<span style="font-size:12px;">{% trans %}Filtrar{% endtrans %}:</span> 
-  	<a class="btn {% if orderby == "name_pt" %} btn-info {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/name_pt?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Nome{% endtrans %}</a> 
-  	<a class="btn {% if orderby == "partido" %} btn-info {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/partido?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Partido{% endtrans %}</a> 
-  	<a class="btn {% if orderby == "total_despesa" %} btn-info {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/total_despesa?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Despesa{% endtrans %}</a> 
-  	<a class="btn {% if orderby == "total_presenca" %} btn-info {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/total_presenca?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Presença{% endtrans %}</a> 
-  	<a class="btn {% if orderby == "total_proposicao" %} btn-info {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/total_proposicao?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Proposição{% endtrans %}</a>  
-  	<a class="btn {% if orderby == "total_votacao" %} btn-info {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/total_votacao?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Votação{% endtrans %}</a>  
+  	<a class="btn {% if orderby == "name_pt" %} btn-info active {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/name_pt?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Nome{% endtrans %}</a> 
+  	<a class="btn {% if orderby == "partido" %} btn-info active {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/partido?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Partido{% endtrans %}</a> 
+  	<a class="btn {% if orderby == "total_despesa" %} btn-info active {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/total_despesa?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Despesa{% endtrans %}</a> 
+  	<a class="btn {% if orderby == "total_presenca" %} btn-info active {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/total_presenca?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Presença{% endtrans %}</a> 
+  	<a class="btn {% if orderby == "total_proposicao" %} btn-info active {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/total_proposicao?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Proposição{% endtrans %}</a>  
+  	<a class="btn {% if orderby == "total_votacao" %} btn-info active {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/total_votacao?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Votação{% endtrans %}</a>  
   	 
-  	<a class="btn {% if orderby == "pontuacao_total" %} btn-info {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/pontuacao_total?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Pontos{% endtrans %}</a> 
-  	<a class="btn {% if orderby == "pontuacao_ultima" %} btn-info {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/pontuacao_ultima?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Última Semana{% endtrans %}</a>
+  	<a class="btn {% if orderby == "pontuacao_total" %} btn-info active {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/pontuacao_total?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Pontos{% endtrans %}</a> 
+  	<a class="btn {% if orderby == "pontuacao_ultima" %} btn-info active {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/pontuacao_ultima?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Última Semana{% endtrans %}</a>
   	</div>
   	<div class="col-md-4">
   		<span style="font-size:12px;">{% trans %}Ordenar{% endtrans %}:</span> 
@@ -46,32 +46,33 @@
   		<span style="font-size:12px;">{% trans %}Filtrar por estado{% endtrans %}:</span>
   	<select onchange="if(this.value!='') { window.location=this.value; }" name="estado" style="font-size:15px; padding:5px; width:100%;" class="form-contol"> 
   	<option  value="">Selecione</option>
-  	<option  value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=AC">Acre</option> 
-  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=AL">Alagoas</option> 
-  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=AM">Amazonas</option> 
-  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=AP">Amapá</option> 
-  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=BA">Bahia</option> 
-  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=CE">Ceará</option> 
-  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=DF">Distrito Federal</option>   	
-  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=ES">Espírito Santo</option> 
-  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=GO">Goiás</option> 
-  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=MA">Maranhão</option>   	
-  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=MG">Minas Gerais</option> 
-  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=MT">Mato Grosso</option> 
-  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=MS">Mato Grosso do Sul</option> 
-  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=PA">Pará</option> 
-  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=PE">Pernambuco</option> 
-  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=PI">Piauí</option> 
-  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=PR">Paraná</option> 
-  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=RJ">Rio de Janeiro</option> 
-  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=SC">Santa CatarinaC</option> 
-  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=SE">Sergipe</option> 
-  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=SP">São Paulo</option> 
-  <option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=RN">Rio Grande do Norte</option> 
-  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=RO">Rondônia</option> 
-  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=RR">Roraima</option>   	
-  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=RS">Rio grande do Sul</option>   	
-  		<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=TO">Tocantins</option> 
+  	<option  value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}">Todos estados</option>
+  	<option {% if estado == "AC" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=AC">Acre</option> 
+  	<option  {% if estado == "AL" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=AL">Alagoas</option> 
+  	<option  {% if estado == "AM" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=AM">Amazonas</option> 
+  	<option  {% if estado == "AP" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=AP">Amapá</option> 
+  	<option  {% if estado == "BA" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=BA">Bahia</option> 
+  	<option  {% if estado == "CE" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=CE">Ceará</option> 
+  	<option {% if estado == "DF" %} selected {% endif %}  value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=DF">Distrito Federal</option>   	
+  	<option  {% if estado == "ES" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=ES">Espírito Santo</option> 
+  	<option  {% if estado == "GO" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=GO">Goiás</option> 
+  	<option  {% if estado == "MA" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=MA">Maranhão</option>   	
+  	<option  {% if estado == "MG" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=MG">Minas Gerais</option> 
+  	<option  {% if estado == "MT" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=MT">Mato Grosso</option> 
+  	<option  {% if estado == "MS" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=MS">Mato Grosso do Sul</option> 
+  	<option  {% if estado == "PA" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=PA">Pará</option> 
+  	<option  {% if estado == "PE" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=PE">Pernambuco</option> 
+  	<option  {% if estado == "PI" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=PI">Piauí</option> 
+  	<option  {% if estado == "PR" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=PR">Paraná</option> 
+  	<option  {% if estado == "RJ" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=RJ">Rio de Janeiro</option> 
+  	<option  {% if estado == "SC" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=SC">Santa CatarinaC</option> 
+  	<option  {% if estado == "SE" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=SE">Sergipe</option> 
+  	<option  {% if estado == "SP" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=SP">São Paulo</option> 
+  <option  {% if estado == "RN" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=RN">Rio Grande do Norte</option> 
+  	<option  {% if estado == "RO" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=RO">Rondônia</option> 
+  	<option  {% if estado == "RR" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=RR">Roraima</option>   	
+  	<option  {% if estado == "RS" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=RS">Rio grande do Sul</option>   	
+  		<option  {% if estado == "TO" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=TO">Tocantins</option> 
   </select>
   	</div>
   	<form action="/politica/politico/" method="post">

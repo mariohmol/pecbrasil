@@ -19,17 +19,17 @@
 	<br /></div>
 	
 	
-	<h2>{% trans %}Todos os partidos{% endtrans %}</h2>
-	<table>
+	<h2 style="color:#999">{% trans %}Todos os partidos{% endtrans %}</h2>
+	<table class="table-condensed" style="font-family: 'Open Sans'; font-size: 15px;">
 	<tr>
      <td>
-     <h3>{% trans %}Sigla{% endtrans %}
-      	</h3>
+     <h3 style='font-size:18px; color: #27ae60'>{% trans %}Sigla{% endtrans %}</h3>
+      	
      </td>
      
      <td>
-     <h3>{% trans %}Nome do Partido{% endtrans %}
-      	</h3>
+     <h3 style='font-size:18px; color: #27ae60'>{% trans %}Nome do Partido{% endtrans %}</h3>
+      	
      </td>
       
       	</tr>
@@ -38,19 +38,22 @@
      {% for partido in partidoList %}
      <tr>
      <td>
-     <h3><a href="/politica/partido/{{ partido.id }}">
+     <a style='font-size:15px; color: #666' href="/politica/partido/{{ partido.id }}">
       	{{ partido.sigla }}</a>
-      	</h3>
+      	
      </td>
      
-     <td>
-     <h3><a href="/politica/partido/{{ partido.id }}">
+     <td >
+     <a style='font-size:15px; color: #666' href="/politica/partido/{{ partido.id }}">
       	{{ partido.name_pt }}</a>
-      	</h3>
+      	
      </td>
       
       	</tr>
     {% endfor %}
     </table>
+    
+    
+    
 {% endblock %}
 

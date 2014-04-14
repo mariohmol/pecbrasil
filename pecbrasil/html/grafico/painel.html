@@ -12,32 +12,30 @@ label {
 {% if valOption != 'false' %}
 <div style="float:left; width:450px;">
 <h3>{% trans %}Dados{% endtrans %}</h3>
-	<input type="radio" name="{{ iframeId }}_depth"
-	id="{{ iframeId }}_depth_pontos"
-		onclick="getElementByIframeId('{{ iframeId }}','pontos').click()" 		
-		checked="checked"> 
-		<label for="{{ iframeId }}_depth_pontos">Pontos </label>
+
+		<button name="{{ iframeId }}_depth"
+	id="{{ iframeId }}_depth_pontos" class="btn btn-info btn-xs active"
+		onclick="getElementByIframeId('{{ iframeId }}','pontos').click()">Pontos</button>
+	
 		
+		<button name="{{ iframeId }}_depth"
+	id="{{ iframeId }}_depth_despesa" class="btn btn-success btn-xs "
+		onclick="getElementByIframeId('{{ iframeId }}','despesa').click()">Despesas</button>
 		
-	<input type="radio" name="{{ iframeId }}_depth" 
-	id="{{ iframeId }}_depth_despesa"
-		onclick="getElementByIframeId('{{ iframeId }}','despesa').click()">
-	<label for="{{ iframeId }}_depth_despesa">Despesa </label>
+		<button name="{{ iframeId }}_depth"
+	id="{{ iframeId }}_depth_presenca" class="btn btn-success btn-xs "
+		onclick="getElementByIframeId('{{ iframeId }}','presenca').click()">Presenças</button>
+		
+		<button name="{{ iframeId }}_depth"
+	id="{{ iframeId }}_depth_proposicao" class="btn btn-success btn-xs "
+		onclick="getElementByIframeId('{{ iframeId }}','proposicao').click()">Proposições</button>
+		
+		<button name="{{ iframeId }}_depth"
+	id="{{ iframeId }}_depth_votacao" class="btn btn-success btn-xs "
+		onclick="getElementByIframeId('{{ iframeId }}','votacao').click()">Votações</button>
 	
-		 <input type="radio" name="{{ iframeId }}_depth"
-	id="{{ iframeId }}_depth_presenca"
-		onclick="getElementByIframeId('{{ iframeId }}','presenca').click()">
-	<label for="{{ iframeId }}_depth_presenca">Presença </label> 
 	
-	<input type="radio" name="{{ iframeId }}_depth" 
-	id="{{ iframeId }}_depth_proposicao"
-		onclick="getElementByIframeId('{{ iframeId }}','proposicao').click()">
-	<label for="{{ iframeId }}_depth_proposicao">Proposição </label>
-	
-	<input type="radio" name="{{ iframeId }}_depth" 
-	id="{{ iframeId }}_depth_votacao"
-		onclick="getElementByIframeId('{{ iframeId }}','votacao').click()">
-	<label for="{{ iframeId }}_depth_votacao">Votação </label>
+		
 	<br/>
 </div>
 {% endif %}
@@ -45,15 +43,15 @@ label {
 	 {% if anoOption == 'true' %}
 	 <div style="float:left; width:200px;">
 	<h3>{% trans %}Ano{% endtrans %}</h3>
-			 <input type="radio" name="{{ iframeId }}_ano" 
-		id="{{ iframeId }}_ano_2013" checked="checked"
-			onclick="getElementByIframeId('{{ iframeId }}','ano2013').click()">
-		<label for="{{ iframeId }}_ano_2013">2013 </label>
+			
 		
-		<input type="radio" name="{{ iframeId }}_ano" 
-		id="{{ iframeId }}_ano_2014"
-			onclick="getElementByIframeId('{{ iframeId }}','ano2014').click()">
-		<label for="{{ iframeId }}_ano_2014">2014 </label>
+		<button name="{{ iframeId }}_depth"
+	id="{{ iframeId }}_depth_ano2013" class="btn btn-info active btn-xs "
+		onclick="getElementByIframeId('{{ iframeId }}','ano2013').click()">2013</button>
+		
+		<button name="{{ iframeId }}_depth"
+	id="{{ iframeId }}_depth_ano2014" class="btn btn-success btn-xs "
+		onclick="getElementByIframeId('{{ iframeId }}','ano2014').click()">2014</button>
 		<br/>
 	</div>
 		  {% endif %}
