@@ -4,14 +4,14 @@
 {% block title %}: {% trans %}About the Site{% endtrans %}{% endblock %}
 
 {% block body %}
-  <h1>{% trans %}Partidos{% endtrans %}</h1>
+  <h1 style="color: #27ae60">{% trans %}Partidos{% endtrans %}</h1>
   
  {% set iframeId = 'iframe2' %}
  {% set anoOption = 'true' %}
 		  {% set funcOption = 'true' %}
 {% include "grafico/painel.html" %}
   <iframe id="iframe2" src="/grafico/treemap/" 
-	style="width: 1000px; height: 500px"></iframe>
+	style="width: 1000px; height: 500px; margin-top:30px; box-shadow: 1px 1px 1px #888; border: 8px solid #f4f4f4;"></iframe>
 	
 	<div style=" float: left;
     height: 70px;
