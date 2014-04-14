@@ -11,15 +11,15 @@
   	<div class="col-md-12">
   	<div class="col-md-8">
   	<span style="font-size:12px;">{% trans %}Filtrar{% endtrans %}:</span> 
-  	<a class="btn btn-success btn-xs" href="/politica/politico/all/name_pt?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Nome{% endtrans %}</a> 
-  	<a class="btn btn-success btn-xs" href="/politica/politico/all/partido?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Partido{% endtrans %}</a> 
-  	<a class="btn btn-success btn-xs" href="/politica/politico/all/total_despesa?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Despesa{% endtrans %}</a> 
-  	<a class="btn btn-success btn-xs" href="/politica/politico/all/total_presenca?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Presença{% endtrans %}</a> 
-  	<a class="btn btn-success btn-xs" href="/politica/politico/all/total_proposicao?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Proposição{% endtrans %}</a>  
-  	<a class="btn btn-success btn-xs" href="/politica/politico/all/total_votacao?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Votação{% endtrans %}</a>  
+  	<a class="btn {% if orderby == "name_pt" %} btn-info {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/name_pt?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Nome{% endtrans %}</a> 
+  	<a class="btn {% if orderby == "partido" %} btn-info {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/partido?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Partido{% endtrans %}</a> 
+  	<a class="btn {% if orderby == "total_despesa" %} btn-info {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/total_despesa?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Despesa{% endtrans %}</a> 
+  	<a class="btn {% if orderby == "total_presenca" %} btn-info {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/total_presenca?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Presença{% endtrans %}</a> 
+  	<a class="btn {% if orderby == "total_proposicao" %} btn-info {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/total_proposicao?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Proposição{% endtrans %}</a>  
+  	<a class="btn {% if orderby == "total_votacao" %} btn-info {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/total_votacao?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Votação{% endtrans %}</a>  
   	 
-  	<a class="btn btn-success btn-xs" href="/politica/politico/all/pontuacao_total?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Pontos{% endtrans %}</a> 
-  	<a class="btn btn-success btn-xs" href="/politica/politico/all/pontuacao_ultima?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Última Semana{% endtrans %}</a>
+  	<a class="btn {% if orderby == "pontuacao_total" %} btn-info {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/pontuacao_total?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Pontos{% endtrans %}</a> 
+  	<a class="btn {% if orderby == "pontuacao_ultima" %} btn-info {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/pontuacao_ultima?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Última Semana{% endtrans %}</a>
   	</div>
   	<div class="col-md-4">
   		<span style="font-size:12px;">{% trans %}Ordenar{% endtrans %}:</span> 
@@ -44,7 +44,8 @@
   	 
   	<div class="col-md-4 form-group">
   		<span style="font-size:12px;">{% trans %}Filtrar por estado{% endtrans %}:</span>
-  	<select onchange="window.location=this.value" name="estado" style="font-size:15px; padding:5px; width:100%;" class="form-contol"> 
+  	<select onchange="if(this.value!='') { window.location=this.value; }" name="estado" style="font-size:15px; padding:5px; width:100%;" class="form-contol"> 
+  	<option  value="">Selecione</option>
   	<option  value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=AC">Acre</option> 
   	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=AL">Alagoas</option> 
   	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=AM">Amazonas</option> 
