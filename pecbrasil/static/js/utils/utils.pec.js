@@ -373,3 +373,16 @@ function initSlides(){
 	  };
 	}
 }
+
+
+$(function() {
+	$("button[id^='iframe']").click(function(e){
+		e.preventDefault();
+		$ct = $(this).attr("id").split('_');
+		$iframe = $ct[0];
+		$tipo = $ct[1];
+		$grafico = $ct[2];
+		$("button[id^='"+$iframe+"_"+$tipo+"']").not(this).removeClass("active").removeClass("btn-info").addClass("btn-success");
+		$(this).removeClass("btn-sucess").addClass("btn-info").addClass("active");
+	})
+})

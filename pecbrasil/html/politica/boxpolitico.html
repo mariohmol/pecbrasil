@@ -88,6 +88,7 @@
 					<br>
 					<span class="sideVal boxVotacoes">
 						<span class="valor">
+							
 							{{ candidato.total_votacao|int }} / {{ rodada_atual.max_votacao}} 
 							{% if rodada_atual %}
 								<p style="font-size: 12px; display:none;">  {{ rodada_atual.min_votacao}} {% trans %}a{% endtrans %} {{ rodada_atual.max_votacao}} / {% trans %}média{% endtrans %}: {{ rodada_atual.avg_votacao}}</p>
