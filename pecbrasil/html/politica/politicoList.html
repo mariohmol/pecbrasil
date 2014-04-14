@@ -8,76 +8,87 @@
   <div style="text-align: center;">
   <div class="conteudo" style="text-align:left;">
   	<h1>{% trans %}Políticos{% endtrans %}</h1>
-  	
-  	{% trans %}Ordernar por{% endtrans %}: 
-  	<a href="/politica/politico/all/name_pt?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Nome{% endtrans %}</a> - 
-  	<a href="/politica/politico/all/partido?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Partido{% endtrans %}</a> - 
-  	<a href="/politica/politico/all/total_despesa?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Despesa{% endtrans %}</a> -
-  	<a href="/politica/politico/all/total_presenca?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Presença{% endtrans %}</a> - 
-  	<a href="/politica/politico/all/total_proposicao?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Proposição{% endtrans %}</a> - 
-  	<a href="/politica/politico/all/total_votacao?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Votação{% endtrans %}</a> - 
+  	<div class="col-md-12">
+  	<div class="col-md-8">
+  	<span style="font-size:12px;">{% trans %}Filtrar{% endtrans %}:</span> 
+  	<a class="btn btn-success btn-xs" href="/politica/politico/all/name_pt?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Nome{% endtrans %}</a> 
+  	<a class="btn btn-success btn-xs" href="/politica/politico/all/partido?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Partido{% endtrans %}</a> 
+  	<a class="btn btn-success btn-xs" href="/politica/politico/all/total_despesa?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Despesa{% endtrans %}</a> 
+  	<a class="btn btn-success btn-xs" href="/politica/politico/all/total_presenca?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Presença{% endtrans %}</a> 
+  	<a class="btn btn-success btn-xs" href="/politica/politico/all/total_proposicao?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Proposição{% endtrans %}</a>  
+  	<a class="btn btn-success btn-xs" href="/politica/politico/all/total_votacao?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Votação{% endtrans %}</a>  
   	 
-  	<a href="/politica/politico/all/pontuacao_total?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Pontos{% endtrans %}</a> - 
-  	<a href="/politica/politico/all/pontuacao_ultima?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Última Semana{% endtrans %}</a>
-  	<br/>
-  	
+  	<a class="btn btn-success btn-xs" href="/politica/politico/all/pontuacao_total?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Pontos{% endtrans %}</a> 
+  	<a class="btn btn-success btn-xs" href="/politica/politico/all/pontuacao_ultima?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Última Semana{% endtrans %}</a>
+  	</div>
+  	<div class="col-md-4">
+  		<span style="font-size:12px;">{% trans %}Ordenar{% endtrans %}:</span> 
   	{% if orderdirec == "asc" %}
- 	{% trans %}Ordenação crescente{% endtrans %} 
  	
- 	- <a href="?orderdirec=desc&estado={{estado}}">{% trans %}Mudar sentido{% endtrans %}</a>
+ 	
+ 	 <a class="btn btn-warning btn-xs" href="?orderdirec=desc&estado={{estado}}">{% trans %}Mais Pontos{% endtrans %}</a>
   	{% else %}
-  		{% trans %}Ordenação decrescente{% endtrans %} 
+  		
  	
- 	- <a href="?orderdirec=asc&estado={{estado}}">{% trans %}Mudar sentido{% endtrans %}</a>
+ 	 <a class="btn btn-warning btn-xs"  href="?orderdirec=asc&estado={{estado}}">{% trans %}Menos pontos{% endtrans %}</a>
   	{% endif %}
+  	</div>
   	<script>
   	var orderby="{{orderby}}";
   	var orderdirec="{{orderdirec}}";
   	var estado="{{estado}}";
   	</script>
+  </div>
   	
-  	
-  	<br/>
-  	Estado: 
-  	<a href="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=AC">AC</a> -
-  	<a href="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=AL">AL</a> -
-  	<a href="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=AM">AM</a> -
-  	<a href="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=AP">AP</a> -
-  	<a href="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=BA">BA</a> -
-  	<a href="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=CE">CE</a> -
-  	<a href="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=DF">DF</a> -  	
-  	<a href="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=ES">ES</a> -
-  	<a href="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=GO">GO</a> -
-  	<a href="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=MA">MA</a> -  	
-  	<a href="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=MG">MG</a> -
-  	<a href="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=MT">MT</a> -
-  	<a href="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=MS">MS</a> -
-  	<a href="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=PA">PA</a> -
-  	<a href="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=PE">PE</a> -
-  	<a href="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=PI">PI</a> -
-  	<a href="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=PR">PR</a> -
-  	<a href="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=RJ">RJ</a> -
-  	<a href="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=SC">SC</a> -
-  	<a href="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=SE">SE</a> -
-  	<a href="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=SP">SP</a> -
-  <a href="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=RN">RN</a> -
-  	<a href="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=RO">RO</a> -
-  	<a href="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=RR">RR</a> -  	
-  	<a href="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=RS">RS</a> -  	
-  		<a href="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=TO">TO</a> -
-  	<br/>
-  	
-  	<div >
-  	
-  	<form action="/politica/politico/" method="post">
-  	{{form.hidden_tag()}}
-  		<input type="text" name="nome" id="nome" /> 
-  		<input
-  		 type="submit" value="{% trans %}buscar{% endtrans %}" />
-  		 
-  		</form>
+  		<div class="col-md-12">
+  	 
+  	<div class="col-md-4 form-group">
+  		<span style="font-size:12px;">{% trans %}Filtrar por estado{% endtrans %}:</span>
+  	<select onchange="window.location=this.value" name="estado" style="font-size:15px; padding:5px; width:100%;" class="form-contol"> 
+  	<option  value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=AC">Acre</option> 
+  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=AL">Alagoas</option> 
+  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=AM">Amazonas</option> 
+  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=AP">Amapá</option> 
+  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=BA">Bahia</option> 
+  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=CE">Ceará</option> 
+  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=DF">Distrito Federal</option>   	
+  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=ES">Espírito Santo</option> 
+  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=GO">Goiás</option> 
+  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=MA">Maranhão</option>   	
+  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=MG">Minas Gerais</option> 
+  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=MT">Mato Grosso</option> 
+  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=MS">Mato Grosso do Sul</option> 
+  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=PA">Pará</option> 
+  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=PE">Pernambuco</option> 
+  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=PI">Piauí</option> 
+  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=PR">Paraná</option> 
+  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=RJ">Rio de Janeiro</option> 
+  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=SC">Santa CatarinaC</option> 
+  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=SE">Sergipe</option> 
+  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=SP">São Paulo</option> 
+  <option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=RN">Rio Grande do Norte</option> 
+  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=RO">Rondônia</option> 
+  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=RR">Roraima</option>   	
+  	<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=RS">Rio grande do Sul</option>   	
+  		<option value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=TO">Tocantins</option> 
+  </select>
   	</div>
+  	<form action="/politica/politico/" method="post">
+  	<div class="col-md-5 form-group">
+  		<span style="font-size:12px;">{% trans %}Buscar por político{% endtrans %}:</span>
   	
+  	{{form.hidden_tag()}}
+  		<input type="text" name="nome" id="nome" style="display:inline-block; border-radius: 2px;" class="form-control" placeholder="Digite o nome do político" /> 
+  		
+  		
+  	</div>
+  	<div class="col-md-3" style="padding-left:0px!important;">
+  		<br>
+  		<input class="btn btn-primary btn-sm"  style="display:inline-block;"		 type="submit" value="{% trans %}Buscar{% endtrans %}" />
+  		 
+  	</div>
+  	</form>
+  	</div>
   	
   	{% if politicos %}
   {% set posicao = 0 %}
