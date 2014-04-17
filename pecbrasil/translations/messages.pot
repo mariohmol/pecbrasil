@@ -1,4 +1,4 @@
-# English translations for PROJECT.
+# Translations template for PROJECT.
 # Copyright (C) 2014 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
@@ -9,10 +9,9 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2014-04-17 19:04-0300\n"
-"PO-Revision-Date: 2014-02-25 14:02-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: en <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,23 +36,23 @@ msgstr ""
 #: pecbrasil/html/proposicao/proposicao.html:15
 #: pecbrasil/html/rodada/rodadaList.html:32
 msgid "Veja mais"
-msgstr "See more"
+msgstr ""
 
 #: pecbrasil/html/home.html:20
 msgid "Como Funciona"
-msgstr "How works"
+msgstr ""
 
 #: pecbrasil/html/home.html:23 pecbrasil/html/home.html:125
 msgid "Políticos que mais pontuaram na última rodada"
-msgstr "Politicians who best scored in the last round"
+msgstr ""
 
 #: pecbrasil/html/home.html:26
 msgid "Partidos que mais pontuaram na última rodada"
-msgstr "Parties that the highest scores in the last round"
+msgstr ""
 
 #: pecbrasil/html/home.html:32
 msgid "Atuação dos políticos em relação a seu partido"
-msgstr "Politicians in relation to your party"
+msgstr ""
 
 #: pecbrasil/html/home.html:40
 msgid "ESCALE O PARTIDO QUE O PAÍS PRECISA"
@@ -70,19 +69,19 @@ msgstr ""
 
 #: pecbrasil/html/home.html:109
 msgid "CONHEÇA ALGUMAS DAS"
-msgstr "MEET SOME OF"
+msgstr ""
 
 #: pecbrasil/html/home.html:109
 msgid "FERRAMENTAS"
-msgstr "TOOLS"
+msgstr ""
 
 #: pecbrasil/html/home.html:109
 msgid "QUE VOCÊ USARÁ PARA"
-msgstr "THAT YOU WILL USE TO"
+msgstr ""
 
 #: pecbrasil/html/home.html:109
 msgid "COMPARAR"
-msgstr "COMPARE"
+msgstr ""
 
 #: pecbrasil/html/home.html:109
 msgid "OS DEPUTADOS"
@@ -90,37 +89,36 @@ msgstr ""
 
 #: pecbrasil/html/home.html:141
 msgid "Partidos que mais pontuaram na última"
-msgstr "Parties that most scored over the last"
+msgstr ""
 
 #: pecbrasil/html/home.html:189
 msgid "QUEM ESTÁ FALANDO SOBRE O"
-msgstr "WHO IS TALKING ABOUT"
+msgstr ""
 
 #: pecbrasil/html/home.html:189
 msgid "POLÍTICA ESPORTE CLUBE"
-msgstr "POLITIC SPORTS CLUB"
+msgstr ""
 
 #: pecbrasil/html/home.html:213 pecbrasil/html/templates/base.html:128
-#, fuzzy
 msgid "Contato"
-msgstr "Scoring"
+msgstr ""
 
 #: pecbrasil/html/home.html:216
 #: pecbrasil/html/admin/admin_questions_edit.html:27
 msgid "Pergunta"
-msgstr "Ask"
+msgstr ""
 
 #: pecbrasil/html/home.html:219 pecbrasil/html/admin/admin_users.html:24
 msgid "Email"
-msgstr "Email"
+msgstr ""
 
 #: pecbrasil/html/home.html:227
 msgid "Mensagem"
-msgstr "Message"
+msgstr ""
 
 #: pecbrasil/html/home.html:237 pecbrasil/html/ask/ask.html:54
 msgid "Pergunte a nossa equipe!"
-msgstr "Ask our team!"
+msgstr ""
 
 #: pecbrasil/html/about/pecbrasil.html:4 pecbrasil/html/grafico/geomap.html:4
 #: pecbrasil/html/grafico/network.html:4 pecbrasil/html/grafico/rings.html:4
@@ -155,22 +153,17 @@ msgstr ""
 
 #: pecbrasil/html/about/pecbrasil.html:9
 msgid "O P.E.C. BRASIL É O JOGO QUE O PAÍS PRECISA"
-msgstr "THE P.E.C. BRAZIL IS THE GAME THAT THE COUNTRY NEEDS"
+msgstr ""
 
 #: pecbrasil/html/about/pecbrasil.html:11
-#, fuzzy
 msgid ""
 "Eleja seus políticos e ganhe pontos a cada semana. Os pontos de cada "
 "representante é uma"
 msgstr ""
-"Elect your politicians and earn points each week. The points\n"
-"      for each representative is an analysis of their main indexes "
-"related\n"
-"      to contribution in the national political scene"
 
 #: pecbrasil/html/about/pecbrasil.html:12
 msgid "análise dos principais índices de contribuição na cena política nacional"
-msgstr "analyse the main data about the contribution in political cenario"
+msgstr ""
 
 #: pecbrasil/html/about/pecbrasil.html:14
 msgid ""
@@ -186,16 +179,15 @@ msgstr ""
 
 #: pecbrasil/html/about/pecbrasil.html:17
 msgid "Curtiu? Jogue e compartilhe. O país agradece!"
-msgstr "Enjoy? Play and Share! The country thanks!"
+msgstr ""
 
 #: pecbrasil/html/about/pecbrasil.html:21
-#, fuzzy
 msgid "REGRAS"
-msgstr "Rules"
+msgstr ""
 
 #: pecbrasil/html/about/regras.html:4
 msgid "Regras"
-msgstr "Rules"
+msgstr ""
 
 #: pecbrasil/html/account/cadastro.html:9 pecbrasil/html/account/login.html:9
 #: pecbrasil/html/general/access.html:3
@@ -208,11 +200,11 @@ msgstr ""
 
 #: pecbrasil/html/account/cadastro.html:40
 msgid "ENTRE"
-msgstr "ENTER"
+msgstr ""
 
 #: pecbrasil/html/account/cadastro.html:46
 msgid "Acessar"
-msgstr "Login"
+msgstr ""
 
 #: pecbrasil/html/account/cadastro.html:53
 msgid "Remember Me"
@@ -220,7 +212,7 @@ msgstr ""
 
 #: pecbrasil/html/account/cadastro.html:62
 msgid "OU CRIE UMA CONTA"
-msgstr "OR CREATE A ACCOUNT"
+msgstr ""
 
 #: pecbrasil/html/account/index.html:23
 msgid "Activity sorted by date"
@@ -303,28 +295,28 @@ msgstr ""
 #: pecbrasil/html/rodada/rodada.html:11 pecbrasil/html/rodada/rodadaList.html:8
 #: pecbrasil/html/rodada/rodadaList.html:15
 msgid "Rodada"
-msgstr "Round"
+msgstr ""
 
 #: pecbrasil/html/admin/rodadaList.html:8
 #: pecbrasil/html/politica/rodadaList.html:7
 #: pecbrasil/html/rodada/rodadaList.html:11
 msgid "Rodadas"
-msgstr "Rounds"
+msgstr ""
 
 #: pecbrasil/html/admin/rodadaList.html:14 pecbrasil/html/rodada/rodada.html:63
 #: pecbrasil/html/rodada/rodadaList.html:17
 msgid "Início"
-msgstr "Start"
+msgstr ""
 
 #: pecbrasil/html/admin/rodadaList.html:15 pecbrasil/html/rodada/rodada.html:64
 #: pecbrasil/html/rodada/rodadaList.html:18
 msgid "Fim"
-msgstr "End"
+msgstr ""
 
 #: pecbrasil/html/admin/rodadaList.html:16
 #: pecbrasil/html/rodada/rodadaList.html:19
 msgid "Detalhes"
-msgstr "Details"
+msgstr ""
 
 #: pecbrasil/html/ask/answer.html:5
 msgid "Pergunte"
@@ -385,43 +377,42 @@ msgstr ""
 #: pecbrasil/html/liga/liga.html:4 pecbrasil/html/liga/ligaList.html:4
 #: pecbrasil/html/liga/ligaList.html:7
 msgid "Liga"
-msgstr "League"
+msgstr ""
 
 #: pecbrasil/html/ask/contact.html:9
 msgid "Contato enviado com sucesso"
-msgstr "Contact sent successfully"
+msgstr ""
 
 #: pecbrasil/html/ask/questions.html:22 pecbrasil/html/ask/teste.html:16
 msgid "Order"
-msgstr "Order"
+msgstr ""
 
 #: pecbrasil/html/ask/questions.html:24 pecbrasil/html/ask/teste.html:18
 msgid "Top Voted"
-msgstr "Top Voted"
+msgstr ""
 
 #: pecbrasil/html/ask/questions.html:26 pecbrasil/html/ask/teste.html:20
 msgid "Newest"
-msgstr "Newest"
+msgstr ""
 
 #: pecbrasil/html/ask/questions.html:40
 msgid "Cannot find your answer here?"
-msgstr "Cannot find your answer here?"
+msgstr ""
 
 #: pecbrasil/html/ask/questions.html:41 pecbrasil/html/ask/teste.html:34
 msgid "Submit your question to Escritorio!"
-msgstr "Submit your question to Escritorio!"
+msgstr ""
 
 #: pecbrasil/html/comunicado/abrecampeonato.html:4
 #: pecbrasil/html/comunicado/criartime.html:4
 #: pecbrasil/html/comunicado/geral.html:4
-#, fuzzy
 msgid "Abertura de Campeonato"
-msgstr "League Scores"
+msgstr ""
 
 #: pecbrasil/html/comunicado/convideamigos.html:4
 #: pecbrasil/html/comunicado/statuscomunicado.html:4
 msgid "Convide Amigos"
-msgstr "Invite Friends"
+msgstr ""
 
 #: pecbrasil/html/comunicado/convideamigos.html:7
 msgid "Este é um convite do time"
@@ -456,9 +447,8 @@ msgstr ""
 
 #: pecbrasil/html/comunicado/convideamigos.html:27
 #: pecbrasil/html/comunicado/timeincompleto.html:33
-#, fuzzy
 msgid "Equipe Política Esporte Clube"
-msgstr "Politics Sport Club"
+msgstr ""
 
 #: pecbrasil/html/comunicado/convideamigosform.html:26
 msgid "Enviar"
@@ -466,26 +456,24 @@ msgstr ""
 
 #: pecbrasil/html/comunicado/politicoultimarodada.html:3
 #: pecbrasil/html/comunicado/ultimarodada.html:3
-#, fuzzy
 msgid "Pontuação da Rodada"
-msgstr "Score in Rounds"
+msgstr ""
 
 #: pecbrasil/html/comunicado/retornar.html:4
 msgid "Retorno ao Jogo"
 msgstr ""
 
 #: pecbrasil/html/comunicado/retornarpublico.html:4
-#, fuzzy
 msgid "Comunicado enviado com sucesso"
-msgstr "Contact sent successfully"
+msgstr ""
 
 #: pecbrasil/html/comunicado/statuscomunicado.html:7
 msgid "Comunicado"
-msgstr "Communication"
+msgstr ""
 
 #: pecbrasil/html/comunicado/statuscomunicado.html:12
 msgid "Envios"
-msgstr "Sents"
+msgstr ""
 
 #: pecbrasil/html/comunicado/timeincompleto.html:4
 msgid "Seu time está incompleto"
@@ -494,7 +482,7 @@ msgstr ""
 #: pecbrasil/html/comunicado/timeincompleto.html:7
 #: pecbrasil/html/templates/site.html:23
 msgid "Olá"
-msgstr "Hy"
+msgstr ""
 
 #: pecbrasil/html/comunicado/timeincompleto.html:10
 msgid ""
@@ -520,27 +508,27 @@ msgstr ""
 
 #: pecbrasil/html/despesa/boxdespesa.html:3
 msgid "Veja mais informações sobre esta categoria de despesa"
-msgstr "See more information about this expense category"
+msgstr ""
 
 #: pecbrasil/html/despesa/boxdespesa.html:4
 msgid "aqui"
-msgstr "here"
+msgstr ""
 
 #: pecbrasil/html/despesa/legenda.html:3
 msgid "ASSINATURA DE PUBLICACOES"
-msgstr "SIGNATURE OF PUBLICATIONS"
+msgstr ""
 
 #: pecbrasil/html/despesa/legenda.html:5
 msgid "COMBUSTÍVEIS E LUBRIFICANTES"
-msgstr "FUELS AND LUBRICANTS"
+msgstr ""
 
 #: pecbrasil/html/despesa/legenda.html:7
 msgid "CONSULTORIAS, PESQUISAS E TRABALHOS TÉCNICOS"
-msgstr "CONSULTING, RESEARCH PAPERS AND TE? TECHNICAL"
+msgstr ""
 
 #: pecbrasil/html/despesa/legenda.html:9
 msgid "DIVULGACAO DA ATIVIDADE PARLAMENTAR"
-msgstr "DISCLOSURE OF PARLIAMENTARY ACTIVITY"
+msgstr ""
 
 #: pecbrasil/html/despesa/legenda.html:11
 msgid "COMBUSTIVEIS E LUBRIFICANTES"
@@ -548,43 +536,43 @@ msgstr ""
 
 #: pecbrasil/html/despesa/legenda.html:13
 msgid "CONSULTORIAS"
-msgstr "CONSULTING"
+msgstr ""
 
 #: pecbrasil/html/despesa/legenda.html:15
 msgid "EMISSAO BILHETE AEREO"
-msgstr "AIR TICKET"
+msgstr ""
 
 #: pecbrasil/html/despesa/legenda.html:17
 msgid "FORNECIMENTO DE ALIMENTACAO DO PARLAMENTAR"
-msgstr "FOOD SUPPLY OF PARLIAMENTARY"
+msgstr ""
 
 #: pecbrasil/html/despesa/legenda.html:19
 msgid "HOSPEDAGEM ,EXCETO DO PARLAMENTAR NO DISTRITO FEDERAL"
-msgstr "ACCOMMODATION, UNLESS THE PARLIAMENTARY IN FEDERAL DISTRICT"
+msgstr ""
 
 #: pecbrasil/html/despesa/legenda.html:21
 msgid "LOCACAO DE VEICULOS AUTOMOTORES OU FRETAMENTO"
-msgstr "CAR RENTAL OR CHARTER"
+msgstr ""
 
 #: pecbrasil/html/despesa/legenda.html:23
 msgid "MANUTENCAO DE ESCRITORIO DE APOIO A ATIVIDADE"
-msgstr "OFFICE SUPPLIES MAINTENANCE SUPPORT ACTIVITY"
+msgstr ""
 
 #: pecbrasil/html/despesa/legenda.html:25
 msgid "PASSAGENS AEREAS E FRETAMENTO DE AERONAVES"
-msgstr "FLIGHTS AND AIRCRAFT CHARTER"
+msgstr ""
 
 #: pecbrasil/html/despesa/legenda.html:27
 msgid "SERVICO DE SEGURANCA PRESTADO POR EMPRESA ESPECIALIZADA"
-msgstr "SECURITY SERVICE PROVIDED BY COMPANY SPECIALIZED"
+msgstr ""
 
 #: pecbrasil/html/despesa/legenda.html:29
 msgid "SERVICOS POSTAIS"
-msgstr "POSTAL SERVICES"
+msgstr ""
 
 #: pecbrasil/html/despesa/legenda.html:31
 msgid "TELEFONIA"
-msgstr "TELECOMUNICATIONS"
+msgstr ""
 
 #: pecbrasil/html/general/404.html:12
 msgid "Oh no! The page you've requested does not exist."
@@ -608,9 +596,8 @@ msgstr ""
 
 #: pecbrasil/html/grafico/painel.html:14
 #: pecbrasil/html/grafico/painel_old.html:14
-#, fuzzy
 msgid "Dados"
-msgstr "Rounds"
+msgstr ""
 
 #: pecbrasil/html/grafico/painel.html:45
 #: pecbrasil/html/grafico/painel_old.html:47
@@ -624,25 +611,25 @@ msgstr ""
 
 #: pecbrasil/html/liga/criar-liga.html:9 pecbrasil/html/liga/ligaList.html:13
 msgid "Criar Liga"
-msgstr "Create League"
+msgstr ""
 
 #: pecbrasil/html/liga/criar-liga.html:19
 msgid "Se deseja que o público em geral possa ver e entrar na sua liga"
-msgstr "If you want the general public can see and join your league"
+msgstr ""
 
 #: pecbrasil/html/liga/liga.html:7
 msgid "Ligas"
-msgstr "Leagues"
+msgstr ""
 
 #: pecbrasil/html/liga/liga.html:10
 #: pecbrasil/html/politica/politicoList.html:14
 #: pecbrasil/html/politica/selecionar-politicos.html:12
 msgid "Nome"
-msgstr "Name"
+msgstr ""
 
 #: pecbrasil/html/liga/liga.html:13
 msgid "Criado em"
-msgstr "Created in"
+msgstr ""
 
 #: pecbrasil/html/liga/liga.html:14
 msgid "por"
@@ -650,47 +637,46 @@ msgstr ""
 
 #: pecbrasil/html/liga/liga.html:22
 msgid "Liga Pública"
-msgstr "Public League"
+msgstr ""
 
 #: pecbrasil/html/liga/liga.html:23
 msgid "Mudar para Privado"
-msgstr "Change to private"
+msgstr ""
 
 #: pecbrasil/html/liga/liga.html:25
 msgid "Liga Privada"
-msgstr "Private League"
+msgstr ""
 
 #: pecbrasil/html/liga/liga.html:26
 msgid "Mudar para Público"
-msgstr "Change to Public"
+msgstr ""
 
 #: pecbrasil/html/liga/liga.html:46
-#, fuzzy
 msgid "Certeza que deseja excluir a liga"
-msgstr "Sure you want to delete the league?"
+msgstr ""
 
 #: pecbrasil/html/liga/liga.html:47
 msgid "Excluir Liga"
-msgstr "Delete League"
+msgstr ""
 
 #: pecbrasil/html/liga/liga.html:52
 msgid "Entrar na Liga"
-msgstr "Enter League"
+msgstr ""
 
 #: pecbrasil/html/liga/liga.html:58 pecbrasil/html/politica/meu-partido.html:86
 msgid "Compartilhe"
-msgstr "Share"
+msgstr ""
 
 #: pecbrasil/html/liga/liga.html:58
 msgid "com seus amigos para que conheçam esta liga"
-msgstr "with his friends to know that this alloy"
+msgstr ""
 
 #: pecbrasil/html/liga/liga.html:79 pecbrasil/html/orgao/orgao.html:22
 #: pecbrasil/html/orgao/orgao.html:49
 #: pecbrasil/html/orgao/orgaocandidato.html:22
 #: pecbrasil/html/orgao/orgaocandidato.html:49
 msgid "Membros"
-msgstr "Members"
+msgstr ""
 
 #: pecbrasil/html/liga/liga.html:81
 msgid "Veja abaixo os integrantes desta liga"
@@ -698,21 +684,19 @@ msgstr ""
 
 #: pecbrasil/html/liga/liga.html:85 pecbrasil/html/politica/selecao.html:12
 msgid "Seleção"
-msgstr "Team"
+msgstr ""
 
 #: pecbrasil/html/liga/liga.html:86
-#, fuzzy
 msgid "Pontos na Liga"
-msgstr "Enter League"
+msgstr ""
 
 #: pecbrasil/html/liga/liga.html:87
 msgid "Pontuação Geral"
 msgstr ""
 
 #: pecbrasil/html/liga/liga.html:88 pecbrasil/html/liga/liga.html:141
-#, fuzzy
 msgid "Entrada"
-msgstr "Against"
+msgstr ""
 
 #: pecbrasil/html/liga/liga.html:91
 msgid "Administrar"
@@ -725,37 +709,34 @@ msgid ""
 msgstr ""
 
 #: pecbrasil/html/liga/liga.html:113
-#, fuzzy
 msgid "Sair da Liga"
-msgstr "See more leagues"
+msgstr ""
 
 #: pecbrasil/html/liga/liga.html:147
-#, fuzzy
 msgid "Certeza que deseja excluir o jogador da liga?"
-msgstr "Sure you want to delete the league?"
+msgstr ""
 
 #: pecbrasil/html/liga/liga.html:149
-#, fuzzy
 msgid "Excluir Jogador"
-msgstr "Delete party"
+msgstr ""
 
 #: pecbrasil/html/liga/liga.html:164 pecbrasil/html/politica/selecao.html:63
 msgid "Pontuação no Campeonato"
-msgstr "League Scores"
+msgstr ""
 
 #: pecbrasil/html/liga/ligaList.html:10
 msgid "Crie sua liga agora e convide seus amigos para participar!"
-msgstr "Create your league now and invite your friends to join"
+msgstr ""
 
 #: pecbrasil/html/liga/ligaList.html:22
 msgid "Veja as ligas"
-msgstr "See more leagues"
+msgstr ""
 
 #: pecbrasil/html/orgao/orgao.html:4 pecbrasil/html/orgao/orgaoList.html:8
 #: pecbrasil/html/orgao/orgaocandidato.html:4
 #: pecbrasil/html/orgao/orgaocandidatoList.html:8
 msgid "Órgão"
-msgstr "Department"
+msgstr ""
 
 #: pecbrasil/html/orgao/orgao.html:18
 #: pecbrasil/html/orgao/orgaocandidato.html:18
@@ -764,13 +745,13 @@ msgstr "Department"
 #: pecbrasil/html/proposicao/proposicao.html:18
 #: pecbrasil/html/rodada/rodada.html:46
 msgid "Informações Gerais"
-msgstr "General Info"
+msgstr ""
 
 #: pecbrasil/html/orgao/orgao.html:26 pecbrasil/html/orgao/orgao.html:61
 #: pecbrasil/html/orgao/orgaocandidato.html:26
 #: pecbrasil/html/orgao/orgaocandidato.html:61
 msgid "Últimas Tramitações"
-msgstr "Latest formalities"
+msgstr ""
 
 #: pecbrasil/html/orgao/orgao.html:38
 #: pecbrasil/html/orgao/orgaocandidato.html:38
@@ -780,7 +761,7 @@ msgstr ""
 #: pecbrasil/html/orgao/orgao.html:96
 #: pecbrasil/html/orgao/orgaocandidato.html:96
 msgid "O orgao não foi encontrado"
-msgstr "The department was not found"
+msgstr ""
 
 #: pecbrasil/html/politica/boxpolitico.html:87
 #: pecbrasil/html/politica/boxtime.html:70
@@ -792,7 +773,7 @@ msgstr "The department was not found"
 #: pecbrasil/html/proposicao/proposicao.html:125
 #: pecbrasil/html/proposicao/proposicao.html:137
 msgid "Votações"
-msgstr "Votings"
+msgstr ""
 
 #: pecbrasil/html/politica/boxpolitico.html:94
 #: pecbrasil/html/politica/boxpolitico.html:107
@@ -800,7 +781,7 @@ msgstr "Votings"
 #: pecbrasil/html/politica/boxpolitico.html:136
 #: pecbrasil/html/rodada/boxrodada.html:5
 msgid "a"
-msgstr "to"
+msgstr ""
 
 #: pecbrasil/html/politica/boxpolitico.html:94
 #: pecbrasil/html/politica/boxpolitico.html:107
@@ -813,7 +794,7 @@ msgstr ""
 #: pecbrasil/html/politica/politico.html:108
 #: pecbrasil/html/politica/resumopolitico.html:28
 msgid "Presenças"
-msgstr "Presences"
+msgstr ""
 
 #: pecbrasil/html/politica/boxpolitico.html:115
 #: pecbrasil/html/politica/partido.html:32
@@ -822,7 +803,7 @@ msgstr "Presences"
 #: pecbrasil/html/politica/politico.html:122
 #: pecbrasil/html/politica/politico.html:242
 msgid "Proposições"
-msgstr "Propositions"
+msgstr ""
 
 #: pecbrasil/html/politica/boxpolitico.html:130
 #: pecbrasil/html/politica/politico.html:30
@@ -831,58 +812,55 @@ msgstr "Propositions"
 #: pecbrasil/html/politica/resumopolitico.html:31
 #: pecbrasil/html/politico/despesacandidatoList.html:7
 msgid "Despesas"
-msgstr "Expenses"
+msgstr ""
 
 #: pecbrasil/html/politica/boxpolitico.html:157
 msgid "Alterar"
-msgstr "Change"
+msgstr ""
 
 #: pecbrasil/html/politica/boxpolitico.html:170
 msgid "Selecionado!"
-msgstr "Selected!"
+msgstr ""
 
 #: pecbrasil/html/politica/boxpolitico.html:183
 msgid "Selecionar"
-msgstr "Choose"
+msgstr ""
 
 #: pecbrasil/html/politica/candidatura.html:7
 #: pecbrasil/html/politica/import.html:7
 msgid "Candidatura"
-msgstr "Politic"
+msgstr ""
 
 #: pecbrasil/html/politica/candidaturaList.html:7
 #: pecbrasil/html/politica/classificacao.html:4
 msgid "Candidaturas"
-msgstr "Politics"
+msgstr ""
 
 #: pecbrasil/html/politica/classificacao.html:13
 msgid ""
 "Confira abaixo os 3 times mais pontuados no campeonato. Continue "
 "acompanhando e faça o seu time chegar aqui!"
 msgstr ""
-"Here is the top 3 teams in the year! Go work out and mount your team to "
-"get the top!"
 
 #: pecbrasil/html/politica/classificacao.html:18
-#, fuzzy
 msgid "Estamos na rodada"
-msgstr "Last round"
+msgstr ""
 
 #: pecbrasil/html/politica/classificacao.html:69
 msgid "Ranking Completo"
-msgstr "Ranking"
+msgstr ""
 
 #: pecbrasil/html/politica/classificacao.html:99
 #: pecbrasil/html/politica/politicoList.html:118
 #: pecbrasil/html/politica/selecaoList.html:12
 msgid "Posição"
-msgstr "Position"
+msgstr ""
 
 #: pecbrasil/html/politica/classificacao.html:101
 #: pecbrasil/html/politica/politicoList.html:120
 #: pecbrasil/html/politica/selecaoList.html:14
 msgid "Nome do Time"
-msgstr "Team name"
+msgstr ""
 
 #: pecbrasil/html/politica/classificacao.html:102
 #: pecbrasil/html/politica/politicoList.html:21
@@ -892,7 +870,7 @@ msgstr "Team name"
 #: pecbrasil/html/politica/selecionar-politicos.html:19
 #: pecbrasil/html/pontos/rodada.html:10
 msgid "Pontos"
-msgstr "Points"
+msgstr ""
 
 #: pecbrasil/html/politica/criar-partido.html:2
 msgid ""
@@ -902,28 +880,28 @@ msgstr ""
 
 #: pecbrasil/html/politica/criar-partido.html:7
 msgid "Criar Partido"
-msgstr "Create party"
+msgstr ""
 
 #: pecbrasil/html/politica/meu-partido.html:4
 #: pecbrasil/html/politica/meu-partido.html:12
 #: pecbrasil/html/politica/selecao.html:4
 msgid "Meu Partido"
-msgstr "My Partie"
+msgstr ""
 
 #: pecbrasil/html/politica/meu-partido.html:14
 msgid "Presidente"
-msgstr "President"
+msgstr ""
 
 #: pecbrasil/html/politica/meu-partido.html:20
 #: pecbrasil/html/politica/partidoList.html:31
 msgid "Nome do Partido"
-msgstr "Party Name"
+msgstr ""
 
 #: pecbrasil/html/politica/meu-partido.html:24
 #: pecbrasil/html/proposicao/acaoList.html:15
 #: pecbrasil/html/proposicao/proposicaoList.html:17
 msgid "Descrição"
-msgstr "Description"
+msgstr ""
 
 #: pecbrasil/html/politica/meu-partido.html:32
 msgid "Atualizar"
@@ -934,112 +912,108 @@ msgstr ""
 #: pecbrasil/html/politica/meu-partido.html:71
 #: pecbrasil/html/politica/meu-partido.html:75
 msgid "Escolha um político para cadeira"
-msgstr "Choose a politician to chair"
+msgstr ""
 
 #: pecbrasil/html/politica/meu-partido.html:86
 msgid "com seus amigos para que conheçam seu time"
-msgstr "with your friends so they know their team"
+msgstr ""
 
 #: pecbrasil/html/politica/meu-partido.html:103
 msgid "Certeza que deseja excluir?"
-msgstr "Sure you want to delete"
+msgstr ""
 
 #: pecbrasil/html/politica/meu-partido.html:104
 msgid "Excluir Partido"
-msgstr "Delete party"
+msgstr ""
 
 #: pecbrasil/html/politica/partido.html:6
 msgid "Partido:  "
-msgstr "Party: "
+msgstr ""
 
 #: pecbrasil/html/politica/partido.html:22
 #: pecbrasil/html/politica/partido.html:55
 msgid "Participação do partido em todo campeonato"
-msgstr "Party participation in league"
+msgstr ""
 
 #: pecbrasil/html/politica/partido.html:25
 #: pecbrasil/html/politica/partido.html:73
 msgid "Desempenho do partido na última rodada"
-msgstr "Performance of the party in the last round"
+msgstr ""
 
 #: pecbrasil/html/politica/partido.html:29
 #: pecbrasil/html/politica/partido.html:88
 msgid "Dados dos políticos"
-msgstr "Politicians Data"
+msgstr ""
 
 #: pecbrasil/html/politica/partidoList.html:7
 msgid "Partidos"
-msgstr "Parties"
+msgstr ""
 
 #: pecbrasil/html/politica/partidoList.html:22
 msgid "Todos os partidos"
-msgstr "All parties"
+msgstr ""
 
 #: pecbrasil/html/politica/partidoList.html:26
 msgid "Sigla"
-msgstr "Slang"
+msgstr ""
 
 #: pecbrasil/html/politica/politico.html:3 pecbrasil/html/pontos/time.html:7
 msgid "Politicos"
-msgstr "Politicians"
+msgstr ""
 
 #: pecbrasil/html/politica/politico.html:24
 msgid "Última semana"
-msgstr "Last week"
+msgstr ""
 
 #: pecbrasil/html/politica/politico.html:27
-#, fuzzy
 msgid "Compare este político"
-msgstr "Compare with other politics"
+msgstr ""
 
 #: pecbrasil/html/politica/politico.html:33
-#, fuzzy
 msgid "Despesa total"
-msgstr "Expense"
+msgstr ""
 
 #: pecbrasil/html/politica/politico.html:36
 msgid "Histórico de Despesas"
-msgstr "Expenditure History"
+msgstr ""
 
 #: pecbrasil/html/politica/politico.html:48
 #: pecbrasil/html/politica/politico.html:257
 msgid "Comissões"
-msgstr "Commissions"
+msgstr ""
 
 #: pecbrasil/html/politica/politico.html:67
 msgid "TOTAL de pontos"
-msgstr "Total Points"
+msgstr ""
 
 #: pecbrasil/html/politica/politico.html:68
 #: pecbrasil/html/politica/politico.html:71
 msgid "pontos"
-msgstr "points"
+msgstr ""
 
 #: pecbrasil/html/politica/politico.html:70
 msgid "Última rodada"
-msgstr "Last round"
+msgstr ""
 
 #: pecbrasil/html/politica/politico.html:84
 msgid "Biografia"
-msgstr "Biography"
+msgstr ""
 
 #: pecbrasil/html/politica/politico.html:151
 msgid "Comparação aos outros políticos do"
-msgstr "Compared to other politicians"
+msgstr ""
 
 #: pecbrasil/html/politica/politico.html:156
 msgid "em comparação ao"
-msgstr "in compare to"
+msgstr ""
 
 #: pecbrasil/html/politica/politico.html:168
-#, fuzzy
 msgid "Desempenho do político durante o tempo"
-msgstr "Performance of the party in the last round"
+msgstr ""
 
 #: pecbrasil/html/politica/politico.html:186
-#, fuzzy
 msgid "Comparação durante o tempo"
-msgstr "in compare to"
+msgstr ""
 
 #: pecbrasil/html/politica/politico.html:200
 msgid "Despesas por categoria"
@@ -1048,44 +1022,43 @@ msgstr ""
 #: pecbrasil/html/politica/politico.html:211
 #: pecbrasil/html/politica/politico.html:225
 msgid "Legenda"
-msgstr "Legend"
+msgstr ""
 
 #: pecbrasil/html/politica/politico.html:216
 msgid "Despesas ao longo do campeonato"
-msgstr "Expenses throughout the tournament"
+msgstr ""
 
 #: pecbrasil/html/politica/politico.html:249
 #: pecbrasil/html/politica/politicoList.html:19
 #: pecbrasil/html/politica/selecionar-politicos.html:17
 #: pecbrasil/html/proposicao/votacaoList.html:8
 msgid "Votação"
-msgstr "Voting"
+msgstr ""
 
 #: pecbrasil/html/politica/politicoList.html:10
 #: pecbrasil/html/pontos/politicoList.html:7
 msgid "Políticos"
-msgstr "Politicians"
+msgstr ""
 
 #: pecbrasil/html/politica/politicoList.html:13
-#, fuzzy
 msgid "Ordenar"
-msgstr "Order"
+msgstr ""
 
 #: pecbrasil/html/politica/politicoList.html:15
 #: pecbrasil/html/politica/selecionar-politicos.html:13
 #: pecbrasil/html/proposicao/votacaoList.html:15
 msgid "Partido"
-msgstr "Party"
+msgstr ""
 
 #: pecbrasil/html/politica/politicoList.html:16
 #: pecbrasil/html/politica/selecionar-politicos.html:14
 msgid "Despesa"
-msgstr "Expense"
+msgstr ""
 
 #: pecbrasil/html/politica/politicoList.html:17
 #: pecbrasil/html/politica/selecionar-politicos.html:15
 msgid "Presença"
-msgstr "Presence"
+msgstr ""
 
 #: pecbrasil/html/politica/politicoList.html:18
 #: pecbrasil/html/politica/selecionar-politicos.html:16
@@ -1093,27 +1066,24 @@ msgstr "Presence"
 #: pecbrasil/html/proposicao/proposicao.html:49
 #: pecbrasil/html/proposicao/proposicaoList.html:8
 msgid "Proposição"
-msgstr "Proposition"
+msgstr ""
 
 #: pecbrasil/html/politica/politicoList.html:22
 #: pecbrasil/html/politica/selecionar-politicos.html:20
 msgid "Última Semana"
-msgstr "Last week"
+msgstr ""
 
 #: pecbrasil/html/politica/politicoList.html:23
-#, fuzzy
 msgid "Pontuação"
-msgstr "Voting"
+msgstr ""
 
 #: pecbrasil/html/politica/politicoList.html:27
-#, fuzzy
 msgid "Mais Pontos"
-msgstr "points"
+msgstr ""
 
 #: pecbrasil/html/politica/politicoList.html:31
-#, fuzzy
 msgid "Menos pontos"
-msgstr "points"
+msgstr ""
 
 #: pecbrasil/html/politica/politicoList.html:46
 msgid "Filtrar por estado"
@@ -1124,55 +1094,54 @@ msgid "Buscar por político"
 msgstr ""
 
 #: pecbrasil/html/politica/politicoList.html:89
-#, fuzzy
 msgid "Buscar"
-msgstr "search"
+msgstr ""
 
 #: pecbrasil/html/politica/politicoList.html:109
 msgid "Não foram encontrados políticos nesta pesquisa"
-msgstr "Politicians were not found in this study"
+msgstr ""
 
 #: pecbrasil/html/politica/pontuacao.html:7
 msgid "Pontuacao"
-msgstr "Scoring"
+msgstr ""
 
 #: pecbrasil/html/politica/pontuacaoList.html:7
 msgid "Pontuacoes"
-msgstr "Ratings"
+msgstr ""
 
 #: pecbrasil/html/politica/resumopolitico.html:25
 msgid "DEPUTADO FEDERAL"
-msgstr "FEDERAL MEMBER"
+msgstr ""
 
 #: pecbrasil/html/politica/resumopolitico.html:26
 msgid "Total de Pontos"
-msgstr "Total Points"
+msgstr ""
 
 #: pecbrasil/html/politica/resumopolitico.html:26
 msgid "Pontos da"
-msgstr "Points from"
+msgstr ""
 
 #: pecbrasil/html/politica/resumopolitico.html:27
 msgid "Última Rodada"
-msgstr "Last round"
+msgstr ""
 
 #: pecbrasil/html/politica/resumopolitico.html:29
 msgid "Processos"
-msgstr "Process"
+msgstr ""
 
 #: pecbrasil/html/politica/resumopolitico.html:30
 msgid "Proposiçoes"
-msgstr "Propositions"
+msgstr ""
 
 #: pecbrasil/html/politica/rodadapontos.html:7
 #: pecbrasil/html/rodada/rodadapontos.html:7
 msgid "Rodada Ponto"
-msgstr "Round Point"
+msgstr ""
 
 #: pecbrasil/html/politica/rodadapontosList.html:7
 #: pecbrasil/html/rodada/rodadapontosList.html:7
 msgid "Rodada Pontos"
-msgstr "Round Points"
+msgstr ""
 
 #: pecbrasil/html/politica/selecao.html:15
 msgid "Fundação"
@@ -1185,104 +1154,104 @@ msgstr ""
 #: pecbrasil/html/politica/selecaoList.html:4
 #: pecbrasil/html/politica/selecaoList.html:8
 msgid "Seleções"
-msgstr "Teams"
+msgstr ""
 
 #: pecbrasil/html/politica/selecionar-politicos.html:4
 msgid "Selecione um político para sua bancada"
-msgstr "Select a policy for your countertop"
+msgstr ""
 
 #: pecbrasil/html/politica/selecionar-politicos.html:11
 msgid "Ordernar por"
-msgstr "Order by"
+msgstr ""
 
 #: pecbrasil/html/politica/selecionar-politicos.html:24
 msgid "Ordenação crescente"
-msgstr "Sort Ascending"
+msgstr ""
 
 #: pecbrasil/html/politica/selecionar-politicos.html:26
 #: pecbrasil/html/politica/selecionar-politicos.html:30
 msgid "Mudar sentido"
-msgstr "Change"
+msgstr ""
 
 #: pecbrasil/html/politica/selecionar-politicos.html:28
 msgid "Ordenação decrescente"
-msgstr "Sort Descending"
+msgstr ""
 
 #: pecbrasil/html/politica/selecionar-politicos.html:42
 msgid "buscar"
-msgstr "search"
+msgstr ""
 
 #: pecbrasil/html/politica/time.html:7
 msgid "Times"
-msgstr "Teams"
+msgstr ""
 
 #: pecbrasil/html/politico/boxvotacao.html:33
 msgid "Votos"
-msgstr "Votes"
+msgstr ""
 
 #: pecbrasil/html/politico/boxvotacao.html:33
 #: pecbrasil/html/proposicao/avaliarPosicao.html:3
 #: pecbrasil/html/proposicao/boxvoto.html:8
 #: pecbrasil/html/proposicao/proposicao.html:95
 msgid "Sim"
-msgstr "Yes"
+msgstr ""
 
 #: pecbrasil/html/politico/boxvotacao.html:34
 #: pecbrasil/html/proposicao/avaliarPosicao.html:9
 #: pecbrasil/html/proposicao/boxvoto.html:11
 #: pecbrasil/html/proposicao/proposicao.html:98
 msgid "Não"
-msgstr "No"
+msgstr ""
 
 #: pecbrasil/html/politico/boxvotacao.html:35
 msgid "Abstenção"
-msgstr "Abstention"
+msgstr ""
 
 #: pecbrasil/html/politico/boxvotacao.html:43
 msgid "Voto do Candidato"
-msgstr "Vote from Politician"
+msgstr ""
 
 #: pecbrasil/html/politico/boxvotacao.html:49
 #: pecbrasil/html/proposicao/avaliar.html:13
 #: pecbrasil/html/proposicao/proposicao.html:52
 #: pecbrasil/html/proposicao/proposicaoList.html:14
 msgid "Autor"
-msgstr "Author"
+msgstr ""
 
 #: pecbrasil/html/politico/despesacandidato.html:14
 msgid "Categoria"
-msgstr "Category"
+msgstr ""
 
 #: pecbrasil/html/politico/despesacandidato.html:16
 msgid "Valor"
-msgstr "Value"
+msgstr ""
 
 #: pecbrasil/html/politico/processocandidatoList.html:7
 msgid "Processo"
-msgstr "Process"
+msgstr ""
 
 #: pecbrasil/html/politico/repasse.html:7
 #: pecbrasil/html/politico/repasseList.html:7
 msgid "Repasse"
-msgstr "Transfers"
+msgstr ""
 
 #: pecbrasil/html/politico/votacaocandidato.html:23
 #: pecbrasil/html/politico/votacaocandidatoList.html:35
 msgid "Não foram encontrados votacoes para este politico"
-msgstr "No polls were found for this political"
+msgstr ""
 
 #: pecbrasil/html/politico/votacaocandidatoList.html:12
 #: pecbrasil/html/proposicao/votacaoList.html:16
 msgid "Voto"
-msgstr "Vote"
+msgstr ""
 
 #: pecbrasil/html/pontos/politico.html:7
 msgid "Politico"
-msgstr "Politician"
+msgstr ""
 
 #: pecbrasil/html/pontos/pontuacaorodada.html:7
 msgid "Pontuação dos Políticos nas Rodadas"
-msgstr "Politicians score in Rounds"
+msgstr ""
 
 #: pecbrasil/html/pontos/pontuacaorodada.html:26
 msgid "<h1>Não existem dados para este período</h1>"
@@ -1290,7 +1259,7 @@ msgstr ""
 
 #: pecbrasil/html/pontos/rodada.html:7 pecbrasil/html/pontos/rodadaList.html:7
 msgid "Pontuação nas Rodadas"
-msgstr "Score in Rounds"
+msgstr ""
 
 #: pecbrasil/html/pontos/rodada.html:16
 #: pecbrasil/html/pontos/rodadaList.html:30
@@ -1301,239 +1270,201 @@ msgstr ""
 
 #: pecbrasil/html/pontos/timeList.html:7
 msgid "Pontos do Time"
-msgstr "Points of Time"
+msgstr ""
 
 #: pecbrasil/html/proposicao/acaoList.html:8
 #: pecbrasil/html/proposicao/ultimasacoes.html:8
-#, fuzzy
 msgid "Ações"
-msgstr "Votings"
+msgstr ""
 
 #: pecbrasil/html/proposicao/acaoList.html:14
 #: pecbrasil/html/proposicao/proposicaoList.html:15
 msgid "Proposicão"
-msgstr "Proposition"
+msgstr ""
 
 #: pecbrasil/html/proposicao/acaoList.html:16
-#, fuzzy
 msgid "Data"
-msgstr "Round"
+msgstr ""
 
 #: pecbrasil/html/proposicao/acaoList.html:33
-#, fuzzy
 msgid "Não foram encontradas tramitações para esta proposição"
-msgstr "No polls were found for this political"
+msgstr ""
 
 #: pecbrasil/html/proposicao/avaliar.html:9
 msgid "Avalia a proposição"
-msgstr "Evaluates the proposition"
+msgstr ""
 
 #: pecbrasil/html/proposicao/avaliar.html:25
 msgid "Qual é a sua opinião?"
-msgstr "What is your opinion"
+msgstr ""
 
 #: pecbrasil/html/proposicao/avaliar.html:33
 msgid "Contra"
-msgstr "Against"
+msgstr ""
 
 #: pecbrasil/html/proposicao/avaliar.html:38
 msgid "Qual é a importância desta proposição para você?"
-msgstr "What is the importance of this proposition for you?"
+msgstr ""
 
 #: pecbrasil/html/proposicao/avaliar.html:40
 #: pecbrasil/html/proposicao/avaliarNota.html:3
 msgid "Péssimo"
-msgstr "Terrible"
+msgstr ""
 
 #: pecbrasil/html/proposicao/avaliar.html:43
 #: pecbrasil/html/proposicao/avaliarNota.html:9
 msgid "Ruim"
-msgstr "Bad"
+msgstr ""
 
 #: pecbrasil/html/proposicao/avaliar.html:46
 #: pecbrasil/html/proposicao/avaliarNota.html:15
 msgid "Regular"
-msgstr "Regular"
+msgstr ""
 
 #: pecbrasil/html/proposicao/avaliar.html:49
 #: pecbrasil/html/proposicao/avaliarNota.html:21
 msgid "Bom"
-msgstr "Good"
+msgstr ""
 
 #: pecbrasil/html/proposicao/avaliar.html:52
 #: pecbrasil/html/proposicao/avaliarNota.html:27
 msgid "Muito bom"
-msgstr "Very good"
+msgstr ""
 
 #: pecbrasil/html/proposicao/avaliar.html:56
 msgid "Deixe seu comentário"
-msgstr "Leave your comment"
+msgstr ""
 
 #: pecbrasil/html/proposicao/boxvoto.html:15
 msgid "Obstrução"
-msgstr "Obstruction"
+msgstr ""
 
 #: pecbrasil/html/proposicao/proposicao.html:22
-#, fuzzy
 msgid "Tramitações"
-msgstr "Latest formalities"
+msgstr ""
 
 #: pecbrasil/html/proposicao/proposicao.html:25
 #: pecbrasil/html/proposicao/proposicao.html:81
 msgid "Opinião Pública"
-msgstr "Public Opinion"
+msgstr ""
 
 #: pecbrasil/html/proposicao/proposicao.html:33
 msgid "Votações Detalhada"
-msgstr "Detailed Voting"
+msgstr ""
 
 #: pecbrasil/html/proposicao/proposicao.html:71
-#, fuzzy
 msgid "Tramitacoes"
-msgstr "Latest formalities"
+msgstr ""
 
 #: pecbrasil/html/proposicao/proposicao.html:84
 msgid "Dê sua opiniao"
-msgstr "Give your opinion"
+msgstr ""
 
 #: pecbrasil/html/proposicao/proposicao.html:93
 msgid "votou"
-msgstr "voted"
+msgstr ""
 
 #: pecbrasil/html/proposicao/proposicao.html:105
 msgid "Necessidade"
-msgstr "Needs"
+msgstr ""
 
 #: pecbrasil/html/proposicao/proposicao.html:114
 msgid "Não existem comentários sobre esta proposição. Seja o primeiro a fazer!"
-msgstr "There are no comments on this proposition. Be the the first to make!"
+msgstr ""
 
 #: pecbrasil/html/proposicao/proposicaoList.html:45
 #: pecbrasil/html/proposicao/ultimasacoes.html:42
 #: pecbrasil/html/proposicao/ultimasacoes.html:73
 #: pecbrasil/html/proposicao/votacaoList.html:48
 msgid "Não foram encontradas proposições de autoria deste político"
-msgstr "No propositions authored this policy were found"
+msgstr ""
 
 #: pecbrasil/html/proposicao/votacaoList.html:14
 msgid "Político"
-msgstr "Politician"
+msgstr ""
 
 #: pecbrasil/html/rodada/rodada.html:17
-#, fuzzy
 msgid "Próxima Rodada"
-msgstr "Last round"
+msgstr ""
 
 #: pecbrasil/html/rodada/rodada.html:24
 msgid "Veja outras rodadas"
 msgstr ""
 
 #: pecbrasil/html/rodada/rodada.html:29
-#, fuzzy
 msgid "Rodada Anterior"
-msgstr "Round Point"
+msgstr ""
 
 #: pecbrasil/html/rodada/rodada.html:44
 msgid "veja mais"
-msgstr "see more"
+msgstr ""
 
 #: pecbrasil/html/rodada/rodada.html:49 pecbrasil/html/rodada/rodada.html:69
 msgid "Políticos que mais pontuaram"
-msgstr "Politicians who scored more"
+msgstr ""
 
 #: pecbrasil/html/rodada/rodada.html:52 pecbrasil/html/rodada/rodada.html:81
 msgid "Times que mais pontuaram"
-msgstr "Teams that scored more"
+msgstr ""
 
 #: pecbrasil/html/rodada/rodadapontos.html:4
 #: pecbrasil/html/rodada/rodadapontosList.html:4
 msgid "Pontos da Rodada"
-msgstr "Round Points"
+msgstr ""
 
 #: pecbrasil/html/templates/base.html:6 pecbrasil/html/templates/clean.html:7
 msgid "Política Esporte Clube"
-msgstr "Politics Sport Club"
+msgstr ""
 
 #: pecbrasil/html/templates/site.html:7
 msgid "INÍCIO"
-msgstr "START"
+msgstr ""
 
 #: pecbrasil/html/templates/site.html:8
 msgid "PEC BRASIL"
-msgstr "PEC BRAZIL"
+msgstr ""
 
 #: pecbrasil/html/templates/site.html:9
 msgid "CLASSIFICAÇÃO"
-msgstr "RANKINGS"
+msgstr ""
 
 #: pecbrasil/html/templates/site.html:10
 msgid "TOP 100"
-msgstr "TOP 100"
+msgstr ""
 
 #: pecbrasil/html/templates/site.html:11
 msgid "PARTIDOS"
-msgstr "PARTIES"
+msgstr ""
 
 #: pecbrasil/html/templates/site.html:12
 msgid "LIGAS"
-msgstr "LEAGUES"
+msgstr ""
 
 #: pecbrasil/html/templates/site.html:15
 msgid "MEU PARTIDO"
-msgstr "MY PARTY"
+msgstr ""
 
 #: pecbrasil/html/templates/site.html:16
 msgid "SAIR"
-msgstr "LOGOUT"
+msgstr ""
 
 #: pecbrasil/html/templates/site.html:25
 msgid "Minha Conta"
-msgstr "My Account"
+msgstr ""
 
 #: pecbrasil/html/templates/site.html:37
-#, fuzzy
 msgid "ENTRAR"
-msgstr "Against"
+msgstr ""
 
 #: pecbrasil/html/templates/site.html:47
 msgid "Faça login com Facebook"
-msgstr "Login with Facebook"
+msgstr ""
 
 #: pecbrasil/html/templates/site.html:86
 msgid "compare os deputados federais"
-msgstr "compare federal deputies"
+msgstr ""
 
 #: pecbrasil/html/templates/site.html:87
 msgid "e escale os melhores para o seu time"
-msgstr "and mount the best for your team"
-
-#~ msgid "Pergunta"
-#~ msgstr "Answer"
-
-#~ msgid "PARTIES MEMBERS"
-#~ msgstr ""
-
-#~ msgid "Sobre o Site"
-#~ msgstr "About the Site"
-
-#~ msgid "Todos"
-#~ msgstr "All"
-
-#~ msgid "Answer"
-#~ msgstr ""
-
-#~ msgid ""
-#~ msgstr ""
-
-#~ msgid "Convide seus Amigos para o Política Esporte Clube"
-#~ msgstr "Invite your Friends to Politic Sports Club"
-
-#~ msgid "Despesas durante o Campeonato"
-#~ msgstr "Expenses during the Championship"
-
-#~ msgid "Despesas  na Ultima Rodada"
-#~ msgstr "Expenses in Last Round"
-
-#~ msgid "Faça Login"
-#~ msgstr "Login"
+msgstr ""
 
