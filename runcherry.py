@@ -21,7 +21,8 @@ def run_server():
         'environment': 'production',
         'log.screen': True,
         'server.socket_port': 8084,
-        'server.socket_host': '0.0.0.0'
+        'server.socket_host': '0.0.0.0',
+        'server.thread_pool': 30
         #'server.socket_host': '198.50.106.250'
     
     })
