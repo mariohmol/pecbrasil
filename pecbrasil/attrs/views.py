@@ -306,7 +306,7 @@ def attrs_orgaocandidato(orgao_id=None):
 @mod.route('/time/<time_id>/<liga_id>')
 def attrs_time(time_id=None,liga_id=None):
     offset = request.args.get('offset', 0)
-    limit = request.args.get('limit', 50)  
+    limit = request.args.get('limit', 150)  
     
     if time_id is None and liga_id is None:
         ret = Time.query.order_by(Time.posicao).limit(limit).offset(offset).all()

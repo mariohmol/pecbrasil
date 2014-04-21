@@ -7,10 +7,17 @@ the Site{% endtrans %}{% endblock %} {% block body %}
 	<h1>{% trans %}Criar Partido{% endtrans %}</h1>
 
 	<form id="ask_form" action="" method="post">
-		{{time_form.hidden_tag()}} {{ time_form.nome(id="nome",
-		placeholder="Nome Ex. Partido do Joao Silva") }} {{
-		time_form.desc(id="desc", placeholder="Descriçao Ex. Partido da Causa
-		Social , seguindo orientação política de Esquerda e ...") }} 
+		{{time_form.hidden_tag()}} 
+		
+		{% if g.locale == 'en'%}
+			{{ time_form.nome(id="nome",placeholder="Name of your party. Ex.: Party My Family") }} 
+			{{		time_form.desc(id="desc", 
+				placeholder="Description. Ex. My party is formed just by the best politicans and those that can change to a better place to live ...x") }}
+		{% else %}
+			{{ time_form.nome(id="nome",placeholder="Nome Ex. Partido do Joao Silva") }} 
+			{{		time_form.desc(id="desc", placeholder="Descriçao Ex. Partido da Causa
+			Social , seguindo orientação política de ...") }}
+		{% endif %} 
 		<!-- {{
 		time_form.color(id="color", placeholder="Cor Ex. Vermelho") }} 
 		 -->

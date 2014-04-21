@@ -6,6 +6,7 @@ nbproject/
 *.pyc
 *.log
 *.rdb
+*.bkp
 log.txt
 config.py
 Thumbs.db
