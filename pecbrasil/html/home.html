@@ -75,7 +75,7 @@
 			
 				{{ form.hidden_tag() }}
 				
-			{% for pr in providers %} <a id="{{ pr }}" style="font-size:55px;" class="login_button_social_home fa fa-{% if pr=='Google' %}{{ pr|lower }}-plus{% else %}{{ pr|lower }}{% endif %}-square"
+			{% for pr in providers %}  <a id="{{ pr }}" style="font-size:55px;" class="login_button_social_home fa fa-{% if pr=='Google' %}{{ pr|lower }}-plus{% else %}{{ pr|lower }}{% endif %}-square"
 					href="javascript:;">&nbsp;</a> 
 			{% endfor %}
 		</form>
