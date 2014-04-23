@@ -618,7 +618,16 @@ class PoliticaServices(object):
         db.session.commit()
 
     def addRodada(self,rodada):
-
+        #delete from rodadapontos where rodada=259 and time>0;
+        #insert into rodadapontos SELECT rodada,time,sum(pontos),1 
+        #FROM timecandidato tc, pontuacao p where p.candidatura = tc.candidatura 
+        #and rodada=259 group by rodada,time;
+                
+        #delete from ligapontos where rodada_ligapontos=259;
+        #insert into   ligapontos SELECT distinct p.rodada,sum(p.pontos),l.liga_ligajogador,l.user_ligajogador  FROM timecandidato tc, pontuacao p,ligajogador l,rodada r WHERE p.candidatura = tc.candidatura and l.user_ligajogador = tc.candidatura and r.id = p.rodada and r.fim >= l.data_ligajogador and rodada=259 group by p.rodada,tc.time,l.liga_ligajogador;
+        #update ligajogador l set l.pontos_ligajogador = 
+        #(select sum(pontos_ligapontos) from ligapontos where time_ligapontos  = l.user_ligajogador 
+        #     and liga_ligapontos     = l.liga_ligajogador group by time_ligapontos,liga_ligapontos) where id_ligajogador>0;
        
         #[ ] Inserir ponto time
         db.session.execute("delete from rodadapontos where rodada="+rodada)
@@ -629,14 +638,14 @@ class PoliticaServices(object):
         db.session.execute("delete from ligapontos where rodada_ligapontos="+rodada)
         sql="insert into   ligapontos SELECT p.rodada,sum(p.pontos),l.liga_ligajogador,l.user_ligajogador  ";
         sql=sql + "FROM timecandidato tc, pontuacao p,ligajogador l,rodada r ";
-        sql=sql + "WHERE p.candidatura = tc.candidatura and l.user_ligajogador = tc.candidatura and ";
+        sql=sql + "WHERE p.candidatura = tc.candidatura and l.user_ligajogador = tc.time and ";
         sql=sql + "r.id = p.rodada and r.fim >= l.data_ligajogador and rodada="+rodada+ " group by p.rodada,tc.time,l.liga_ligajogador";
         print sql
         db.session.execute(sql)
         db.session.commit()
         
         sql="update ligajogador l set l.pontos_ligajogador = (select sum(pontos_ligapontos) from ligapontos where time_ligapontos  = l.user_ligajogador "
-        sql=sql + " and liga_ligapontos     = l.liga_ligajogador ) "
+        sql=sql + " and liga_ligapontos     = l.liga_ligajogador  group by time_ligapontos,liga_ligapontos) "
         db.session.execute(sql)
         db.session.commit()
         self.updateRodadaInicioFim()
