@@ -105,7 +105,7 @@ def addPontuacao(cursor=None,semana=None,ano=None,candidatura=None,pontos=None,p
     #total_processo=utils.trataPonto(totalproposicao)
     #votacao=utils.trataPonto(totalproposicao)
     #tendencia_votacao=utils.trataPonto(totalproposicao)
-    #total_votacao=utils.trataPonto(totalproposicao)
+    total_votacao=utils.trataPonto(totalproposicao)
     atualizado = datetime.datetime.now()
     
     #print pontos
