@@ -95,7 +95,7 @@
       	</tr>
       	
       	
-     {% for jogador in liga.ligajogador.all() %}
+     {% for jogador in liga.ligajogador.order_by("pontos_ligajogador desc").all() %}
        <tr>
        	
        	<td>
