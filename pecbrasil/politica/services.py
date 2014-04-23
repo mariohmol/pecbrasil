@@ -466,8 +466,8 @@ class PoliticaServices(object):
         db.session.execute("update candidatura c set c.total_processo = (SELECT total_processo FROM pontuacao p,rodada r where r.id = p.rodada and r.ativo =1 and r.ano= '"+anoatual+"' and p.candidatura = c.id group by p.candidatura )")
         db.session.execute("update candidatura c set c.total_proposicao = (SELECT total_proposicao FROM pontuacao p,rodada r where r.id = p.rodada and r.ativo =1 and r.ano= '"+anoatual+"' and p.candidatura = c.id group by p.candidatura )")
         db.session.execute("update candidatura c set c.total_despesa = (SELECT total_despesa FROM pontuacao p,rodada r where r.id = p.rodada and r.ativo =1 and r.ano= '"+anoatual+"' and p.candidatura = c.id group by p.candidatura )")
-        db.session.execute("update pontuacao p set p.ativo=0 where rodada > (select max(r.id) from rodada r where  r.ativo =1)")
-        db.session.execute("update pontuacao p set p.ativo=1 where rodada <= (select max(r.id) from rodada r where  r.ativo =1)")
+        db.session.execute("update pontuacao p set p.ativo=0 where rodada > (select max(r.id) from rodada r where  r.ativo =1 and r.ano= '"+anoatual+"' )")
+        db.session.execute("update pontuacao p set p.ativo=1 where rodada <= (select max(r.id) from rodada r where  r.ativo =1 and r.ano= '"+anoatual+"' )")
         db.session.commit()
         return 
      
@@ -631,6 +631,11 @@ class PoliticaServices(object):
         sql=sql + "FROM timecandidato tc, pontuacao p,ligajogador l,rodada r ";
         sql=sql + "WHERE p.candidatura = tc.candidatura and l.user_ligajogador = tc.candidatura and ";
         sql=sql + "r.id = p.rodada and r.fim >= l.data_ligajogador and rodada="+rodada+ " group by p.rodada,tc.time,l.liga_ligajogador";
+        print sql
+        db.session.execute(sql)
+        db.session.commit()
+        
+        sql="update ligajogador set pontos_ligajogador = (select sum(pontos_ligapontos) from ligapontos where time_ligapontos  = id_ligajogador and liga_ligapontos     = liga_ligajogador )"
         db.session.execute(sql)
         db.session.commit()
         self.updateRodadaInicioFim()
