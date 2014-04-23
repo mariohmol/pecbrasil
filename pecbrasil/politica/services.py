@@ -618,8 +618,7 @@ class PoliticaServices(object):
         db.session.commit()
 
     def addRodada(self,rodada):
-        #[ ] Set ativo rodada 1
-        db.session.execute("update rodada set ativo=1 where id="+rodada)
+
        
         #[ ] Inserir ponto time
         db.session.execute("delete from rodadapontos where rodada="+rodada)
@@ -635,6 +634,9 @@ class PoliticaServices(object):
         db.session.execute(sql)
         db.session.commit()
         self.updateRodadaInicioFim()
+        
+        #[ ] Set ativo rodada 1
+        db.session.execute("update rodada set ativo=1 where id="+rodada)
         
     
     def atualizaRodada(self,rodada,anoatual):
