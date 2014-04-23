@@ -635,7 +635,8 @@ class PoliticaServices(object):
         db.session.execute(sql)
         db.session.commit()
         
-        sql="update ligajogador set pontos_ligajogador = (select sum(pontos_ligapontos) from ligapontos where time_ligapontos  = id_ligajogador and liga_ligapontos     = liga_ligajogador )"
+        sql="update ligajogador l set l.pontos_ligajogador = (select sum(pontos_ligapontos) from ligapontos where time_ligapontos  = l.user_ligajogador "
+        sql=sql + " and liga_ligapontos     = l.liga_ligajogador ) "
         db.session.execute(sql)
         db.session.commit()
         self.updateRodadaInicioFim()
