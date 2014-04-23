@@ -1,0 +1,23 @@
+{% extends "templates/comunicado.html" %}
+
+
+{% block title %}: {% trans %}Novo integrante na sua liga!{% endtrans %}{% endblock %}
+
+{% block body %}
+  <h1>{% trans %}Olá{% endtrans %} {{ timedono }} {% trans %}, este é um aviso que você tem um novo membro na sua liga{% endtrans %} {{nomeliga}}</h1>
+
+      <h2> {% trans %}O time{% endtrans %} {{timenovo}} {% trans %}acabou de ingressar na liga para disputar o campeonato do Política Esporte Clube{% endtrans %}
+      	
+      	</h2>
+      
+       <h2> {% trans %}Compartilhe a sua liga na sua rede de contatos e convide amigos para ingressar na sua liga! 	{% endtrans %}
+      	</h2>
+	
+	
+	 <br/> <br/>
+   <h3>{% trans %}Entre no 	{% endtrans %}
+   <a href="http://politicaesporteclube.com">Política Esporte Clube</a> {% trans %}e deixa seu time ainda mais forte!{% endtrans %}</h3>
+    <br/>
+    {% trans %}Equipe Política Esporte Clube{% endtrans %}
+{% endblock %}
+

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*- 
 from pecbrasil.politica.models import Candidatura, Pontuacao,Partido,Time,RodadaPontos,TimeCandidato
-from pecbrasil.liga.models import Liga
+from pecbrasil.liga.models import Liga,LigaJogador
 from pecbrasil.proposicao.models import Proposicao,TimeVotacao,VotacaoCandidato,Repasse,StatusProposicao,TipoProposicao,ProposicaoAcao
 from pecbrasil.politica.models import Rodada,Politico,ProcessoCandidato,DespesaCandidato
 from pecbrasil.orgao.models import Orgao
@@ -310,8 +310,46 @@ class PoliticaServices(object):
         sql="update tipoproposicao set votacao_tipoproposicao=1 where id_tipoproposicao in (SELECT tipo FROM `proposicao` where datavotacao is not null)"
         db.session.execute(sql)
         db.session.commit()
-        
     
+    
+    ##########################
+    #
+    # LIGAS
+    ##########################
+        
+    def liga(self,liga_id=None,nome=None):
+        if liga_id is not None:
+            return Liga.query.filter_by(id_liga=liga_id).first()
+        elif nome is not None:
+            return Liga.query.filter_by(nome_liga=nome).first()
+        
+        
+    def ligamembros(self,liga_id=None,nome=None,dataentrada=None):
+        if liga_id is not None:
+             ret = LigaJogador.query.filter_by(id_liga=liga_id)
+        elif nome is not None:
+            ret= LigaJogador.query.filter_by(nome_liga=nome)
+        else:
+            ret=  LigaJogador.query
+            
+        
+        ret=ret.outerjoin((Liga,LigaJogador.liga_ligajogador==Liga.id_liga))
+        ret=ret.outerjoin((Time,Liga.criador_liga==Time.id))
+        #ret=ret.outerjoin((Time,Liga.criador_liga==Time.id))
+        if dataentrada is not None:
+            ret=ret.filter_by(data_ligajogador>=dataentrada)
+
+        query = "SELECT liga.nome_liga,timejogador.nome , userjogador.email, timedono.nome, userdono.email  "
+        query = query + " FROM ligajogador, liga, " 
+        query = query + "time as timejogador, time as timedono, "
+        query = query + "account_user as userjogador, account_user userdono where "
+        query = query + "liga.id_liga=ligajogador.liga_ligajogador and "
+        query = query + "ligajogador.user_ligajogador=timejogador.id and timedono.id = liga.criador_liga and " 
+        query = query + "userjogador.id = timejogador.user_id and userdono.id = timedono.user_id "
+        return db.session.execute(query)
+        #return ret.all()  
+    
+
     ###########################
     # LIST TABELAS EM GERAL
     ###########################
@@ -370,12 +408,7 @@ class PoliticaServices(object):
             ret = DespesaCandidato.query.filter_by(categoria=despesatipo_id).join(Rodada)\
             .order_by(Rodada.inicio).all()
         return ret
-    
-    def liga(self,liga_id=None,nome=None):
-        if liga_id is not None:
-            return Liga.query.filter_by(id_liga=liga_id).first()
-        elif nome is not None:
-            return Liga.query.filter_by(nome_liga=nome).first()
+
  
          
     def orgao(self,candidatura_id=None,partido_sigla=None):
