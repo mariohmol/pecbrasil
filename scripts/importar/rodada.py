@@ -122,7 +122,7 @@ def addPontuacao(cursor=None,semana=None,ano=None,candidatura=None,pontos=None,p
     tendencia_votacao=utils.trataPonto(tendencia_votacao)
     totalproposicao=utils.trataPonto(totalproposicao)
     
-    if row is None and rod:
+    if row is None and semana is not None:
         cursor.execute("insert into pontuacao (rodada,candidatura,pontos,presenca ,tendencia_presenca,total_presenca,proposicao,tendencia_proposicao,total_proposicao,processo,tendencia_processo,total_processo,votacao,tendencia_votacao,total_votacao,despesa,tendencia_despesa,total_despesa,rodada_numero,rodada_ano,atualizado) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
                        [rowRodada[0],rowCandidato[0],
                         pontos,presenca ,tendenciapresenca,totalpresenca,
