@@ -4,27 +4,66 @@
 {% block title %}: {% trans %}Liga{% endtrans %}{% endblock %}
 
 {% block body %}
-  <h1>{% trans %}Liga{% endtrans %}</h1>
+  <h1 style="color:#27ae60">{% trans %}Liga{% endtrans %}</h1>
   
   <br/>
-  {% trans %}Crie sua liga agora e convide seus amigos para participar!{% endtrans %}
+  <div style="float:left; height:314px;  width:48%; margin-right:20px; background-color: #f4f4f4; border-radius:5px; box-shadow:1px 1px 1px #888; padding:15px;">
+  <h2 style="color:#27ae60">Crie sua liga</h2>
+  <Span style="font-size:20px;">{% trans %}Crie sua liga, escolha um grito de guerra e um brasão. Chame seu amigos e acompanhe! {% endtrans %}</Span><br>
   <br/>
-  <a href="/liga/criar/">
+  <a class="btn btn-success btn-lg" href="/liga/criar/">
   {% trans %}Criar Liga{% endtrans %}
   </a>
-  
-   <br/>
-   
+  </div>
+   <div style="float:left; width:48%; background-color: #f4f4f4; border-radius:5px; box-shadow:1px 1px 1px #888; padding:15px;">
+
    		{% set frame = 'true' %}
       	{% include "comunicado/convideamigosform.html" %}
-    <br/>
-  
-  <h2>{% trans %}Veja as ligas{% endtrans %}:</h2>
-     {% for liga in ligas %}
-      <a href="/liga/ver/{{ liga.id_liga }}">{{ liga.nome_liga }}</a>
+
+   </div>
+
+  <div style="float:left; width:100%; margin-top:40px;">
+  	<Style>
+  		.destacados{
+    padding: 10px 0;
+	text-align: left;
+}
+.destacados > div > div{
+	padding: 10px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	transition: 0.2s;
+	margin-bottom: 50px;
+}
+.destacados > div { height:153px; }
+.destacados p { font-size:13px; }
+.destacados > div:hover > div{
+	margin-top: -10px;
+	margin-bottom: 50px;
+	border: 0px solid rgb(200, 200, 200);
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 2px 1px;
+	background: rgba(200, 200, 200, 0.1);
+	transition: 0.5s;
+}
+  	</Style>
+  		<div class="row destacados">
+  			  <h2>{% trans %}Veja as ligas{% endtrans %}:</h2>
+  			{% for liga in ligas %}
+      <a href="/liga/ver/{{ liga.id_liga }}">
+		<div class="col-md-4">
+    		<div>
+				<h2 style="#27ae60">{{ liga.nome_liga }}</h2>
+				<p>{{ liga.desc }}</p>
+				<a href="#" class="btn btn-info btn-xs" title="ver mais">veja mais »</a>
+			</div>
+		</div>
+		</a>
+		{% endfor %}
+		
+	</div>
+
    
-      <br/>
-    {% endfor %}
-    
+      
+    </div>
 {% endblock %}
 

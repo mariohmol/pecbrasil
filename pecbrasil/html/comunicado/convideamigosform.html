@@ -7,7 +7,7 @@
 
 
 {% block body %}
- 	 <h2>Convide seus amigos</h2>
+ 	 <h2 style="color:#27ae60">Convide seus amigos</h2>
  	 
  	 {{ erromsg }}
  	 
@@ -18,12 +18,12 @@
  	 
 	<form action="/comunicado/convideamigos/" method="post" name="convite">
 	
-		{{form.email(id="email", placeholder="E-mail. Ex.: joao@email.com , maria@email.com")}}
-		<br/>
-		{{form.obs(id="obs", placeholder="Mensagem. Ex: Olá joao, venha jogar comigo!!")}} 
-		<br/>
+		{{form.email(id="email", style="border:1px solid #ccc; width:100%", class="input-lg", placeholder="E-mail. Ex.: joao@email.com , maria@email.com")}}
+		<br/><br>
+		{{form.obs(id="obs",style="border:1px solid #ccc; width:100%;", class="input-lg", placeholder="Mensagem. Ex: Olá joao, venha jogar comigo!!")}} 
+		<br/><br>
 		<input
-			type="submit" value="{% trans %}Enviar{% endtrans %}" class="btn btn-info" />
+			type="submit" value="{% trans %}Enviar{% endtrans %}" class="btn btn-success btn-lg" />
 
 
 		{{ form.hidden_tag() }}
