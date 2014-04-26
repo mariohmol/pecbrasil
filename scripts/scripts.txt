@@ -850,7 +850,8 @@ ALTER TABLE `proposicao` ADD `originalid` INT NULL ;
 ALTER TABLE `account_user` ADD `invite` INT NULL;
 
 
-
+ALTER TABLE `ligajogador` ADD `posicao` INT NULL ,
+ADD `posicaoanterior` INT NULL ;
 
 
 

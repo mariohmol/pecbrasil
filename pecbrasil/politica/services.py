@@ -43,6 +43,8 @@ class PoliticaServices(object):
     def topTimes(self):        
         return Time.query.order_by(Time.pontuacao_total.desc()).all()
   
+    def timesInLigas(self):
+        return db.session.execute("SELECT * FROM time where id in (select distinct user_ligajogador from ligajogador) ")
   
     ###########################
     # POLITICOS
@@ -323,7 +325,14 @@ class PoliticaServices(object):
         elif nome is not None:
             return Liga.query.filter_by(nome_liga=nome).first()
         
+     
+    def ligamembrosPontos(self,time=None):
+        query =  "SELECT user_ligajogador, id_liga, nome_liga, posicaoanterior, posicao, pontos_ligajogador"
+        query = query + "FROM ligajogador, liga WHERE  "+ time +" = user_ligajogador"
+        query = query + "AND id_liga = liga_ligajogador"
+        return db.session.execute(query)
         
+   
     def ligamembros(self,liga_id=None,time=None,dataentrada=None):
         #if liga_id is not None:
         #     ret = LigaJogador.query.filter_by(id_liga=liga_id)
@@ -570,6 +579,7 @@ class PoliticaServices(object):
         db.session.execute("update time c set c.pontuacao_total = c.pontuacao_total + (SELECT count(*) FROM account_user WHERE invite = c.user_id)")
         db.session.commit() 
         self.updatePosicaoTimes()
+        self.updatePosicaoLigas()
         db.session.commit() 
     
    
@@ -582,8 +592,22 @@ class PoliticaServices(object):
             db.session.execute("update time set posicao="+str(pos)+"  where id="+str(id))
             pos=pos+1
         db.session.commit()
-            
-        
+    
+    
+  
+    def updatePosicaoLigas(self):
+        ligas = db.session.execute("SELECT id_liga FROM liga")
+        for liga in ligas:
+            rows = db.session.execute("SELECT id_ligajogador FROM ligajogador where liga_ligajogador= "+str(liga[0])+" order by pontos_ligajogador desc")
+            pos=1
+            for row in rows:       
+                id=row[0]
+                #db.session.execute("update ligajogador set posicaoanterior=posicao  where id_ligajogador="+str(id))
+                db.session.execute("update ligajogador set posicao="+str(pos)+"  where id_ligajogador="+str(id))
+                
+                pos=pos+1
+            db.session.commit()
+               
     
        
   ###########################

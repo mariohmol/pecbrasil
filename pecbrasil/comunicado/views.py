@@ -352,3 +352,66 @@ def envioLigaNovoMembro(ligamembro,titulo,enviar):
         except:
             print "Error EMail"       
     return htmlemail
+
+
+
+
+
+
+
+
+@mod.route('/ligapontos')
+@mod.route('/ligapontos/<time_id>')
+def ligapontos(time_id=None):
+    enviar = request.args.get('enviar')
+    if enviar is None:
+        enviar='false'
+   
+    total=0
+    
+    dominio=""
+    #dominio="http://localhost:8084"
+    
+    titulo="Acompanha suas ligas!"
+    #timesInLigas
+    log=""
+    htmlemail=None
+    if time_id is not None and time_id<>"all":
+        ligamembros = politicaServices.ligamembrosPontos(time=time_id)
+        if ligamembros is not None:
+            for ligamembro in ligamembros:                
+                htmlemail=envioLigaPontos(ligamembro,titulo,enviar)
+            
+            return envioLigaPontos(ligamembro,titulo,enviar)
+    else:
+        politicaServices.timesInLigas
+        
+        total=0
+        for ligamembro in ligamembros:
+            total=total+1
+            if enviar == "True":
+                envioLigaPontos(ligamembro,titulo,enviar)
+                    
+    return render_template("comunicado/statuscomunicado.html",dominio=dominio,titulo=titulo,total=total,log=log) 
+
+def envioLigaPontos(ligamembro,titulo,enviar):
+    ligamembros = politicaServices.ligamembrosPontos()
+    if enviar is None:
+        enviar="True"
+    timenovo = ligamembro[1]
+    emailnovo = ligamembro[2]
+    
+    timedono = ligamembro[3]
+    emaildono = str(ligamembro[4])
+    
+    nomeliga = ligamembro[0]
+    htmlemail=render_template("comunicado/liganovomembro.html",timenovo=timenovo,emailnovo=emailnovo,timedono=timedono,emaildono=emaildono,nomeliga=nomeliga)
+    if ligamembro is not None and emaildono<>emailnovo:
+        
+        try:  
+            if enviar == "True":                  
+                send_mail(titulo,[emaildono], htmlemail)             
+            
+        except:
+            print "Error EMail"       
+    return htmlemail
