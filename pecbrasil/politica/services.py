@@ -564,6 +564,8 @@ class PoliticaServices(object):
         db.session.execute(sql+"  where p.time_ligapontos = l.user_ligajogador and p.liga_ligapontos = l.liga_ligajogador)")
         
         db.session.execute("update rodadapontos p set p.ativo=1 where rodada <= (select max(r.id) from rodada r where  r.ativo =1)")
+        db.session.execute("update time c set c.pontuacao_total = c.pontuacao_total + (SELECT count(*) FROM account_user WHERE invite = c.user_id)")
+        db.session.commit() 
         self.updatePosicaoTimes()
         db.session.commit() 
     
