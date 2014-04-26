@@ -305,7 +305,7 @@ def geral(time_id=None):
 def liganovomembro(time_id=None):
     enviar = request.args.get('enviar')
     if enviar is None:
-        enviar='true'
+        enviar='false'
    
     total=0
     
@@ -314,27 +314,27 @@ def liganovomembro(time_id=None):
     
     titulo="Novo membro na sua liga!"
     log=""
+    htmlemail=None
     if time_id is not None and time_id<>"all":
-        ligamembros = politicaServices.ligamembros()
-        time = politicaServices.verTime(id=time_id)
-        if time is not None and time.user is not None:
-            if enviar == "True":
-                print "enviando para "+time.user.email
-                envioLigaNovoMembro(ligamembro,titulo)
+        ligamembros = politicaServices.ligamembros(time=time_id)
+        if ligamembros is not None:
+            for ligamembro in ligamembros:                
+                htmlemail=envioLigaNovoMembro(ligamembro,titulo,enviar)
             
-            return render_template("comunicado/liganovomembro.html",time=time)
+            return envioLigaNovoMembro(ligamembro,titulo,enviar)
     else:
         ligamembros = politicaServices.ligamembros()
-        times = Time.query.all()
         total=0
         for ligamembro in ligamembros:
             total=total+1
-            envioLigaNovoMembro(ligamembro,titulo)
+            if enviar == "True":
+                envioLigaNovoMembro(ligamembro,titulo,enviar)
                     
     return render_template("comunicado/statuscomunicado.html",dominio=dominio,titulo=titulo,total=total,log=log) 
 
-def envioLigaNovoMembro(ligamembro,titulo):
-                
+def envioLigaNovoMembro(ligamembro,titulo,enviar):
+    if enviar is None:
+        enviar="True"
     timenovo = ligamembro[1]
     emailnovo = ligamembro[2]
     
@@ -342,17 +342,13 @@ def envioLigaNovoMembro(ligamembro,titulo):
     emaildono = str(ligamembro[4])
     
     nomeliga = ligamembro[0]
-    
+    htmlemail=render_template("comunicado/liganovomembro.html",timenovo=timenovo,emailnovo=emailnovo,timedono=timedono,emaildono=emaildono,nomeliga=nomeliga)
     if ligamembro is not None and emaildono<>emailnovo:
         
-        try:                
-            print "#################:"+nomeliga
-            print timenovo+emailnovo
-            print timedono+emaildono
-        
-            if enviar == "True":  
-                send_mail(titulo,[emaildono], render_template("comunicado/liganovomembro.html",timenovo=timenovo,emailnovo=emailnovo,timedono=timedono,emaildono=emaildono,nomeliga=nomeliga))
-             
+        try:  
+            if enviar == "True":                  
+                send_mail(titulo,[emaildono], htmlemail)             
             
         except:
             print "Error EMail"       
+    return htmlemail

@@ -324,20 +324,18 @@ class PoliticaServices(object):
             return Liga.query.filter_by(nome_liga=nome).first()
         
         
-    def ligamembros(self,liga_id=None,nome=None,dataentrada=None):
-        if liga_id is not None:
-             ret = LigaJogador.query.filter_by(id_liga=liga_id)
-        elif nome is not None:
-            ret= LigaJogador.query.filter_by(nome_liga=nome)
-        else:
-            ret=  LigaJogador.query
-            
-        
-        ret=ret.outerjoin((Liga,LigaJogador.liga_ligajogador==Liga.id_liga))
-        ret=ret.outerjoin((Time,Liga.criador_liga==Time.id))
+    def ligamembros(self,liga_id=None,time=None,dataentrada=None):
+        #if liga_id is not None:
+        #     ret = LigaJogador.query.filter_by(id_liga=liga_id)
+        #elif nome is not None:
+        #    ret= LigaJogador.query.filter_by(nome_liga=nome)
+        #else:
+        #    ret=  LigaJogador.query
+        #ret=ret.outerjoin((Liga,LigaJogador.liga_ligajogador==Liga.id_liga))
         #ret=ret.outerjoin((Time,Liga.criador_liga==Time.id))
-        if dataentrada is not None:
-            ret=ret.filter_by(data_ligajogador>=dataentrada)
+        #ret=ret.outerjoin((Time,Liga.criador_liga==Time.id))
+        #if dataentrada is not None:
+        #    ret=ret.filter_by(data_ligajogador>=dataentrada)
 
         query = "SELECT liga.nome_liga,timejogador.nome , userjogador.email, timedono.nome, userdono.email  "
         query = query + " FROM ligajogador, liga, " 
@@ -346,6 +344,11 @@ class PoliticaServices(object):
         query = query + "liga.id_liga=ligajogador.liga_ligajogador and "
         query = query + "ligajogador.user_ligajogador=timejogador.id and timedono.id = liga.criador_liga and " 
         query = query + "userjogador.id = timejogador.user_id and userdono.id = timedono.user_id "
+        if dataentrada is not None:
+            query = query + " AND ligajogador.data_ligajogador>="+dataentrada
+        if time is not None:
+            query = query + " AND timedono.id="+time
+
         return db.session.execute(query)
         #return ret.all()  
     
