@@ -151,6 +151,8 @@ def after_login(**user_fields):
             nickname = User.make_unique_nickname(nickname)
             user_fields["nickname"] = nickname
             user = User(**user_fields)
+            if 'invitepromo' in session:
+                user.invite=session['invitepromo']
 #	    user.set_password(user.password)
 #	    user.password=user.pw_hash
             db.session.add(user)

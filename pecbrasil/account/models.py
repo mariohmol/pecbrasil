@@ -29,6 +29,7 @@ class User(db.Model, AutoSerialize):
     role = db.Column(db.SmallInteger, default = ROLE_USER)
     bio = db.Column(db.String(256))
     image = db.Column(db.String(256))
+    invite =  db.Column(db.Integer)
     last_seen = db.Column(db.DateTime)
     questions = db.relationship("Question", backref = 'user', lazy = 'dynamic')
     replies = db.relationship("Reply", backref = 'user', lazy = 'dynamic')

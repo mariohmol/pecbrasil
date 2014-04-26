@@ -62,12 +62,15 @@ def before_request():
         session['first_time'] = True
         # flash("I've noticed it's your first time on the site. Welcome!")
     
+    
+    if request.args.get('invitepromo') is not None:
+        session['invitepromo']=request.args.get('invitepromo')
+        
     # Check if the user is logged in, if so give the global object
     # a reference to the user from DB
     g.user = current_user
     
     if g.user.is_authenticated() and request.endpoint != 'static' and not request.is_xhr:
-        print request.endpoint        
         g.user.last_seen = datetime.utcnow()
         db.session.add(g.user)
         db.session.commit()

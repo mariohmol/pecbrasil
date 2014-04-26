@@ -847,6 +847,16 @@ ALTER TABLE `tipoproposicao` ADD `votacao_tipoproposicao` TINYINT NULL ;
 
 ALTER TABLE `proposicao` ADD `originalid` INT NULL ;
 
+ALTER TABLE `account_user` ADD `invite` INT NULL;
+
+
+
+
+
+
+
+
+
 update tipoproposicao set votacao_tipoproposicao=1 where id_tipoproposicao in (
 select distinct tipo from proposicao where id in (SELECT proposicao FROM `votacaocandidato`)
 ) 
