@@ -259,6 +259,7 @@ def enviaPoliticoUltimaRodada(candidato,rodada_id,titulo,rodada,politicos,rodada
 @mod.route('/geral')
 @mod.route('/geral/<time_id>')
 def geral(time_id=None):
+    #http://localhost:8084/comunicado/geral/14?comunicado=convidelink&enviar=false
     enviar = request.args.get('enviar')
     if enviar is None:
         enviar='false' #True
@@ -286,7 +287,7 @@ def geral(time_id=None):
         total=0
         for time in times:
             total=total+1
-            print "olaa:"+str(time.user.email)
+            
             if time is not None and time.user is not None:
                 if enviar == "True":       
                     try: 
