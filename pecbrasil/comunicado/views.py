@@ -261,8 +261,11 @@ def enviaPoliticoUltimaRodada(candidato,rodada_id,titulo,rodada,politicos,rodada
 def geral(time_id=None):
     enviar = request.args.get('enviar')
     if enviar is None:
-        enviar='True'
+        enviar='false' #True
    
+    comunicado = request.args.get('comunicado')
+    if comunicado is None:
+        comunicado='geral'
     total=0
     
     dominio=""
@@ -275,9 +278,9 @@ def geral(time_id=None):
         if time is not None and time.user is not None:
             if enviar == "True":
                 print "enviando para "+time.user.email
-                send_mail(titulo,[time.user.email], render_template("comunicado/geral.html",time=time))
+                send_mail(titulo,[time.user.email], render_template("comunicado/"+comunicado+".html",time=time))
             
-            return render_template("comunicado/geral.html",time=time)
+            return render_template("comunicado/"+comunicado+".html",time=time)
     else:
         times = Time.query.all()
         total=0
@@ -288,7 +291,7 @@ def geral(time_id=None):
                 if enviar == "True":       
                     try: 
                         print "email:"+time.user.email
-                        send_mail(titulo,[time.user.email], render_template("comunicado/geral.html",time=time))
+                        send_mail(titulo,[time.user.email], render_template("comunicado/"+comunicado+".html",time=time))
                     except:
                         print "Unexpected error:"         
                     

@@ -1,0 +1,28 @@
+{% extends "templates/comunicado.html" %}
+
+
+{% block title %}: {% trans %}Promoção convide seus amigos!{% endtrans %}{% endblock %}
+
+{% block body %}
+ 
+	
+	<h1>Olá {{time.nome}}, 
+ <h1>Estamos abrindo uma oportunidade para você ganhar posições no ranking do Politica Esporte Clube!</h1>
+ <br/>
+ 
+ 
+  <h2>Indique o jogo para seus amigos e cada um que cadastrar seu time ganhará 1 ponto!!</h2>
+  <br/>
+  <h2>Compartilhe o link abaixo por email, nas redes sociais e entre amigos!  </h2>
+ 
+   <h1>http://politicaesporteclube.com/?invitepromo={{time.user_id}}</h1>
+  
+   <br/> 
+   <h2>Alcance a liderança do campeonato na politica e no engajamento!!</h2>  <br/>
+   <h3>Entre no 
+   <a href="http://politicaesporteclube.com">Política Esporte Clube</a> e deixa seu time ainda mais forte!</h3>
+  
+    Equipe Política Esporte Clube
+    
+{% endblock %}
+
