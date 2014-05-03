@@ -42,6 +42,15 @@
 	       	attrs[a.id] = a
 	   	})
  
+ 
+ inner_html = function(obj) {
+          //console.log(obj)
+          var htmlnovo= "<iframe id='iframe3' src='/despesa/boxdespesa/";
+        	  htmlnovo+=obj+ "' style='width: 180px; height: 360px'></iframe>"
+          return htmlnovo
+        }
+        
+        
       viz
         .type("tree_map")
         .id("id")
@@ -54,7 +63,7 @@
         .depth(0)
         .year(2014)
         .year_var("ano")
-        
+        .click_function(inner_html)
         
        // .tooltip_info(["partidoNome","name_pt", "pontos", "nome_rodada" ,"proposicao"])
     

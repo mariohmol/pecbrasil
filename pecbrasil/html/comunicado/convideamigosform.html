@@ -7,20 +7,20 @@
 
 
 {% block body %}
- 	 <h2 style="color:#27ae60">Convide seus amigos</h2>
+ 	 <h2 style="color:#27ae60">{% trans %}Convide seus amigos{% endtrans %}</h2>
  	 
  	 {{ erromsg }}
  	 
  	 {% if enviado %}
- 	 	<h3>Sua mensagem foi enviado ao destino com sucesso, 
- 	 	obrigado por fazer o Política Esporte Clube mais popular!!</h3>
+ 	 	<h3>{% trans %}Sua mensagem foi enviado ao destino com sucesso, 
+ 	 	obrigado por fazer o Política Esporte Clube mais popular!!{% endtrans %}</h3>
 	{% endif %}
  	 
 	<form action="/comunicado/convideamigos/" method="post" name="convite">
 	
 		{{form.email(id="email", style="border:1px solid #ccc; width:100%", class="input-lg", placeholder="E-mail. Ex.: joao@email.com , maria@email.com")}}
 		<br/><br>
-		{{form.obs(id="obs",style="border:1px solid #ccc; width:100%;", class="input-lg", placeholder="Mensagem. Ex: Olá joao, venha jogar comigo!!")}} 
+		{{form.obs(id="obs",style="border:1px solid #ccc; width:100%;", class="input-lg", placeholder="Mensagem. Ex: Olá joao!!")}} 
 		<br/><br>
 		<input
 			type="submit" value="{% trans %}Enviar{% endtrans %}" class="btn btn-success btn-lg" />

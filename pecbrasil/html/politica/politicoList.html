@@ -1,7 +1,6 @@
 <!-- extend from about base layout -->
 {% extends "templates/site.html" %}
 
-{% block title %}: {% trans %}About the Site{% endtrans %}{% endblock %}
 
 {% block body %}
   
@@ -10,7 +9,7 @@
   	<h1 style="color: #27ae60">{% trans %}Políticos{% endtrans %}</h1>
   	<div class="col-md-12">
   	<div class="col-md-12">
-  	<span style="font-size:12px;">{% trans %}Ordenar{% endtrans %}:</span> 
+  	<span style="font-size:12px;">{% trans %}Dados{% endtrans %}:</span> 
   	<a class="btn {% if orderby == "name_pt" %} btn-info active {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/name_pt?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Nome{% endtrans %}</a> 
   	<a class="btn {% if orderby == "partido" %} btn-info active {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/partido?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Partido{% endtrans %}</a> 
   	<a class="btn {% if orderby == "total_despesa" %} btn-info active {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/total_despesa?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Despesa{% endtrans %}</a> 
@@ -20,7 +19,7 @@
   	 
   	<a class="btn {% if orderby == "pontuacao_total" %} btn-info active {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/pontuacao_total?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Pontos{% endtrans %}</a> 
   	<a class="btn {% if orderby == "pontuacao_ultima" %} btn-info active {% else %} btn-success {% endif %} btn-xs" href="/politica/politico/all/pontuacao_ultima?orderdirec={{orderdirec}}&estado={{estado}}">{% trans %}Última Semana{% endtrans %}</a>
-  	<span style="font-size:12px; padding-left: 20px;">{% trans %}Pontuação{% endtrans %}:</span> 
+  	<span style="font-size:12px; padding-left: 20px;">{% trans %}Ordenar{% endtrans %}:</span> 
   	{% if orderdirec == "asc" %}
  	
  	
@@ -45,8 +44,8 @@
   	<div class="col-md-4 form-group">
   		<span style="font-size:12px;">{% trans %}Filtrar por estado{% endtrans %}:</span>
   	<select onchange="if(this.value!='') { window.location=this.value; }" name="estado" style="font-size:15px; padding:5px; width:100%;" class="form-contol"> 
-  	<option  value="">Selecione</option>
-  	<option  value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}">Todos estados</option>
+  	<option  value="">{% trans %}Selecione{% endtrans %}</option>
+  	<option  value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}">{% trans %}Todos estados{% endtrans %}</option>
   	<option {% if estado == "AC" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=AC">Acre</option> 
   	<option  {% if estado == "AL" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=AL">Alagoas</option> 
   	<option  {% if estado == "AM" %} selected {% endif %} value="/politica/politico/all/{{orderby}}?orderdirec={{orderdirec}}&estado=AM">Amazonas</option> 
@@ -80,7 +79,8 @@
   		<span style="font-size:12px;">{% trans %}Buscar por político{% endtrans %}:</span>
   	
   	{{form.hidden_tag()}}
-  		<input type="text" name="nome" id="nome" style="display:inline-block; border-radius: 2px;" class="form-control" placeholder="Digite o nome do político" /> 
+  		<input type="text" name="nome" id="nome" style="display:inline-block; border-radius: 2px;" class="form-control" 
+  		placeholder="{% trans %}Digite o nome do político{% endtrans %}" /> 
   		
   		
   	</div>

@@ -319,6 +319,12 @@ def attrs_time(time_id=None,liga_id=None):
 
 
 
+@mod.route('/top3time/')
+def attrs_top3time():
+    ret = politicaServices.top3Time()
+    items = [q.serialize() for q in ret]
+    return jsonify({"times":items})
+
 @mod.route('/timecandidato/')
 @mod.route('/timecandidato/<time_id>')
 @mod.route('/timecandidato/<time_id>/')

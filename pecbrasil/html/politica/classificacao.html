@@ -7,7 +7,7 @@
     
     <div style="width:100%;float: left;">
     
-    <h1 style="display:inline-block; color:#27ae60;">Classificação</h1>
+    <h1 style="display:inline-block; color:#27ae60;">{% trans %}CLASSIFICAÇÃO{% endtrans %}</h1>
     
     <div class="col-md-12" style="font-size: 13px;">
     	{% trans %}Confira abaixo os 3 times mais pontuados no campeonato. Continue acompanhando e faça o seu time chegar aqui!{% endtrans %} 
@@ -27,7 +27,7 @@
 			1º
 		</div>
 		<div style="padding: 29px 10px; font-family: 'MohaveRegular'; font-size:34px; display:inline-table; width: 630px; height: 81px; background-color:#f4f4f4; color:#333;text-align: left;margin-top: 14px;">
-			{{ primeiroTime.nome }}
+			<a href="/politica/selecao/{{primeiroTime.id}}">{{ primeiroTime.nome }}</a>
 		</div>
 		<div style="padding: 30px 0px; font-size:35px;font-family: 'MohaveBold'; color:white; text-shadow: 3px 3px 1px #27ae60; display:inline-table; width: 200px;line-height: 22px; height: 80px; background-color:#2ecc71;text-align: center;">
 			{{ primeiroTime.pontuacao_total }}<br><span style="font-size:18px;">pontos</span>
@@ -39,7 +39,7 @@
 			2º
 		</div>
 		<div style="padding: 29px 10px; font-family: 'MohaveRegular'; font-size:34px; display:inline-table; width: 630px; height: 81px; background-color:#f4f4f4; color:#333;text-align: left;margin-top: 14px;">
-			{{ segundoTime.nome }}
+			<a href="/politica/selecao/{{segundoTime.id}}">{{ segundoTime.nome }}</a>
 		</div>
 		<div style="padding: 30px 0px; font-size:35px;font-family: 'MohaveBold'; color:white; text-shadow: 3px 3px 1px #27ae60; display:inline-table; width: 200px;line-height: 22px; height: 80px; background-color:#2ecc71;text-align: center;">
 			{{ segundoTime.pontuacao_total }}<br><span style="font-size:18px;">pontos</span>
@@ -51,7 +51,7 @@
 			3º
 		</div>
 		<div style="padding: 29px 10px; font-family: 'MohaveRegular'; font-size:34px; display:inline-table; width: 630px; height: 81px; background-color:#f4f4f4; color:#333;text-align: left;margin-top: 14px;">
-			{{ terceiroTime.nome }}
+			<a href="/politica/selecao/{{terceiroTime.id}}">{{ terceiroTime.nome }}</a>
 		</div>
 		<div style="padding: 30px 0px; font-size:35px;font-family: 'MohaveBold'; color:white; text-shadow: 3px 3px 1px #27ae60; display:inline-table; width: 200px;line-height: 22px; height: 80px; background-color:#2ecc71;text-align: center;">
 			{{ terceiroTime.pontuacao_total }}<br><span style="font-size:18px; font-family: 'MohaveRegular'; ">pontos</span>
@@ -120,7 +120,7 @@ function item_formatter(container_el, activities){
     
 	
  attrs_enter.append("td").text(function(d){ return d.posicao; })
-  attrs_enter.append("td").text(function(d){ return d.nome; })
+  attrs_enter.append("td").append("a").text(function(d){ return d.nome; }).attr("href",function(d){ return "/politica/selecao/"+d.id ; })
   attrs_enter.append("td").text(function(d){ return d.pontuacao_total; })
   
 	

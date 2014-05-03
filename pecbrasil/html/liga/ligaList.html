@@ -8,8 +8,8 @@
   
   <br/>
   <div style="float:left; height:314px;  width:48%; margin-right:20px; background-color: #f4f4f4; border-radius:5px; box-shadow:1px 1px 1px #888; padding:15px;">
-  <h2 style="color:#27ae60">Crie sua liga</h2>
-  <Span style="font-size:20px;">{% trans %}Crie sua liga, escolha um grito de guerra e um brasão. Chame seu amigos e acompanhe! {% endtrans %}</Span><br>
+  <h2 style="color:#27ae60">{% trans %}Crie sua liga{% endtrans %}</h2>
+  <Span style="font-size:20px;">{% trans %}Crie sua liga, escolha um grito de guerra e um brasão. Chame seu amigos e acompanhe!{% endtrans %}</Span><br>
   <br/>
   <a class="btn btn-success btn-lg" href="/liga/criar/">
   {% trans %}Criar Liga{% endtrans %}
@@ -54,7 +54,7 @@
     		<div>
 				<h2 style="#27ae60">{{ liga.nome_liga }}</h2>
 				<p>{{ liga.desc }}</p>
-				<a href="#" class="btn btn-info btn-xs" title="ver mais">veja mais »</a>
+				<a href="/liga/ver/{{ liga.id_liga }}" class="btn btn-info btn-xs" title="ver mais">{% trans %}veja mais{% endtrans %} »</a>
 			</div>
 		</div>
 		</a>

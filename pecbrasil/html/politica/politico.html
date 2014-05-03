@@ -15,7 +15,7 @@
 	<img src="/static/img/pec/fotos/{{ politicos.politicos.id_original }}.jpg" style="box-shadow:0px 1px 1px #888;border-radius:5px;border:7px solid #f4f4f4; width: 100%; margin-top:50px;" />
 	
 	
-	<h1>veja mais</h1>
+	<h1>{% trans %}Veja mais{% endtrans %}</h1>
 	
 	    <a onclick="slide(this.id)" id="app0" class="app_links decision short icon tree_map">
 	<i class="fa fa-info-circle"></i> {% trans %}Informações Gerais{% endtrans %}</a>
@@ -62,7 +62,7 @@
 </div>
 <div class="col-md-9 ctPolitico"> 
 
-	<div id="profile0" class="lightbox guide_app infoQd" style="width: 100%!important; height: auto;">
+	<div id="profile" class="lightbox guide_app infoQd" style="width: 100%!important; height: auto;">
 		<div style="float:right; width: 130px; text-align: right; box-shadow: 0px 0px 5px #888;padding: 0px;background-color: #2ECC70;border-radius: 5px;">
 			<span class="sideTlt" style="background-color:#27AE60;  color: white; border-radius: 5px 5px 0 0;padding: 10px 0;">{% trans %}TOTAL de pontos{% endtrans %}</span>
 			<span class="sideVal valGd" style="color: #ff0; padding: 19px 0px;text-align:center;font-size: 41px!important;">{{ politicos.pontuacao_total }}<br><span>{% trans %}pontos{% endtrans %}</span></span>
@@ -73,7 +73,8 @@
 		<div style="float:left; width: 520px;">
 			<div id="titulo" style="color:#27AE60; font-size: 20px;">
 				<h1>{{ politicos.politicos.nome }}</h1>
-				<div id="contato"><a href="/politica/partido/{{ politicos.partidos.id }}"> <img src="/static/img/pecbrasil/partidos/{{ politicos.partidos.sigla|lower}}.jpg" width="30"></a> DEPUTADO FEDERAL</div>
+				<div id="contato"><a href="/politica/partido/{{ politicos.partidos.id }}"> 
+					<img src="/static/img/pecbrasil/partidos/{{ politicos.partidos.sigla|lower}}.jpg" width="30"></a> {% trans %}DEPUTADO FEDERAL{% endtrans %}</div>
 			</div>
 			<div id="candidato" style="float: left; width: 100%;">
 				<div id="local" style="float: left; width: 100%; margin-bottom:10px; ">
@@ -83,9 +84,9 @@
 
 		<h2 style="    font-size: 20px;    color: #d4d4d4; margin-bottom:0px!important;">{% trans %}Biografia{% endtrans %}</h2>
 		
-		<span style="font-size:15px;">Nascido em 	{{ politicos.politicos.nascimento }} 
+		<span style="font-size:15px;">{% trans %}Nascido em{% endtrans %} 	{{ politicos.politicos.nascimento }} 
 		<br/>
-		Slogan de campanha: {{ politicos.politicos.desc_pt }}
+		{% trans %}Slogan de campanha{% endtrans %}: {{ politicos.politicos.desc_pt }}
 		<br/>
 	</span>
 				<!-- 
@@ -97,33 +98,38 @@
 				</div>
 				 -->
 				<hr class="regCinza">
-				<h3 style="color: #ccc;">Informações gerais</h3>
-				<div style="float:left; height:70px; width: 120px">
-				<span class="sideTlt"><i class="fa fa-check-square-o"></i> {% trans %}Votações{% endtrans %}</span>
-					<span class="sideVal boxVotacoes">
-						<span class="valor">{{ politicos.total_votacao|int }}</span><br>
-					</span>
-				</div>
-				<div style="float:left; height:70px; width: 120px">
-					<span class="sideTlt"><i class="fa fa-male"></i> {% trans %}Presenças{% endtrans %}</span>
-					<span class="sideVal boxVotacoes">
-						<span class="valor">{{ politicos.total_presenca|int }}</span>
-						
-					</span>
-				</div>
 				
-				<div style="float:left; height:70px; width: 120px">
-						<span class="sideTlt"><i class="fa fa-money"></i> {% trans %}Despesas{% endtrans %}</span>
-					<span class="sideVal boxVotacoes">
-						<span class="valor">R$ {{ politicos.total_despesa|int }}</span>
-					</span>
-				</div>
-				<div style="float:left; height:70px; width: 120px">
-					<span class="sideTlt"><i class="fa fa-microphone"></i> {% trans %}Proposições{% endtrans %}</span>
-					<span class="sideVal boxVotacoes">
-						<span class="valor">{{ politicos.total_proposicao|int }}</span>
-						
-					</span>
+				
+				<div id="profile0" class="profileFechado  guide_app " style="margin-top:0px!important;">
+					<h3 style="color: #ccc;">{% trans %}Informações Gerais{% endtrans %}</h3>
+					<div style="float:left; height:70px; width: 120px">
+					<span class="sideTlt"><i class="fa fa-check-square-o"></i> {% trans %}Votações{% endtrans %}</span>
+						<span class="sideVal boxVotacoes">
+							<span class="valor">{{ politicos.total_votacao|int }}</span><br>
+						</span>
+					</div>
+					<div style="float:left; height:70px; width: 120px">
+						<span class="sideTlt"><i class="fa fa-male"></i> {% trans %}Presenças{% endtrans %}</span>
+						<span class="sideVal boxVotacoes">
+							<span class="valor">{{ politicos.total_presenca|int }}</span>
+							
+						</span>
+					</div>
+					
+					<div style="float:left; height:70px; width: 120px">
+							<span class="sideTlt"><i class="fa fa-money"></i> {% trans %}Despesas{% endtrans %}</span>
+						<span class="sideVal boxVotacoes">
+							<span class="valor">R$ {{ politicos.total_despesa|int }}</span>
+						</span>
+					</div>
+					<div style="float:left; height:70px; width: 120px">
+						<span class="sideTlt"><i class="fa fa-microphone"></i> {% trans %}Proposições{% endtrans %}</span>
+						<span class="sideVal boxVotacoes">
+							<span class="valor">{{ politicos.total_proposicao|int }}</span>
+							
+						</span>
+					</div>
+				
 				</div>
 			</div>
 		</div>
@@ -159,7 +165,7 @@
 		  {% set funcOption = 'false' %}
 		{% include "grafico/painel.html" %}
 
-		<iframe id="iframe1"
+		<iframe id="iframe1" alt="/grafico/treemap/{{ politicos.partidos.sigla }}/{{ politicos.id }}"
 			src="/grafico/treemap/{{ politicos.partidos.sigla }}/{{ politicos.id }}"
 			style="width:  648px!important; height: 600px"> </iframe>
 	</div>

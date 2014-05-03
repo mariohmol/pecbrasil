@@ -15,24 +15,24 @@ label {
 
 		<button name="{{ iframeId }}_depth"
 	id="{{ iframeId }}_depth_pontos" class="btn btn-info btn-xs active"
-		onclick="getElementByIframeId('{{ iframeId }}','pontos').click()">Pontos</button>
+		onclick="getElementByIframeId('{{ iframeId }}','pontos').click()">{% trans %}Pontos{% endtrans %}</button>
 	
 		
 		<button name="{{ iframeId }}_depth"
 	id="{{ iframeId }}_depth_despesa" class="btn btn-success btn-xs "
-		onclick="getElementByIframeId('{{ iframeId }}','despesa').click()">Despesas</button>
+		onclick="getElementByIframeId('{{ iframeId }}','despesa').click()">{% trans %}Despesas{% endtrans %}</button>
 		
 		<button name="{{ iframeId }}_depth"
 	id="{{ iframeId }}_depth_presenca" class="btn btn-success btn-xs "
-		onclick="getElementByIframeId('{{ iframeId }}','presenca').click()">Presenças</button>
+		onclick="getElementByIframeId('{{ iframeId }}','presenca').click()">{% trans %}Presenças{% endtrans %}</button>
 		
 		<button name="{{ iframeId }}_depth"
 	id="{{ iframeId }}_depth_proposicao" class="btn btn-success btn-xs "
-		onclick="getElementByIframeId('{{ iframeId }}','proposicao').click()">Proposições</button>
+		onclick="getElementByIframeId('{{ iframeId }}','proposicao').click()">{% trans %}Proposições{% endtrans %}</button>
 		
 		<button name="{{ iframeId }}_depth"
 	id="{{ iframeId }}_depth_votacao" class="btn btn-success btn-xs "
-		onclick="getElementByIframeId('{{ iframeId }}','votacao').click()">Votações</button>
+		onclick="getElementByIframeId('{{ iframeId }}','votacao').click()">{% trans %}Votações{% endtrans %}</button>
 	
 	
 		
@@ -65,12 +65,12 @@ label {
 	<button nname="{{ iframeId }}_func" 
 	id="{{ iframeId }}_func_media" checked="checked"
 		onclick="getElementByIframeId('{{ iframeId }}','media').click()" class="btn btn-info active btn-xs "
-		>Média</button>
+		>{% trans %}Média{% endtrans %}</button>
 	
 	<button nname="{{ iframeId }}_func" 
 	id="{{ iframeId }}_func_total" checked="checked"
 		onclick="getElementByIframeId('{{ iframeId }}','total').click()" class="btn btn-success  btn-xs "
-		>Total</button>
+		>{% trans %}Total{% endtrans %}</button>
 	
 	{% endif %}
 
