@@ -158,8 +158,8 @@ def criartime(time_id=None):
             total=total+1
             log=log+","+time.user.email
     else:
-        db.session.execute("select email, nickname, fullname from account_user where id not in (select user_id from time)")
-        rows = db.session.fetchall()
+        rows = db.session.execute("select email, nickname, fullname from account_user where id not in (select user_id from time)")
+        
         total=0
         for row in rows:
             try:
