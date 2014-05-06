@@ -1,0 +1,65 @@
+{% extends "templates/clean.html" %}
+
+{% block content %}
+
+ 
+ {% set divId = 'stackedDiv' %}
+{% include "grafico/painelIframe.html" %}
+
+ 	<script src="/static/js/src/viz/stacked.js"></script>
+ 		
+ 	
+
+<div id="stackedMeuPartido" style="width: 70%"></div>
+
+<script src="/static/js/src/viz/stacked.js"></script>
+
+<script>
+	var viz = d3plus.viz()
+
+	d3.json("/attrs/time/{{ selecao }}", function(time) {
+		d3.json("/attrs/candidaturatime/{{ selecao }}", function(candidato) {
+		d3.json("/attrs/timecandidato/{{ selecao }}", function(timecandidato) {
+			d3.json("/attrs/rodadapontos/{{ selecao }}", function(data) {
+
+				var attrs = {}
+				timecandidato.timecandidato.forEach(function(a) {
+					//a.time = a.id
+					time.times.forEach(function(p) {
+						if (p.id == a.time) {
+							a.timeNome = p.nome
+						}
+					})
+					candidato.candidaturas.forEach(function(p) {
+						if (p.id == a.candidatura) {
+							a.candidatoNome = p.name_pt
+						}
+					})
+					attrs[a.id] = a
+				})
+
+				viz.type("stacked").id_var("candidatoNome")
+				.attrs(attrs).text_var("candidatoNome")
+				.value("pontos")
+				 .xaxis_var("rodada")
+				.year_var("rodada")
+
+				.tooltip_info([ "pontos", "rodada", "candidatura" ])
+
+				//.name_array([ "candidatoNome", "candidatoNome" ])
+				.nesting([ "time", "candidatura" ])
+
+				.depth("candidatura")
+
+				//.aggs({"pontos":"mean"})
+				//.aggs({"pontos" : "sum"	})
+				
+				d3.select("#stackedMeuPartido").datum(data.rodadapontos).call(viz)
+
+			})
+		})
+	})
+	})
+</script>
+
+{% endblock %}

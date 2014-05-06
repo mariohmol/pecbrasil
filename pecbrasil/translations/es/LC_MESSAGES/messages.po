@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-05-01 12:58-0300\n"
+"POT-Creation-Date: 2014-05-06 17:26-0300\n"
 "PO-Revision-Date: 2014-02-25 14:02-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: es <LL@li.org>\n"
@@ -593,6 +593,7 @@ msgid "Veja mais informações sobre esta categoria de despesa"
 msgstr "Ver más información de esta categoría de gasto"
 
 #: pecbrasil/html/despesa/boxdespesa.html:4
+#: pecbrasil/html/politica/boxpartido.html:4
 msgid "aqui"
 msgstr "aquí"
 
@@ -808,7 +809,7 @@ msgid "Entrar na Liga"
 msgstr "Iniciar sesión en Liga"
 
 #: pecbrasil/html/liga/liga.html:58 pecbrasil/html/politica/meu-partido.html:86
-#: pecbrasil/html/templates/site.html:190
+#: pecbrasil/html/templates/site.html:215
 msgid "Compartilhe"
 msgstr "Cuota"
 
@@ -870,7 +871,10 @@ msgstr "¿Seguro que quieres eliminar la liga?"
 msgid "Excluir Jogador"
 msgstr "Eliminar Partido"
 
-#: pecbrasil/html/liga/liga.html:164 pecbrasil/html/politica/selecao.html:63
+#: pecbrasil/html/liga/liga.html:164
+#: pecbrasil/html/politica/meu-partido.html:115
+#: pecbrasil/html/politica/meu-partido.html:133
+#: pecbrasil/html/politica/selecao.html:68
 msgid "Pontuação no Campeonato"
 msgstr "Puntuación Liga"
 
@@ -921,6 +925,11 @@ msgstr "Las últimas formalidades"
 #: pecbrasil/html/orgao/orgaocandidato.html:96
 msgid "O orgao não foi encontrado"
 msgstr "No se encontró el órgano"
+
+#: pecbrasil/html/politica/boxpartido.html:3
+#, fuzzy
+msgid "Veja mais informações sobre este partido"
+msgstr "Ver más información de esta categoría de gasto"
 
 #: pecbrasil/html/politica/boxpolitico.html:94
 #: pecbrasil/html/politica/boxpolitico.html:107
@@ -1038,6 +1047,11 @@ msgstr "Seguro que quiere eliminar?"
 #: pecbrasil/html/politica/meu-partido.html:104
 msgid "Excluir Partido"
 msgstr "Eliminar Partido"
+
+#: pecbrasil/html/politica/meu-partido.html:150
+#: pecbrasil/html/politica/selecao.html:84
+msgid "Esta seleção ainda não pontuou neste campeonato"
+msgstr ""
 
 #: pecbrasil/html/politica/partido.html:6
 msgid "Partido:  "

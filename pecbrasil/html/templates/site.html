@@ -146,15 +146,17 @@
 			
 		<h1 style="    color: white;  float:left; margin-left:85px;  text-align: left; font-size: 26px;">{% trans %}CLASSIFICAÇÃO{% endtrans %}</h1>
 			
+			
 		<div class="col-md-12" style="margin-left: 70px;">
 			<div class="ranking_posicao" style="background-color:#ffd700;color: #b39700;">
 				1º
 			</div>
 			<div class="ranking_partido">
-				PARTIDO da causa 
+				<div id="ranking1nome" ></div>
+				
 			</div>
 			<div class="ranking_pontos">
-				46 <span >pontos</span>
+				<div id="ranking1pontos" ></div> <span >pontos</span>
 			</div>
 		</div>
 		
@@ -164,10 +166,10 @@
 				2º
 			</div>
 			<div class="ranking_partido">
-				PARTIDO da causa 
+				<div id="ranking2nome" ></div>
 			</div>
 			<div class="ranking_pontos">
-				35  <span style="font-size: 12px;">pontos</span>
+				<div id="ranking2pontos" ></div>   <span style="font-size: 12px;">pontos</span>
 			</div>
 		</div>
 		
@@ -177,12 +179,35 @@
 				3º
 			</div>
 			<div class="ranking_partido">
-				PARTIDO da causa 
+				<div id="ranking3nome" ></div> 
 			</div>
 			<div class="ranking_pontos">
-				25  <span style="font-size: 12px;">pontos</span>
+				<div id="ranking3pontos" ></div>   <span style="font-size: 12px;">pontos</span>
 			</div>
 		</div>
+		
+		
+		
+		<script>
+			var listatimes;
+						d3.json("/attrs/top3time/	", function(times){
+				i=0;
+				listatimes=times.times;
+				
+				d3.select("#ranking1nome").text(listatimes[0].nome);
+					d3.select("#ranking2nome").text(listatimes[1].nome);
+					d3.select("#ranking3nome").text(listatimes[2].nome);
+					
+					d3.select("#ranking1pontos").text(listatimes[0].pontuacao_total);
+					d3.select("#ranking2pontos").text(listatimes[1].pontuacao_total);
+					d3.select("#ranking3pontos").text(listatimes[2].pontuacao_total);
+		          
+			})
+			
+					
+					
+			</script>
+			
 		
 			<div class="col-md-12" style="margin-left: 70px; margin-top:10px; ">
 			

@@ -349,7 +349,9 @@ def attrs_timecandidato(time_id=None,candidatura_id=None):
 @mod.route('/rodadapontos/<time_id>/')
 @mod.route('/rodadapontos/<time_id>/<rodada_id>')
 @mod.route('/rodadapontos/<time_id>/<rodada_id>/')
-def attrs_rodadapontos(time_id=None,rodada_id=None):
+@mod.route('/rodadapontos/<time_id>/<rodada_id>/<liga_id>')
+@mod.route('/rodadapontos/<time_id>/<rodada_id>/<liga_id>/')
+def attrs_rodadapontos(time_id=None,rodada_id=None,liga_id=None):
     if time_id is None:
         if rodada_id is None or rodada_id=="all":
             ret = RodadaPontos.query.filter_by(ativo=1).all()

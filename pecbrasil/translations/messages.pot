@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-05-01 12:58-0300\n"
+"POT-Creation-Date: 2014-05-06 17:26-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -578,6 +578,7 @@ msgid "Veja mais informações sobre esta categoria de despesa"
 msgstr ""
 
 #: pecbrasil/html/despesa/boxdespesa.html:4
+#: pecbrasil/html/politica/boxpartido.html:4
 msgid "aqui"
 msgstr ""
 
@@ -791,7 +792,7 @@ msgid "Entrar na Liga"
 msgstr ""
 
 #: pecbrasil/html/liga/liga.html:58 pecbrasil/html/politica/meu-partido.html:86
-#: pecbrasil/html/templates/site.html:190
+#: pecbrasil/html/templates/site.html:215
 msgid "Compartilhe"
 msgstr ""
 
@@ -848,7 +849,10 @@ msgstr ""
 msgid "Excluir Jogador"
 msgstr ""
 
-#: pecbrasil/html/liga/liga.html:164 pecbrasil/html/politica/selecao.html:63
+#: pecbrasil/html/liga/liga.html:164
+#: pecbrasil/html/politica/meu-partido.html:115
+#: pecbrasil/html/politica/meu-partido.html:133
+#: pecbrasil/html/politica/selecao.html:68
 msgid "Pontuação no Campeonato"
 msgstr ""
 
@@ -897,6 +901,10 @@ msgstr ""
 #: pecbrasil/html/orgao/orgao.html:96
 #: pecbrasil/html/orgao/orgaocandidato.html:96
 msgid "O orgao não foi encontrado"
+msgstr ""
+
+#: pecbrasil/html/politica/boxpartido.html:3
+msgid "Veja mais informações sobre este partido"
 msgstr ""
 
 #: pecbrasil/html/politica/boxpolitico.html:94
@@ -1013,6 +1021,11 @@ msgstr ""
 
 #: pecbrasil/html/politica/meu-partido.html:104
 msgid "Excluir Partido"
+msgstr ""
+
+#: pecbrasil/html/politica/meu-partido.html:150
+#: pecbrasil/html/politica/selecao.html:84
+msgid "Esta seleção ainda não pontuou neste campeonato"
 msgstr ""
 
 #: pecbrasil/html/politica/partido.html:6

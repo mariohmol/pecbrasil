@@ -106,59 +106,52 @@
 		<br />	
 </div>
 
-<div id="viz" style="width: 70%"></div>
-
-<script src="/static/js/src/viz/stacked.js"></script>
-
-<script>
-	var viz = d3plus.viz()
-
-	d3.json("/attrs/time/1", function(time) {
-		d3.json("/attrs/candidaturatime/{{ time.id }}", function(candidato) {
-		d3.json("/attrs/timecandidato/{{ time.id }}", function(timecandidato) {
-			d3.json("/attrs/rodadapontos/{{ time.id }}", function(data) {
-
-				var attrs = {}
-				timecandidato.timecandidato.forEach(function(a) {
-					//a.time = a.id
-					time.times.forEach(function(p) {
-						if (p.id == a.time) {
-							a.timeNome = p.nome
-						}
-					})
-					candidato.candidaturas.forEach(function(p) {
-						if (p.id == a.candidatura) {
-							a.candidatoNome = p.name_pt
-						}
-					})
-					attrs[a.id] = a
-				})
-
-				viz.type("stacked").id_var("candidatoNome").attrs(attrs).text_var(
-						"candidatoNome").value("pontos")
-				 .xaxis_var("rodada")
-				.year_var("rodada")
-				//.year(2)
-
-				.tooltip_info([ "pontos", "rodada", "candidatura" ])
-
-				.name_array([ "candidatoNome", "candidatoNome" ]).nesting(
-						[ "time", "candidatura" ])
-
-				.depth("candidatura")
-
-				.aggs({"pontos":"mean"})
-				.aggs({
-					"pontos" : "sum"
-				})
+{% if time.pontuacao_total %}
+	
+	
+	<div id="profile2" class="lightbox guide_app"
+	
+			style="width: 668px!important; height: auto; background-color:#f1f1f1!important; border-radius: 5px; box-shadow: 0px 0px 1px #888; padding: 5px 10px;">
+			<h2>{% trans %}Pontuação no Campeonato{% endtrans %}</h2>
+	
+	
+		{% set iframeId = 'iframe2' %} 
+				 {% set anoOption = 'true' %}
+				  {% set valOption = 'false' %}
+				 
+				{% include "grafico/painel.html" %}
 				
-				d3.select("#viz").datum(data.rodadapontos).call(viz)
+			<iframe id="iframe2"
+				src="/grafico/selecaostacked/{{ time.id }}"
+				style="width:  648px!important; height: 600px"> </iframe>
+	</div>
 
-			})
-		})
-	})
-	})
-</script>
+<!--
+	<div id="profile3" class="lightbox guide_app"
+	
+			style="width: 668px!important; height: auto; background-color:#f1f1f1!important; border-radius: 5px; box-shadow: 0px 0px 1px #888; padding: 5px 10px;">
+			<h2>{% trans %}Pontuação no Campeonato{% endtrans %}</h2>
+	
+	
+		{% set iframeId = 'iframe2' %} 
+				 {% set anoOption = 'true' %}
+				  {% set valOption = 'false' %}
+				 
+				{% include "grafico/painel.html" %}
+				
+			<iframe id="iframe2"
+				src="/grafico/meupartidostacked/{{ time.id }}"
+				style="width:  648px!important; height: 600px"> </iframe>
+	</div>
+-->	
+	
+{% else %}
+
+<h2>{% trans %}Esta seleção ainda não pontuou neste campeonato{% endtrans %}</h2>
+
+{% endif %}
+
+
 
 <br />
 

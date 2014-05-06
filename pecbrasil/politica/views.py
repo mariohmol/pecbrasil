@@ -228,11 +228,7 @@ def verPartido(time=None):
     if g.user is None or not g.user.is_authenticated():
         return   redirect(url_for('politica.criarPartido'))
     
- 
- 
-### ### ### ### ### ### ### ### ###  
-### TESTES ###
-### ### ### ### ### ### ### ### ### 
+
     timeRetorno = politicaServices.meuTime(g.user.id) 
     if timeRetorno is None:
         return   redirect(url_for('politica.criarPartido'))

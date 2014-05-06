@@ -96,6 +96,14 @@ def selecaostacked(selecao=None,liga=None):
     elif liga is not None:
         return render_template("grafico/liga.html",selecao=selecao ,liga=liga)
     
+@mod.route('/meupartidostacked/<selecao>')
+@mod.route('/meupartidostacked/<selecao>/<liga>')
+@mod.route('/meupartidostacked/<selecao>/<liga>/')
+def meupartidostacked(selecao=None,liga=None):    
+    if selecao is not  None and selecao<>'all':
+        return render_template("grafico/stackedMeuPartido.html",selecao=selecao ,liga=liga)
+    elif liga is not None:
+        return render_template("grafico/stackedMeuPartido.html",selecao=selecao ,liga=liga)
 
 @mod.route('/mapasvg/')
 def mapasvg():    
