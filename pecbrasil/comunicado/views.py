@@ -168,7 +168,7 @@ def criartime(time_id=None):
                     print "Unexpected error:"
                     print "Error EMail"
             total=total+1
-            log=log+","+time.user.email
+            log=log+","+[row[0]]
                 
     
     return render_template("comunicado/statuscomunicado.html",titulo=titulo,total=total,log=log)    
