@@ -681,6 +681,7 @@ class PoliticaServices(object):
         
         #[ ] Set ativo rodada 1
         db.session.execute("update rodada set ativo=1 where id="+rodada)
+        db.session.commit()
         
     
     def atualizaRodada(self,rodada,anoatual):
