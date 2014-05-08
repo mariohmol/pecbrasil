@@ -274,7 +274,7 @@ function slide(id) {
 }
 
 function load(id) {
-	loadRun(id,false)
+	loadRun(id,true)
 }
 
 function loadRun(id,run) {

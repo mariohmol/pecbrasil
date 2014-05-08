@@ -760,3 +760,9 @@ class PoliticaServices(object):
                 r.delete(cache_key)
             else:
                 print cache_key
+    def votacaoSimilarCandidato(self):
+        sql="SELECT vc.candidatura as candidatura1,vc2.candidatura  as candidatura2,count(*) "
+        sql=sql+"FROM votacaocandidato vc, votacaocandidato vc2 where vc.candidatura <> vc2.candidatura "
+        sql=sql+"and vc.voto = vc2.voto and vc.proposicao = vc2.proposicao group by vc.candidatura,vc2.candidatura "
+        return db.session.execute(sql)
+        

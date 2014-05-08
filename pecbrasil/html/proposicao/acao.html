@@ -12,12 +12,15 @@
  
  
  {% if acoes %}
-	{% set acoes = acoes[0]%}	    
-		    <a href="/proposicao/ver/{{acoes.proposicoes.id}}"> {{acoes.proposicoes.sigla}} </a>
-  	
-  	- {{acoes.statusproposicao.nome_statusproposicao}} <br/>
-  	
-	{{acoes.nome_proposicaoacao}} - 	{{acoes.data_proposicaoacao}} 
+		{% set acoes = acoes[0]%}	    
+			    <a href="/proposicao/ver/{{acoes.proposicoes.id}}"> {{acoes.proposicoes.sigla}} </a>
+	  	
+	  	- {{acoes.statusproposicao.nome_statusproposicao}} <br/>
+	  	
+		{{acoes.nome_proposicaoacao}} - 	{{acoes.data_proposicaoacao}} 
+		
 	
-	{% endif %}
+ {% else %}
+    	{% trans %}Não foram encontradas tramitações para esta proposição{% endtrans %}
+{% endif %}
 {% endblock %}

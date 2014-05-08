@@ -43,7 +43,7 @@
 	<div class="col-md-9 ctPolitico"> 
 	
 	
-		<div id="profile0" class="lightbox guide_app infoQd" style="width: 100%!important; height: auto;">	
+		<div id="profile1" class="lightbox guide_app infoQd" style="width: 100%!important; height: auto;">	
 			
 		<h1>{{ proposicoes.sigla }} </h1>
 				<h2>{% trans %}Proposição{% endtrans %} : {{ proposicoes.tipoproposicao.nome_tipoproposicao }} 					</h2>
@@ -64,28 +64,30 @@
 				<pre>{{ proposicoes.desc|trim }}]</pre>
 		</div>
 		
-		  <div id="profile1" class="lightbox guide_app biografia profile_partido"
+		  <div id="profile2" class="lightbox guide_app biografia profile_partido"
 	
 			style="">
 			
 			<h2>{% trans %}Tramitações{% endtrans %}</h2>
 			
 				   
-			<iframe id="iframe1"
-			src="/proposicao/acao/{{ proposicoes.id }}?frame=true"
+			<iframe id="iframe2"
+			alt="/proposicao/acao/{{ proposicoes.id }}?frame=true"
 			style="width: 648px; height: 600px"> </iframe>  
 			  
 	    </div>
 	      
-	  <div id="profile2" class="lightbox guide_app biografia profile_partido"	style="">
+	  <div id="profile3" class="lightbox guide_app biografia profile_partido"	style="">
 			<h2>{% trans %}Opinião Pública{% endtrans %}</h2>
 			
 				 <div>
 			  	 	<a href="/proposicao/avaliar/{{ proposicoes.id }}"> {% trans %}Dê sua opiniao{% endtrans %}    </a>
 			  	</div>
-				{% set achou="False" %}
-				     {% for timevotacao in proposicoes.timevotacao.limit(10) %}
-				     {% set achou="True" %}
+				
+				{% set listaVota = proposicoes.timevotacao.limit(10) %}
+				     {% for timevotacao in listaVota %}
+				     	{% set achou='True' %}
+				     	
 				     <hr/>
 				     <div>
 					     	{{ timevotacao.times.nome }} em {{ timevotacao.data }}, 
@@ -109,7 +111,7 @@
 				     	
 				     {% endfor %}
 				     
-				     {% if achou=="False" %}
+				     {% if achou  %}
 				     <div>
 				     	{% trans %}Não existem comentários sobre esta proposição. Seja o primeiro a fazer!{% endtrans %}
 				      </div>	
@@ -118,26 +120,27 @@
 		
 			{% if proposicoes.tipoproposicao.votacao_tipoproposicao==1 %}
 					
-				<div id="profile3" class="lightbox guide_app biografia profile_partido"
+				<div id="profile4" class="lightbox guide_app biografia profile_partido"
 			
 					style="">
 					
 					<h2>{% trans %}Votações{% endtrans %}  </h2>
 					
-					<iframe id="iframe3" src="/grafico/bubblesvotacoes/{{ proposicoes.id }}" 
-					style="width: 858px; min-height: 700px; "></iframe>
+					<iframe id="iframe4" 
+					alt="/grafico/bubblesvotacoes/{{ proposicoes.id }}/" 
+					style="width: 658px; min-height: 400px; "></iframe>
 						    
 					  
 			    </div>
 			    
-				<div id="profile4" class="lightbox guide_app biografia profile_partido"
+				<div id="profile5" class="lightbox guide_app biografia profile_partido"
 			
 					style="">
 					
-					<h2>{% trans %}Votações{% endtrans %}</h2>
+					<h2>{% trans %}Votações Detalhada{% endtrans %}</h2>
 					
 						   
-					<iframe id="iframe4"
+					<iframe id="iframe5"
 					alt="/proposicao/listarvotacao/{{ proposicoes.id }}/all/true"
 					style="width: 648px; height: 600px"> </iframe>  
 					  
@@ -154,8 +157,8 @@
     
     
 	<script>
-      
-    var width = window.innerWidth-380,
+
+   var width = window.innerWidth-380,
         height = window.innerHeight-149,
         builds = {},
         sliding = false,
@@ -175,6 +178,7 @@
           select(p)
         }
       })
+      
       initSlides();
   </script>
   

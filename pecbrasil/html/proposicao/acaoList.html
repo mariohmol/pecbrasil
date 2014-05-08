@@ -10,29 +10,31 @@
 {% block content %}
   
   {% if acoes %}
-   <table><tr>
-  <td> {% trans %}Proposicão{% endtrans %} </td>
-      <td> {% trans %}Descrição{% endtrans %} </td>
-      <td> {% trans %}Data{% endtrans %} </td>
-     </tr>
-     
-     {% for acao in acoes %}
-     <br /><tr>
-  <td> 
-  	<a href="/proposicao/ver/{{acao.proposicoes.id}}"> {{acao.proposicoes.sigla}} </a>
-  	
-  	- {{acao.statusproposicao.nome_statusproposicao}}
-  		</td>
-      <td> 	{{acao.nome_proposicaoacao}} </td>
-      <td> 	{{acao.data_proposicaoacao}} </td>
-     </tr>
-     
-    {% endfor %}
-    </table>
-    {% else %}
-    {% trans %}Não foram encontradas tramitações para esta proposição{% endtrans %}
+		   <table><tr>
+		  <td> {% trans %}Proposicão{% endtrans %} </td>
+		      <td> {% trans %}Descrição{% endtrans %} </td>
+		      <td> {% trans %}Data{% endtrans %} </td>
+		     </tr>
+		     
+		     {% for acao in acoes %}
+		     <br /><tr>
+		  <td> 
+		  	<a href="/proposicao/ver/{{acao.proposicoes.id}}"> {{acao.proposicoes.sigla}} </a>
+		  	
+		  	- {{acao.statusproposicao.nome_statusproposicao}}
+		  		</td>
+		      <td> 	{{acao.nome_proposicaoacao}} </td>
+		      <td> 	{{acao.data_proposicaoacao}} </td>
+		     </tr>
+		     {% set achou= 'true' %}
+		    {% endfor %}
+		    </table>
+		    
     {% endif %}
     
+    {% if not achou %}
+    	{% trans %}Não foram encontradas tramitações para esta proposição{% endtrans %}
+    {% endif %}
     
     
 {% endblock %}
