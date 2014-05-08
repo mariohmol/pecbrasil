@@ -54,13 +54,14 @@ def network():
 @mod.route('/bubbles/<partido>/<politicoid>')
 @mod.route('/bubbles/<partido>/<politicoid>/')
 def bubbles(partido=None,politicoid=None):    
+    rodada_atual = db.session.merge(session['rodada_atual'])
     if partido is  None:
-        return render_template("grafico/bubblesPartido.html" )
+        return render_template("grafico/bubblesPartido.html" ,rodada_atual=rodada_atual)
     else:
         if partido == 'all':
-            return render_template("grafico/bubbles.html",politicoid=politicoid )
+            return render_template("grafico/bubbles.html",politicoid=politicoid ,rodada_atual=rodada_atual)
         else:
-            return render_template("grafico/bubbles.html",partido=partido,politicoid=politicoid )
+            return render_template("grafico/bubbles.html",partido=partido,politicoid=politicoid ,rodada_atual=rodada_atual)
 
 
 @mod.route('/bubblesvotacoes/')

@@ -72,18 +72,27 @@ d3.json("/attrs/partido", function(partido){
         .attrs(attrs)
         .value("pontos")
         .text_var("name_pt")
-        //.active_var("proposicao")
+        
         .tooltip_info(["total_proposicao", "partidoNome", "pontos", "rodada","proposicao", "votacao", "processo"])
-        .grouping("candidatura")
+        //.grouping("candidatura")
+        .grouping("partidoNome")
         .color("color")
-        //.total_bar({"prefix": "Export Value: $", "suffix": " USD", "format": ",f"})
-        .year(2)
-        .year_var("rodada")
+        
+        {% if rodada_atual %}
+	        .year({{ rodada_atual.id}})
+	        .year_var("rodada")
+        
+		{% endif %}
+		
+        
         .order("pontos")
          .click_function(inner_html)
+         
         //.nesting(["nesting_0","nesting_1","nesting_2"])
         //.click_function(function(d){return "Some HTML Content"})
         // .grouping("category")
+        //.total_bar({"prefix": "Export Value: $", "suffix": " USD", "format": ",f"})
+        //.active_var("proposicao")
         
       d3.select("#bubblesDiv")
         .datum(data.pontuacoes)
