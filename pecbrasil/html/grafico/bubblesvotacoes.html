@@ -4,12 +4,25 @@
   
   {% set divId = 'bubblesDiv' %}
 {% include "grafico/painelIframe.html" %}
-
-<div id="bubblesDiv" style="display: block"></div>
-  
-  
   	<script src="/static/js/src/viz/bubbles.js"></script>
   	
+  	
+<div id="bubblesDiv" style="display: block"></div>
+
+
+  <table>
+  	<tr><th>Total de Votos</th>
+   <th>Sim </th>
+    <th>Não </th></tr>
+  	
+  <tr><td> <p id="valTotal"></p>  </td>
+   <td> <div id="valSim"></div>  </td>
+    <td> <div id="valNao"></div> </td></tr>
+   </table>
+    
+  * Cada bola é um político, quando preenchida o voto foi sim e quando está na metade é um não
+
+
 <script>
     
 proposicao_id='{{ proposicao_id }}'
@@ -49,17 +62,36 @@ d3.json("/attrs/partido", function(partido){
         
            var novodata = {};
       var novoAttrs={};
+      var total=0; 
+      var totalNao=0;
+      var totalSim=0; 
       
         data.votacaocandidato.forEach(function(a){
         	if ( attrs[a.candidatura]!=null ){
-        		
-        		if(a.voto=="1") a.votoDesc="Sim";
-        		else  a.votoDesc="Nao";
+        		total++;
+        		if(a.voto=="1") {
+        			a.votoDesc="Sim";
+        			a.active =0;
+        			totalSim++;
+        		}else if(a.voto=="2")  {
+        			a.votoDesc="Nao";
+        			a.active =2;
+        			totalNao++;
+        		}else{
+        			a.votoDesc="Abs";
+        			a.active =1;
+        		}
+        		a.votoValue=2;
+        		//a.active = Math.floor(Math.random()*2);
         		//novodata[a.candidatura]=a;
         		novoAttrs[a.candidatura]=attrs[a.candidatura];
         	}
         	
         }) ;
+        
+        document.getElementById('valTotal').innerHTML=total;
+        document.getElementById('valSim').innerHTML=totalSim;
+        document.getElementById('valNao').innerHTML=totalNao;
         	
       // data2010 = [data2010.filter(function(d){return d.year == 2010})[5]]
       // data2010[0].employed = 2
@@ -81,16 +113,20 @@ d3.json("/attrs/partido", function(partido){
         .type("bubbles")
         .id("candidatura")
         .attrs(attrs)
-        .value("voto")
+        .value("votoValue")
         .text("name_pt")
-        .tooltip_info(["votoDesc", "name_pt","partidoNome"])
-        .grouping("votoDesc")
+        .tooltip_info(["votoDesc", "name_pt","partidoSigla"])
+        //.grouping("votoDesc")
+        .grouping("partidoSigla")
         //.grouping(["votoDesc","partidoNome"])
         .color("color")
         //.total_bar({"prefix": "Export Value: $", "suffix": " USD", "format": ",f"})
         //.year(2)
        // .year_var("rodada")
-        .order("partidoNome")
+    //.active("active")
+    // .total("votoValue")
+     .total(2)
+        .order(["partidoSigla","votoDesc"])
          .click_function(inner_html)
         //.click_function(function(d){return "Some HTML Content"})
         

@@ -62,12 +62,12 @@ label {
 	
 	
 	
-	<button nname="{{ iframeId }}_func" 
+	<button name="{{ iframeId }}_func" 
 	id="{{ iframeId }}_func_media" checked="checked"
 		onclick="getElementByIframeId('{{ iframeId }}','media').click()" class="btn btn-info active btn-xs "
 		>{% trans %}Média{% endtrans %}</button>
 	
-	<button nname="{{ iframeId }}_func" 
+	<button name="{{ iframeId }}_func" 
 	id="{{ iframeId }}_func_total" checked="checked"
 		onclick="getElementByIframeId('{{ iframeId }}','total').click()" class="btn btn-success  btn-xs "
 		>{% trans %}Total{% endtrans %}</button>
@@ -75,4 +75,24 @@ label {
 	{% endif %}
 
  
+ 
+ 
+  {% if funcGrouping == 'true' %}	  
+	
+	<h3>{% trans %}Agrupar{% endtrans %}</h3>
+	
+	
+	
+	<button name="{{ iframeId }}_grouping" 
+	id="{{ iframeId }}_grouping_media" checked="checked"
+		onclick="getElementByIframeId('{{ iframeId }}','groupPartido').click()" class="btn btn-info active btn-xs "
+		>{% trans %}Partido{% endtrans %}</button>
+	
+	<button name="{{ iframeId }}_grouping" 
+	id="{{ iframeId }}_grouping_voto" checked="checked"
+		onclick="getElementByIframeId('{{ iframeId }}','groupvotoDesc').click()" class="btn btn-success  btn-xs "
+		>{% trans %}Voto{% endtrans %}</button>
+	
+	{% endif %}
+	
 </div>

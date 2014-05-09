@@ -21,6 +21,14 @@ function setChartValueFrame(divId,valor){
 	
 }
 
+function setChartGroupingFrame(divId,valor){
+	viz.grouping(valor); 
+	 
+	 $(document.getElementById(divId+'_ano_value')).val(valor);
+	 setChartFuncFrame(divId,null);
+	 d3.select('#'+divId).call(viz);
+}
+
 function setChartYearFrame(divId,valor){
 	viz.year(valor); 
 	 

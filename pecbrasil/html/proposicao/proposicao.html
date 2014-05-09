@@ -126,9 +126,19 @@
 					
 					<h2>{% trans %}Votações{% endtrans %}  </h2>
 					
+					{% set iframeId = 'iframe4' %} 
+					{% set anoOption = 'false' %}
+					  {% set funcOption = 'false' %}
+					  {% set funcGrouping = 'true' %}
+					  {% set valOption = 'false' %}
+					  
+					  
+					  
+					{% include "grafico/painel.html" %}
+					
 					<iframe id="iframe4" 
 					alt="/grafico/bubblesvotacoes/{{ proposicoes.id }}/" 
-					style="width: 658px; min-height: 400px; "></iframe>
+					style="width: 658px; min-height: 600px; "></iframe>
 						    
 					  
 			    </div>
