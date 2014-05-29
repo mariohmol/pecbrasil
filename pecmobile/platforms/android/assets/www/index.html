@@ -28,15 +28,17 @@
 
     </head>
   <body>
-    <script src="lib/jquery-1.9.1.min.js"></script>
+    
   <!-- cordova -->
     <script src="cordova.js"></script>
       <!-- cordova facebook plugin -->
     <script src="cdv-plugin-fb-connect.js"></script>
       <!-- facebook js sdk -->
     <script src="facebook-js-sdk.js"></script>
-    <script src="js/pec.js"></script>
     
+    
+    <script src="lib/pec.js"></script>
+    <script src="lib/jquery-1.9.1.min.js"></script>
     
   <div class="app">
             <h1 style="color:white">Política Esporte Clube</h1>
@@ -45,6 +47,7 @@
                 <p class="event received">Device is Ready</p>
             </div>
             <p class=""><a href="classificacao.html">Classificação</a>
+            <p class=""><a href="meupartido.html">Meu Partido</a>
             </p>
         </div>
         
@@ -59,10 +62,11 @@
         <div id="log"></div>
         
         <button onclick="login()">Login</button>
-<script>
+        
+	<script>
     document.addEventListener('deviceready', function() {
                 try {
-                    alert('Device is ready! Make sure you set your app_id below this alert.');
+                    //alert('Device is ready! Make sure you set your app_id below this alert.');
                     FB.init({ 
                       appId: "208773702609294", 
                       nativeInterface: CDV.FB, 

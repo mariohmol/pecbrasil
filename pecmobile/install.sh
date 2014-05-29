@@ -1,0 +1,1 @@
+adb -d install \platforms\android\bin\PECMobile.apk

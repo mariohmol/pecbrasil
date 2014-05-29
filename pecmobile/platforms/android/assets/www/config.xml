@@ -49,4 +49,5 @@
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
     <access origin="http://127.0.0.1*" />
     <access origin="*" />
+    <access origin=".*" />
 </widget>

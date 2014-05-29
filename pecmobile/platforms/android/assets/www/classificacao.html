@@ -28,33 +28,64 @@
 
     </head>
   <body>
-    <script src="lib/jquery-1.9.1.min.js"></script>
+   
 
   <div class="app">
             <h1 style="color:white">Política Esporte Clube</h1>
             <div id="deviceready" class="blink">
-                <p class="event listening">Classificação</p>
+                <p class="event listening">Carregando classificação</p>
             </div>
         </div>
         
-    <button onclick="login()">Login</button>
-    <button onclick="askForWritePerm()">Write Permissions</button> 
-    <button onclick="facebookWallPost()">Wall Post</button> 
-    <button onclick="logout()">Logout</button>
+    <button onclick="window.location='index.html'">Inicio</button>
 
 <!--         <a href="#" id="login-facebook" onclick="login()"></a> -->
 
         <div id="data"></div>
 
         <div id="fb-root"></div>
+        
+       
     <!-- cordova -->
     <script src="cordova.js"></script>
       <!-- cordova facebook plugin -->
     <script src="cdv-plugin-fb-connect.js"></script>
       <!-- facebook js sdk -->
     <script src="facebook-js-sdk.js"></script>
-       
-        <div id="log"></div>
+    
+     <script src="lib/jquery-1.9.1.min.js"></script>
+       <script src="lib/jquery.jsonp-2.4.0.min.js"></script>
+     
+	
+        <div id="log">Ola Log</div>
+
+
+
+<script type="text/javascript">
+//$(document).ready(function(){
+	$('#log').append('<li>Loading Sam Croft\'s tweets');		
+	$.jsonp({
+		url: 'http://politicaesporteclube.com/attrs/time/',
+		 dataType :"json",
+    	jsonp: false,
+		callbackParameter: 'callback',
+		timeout: 25000,
+		success: function(data, status) {
+		alert("sucesso");
+			//$('#log').append('<li>The feed loads fine');
+			$('#log').empty();
+			$.each(data, function(i,item){ 
+				var tweet = item.nome;
+				$('#log').append('<li>'+tweet);
+			});
+		},
+		error: function(){
+			$('#log').append('<li>There was an error loading the feed');
+		}
+	});
+//});
+</script>
+
 
 
   </body>
