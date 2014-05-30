@@ -62,7 +62,7 @@ def after_request(response):
 @mod.route('/candidatura/<candidatura_id>/', methods=['GET', 'POST'])
 @mod.route('/candidatura/<candidatura_id>/<partido_sigla>', methods=['GET', 'POST'])
 @mod.route('/candidatura/<candidatura_id>/<partido_sigla>/', methods=['GET', 'POST'])
-@cross_origin()
+@cross_origin(headers=['Content-Type'])
 def attrs_candidatura(candidatura_id=None,partido_sigla=None):
 
     offset = request.args.get('offset', 0)
@@ -89,7 +89,7 @@ def attrs_candidatura(candidatura_id=None,partido_sigla=None):
 @mod.route('/candidaturatotal/<candidatura_id>/', methods=['GET', 'POST'])
 @mod.route('/candidaturatotal/<candidatura_id>/<partido_sigla>', methods=['GET', 'POST'])
 @mod.route('/candidaturatotal/<candidatura_id>/<partido_sigla>/', methods=['GET', 'POST'])
-@cross_origin()
+@cross_origin(headers=['Content-Type'])
 def attrs_candidaturatotal(candidatura_id=None,partido_sigla=None):
 
     offset = request.args.get('offset', 0)
@@ -111,9 +111,9 @@ def attrs_candidaturatotal(candidatura_id=None,partido_sigla=None):
     else:
         return ''
     
-@mod.route('/candidaturatime/<time_id>')
-@mod.route('/candidaturatime/<time_id>/')
-@cross_origin()
+@mod.route('/candidaturatime/<time_id>', methods=['GET','POST'])
+@mod.route('/candidaturatime/<time_id>/', methods=['GET','POST'])
+@cross_origin(headers=['Content-Type'])
 def attrs_ccandidaturatime(time_id=None):
     ret = None
     if time_id is not None:
@@ -125,11 +125,11 @@ def attrs_ccandidaturatime(time_id=None):
     else:
         return ''
     
-@mod.route('/pontuacaorodada/')
-@mod.route('/pontuacaorodada/<rodada_id>/')
-@mod.route('/pontuacaorodada/<rodada_id>/<candidatura_id>/')
-@mod.route('/pontuacaorodada/<rodada_id>/<candidatura_id>/<partido_sigla>')
-@cross_origin()
+@mod.route('/pontuacaorodada/', methods=['GET','POST'])
+@mod.route('/pontuacaorodada/<rodada_id>/', methods=['GET','POST'])
+@mod.route('/pontuacaorodada/<rodada_id>/<candidatura_id>/', methods=['GET','POST'])
+@mod.route('/pontuacaorodada/<rodada_id>/<candidatura_id>/<partido_sigla>', methods=['GET','POST'])
+@cross_origin(headers=['Content-Type'])
 def attrs_pontuacaorodada(rodada_id=None,candidatura_id=None,partido_sigla=None):
     if candidatura_id is None:
         ret = Pontuacao.query.join(Rodada).filter_by(id=rodada_id).order_by(Pontuacao.rodada,Pontuacao.candidatura).all()
@@ -147,10 +147,10 @@ def attrs_pontuacaorodada(rodada_id=None,candidatura_id=None,partido_sigla=None)
     else:
         return ''
        
-@mod.route('/pontuacao/')
-@mod.route('/pontuacao/<candidatura_id>/')
-@mod.route('/pontuacao/<candidatura_id>/<partido_sigla>')
-@cross_origin()
+@mod.route('/pontuacao/', methods=['GET','POST'])
+@mod.route('/pontuacao/<candidatura_id>/', methods=['GET','POST'])
+@mod.route('/pontuacao/<candidatura_id>/<partido_sigla>', methods=['GET','POST'])
+@cross_origin(headers=['Content-Type'])
 def attrs_pontuacao(candidatura_id=None,partido_sigla=None):
     if candidatura_id is None:
         ret = Pontuacao.query.filter_by(ativo=1).order_by(Pontuacao.rodada,Pontuacao.candidatura).all()
@@ -167,10 +167,10 @@ def attrs_pontuacao(candidatura_id=None,partido_sigla=None):
     else:
         return ''
     
-@mod.route('/despesa/')
-@mod.route('/despesa/<candidatura_id>/')
-@mod.route('/despesa/<candidatura_id>/<partido_sigla>')
-@cross_origin()
+@mod.route('/despesa/', methods=['GET','POST'])
+@mod.route('/despesa/<candidatura_id>/', methods=['GET','POST'])
+@mod.route('/despesa/<candidatura_id>/<partido_sigla>', methods=['GET','POST'])
+@cross_origin(headers=['Content-Type'])
 def attrs_despesa(candidatura_id=None,partido_sigla=None):
     if candidatura_id is None:
         ret = DespesaCandidato.query.join(Rodada).filter_by(ativo=1).all()
@@ -188,8 +188,8 @@ def attrs_despesa(candidatura_id=None,partido_sigla=None):
     else:
         return ''
     
-@mod.route('/despesatipo/')
-@cross_origin()
+@mod.route('/despesatipo/', methods=['GET','POST'])
+@cross_origin(headers=['Content-Type'])
 def attrs_despesatipo():
     ret = DespesaTipo.query.all()
       
@@ -199,10 +199,10 @@ def attrs_despesatipo():
     else:
         return ''
 
-@mod.route('/pontuacaosum/')
-@mod.route('/pontuacaosum/<candidatura_id>/')
-@mod.route('/pontuacaosum/<candidatura_id>/<partido_sigla>')
-@cross_origin()
+@mod.route('/pontuacaosum/', methods=['GET','POST'])
+@mod.route('/pontuacaosum/<candidatura_id>/', methods=['GET','POST'])
+@mod.route('/pontuacaosum/<candidatura_id>/<partido_sigla>', methods=['GET','POST'])
+@cross_origin(headers=['Content-Type'])
 def attrs_pontuacaosum(candidatura_id=None,partido_sigla=None):
     if candidatura_id is None:
         ret = politicaServices.pontuacaoSumRodadaByPartido(partido_sigla,candidatura_id) 
@@ -284,18 +284,18 @@ def _serialize(value):
 
     return ret
 
-@mod.route('/partido/')
-@mod.route('/partido/<partido_id>/')
-@cross_origin()
+@mod.route('/partido/', methods=['GET','POST'])
+@mod.route('/partido/<partido_id>/', methods=['GET','POST'])
+@cross_origin(headers=['Content-Type'])
 def attrs_partido(partido_id=None):
     ret = Partido.query.all()
     items = [q.serialize() for q in ret]
     return jsonify({"partidos":items})
 
 
-@mod.route('/partidototal/')
-@mod.route('/partidototal/<ano>/')
-@cross_origin()
+@mod.route('/partidototal/', methods=['GET','POST'])
+@mod.route('/partidototal/<ano>/', methods=['GET','POST'])
+@cross_origin(headers=['Content-Type'])
 def attrs_partidototal(ano=None):
     if ano is None:
         ret = PartidoTotal.query.outerjoin(Partido).all()
@@ -304,27 +304,27 @@ def attrs_partidototal(ano=None):
     items = [q.serialize() for q in ret]
     return jsonify({"partidos":items})
 
-@mod.route('/orgao/')
-@mod.route('/orgao/<partido_id>/')
-@cross_origin()
+@mod.route('/orgao/', methods=['GET','POST'])
+@mod.route('/orgao/<partido_id>/', methods=['GET','POST'])
+@cross_origin(headers=['Content-Type'])
 def attrs_orgao(partido_id=None):
     ret = Orgao.query.all()
     items = [q.serialize() for q in ret]
     return jsonify({"orgaos":items})
 
-@mod.route('/orgaocandidato/')
-@mod.route('/orgaocandidato/<orgao_id>/')
-@cross_origin()
+@mod.route('/orgaocandidato/', methods=['GET','POST'])
+@mod.route('/orgaocandidato/<orgao_id>/', methods=['GET','POST'])
+@cross_origin(headers=['Content-Type'])
 def attrs_orgaocandidato(orgao_id=None):
     ret = OrgaoCandidato.query.all()
     items = [q.serialize() for q in ret]
     return jsonify({"orgaocandidato":items})
 
 
-@mod.route('/time/')
-@mod.route('/time/<time_id>/')
-@mod.route('/time/<time_id>/<liga_id>')
-@cross_origin()
+@mod.route('/time/', methods=['GET','POST'])
+@mod.route('/time/<time_id>/', methods=['GET','POST'])
+@mod.route('/time/<time_id>/<liga_id>', methods=['GET','POST'])
+@cross_origin(headers=['Content-Type'])
 def attrs_time(time_id=None,liga_id=None):
     offset = request.args.get('offset', 0)
     limit = request.args.get('limit', 150)  
@@ -340,19 +340,19 @@ def attrs_time(time_id=None,liga_id=None):
 
 
 
-@mod.route('/top3time/')
-@cross_origin()
+@mod.route('/top3time/', methods=['GET','POST'])
+@cross_origin(headers=['Content-Type'])
 def attrs_top3time():
     ret = politicaServices.top3Time()
     items = [q.serialize() for q in ret]
     return jsonify({"times":items})
 
-@mod.route('/timecandidato/')
-@mod.route('/timecandidato/<time_id>')
-@mod.route('/timecandidato/<time_id>/')
-@mod.route('/timecandidato/<time_id>/<candidatura_id>')
-@mod.route('/timecandidato/<time_id>/<candidatura_id>/')
-@cross_origin()
+@mod.route('/timecandidato/', methods=['GET','POST'])
+@mod.route('/timecandidato/<time_id>', methods=['GET','POST'])
+@mod.route('/timecandidato/<time_id>/', methods=['GET','POST'])
+@mod.route('/timecandidato/<time_id>/<candidatura_id>', methods=['GET','POST'])
+@mod.route('/timecandidato/<time_id>/<candidatura_id>/', methods=['GET','POST'])
+@cross_origin(headers=['Content-Type'])
 def attrs_timecandidato(time_id=None,candidatura_id=None):
     if time_id is None:
         if candidatura_id is None:
@@ -367,14 +367,14 @@ def attrs_timecandidato(time_id=None,candidatura_id=None):
     items = [q.serialize() for q in ret]
     return jsonify({"timecandidato":items})
 
-@mod.route('/rodadapontos/')
-@mod.route('/rodadapontos/<time_id>')
-@mod.route('/rodadapontos/<time_id>/')
-@mod.route('/rodadapontos/<time_id>/<rodada_id>')
-@mod.route('/rodadapontos/<time_id>/<rodada_id>/')
-@mod.route('/rodadapontos/<time_id>/<rodada_id>/<liga_id>')
-@mod.route('/rodadapontos/<time_id>/<rodada_id>/<liga_id>/')
-@cross_origin()
+@mod.route('/rodadapontos/', methods=['GET','POST'])
+@mod.route('/rodadapontos/<time_id>', methods=['GET','POST'])
+@mod.route('/rodadapontos/<time_id>/', methods=['GET','POST'])
+@mod.route('/rodadapontos/<time_id>/<rodada_id>', methods=['GET','POST'])
+@mod.route('/rodadapontos/<time_id>/<rodada_id>/', methods=['GET','POST'])
+@mod.route('/rodadapontos/<time_id>/<rodada_id>/<liga_id>', methods=['GET','POST'])
+@mod.route('/rodadapontos/<time_id>/<rodada_id>/<liga_id>/', methods=['GET','POST'])
+@cross_origin(headers=['Content-Type'])
 def attrs_rodadapontos(time_id=None,rodada_id=None,liga_id=None):
     if time_id is None:
         if rodada_id is None or rodada_id=="all":
@@ -389,12 +389,12 @@ def attrs_rodadapontos(time_id=None,rodada_id=None,liga_id=None):
     items = [q.serialize() for q in ret]
     return jsonify({"rodadapontos":items})
 
-@mod.route('/ligapontos/')
-@mod.route('/ligapontos/<liga_id>')
-@mod.route('/ligapontos/<liga_id>/')
-@mod.route('/ligapontos/<liga_id>/<rodada_id>')
-@mod.route('/ligapontos/<liga_id>/<rodada_id>/')
-@cross_origin()
+@mod.route('/ligapontos/', methods=['GET','POST'])
+@mod.route('/ligapontos/<liga_id>', methods=['GET','POST'])
+@mod.route('/ligapontos/<liga_id>/', methods=['GET','POST'])
+@mod.route('/ligapontos/<liga_id>/<rodada_id>', methods=['GET','POST'])
+@mod.route('/ligapontos/<liga_id>/<rodada_id>/', methods=['GET','POST'])
+@cross_origin(headers=['Content-Type'])
 def attrs_ligapontos(liga_id=None,rodada_id=None):
     if liga_id is None:
         if rodada_id is None or rodada_id=="all":
@@ -409,9 +409,9 @@ def attrs_ligapontos(liga_id=None,rodada_id=None):
     items = [q.serialize() for q in ret]
     return jsonify({"ligapontos":items})
 
-@mod.route('/rodada/')
-@mod.route('/rodada/<rodada_id>/')
-@cross_origin()
+@mod.route('/rodada/', methods=['GET','POST'])
+@mod.route('/rodada/<rodada_id>/', methods=['GET','POST'])
+@cross_origin(headers=['Content-Type'])
 def attrs_rodada(rodada_id=None):
     if rodada_id is None:
         ret = Rodada.query.filter_by(ativo=1).all()
@@ -420,10 +420,10 @@ def attrs_rodada(rodada_id=None):
     items = [q.serialize() for q in ret]
     return jsonify({"rodadas":items})
 
-@mod.route('/votacaocandidato/')
-@mod.route('/votacaocandidato/<candidatura_id>/')
-@mod.route('/votacaocandidato/<candidatura_id>/<partido_sigla>')
-@cross_origin()
+@mod.route('/votacaocandidato/', methods=['GET','POST'])
+@mod.route('/votacaocandidato/<candidatura_id>/', methods=['GET','POST'])
+@mod.route('/votacaocandidato/<candidatura_id>/<partido_sigla>', methods=['GET','POST'])
+@cross_origin(headers=['Content-Type'])
 def attrs_votacaocandidato(candidatura_id=None,partido_sigla=None):
     if candidatura_id is None:
         ret = VotacaoCandidato.query.all()
@@ -441,10 +441,10 @@ def attrs_votacaocandidato(candidatura_id=None,partido_sigla=None):
         return ''
 
 
-@mod.route('/votacaoproposicao/')
-@mod.route('/votacaoproposicao/<proposicao_id>/')
-@mod.route('/votacaoproposicao/<proposicao_id>/<candidatura_id>')
-@cross_origin()
+@mod.route('/votacaoproposicao/', methods=['GET','POST'])
+@mod.route('/votacaoproposicao/<proposicao_id>/', methods=['GET','POST'])
+@mod.route('/votacaoproposicao/<proposicao_id>/<candidatura_id>', methods=['GET','POST'])
+@cross_origin(headers=['Content-Type'])
 def attrs_votacaoproposicao(candidatura_id=None,proposicao_id=None):
     if proposicao_id is None:
         ret = VotacaoCandidato.query.join(Candidatura).all()
