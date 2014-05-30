@@ -295,3 +295,9 @@ def google_authorized(resp):
 @google.tokengetter
 def get_access_token():
     return session.get('google_token')
+
+
+@mod.route('/teste/', methods=['GET', 'POST', 'OPTIONS'])
+def teste():
+    print "TESTE"
+    return "teste"

@@ -1,3 +1,11 @@
+function retiraCharPost(entrada){
+	entrada = entrada.replace(/\"/g, ' ');
+	entrada = entrada.replace(/\'/g, ' ');
+	entrada = entrada.trim();
+	return entrada;
+}
+
+
 
     //<button onclick="login()">Login</button>
     //<button onclick="askForWritePerm()">Write Permissions</button> 

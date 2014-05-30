@@ -23,7 +23,8 @@
         <meta name="format-detection" content="telephone=no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
- <!--       <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.2.min.css" />
+        <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
         <title>PolÃ­tica Esporte Clube</title>
 
     </head>
@@ -46,107 +47,44 @@
     <script src="facebook-js-sdk.js"></script>
     
      <script src="lib/jquery-1.9.1.min.js"></script>
-    <!--   <script src="lib/jquery.jsonp-2.4.0.min.js"></script> -->
+     <script src="lib/jquery.mobile-1.4.2.min.js"></script>
      
 	
         <div id="log">Ola Log</div>
 
+<div id="employeeListPage" data-role="page" >
+
+	<div data-role="header" data-position="fixed">
+		<h1>Classificação</h1>
+	</div>
+
+	<div data-role="content">
+         <ul id="employeeList" data-role="listview" data-filter="true"></ul>
+    </div>		
+
+</div>
 
 
 <script type="text/javascript">
-
-    var xmlhttp;
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp = new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.open("POST", "http://politicaesporteclube.com/attrs/rodada/", true);
-    var params = "email=email&password=password";
-
-
-    xmlhttp.onreadystatechange = function() {//Call a function when the state changes.
-        if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            alert(xmlhttp.responseText);
-        }
-    }
-    xmlhttp.send(params);
-
-
-	
-/*
-$.ajax({
-    type: "POST",
-    dataType: 'text',
-    url: "http://politicaesporteclube.com/attrs/rodada/",
-    username: 'user',
-    password: 'pass',
-    crossDomain : true,
-    xhrFields: {
-        withCredentials: true
-    }
-})
-  .done(function( data ) {
-      console.log("done");
-  })
-    .fail( function(xhr, textStatus, errorThrown) {
-        alert(xhr.responseText);
-        alert(textStatus);
-    });
-    
-
-$.ajax({
-    type: "POST",
-    dataType: 'jsonp',    
-    url: "http://politicaesporteclube.com/attrs/rodada/",
-    crossDomain : true
-   
-})
-  .done(function( data ) {
-  alert("ola1.1");
-      console.log("done");
-  })
-    .fail( function(xhr, textStatus, errorThrown) {
-        alert(xhr.responseText);
-        alert(textStatus);
-    });
-
-
 $.getJSON( 'http://politicaesporteclube.com/attrs/time/', function(data) {
-				alert("ola1.1");
-				    $('#log li').remove();
-				  //students = data.user_name;
-				    $.each(data, function(index, student) {
-				        $('#log').append('<li>' +
-				                '<h4>' + student + '</h4>' +     '<p>' + student.id + '</p>' +  '</li>');
+		
+				    $('#employeeList li').remove();
+				    $.each(data.times, function(index, time) {				    
+				    	retorno  = '<li><a href="time.html?id=' + time.id + '">' +
+						'<img src="pics/' + time.id + '"/>' +
+						'<h4>' + time.nome + ' ' + time.nome + '</h4>' +
+						'<p>' + time.color + '</p>' +
+						'<span class="ui-li-count">' + time.pontuacao_total + '</span></a></li>';						
+						if(time.pontuacao_total=="") time.pontuacao_total=0;						
+				    	$('#employeeList').append(retorno);
 				    });
-				    $('#log').listview('refresh');
+				    $('#employeeList').listview('refresh');
 		});
 		
-	
-//$(document).ready(function(){
-	$('#log').append('<li>Loading Sam Croft\'s tweets');		
-	$.jsonp({
-		url: 'http://politicaesporteclube.com/attrs/time/',
-		 dataType :"json",
-    	jsonp: false,
-		callbackParameter: 'callback',
-		timeout: 25000,
-		success: function(data, status) {
-		alert("sucesso");
-			//$('#log').append('<li>The feed loads fine');
-			$('#log').empty();
-			$.each(data, function(i,item){ 
-				var tweet = item.nome;
-				$('#log').append('<li>'+tweet);
-			});
-		},
-		error: function(){
-			$('#log').append('<li>There was an error loading the feed');
-		}
-	});
-//});*/
+		
+		
+		
+
 </script>
 
 

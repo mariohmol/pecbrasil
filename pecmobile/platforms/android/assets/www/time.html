@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <style>
+      #login-facebook {
+        display: block;
+        width: 400px;
+        height: 76px;
+        margin: 320px 0 0 420px;
+        background: url(img/button-facebook.png);
+        }
+
+/*        #myform {
+          display: block;
+          width: 400px;
+          height: 200px;
+          margin: 420px 0 0 420px;
+        }*/
+    </style>
+    
+            <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Política Esporte Clube</title>
+
+    </head>
+  <body>
+   
+
+<div id="detailsPage" data-role="page" data-add-back-btn="true">
+
+	<div data-role="header">
+		<h1>Time</h1>
+	</div>
+
+  <div data-role="content"> 
+
+  	<img id="employeePic"/>
+	<div id="employeeDetails">
+       <h3 id="fullName"></h3>
+       <p id="employeeTitle"></p>
+       <p id="city"></p>
+   	</div>
+	 
+    <ul id="actionList" data-role="listview" data-inset="true"></ul>
+
+  </div>
+
+</div>
+        
+<!--    <button onclick="window.location='index.html'">Voltar</button> 
+ <ul id="employeeList" data-role="listview" data-filter="true"></ul>
+
+-->
+
+
+        <div id="data"></div>
+
+        <div id="fb-root"></div>
+    <!-- cordova -->
+    <script src="cordova.js"></script>
+      <!-- cordova facebook plugin -->
+    <script src="cdv-plugin-fb-connect.js"></script>
+      <!-- facebook js sdk -->
+    <script src="facebook-js-sdk.js"></script>
+       <script src="lib/jquery-1.9.1.min.js"></script>  
+   
+
+
+
+  </body>
+</html>

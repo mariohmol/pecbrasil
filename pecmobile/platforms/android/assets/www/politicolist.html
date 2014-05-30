@@ -55,7 +55,7 @@
 <div id="employeeListPage" data-role="page" >
 
 	<div data-role="header" data-position="fixed">
-		<h1>Classificação</h1>
+		<h1>Employee Directory</h1>
 	</div>
 
 	<div data-role="content">
@@ -66,16 +66,16 @@
 
 
 <script type="text/javascript">
-$.getJSON( 'http://politicaesporteclube.com/attrs/candidatura/', function(data) {
+$.getJSON( 'http://politicaesporteclube.com/attrs/time/', function(data) {
 		
 				    $('#employeeList li').remove();
-				    $.each(data.candidaturas, function(index, time) {				    
+				    $.each(data.times, function(index, time) {				    
 				    	retorno  = '<li><a href="time.html?id=' + time.id + '">' +
-						'<img src="http://politicaesporteclube.com/static/img/pec/fotos/' + time.id_original + '.jpg"/>' +
-						'<h4>' + time.nome + ' ' + time.name_pt + '</h4>' +
-						'<p>' + time.cidade + '/' + time.uf +  '</p>' +
-						'<span class="ui-li-count">' + time.partido + '</span></a></li>';						
-												
+						'<img src="pics/' + time.id + '"/>' +
+						'<h4>' + time.nome + ' ' + time.nome + '</h4>' +
+						'<p>' + time.color + '</p>' +
+						'<span class="ui-li-count">' + time.pontuacao_total + '</span></a></li>';						
+						if(time.pontuacao_total=="") time.pontuacao_total=0;						
 				    	$('#employeeList').append(retorno);
 				    });
 				    $('#employeeList').listview('refresh');

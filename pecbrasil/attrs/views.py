@@ -10,7 +10,7 @@ from pecbrasil.proposicao.models import VotacaoCandidato,Proposicao,TimeVotacao
 from pecbrasil.orgao.models import Orgao,OrgaoCandidato
 from pecbrasil.utils import exist_or_404, gzip_data, cached_query
 from pecbrasil.politica.services import PoliticaServices
-
+from pecbrasil.account.models import User
 
 try:
     # this is how you would normally import
@@ -29,6 +29,7 @@ from functools import update_wrapper
 def crossdomain(origin=None, methods=None, headers=None,
                 max_age=21600, attach_to_all=True,
                 automatic_options=True):
+    
     if methods is not None:
         methods = ', '.join(sorted(x.upper() for x in methods))
     if headers is not None and not isinstance(headers, basestring):
@@ -55,7 +56,7 @@ def crossdomain(origin=None, methods=None, headers=None,
                 return resp
 
             h = resp.headers
-
+            
             h['Access-Control-Allow-Origin'] = origin
             h['Access-Control-Allow-Methods'] = get_methods()
             h['Access-Control-Max-Age'] = str(max_age)
@@ -70,6 +71,7 @@ def crossdomain(origin=None, methods=None, headers=None,
 
 mod = Blueprint('attrs', __name__, url_prefix='/attrs')
 politicaServices = PoliticaServices()   
+cacheFlag=False
 
 @mod.errorhandler(404)
 def page_not_found(error):
@@ -83,26 +85,30 @@ def before_request():
 
     # first lets test if this query is cached
     cached_q = cached_query(cache_id)
-    if cached_q: # and request.is_xhr and limit is None and offset is None:
-    # if cached_q:
+    if cached_q and cacheFlag and request.method != 'OPTIONS' and request.method != 'POST': # and request.is_xhr and limit is None and offset is None:
         return cached_q
 
 @mod.after_request
-@crossdomain(origin="*")
 def after_request(response):
     limit = request.args.get('limit')  
     offset = request.args.get('offset') 
     response.headers['Access-Control-Allow-Origin'] = "*"
+    response.headers['Access-Control-Allow-Credentials'] = "true"
+    response.headers['Access-Control-Allow-Headers'] = "Origin, X-Requested-With,Content-Type, Accept"
     # if response.status_code != 302:
     if response.status_code != 302: # and request.is_xhr
+        
         cache_id = request.path + g.locale + str(limit) + str(offset)
         # test if this query was cached, if not add it
         cached_q = cached_query(cache_id)
-        if cached_q is None:
+        if cached_q is None and cacheFlag and request.method != 'OPTIONS' and request.method != 'POST':
             response.data = gzip_data(response.data)
             cached_query(cache_id, response.data)
-        response.headers['Content-Encoding'] = 'gzip'
+       
+        #if request.method != 'OPTIONS' and request.method != 'POST':
+        #    response.headers['Content-Encoding'] = 'gzip'
         response.headers['Content-Length'] = str(len(response.data))
+    
     return response
 
 
@@ -479,6 +485,7 @@ def attrs_ligapontos(liga_id=None,rodada_id=None):
 @mod.route('/rodada/', methods=['GET','POST', 'OPTIONS'])
 @mod.route('/rodada/<rodada_id>/', methods=['GET','POST', 'OPTIONS'])
 @crossdomain(origin='*')
+@cross_origin(headers=['Content-Type'])
 def attrs_rodada(rodada_id=None):
     if rodada_id is None:
         ret = Rodada.query.filter_by(ativo=1).all()
@@ -529,3 +536,39 @@ def attrs_votacaoproposicao(candidatura_id=None,proposicao_id=None):
         return jsonify({"votacaocandidato":items})
     else:
         return ''
+    
+#        SERVICOS: criarTime
+@mod.route('/criar-partido/', methods=['GET', 'POST', 'OPTIONS'])
+@crossdomain(origin='*', headers='Content-Type')
+@cross_origin(headers=['Content-Type'])
+def criarPartido():
+    
+    if request.json is None:
+        print "SEM JSON"
+        return "Sem JSON"
+    
+    if 'user' in request.json:
+        user = request.json['user']
+    if 'nome' in request.json:
+        nome = request.json['nome']
+    if 'desc' in request.json:
+        desc = request.json['desc']
+        
+    user = User.query.filter_by(id=user).first_or_404()
+    
+    if user is not None:
+        print "buscando "+str(user.id)+ " - "  + nome + " - " +desc
+        timeRetorno = politicaServices.meuTime(user.id) 
+        print "depois buscar"
+        if timeRetorno is not None:
+            print "TIME encontrado"
+            return jsonify({"time":timeRetorno.serialize()})
+    else:
+        return jsonify({"user":"nao encontrado"})
+   
+    
+    time = Time(nome=nome, desc=desc,  user_id=user.id)
+    db.session.add(time)
+    db.session.commit()
+    return jsonify({"time":time.serialize()})
+
