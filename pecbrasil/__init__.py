@@ -22,6 +22,16 @@ app = Flask(__name__, template_folder=os.path.join(pecbrasildir, 'html'))
 # Load default configuration from config.py
 app.config.from_object('config')
 
+try:
+    # this is how you would normally import
+    from flask.ext.cors import cross_origin
+except:
+    # support local usage without installed package
+    from flask_cors import cross_origin
+
+
+app.config['CORS_ORIGINS'] = ['*', 'null']
+
 # DB connection object
 db = SQLAlchemy(app)
 
