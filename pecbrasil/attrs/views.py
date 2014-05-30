@@ -88,9 +88,11 @@ def before_request():
         return cached_q
 
 @mod.after_request
+@crossdomain(origin="*")
 def after_request(response):
     limit = request.args.get('limit')  
     offset = request.args.get('offset') 
+    response.headers['Access-Control-Allow-Origin'] = "*"
     # if response.status_code != 302:
     if response.status_code != 302: # and request.is_xhr
         cache_id = request.path + g.locale + str(limit) + str(offset)
@@ -476,7 +478,6 @@ def attrs_ligapontos(liga_id=None,rodada_id=None):
 
 @mod.route('/rodada/', methods=['GET','POST', 'OPTIONS'])
 @mod.route('/rodada/<rodada_id>/', methods=['GET','POST', 'OPTIONS'])
-@cross_origin(headers=['Content-Type'])
 @crossdomain(origin='*')
 def attrs_rodada(rodada_id=None):
     if rodada_id is None:
