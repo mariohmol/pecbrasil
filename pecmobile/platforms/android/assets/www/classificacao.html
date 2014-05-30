@@ -58,14 +58,10 @@
 
 $.ajax({
     type: "POST",
-    dataType: 'json',
+    dataType: 'json',    
     url: "http://politicaesporteclube.com/attrs/rodada/",
-    username: 'user',
-    password: 'pass',
-    crossDomain : true,
-    xhrFields: {
-        withCredentials: true
-    }
+    crossDomain : true
+   
 })
   .done(function( data ) {
   alert("ola1.1");
