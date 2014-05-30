@@ -55,6 +55,29 @@
 
 <script type="text/javascript">
 
+
+$.ajax({
+    type: "POST",
+    dataType: 'json',
+    url: "http://politicaesporteclube.com/attrs/rodada/",
+    username: 'user',
+    password: 'pass',
+    crossDomain : true,
+    xhrFields: {
+        withCredentials: true
+    }
+})
+  .done(function( data ) {
+  alert("ola1.1");
+      console.log("done");
+  })
+    .fail( function(xhr, textStatus, errorThrown) {
+        alert(xhr.responseText);
+        alert(textStatus);
+    });
+
+	
+/*
 $.getJSON( 'http://politicaesporteclube.com/attrs/time/', function(data) {
 				alert("ola1.1");
 				    $('#log li').remove();
@@ -66,7 +89,7 @@ $.getJSON( 'http://politicaesporteclube.com/attrs/time/', function(data) {
 				    $('#log').listview('refresh');
 		});
 		
-		/*
+	
 //$(document).ready(function(){
 	$('#log').append('<li>Loading Sam Croft\'s tweets');		
 	$.jsonp({
