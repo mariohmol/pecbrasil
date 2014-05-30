@@ -55,10 +55,50 @@
 
 <script type="text/javascript">
 
+    var xmlhttp;
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.open("POST", "http://politicaesporteclube.com/attrs/rodada/", true);
+    var params = "email=email&password=password";
+
+
+    xmlhttp.onreadystatechange = function() {//Call a function when the state changes.
+        if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            alert(xmlhttp.responseText);
+        }
+    }
+    xmlhttp.send(params);
+
+
+	
+/*
+$.ajax({
+    type: "POST",
+    dataType: 'text',
+    url: "http://politicaesporteclube.com/attrs/rodada/",
+    username: 'user',
+    password: 'pass',
+    crossDomain : true,
+    xhrFields: {
+        withCredentials: true
+    }
+})
+  .done(function( data ) {
+      console.log("done");
+  })
+    .fail( function(xhr, textStatus, errorThrown) {
+        alert(xhr.responseText);
+        alert(textStatus);
+    });
+    
 
 $.ajax({
     type: "POST",
-    dataType: 'json',    
+    dataType: 'jsonp',    
     url: "http://politicaesporteclube.com/attrs/rodada/",
     crossDomain : true
    
@@ -72,8 +112,7 @@ $.ajax({
         alert(textStatus);
     });
 
-	
-/*
+
 $.getJSON( 'http://politicaesporteclube.com/attrs/time/', function(data) {
 				alert("ola1.1");
 				    $('#log li').remove();
