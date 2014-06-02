@@ -10,7 +10,7 @@
 
 <script src="/static/js/src/viz/stacked.js"></script>
 
-<script>
+<script type="text/javascript">
 	var viz = d3plus.viz()
 
 	d3.json("/attrs/time/{{ selecao }}/{{ liga }}", function(time) {
@@ -45,7 +45,7 @@
           		.unique_axis("x")
 				.stack_type("monotone")
 				.year_var("ano")
-				.year("2013")
+				.year("2014")
 				//.tooltip_info([ "pontos", "rodada", "timeNome" ])
 
 				

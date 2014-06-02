@@ -37,7 +37,11 @@ body {
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     
-     background:url(../img/bg.png) repeat #2ECC71; /* 170px x 200px */
+  
+}
+
+.ui-page{
+	   background:url(../img/bg.png) repeat #2ECC71; /* 170px x 200px */
    
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:12px;
@@ -47,7 +51,6 @@ body {
     text-transform:uppercase;
     width:100%;
 }
-
 /* Portrait layout (default) */
 .app {
     background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
@@ -116,3 +119,12 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
+  #login-facebook {
+        display: block;
+        width: 400px;
+        height: 76px;
+        margin: 320px 0 0 420px;
+        background: url(img/button-facebook.png);
+        }
+

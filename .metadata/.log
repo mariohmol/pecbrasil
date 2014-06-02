@@ -85,3 +85,19 @@ com.android.ddmlib.ShellCommandUnresponsiveException
 	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
 	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SESSION 2014-05-31 17:36:47.829 -----------------------------------------------
+eclipse.buildId=v22.6.2-1085508
+java.version=1.6.0_31
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product com.android.ide.eclipse.adt.package.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2014-05-31 17:36:59.315
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.android.ide.eclipse.ddms 4 0 2014-05-31 17:37:08.251
+!MESSAGE DDMS files not found: /home/mario/Desktop/www/adt-bundle-linux-x86-20140321/eclipse/platform-tools/adb /home/mario/Desktop/www/adt-bundle-linux-x86-20140321/eclipse/tools/hprof-conv /home/mario/Desktop/www/adt-bundle-linux-x86-20140321/eclipse/tools/traceview 
+
+!ENTRY org.eclipse.ui.browser 2 0 2014-05-31 17:41:01.662
+!MESSAGE Internal browser is not available: No more handles [Unknown Mozilla path (MOZILLA_FIVE_HOME not set)]

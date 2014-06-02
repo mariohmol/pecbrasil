@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <style>
+      #login-facebook {
+        display: block;
+        width: 400px;
+        height: 76px;
+        margin: 320px 0 0 420px;
+        background: url(img/button-facebook.png);
+        }
+
+/*        #myform {
+          display: block;
+          width: 400px;
+          height: 200px;
+          margin: 420px 0 0 420px;
+        }*/
+    </style>
+    
+            <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Política Esporte Clube</title>
+
+    </head>
+  <body>
+    
+  <!-- cordova -->
+    <script src="cordova.js"></script>
+      <!-- cordova facebook plugin -->
+    <script src="cdv-plugin-fb-connect.js"></script>
+      <!-- facebook js sdk -->
+    <script src="facebook-js-sdk.js"></script>
+    
+    
+    <script src="lib/pec.js"></script>
+    <script src="lib/jquery-1.9.1.min.js"></script>
+    
+  <div class="app">
+            <h1 style="color:white">Política Esporte Clube</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Conectando no dispositivo..</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+            <p class=""><a href="classificacao.html">Classificação</a>
+            <p class=""><a href="meupartido.html">Meu Partido</a>
+            </p>
+        </div>
+        
+
+<!--         <a href="#" id="login-facebook" onclick="login()"></a> -->
+
+        <div id="data"></div>
+
+        <div id="fb-root"></div>
+  
+        
+        <div id="log"></div>
+        
+        <button onclick="login()">Login</button>
+        
+	<script>
+    document.addEventListener('deviceready', function() {
+                try {
+                    //alert('Device is ready! Make sure you set your app_id below this alert.');
+                    FB.init({ 
+                      appId: "208773702609294", 
+                      nativeInterface: CDV.FB, 
+                      useCachedDialogs: false 
+                    });
+                    document.getElementById('data').innerHTML = "";
+                } catch (e) {
+                    alert(e);
+                }
+            }, false);
+
+            $(document).on("ready", function () {
+                //$('#log').html('jQuery loaded');
+
+            });
+</script>
+
+  </body>
+</html>

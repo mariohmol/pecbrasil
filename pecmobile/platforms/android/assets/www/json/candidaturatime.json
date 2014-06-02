@@ -1,0 +1,44 @@
+{
+  "candidaturas": [
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 38,
+      "id_original": 160976,
+      "name_en": "FRANCISCO EVERARDO OLIVEIRA SILVA - JUNTOS POR S\u00c3O PAULO",
+      "name_pt": "FRANCISCO EVERARDO OLIVEIRA SILVA",
+      "partido": 22,
+      "politico": 87,
+      "uf": "SP"
+    },
+    {
+      "cidade": "DISTRITO FEDERAL",
+      "id": 159,
+      "id_original": 89282,
+      "name_en": "JOSE ANTONIO MACHADO REGUFFE - NOVO CAMINHO",
+      "name_pt": "JOSE ANTONIO MACHADO REGUFFE",
+      "partido": 12,
+      "politico": 242,
+      "uf": "DF"
+    },
+    {
+      "cidade": "BAHIA",
+      "id": 176,
+      "id_original": 160553,
+      "name_en": "ANTONIO LUIZ PARANHOS RIBEIRO LEITE DE BRITO - PARA FAZER ACONTECER",
+      "name_pt": "ANTONIO LUIZ PARANHOS RIBEIRO LEITE DE BRITO",
+      "partido": 14,
+      "politico": 261,
+      "uf": "BA"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 189,
+      "id_original": 74119,
+      "name_en": "EMANUEL FERNANDES - PSDB/DEM/PPS",
+      "name_pt": "EMANUEL FERNANDES",
+      "partido": 45,
+      "politico": 278,
+      "uf": "SP"
+    }
+  ]
+}

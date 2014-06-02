@@ -1,44 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-
-    <style>
-      #login-facebook {
-        display: block;
-        width: 400px;
-        height: 76px;
-        margin: 320px 0 0 420px;
-        background: url(img/button-facebook.png);
-        }
-
-/*        #myform {
-          display: block;
-          width: 400px;
-          height: 200px;
-          margin: 420px 0 0 420px;
-        }*/
-    </style>
-    
-            <meta charset="utf-8" />
+  <head>    
+        <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.2.min.css" />
-        <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Política Esporte Clube</title>
 
     </head>
   <body>
+  	
+ 
         
-    <button onclick="window.location='index.html'">Inicio</button>
+<div id="employeeListPage" data-role="page" >
 
-<!--         <a href="#" id="login-facebook" onclick="login()"></a> -->
+	<div class="app" id="devicereadyApp">
+        <h1 style="color:white">Política Esporte Clube</h1>
+        <div id="deviceready" class="blink">
+            <p class="event listening">Carregando dados..</p>
+            <p class="event received">Device is Ready</p>
+        </div>
+    </div>
 
-        <div id="data"></div>
+ 	<div data-role="header" data-position="fixed"  id="loaded_header"  style="display: none;">
+		<h1>Classifica��o</h1>
+	</div>
 
-        <div id="fb-root"></div>
-        
-       
+            
+	<div data-role="content"  id="loaded_content"  style="display: none;">
+         <ul id="employeeList" data-role="listview" data-filter="true"></ul>
+    </div>		
+
+</div>
+
     <!-- cordova -->
     <script src="cordova.js"></script>
       <!-- cordova facebook plugin -->
@@ -46,47 +42,43 @@
       <!-- facebook js sdk -->
     <script src="facebook-js-sdk.js"></script>
     
+    
      <script src="lib/jquery-1.9.1.min.js"></script>
      <script src="lib/jquery.mobile-1.4.2.min.js"></script>
-     
-	
-        <div id="log">Ola Log</div>
-
-<div id="employeeListPage" data-role="page" >
-
-	<div data-role="header" data-position="fixed">
-		<h1>Employee Directory</h1>
-	</div>
-
-	<div data-role="content">
-         <ul id="employeeList" data-role="listview" data-filter="true"></ul>
-    </div>		
-
-</div>
+        
 
 
 <script type="text/javascript">
-$.getJSON( 'http://politicaesporteclube.com/attrs/time/', function(data) {
+
+function runclassificacao(){
+	url="http://localhost/json/times.json";
+	//url='http://politicaesporteclube.com/attrs/time/';
+	url="http://pecmobile/json/times.json";
+	
+	$.getJSON( url, function(data) {
+			
+					    $('#employeeList li').remove();
+					    $.each(data.times, function(index, time) {				    
+					    	retorno  = '<li><a href="time.html?id=' + time.id + '">' +
+							'<h1>' + time.posicao + '</h1>' +
+							'<h4>' + time.nome +  '</h4>' +
+							'<p>' + time.posicao + '</p>' +
+							'<span class="ui-li-count">' + time.pontuacao_total + '</span></a></li>';						
+							if(time.pontuacao_total=="") time.pontuacao_total=0;						
+					    	$('#employeeList').append(retorno);
+					    });
+					    $('#employeeList').listview('refresh');
+					    $('#devicereadyApp').hide();
+					    $('#loaded_header').show();
+					    $('#loaded_content').show();
+					    
+			});
 		
-				    $('#employeeList li').remove();
-				    $.each(data.times, function(index, time) {				    
-				    	retorno  = '<li><a href="time.html?id=' + time.id + '">' +
-						'<img src="pics/' + time.id + '"/>' +
-						'<h4>' + time.nome + ' ' + time.nome + '</h4>' +
-						'<p>' + time.color + '</p>' +
-						'<span class="ui-li-count">' + time.pontuacao_total + '</span></a></li>';						
-						if(time.pontuacao_total=="") time.pontuacao_total=0;						
-				    	$('#employeeList').append(retorno);
-				    });
-				    $('#employeeList').listview('refresh');
-		});
-		
-		
-		
+}		
+	runclassificacao();	
 		
 
 </script>
-
 
 
   </body>

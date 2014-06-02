@@ -1,0 +1,1004 @@
+{
+  "candidaturas": [
+    {
+      "cidade": "RIO GRANDE DO NORTE",
+      "id": 1,
+      "id_original": 74324,
+      "name_en": "HENRIQUE EDUARDO LYRA ALVES - POR UM RIO GRANDE DO NORTE MELHOR",
+      "name_pt": "HENRIQUE EDUARDO LYRA ALVES",
+      "partido": 15,
+      "politico": 11,
+      "uf": "RN"
+    },
+    {
+      "cidade": "PERNAMBUCO",
+      "id": 2,
+      "id_original": 74421,
+      "name_en": "INOCENCIO GOMES DE OLIVEIRA - FRENTE POPULAR DE PERNAMBUCO PARA DEPUTADO FEDERAL E ESTADUAL",
+      "name_pt": "INOCENCIO GOMES DE OLIVEIRA",
+      "partido": 22,
+      "politico": 14,
+      "uf": "PE"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 3,
+      "id_original": 73805,
+      "name_en": "ROBERTO JOAO PEREIRA FREIRE - PSDB/DEM/PPS",
+      "name_pt": "ROBERTO JOAO PEREIRA FREIRE",
+      "partido": 23,
+      "politico": 17,
+      "uf": "SP"
+    },
+    {
+      "cidade": "ESP\u00cdRITO SANTO",
+      "id": 4,
+      "id_original": 73507,
+      "name_en": "ROSILDA DE FREITAS - FRENTE JUNTOS PELO FUTURO",
+      "name_pt": "ROSILDA DE FREITAS",
+      "partido": 15,
+      "politico": 22,
+      "uf": "ES"
+    },
+    {
+      "cidade": "RIO DE JANEIRO",
+      "id": 5,
+      "id_original": 74833,
+      "name_en": "AROLDE DE OLIVEIRA - O RIO DE JANEIRO PODE MAIS",
+      "name_pt": "AROLDE DE OLIVEIRA",
+      "partido": 3,
+      "politico": 25,
+      "uf": "RJ"
+    },
+    {
+      "cidade": "RIO DE JANEIRO",
+      "id": 6,
+      "id_original": 73701,
+      "name_en": "BENEDITA SOUZA DA SILVA SAMPAIO - #NE#",
+      "name_pt": "BENEDITA SOUZA DA SILVA SAMPAIO",
+      "partido": 13,
+      "politico": 28,
+      "uf": "RJ"
+    },
+    {
+      "cidade": "RIO DE JANEIRO",
+      "id": 7,
+      "id_original": 73424,
+      "name_en": "SIMAO SESSIM - UNIDOS PELO RIO",
+      "name_pt": "SIMAO SESSIM",
+      "partido": 11,
+      "politico": 33,
+      "uf": "RJ"
+    },
+    {
+      "cidade": "MINAS GERAIS",
+      "id": 8,
+      "id_original": 74742,
+      "name_en": "LAEL VIEIRA VARELLA - PSDB/DEM/PP/PR/PPS",
+      "name_pt": "LAEL VIEIRA VARELLA",
+      "partido": 25,
+      "politico": 38,
+      "uf": "MG"
+    },
+    {
+      "cidade": "GOI\u00c1S",
+      "id": 9,
+      "id_original": 73674,
+      "name_en": "ROBERTO EGIDIO BALESTRA - GOI\u00c1S NO RUMO CERTO",
+      "name_pt": "ROBERTO EGIDIO BALESTRA",
+      "partido": 11,
+      "politico": 41,
+      "uf": "GO"
+    },
+    {
+      "cidade": "MATO GROSSO",
+      "id": 10,
+      "id_original": 73653,
+      "name_en": "WELLINGTON ANTONIO FAGUNDES - MATO GROSSO EM PRIMEIRO LUGAR II",
+      "name_pt": "WELLINGTON ANTONIO FAGUNDES",
+      "partido": 22,
+      "politico": 46,
+      "uf": "MT"
+    },
+    {
+      "cidade": "AMAP\u00c1",
+      "id": 11,
+      "id_original": 74065,
+      "name_en": "FATIMA LUCIA PELAES - AMAPA MAIS FORTE",
+      "name_pt": "FATIMA LUCIA PELAES",
+      "partido": 15,
+      "politico": 54,
+      "uf": "AP"
+    },
+    {
+      "cidade": "TOCANTINS",
+      "id": 12,
+      "id_original": 160639,
+      "name_en": "MARIA AUXILIADORA SEABRA REZENDE - NOVA UNI\u00c3O DO TOCANTINS",
+      "name_pt": "MARIA AUXILIADORA SEABRA REZENDE",
+      "partido": 25,
+      "politico": 56,
+      "uf": "TO"
+    },
+    {
+      "cidade": "TOCANTINS",
+      "id": 13,
+      "id_original": 81232,
+      "name_en": "IRAJA SILVESTRE FILHO - NOVA UNI\u00c3O DO TOCANTINS",
+      "name_pt": "IRAJA SILVESTRE FILHO",
+      "partido": 3,
+      "politico": 58,
+      "uf": "TO"
+    },
+    {
+      "cidade": "TOCANTINS",
+      "id": 14,
+      "id_original": 160576,
+      "name_en": "CESAR HANNA HALUM - FOR\u00c7A DO POVO 1",
+      "name_pt": "CESAR HANNA HALUM",
+      "partido": 10,
+      "politico": 59,
+      "uf": "TO"
+    },
+    {
+      "cidade": "TOCANTINS",
+      "id": 15,
+      "id_original": 160648,
+      "name_en": "RAIMUNDO COIMBRA JUNIOR - FOR\u00c7A DO POVO 1",
+      "name_pt": "RAIMUNDO COIMBRA JUNIOR",
+      "partido": 15,
+      "politico": 60,
+      "uf": "TO"
+    },
+    {
+      "cidade": "TOCANTINS",
+      "id": 16,
+      "id_original": 160638,
+      "name_en": "JOSELI ANGELO AGNOLIN - FOR\u00c7A DO POVO 1",
+      "name_pt": "JOSELI ANGELO AGNOLIN",
+      "partido": 12,
+      "politico": 61,
+      "uf": "TO"
+    },
+    {
+      "cidade": "CEAR\u00c1",
+      "id": 17,
+      "id_original": 74297,
+      "name_en": "JOSE LINHARES PONTE - PP/PTB/PSL/PTN/PRTB/PHS/PMN/PT DO B",
+      "name_pt": "JOSE LINHARES PONTE",
+      "partido": 11,
+      "politico": 62,
+      "uf": "CE"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 18,
+      "id_original": 160589,
+      "name_en": "BRUNA DIAS FURLAN - PSDB/DEM/PPS",
+      "name_pt": "BRUNA DIAS FURLAN",
+      "partido": 45,
+      "politico": 64,
+      "uf": "SP"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 19,
+      "id_original": 160595,
+      "name_en": "JOSE CARLOS VAZ DE LIMA - PSDB/DEM/PPS",
+      "name_pt": "JOSE CARLOS VAZ DE LIMA",
+      "partido": 45,
+      "politico": 66,
+      "uf": "SP"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 20,
+      "id_original": 160662,
+      "name_en": "LUIZ FERNANDO ARANTES MACHADO - PSDB/DEM/PPS",
+      "name_pt": "LUIZ FERNANDO ARANTES MACHADO",
+      "partido": 45,
+      "politico": 67,
+      "uf": "SP"
+    },
+    {
+      "cidade": "PERNAMBUCO",
+      "id": 21,
+      "id_original": 74435,
+      "name_en": "SEVERINO SERGIO ESTELITA GUERRA - PERNAMBUCO PODE MAIS",
+      "name_pt": "SEVERINO SERGIO ESTELITA GUERRA",
+      "partido": 45,
+      "politico": 68,
+      "uf": "PE"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 22,
+      "id_original": 160586,
+      "name_en": "WILLIAM DIB - PSDB/DEM/PPS",
+      "name_pt": "WILLIAM DIB",
+      "partido": 45,
+      "politico": 69,
+      "uf": "SP"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 23,
+      "id_original": 160565,
+      "name_en": "MARA CRISTINA GABRILLI - PSDB/DEM/PPS",
+      "name_pt": "MARA CRISTINA GABRILLI",
+      "partido": 45,
+      "politico": 70,
+      "uf": "SP"
+    },
+    {
+      "cidade": "BAHIA",
+      "id": 24,
+      "id_original": 74634,
+      "name_en": "MARCOS ANTONIO MEDRADO - PRA BAHIA SEGUIR MUDANDO",
+      "name_pt": "MARCOS ANTONIO MEDRADO",
+      "partido": 2,
+      "politico": 71,
+      "uf": "BA"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 25,
+      "id_original": 160655,
+      "name_en": "RICARDO IZAR JUNIOR - #NE#",
+      "name_pt": "RICARDO IZAR JUNIOR",
+      "partido": 3,
+      "politico": 72,
+      "uf": "SP"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 26,
+      "id_original": 160653,
+      "name_en": "ROBERTO ALVES DE LUCENA - #NE#",
+      "name_pt": "ROBERTO ALVES DE LUCENA",
+      "partido": 43,
+      "politico": 73,
+      "uf": "SP"
+    },
+    {
+      "cidade": "GOI\u00c1S",
+      "id": 27,
+      "id_original": 74813,
+      "name_en": "RONALDO RAMOS CAIADO - AVAN\u00c7AR MAIS",
+      "name_pt": "RONALDO RAMOS CAIADO",
+      "partido": 25,
+      "politico": 74,
+      "uf": "GO"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 28,
+      "id_original": 80920,
+      "name_en": "JOSE LUIZ DE FRANcA PENNA - #NE#",
+      "name_pt": "JOSE LUIZ DE FRANcA PENNA",
+      "partido": 43,
+      "politico": 75,
+      "uf": "SP"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 29,
+      "id_original": 160667,
+      "name_en": "GUILHERME MUSSI FERREIRA - #NE#",
+      "name_pt": "GUILHERME MUSSI FERREIRA",
+      "partido": 11,
+      "politico": 76,
+      "uf": "SP"
+    },
+    {
+      "cidade": "PARAN\u00c1",
+      "id": 30,
+      "id_original": 73778,
+      "name_en": "LUIZ CARLOS JORGE HAULY - PSDB - PP - DEM - PPS - PRB",
+      "name_pt": "LUIZ CARLOS JORGE HAULY",
+      "partido": 45,
+      "politico": 77,
+      "uf": "PR"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 31,
+      "id_original": 160659,
+      "name_en": "IOLANDA KEIKO MIASHIRO OTA - PRESTE ATEN\u00c7\u00c3O S\u00c3O PAULO",
+      "name_pt": "IOLANDA KEIKO MIASHIRO OTA",
+      "partido": 40,
+      "politico": 78,
+      "uf": "SP"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 32,
+      "id_original": 160537,
+      "name_en": "GABRIEL BENEDITO ISSAAC CHALITA - PRESTE ATEN\u00c7\u00c3O S\u00c3O PAULO",
+      "name_pt": "GABRIEL BENEDITO ISSAAC CHALITA",
+      "partido": 15,
+      "politico": 79,
+      "uf": "SP"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 33,
+      "id_original": 160532,
+      "name_en": "ADRIANO ELI CORREA - PSDB/DEM/PPS",
+      "name_pt": "ADRIANO ELI CORREA",
+      "partido": 25,
+      "politico": 81,
+      "uf": "SP"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 34,
+      "id_original": 160544,
+      "name_en": "JUNJI ABE - PSDB/DEM/PPS",
+      "name_pt": "JUNJI ABE",
+      "partido": 3,
+      "politico": 82,
+      "uf": "SP"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 35,
+      "id_original": 73437,
+      "name_en": "PAULO ROBERTO GOMES MANSUR - #NE#",
+      "name_pt": "PAULO ROBERTO GOMES MANSUR",
+      "partido": 10,
+      "politico": 83,
+      "uf": "SP"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 36,
+      "id_original": 160558,
+      "name_en": "PAULO ROBERTO FREIRE DA COSTA - JUNTOS POR S\u00c3O PAULO",
+      "name_pt": "PAULO ROBERTO FREIRE DA COSTA",
+      "partido": 22,
+      "politico": 85,
+      "uf": "SP"
+    },
+    {
+      "cidade": "RIO DE JANEIRO",
+      "id": 37,
+      "id_original": 74848,
+      "name_en": "JANDIRA FEGHALI - #NE#",
+      "name_pt": "JANDIRA FEGHALI",
+      "partido": 65,
+      "politico": 86,
+      "uf": "RJ"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 38,
+      "id_original": 160976,
+      "name_en": "FRANCISCO EVERARDO OLIVEIRA SILVA - JUNTOS POR S\u00c3O PAULO",
+      "name_pt": "FRANCISCO EVERARDO OLIVEIRA SILVA",
+      "partido": 22,
+      "politico": 87,
+      "uf": "SP"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 39,
+      "id_original": 160660,
+      "name_en": "MARCELO THEODORO DE AGUIAR - HUMANISTA CRIST\u00c3O",
+      "name_pt": "MARCELO THEODORO DE AGUIAR",
+      "partido": 25,
+      "politico": 88,
+      "uf": "SP"
+    },
+    {
+      "cidade": "RIO DE JANEIRO",
+      "id": 40,
+      "id_original": 74847,
+      "name_en": "JAIR MESSIAS BOLSONARO - UNIDOS PELO RIO",
+      "name_pt": "JAIR MESSIAS BOLSONARO",
+      "partido": 11,
+      "politico": 89,
+      "uf": "RJ"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 41,
+      "id_original": 160601,
+      "name_en": "MARCO ANTONIO FELICIANO - HUMANISTA CRIST\u00c3O",
+      "name_pt": "MARCO ANTONIO FELICIANO",
+      "partido": 20,
+      "politico": 90,
+      "uf": "SP"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 42,
+      "id_original": 160657,
+      "name_en": "NEWTON LIMA NETO - JUNTOS POR S\u00c3O PAULO",
+      "name_pt": "NEWTON LIMA NETO",
+      "partido": 13,
+      "politico": 91,
+      "uf": "SP"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 43,
+      "id_original": 73553,
+      "name_en": "NELSON MARQUEZELLI - #NE#",
+      "name_pt": "NELSON MARQUEZELLI",
+      "partido": 14,
+      "politico": 92,
+      "uf": "SP"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 44,
+      "id_original": 160622,
+      "name_en": "VICENTE CANDIDO DA SILVA - JUNTOS POR S\u00c3O PAULO",
+      "name_pt": "VICENTE CANDIDO DA SILVA",
+      "partido": 13,
+      "politico": 93,
+      "uf": "SP"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 45,
+      "id_original": 160561,
+      "name_en": "JOSE OLIMPIO SILVEIRA MORAES - #NE#",
+      "name_pt": "JOSE OLIMPIO SILVEIRA MORAES",
+      "partido": 11,
+      "politico": 94,
+      "uf": "SP"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 46,
+      "id_original": 73535,
+      "name_en": "JORGE TADEU MUDALEN - PSDB/DEM/PPS",
+      "name_pt": "JORGE TADEU MUDALEN",
+      "partido": 25,
+      "politico": 95,
+      "uf": "SP"
+    },
+    {
+      "cidade": "SERGIPE",
+      "id": 47,
+      "id_original": 160543,
+      "name_en": "ANDRE LUIS DANTAS FERREIRA - PARA SERGIPE CONTINUAR SEGUINDO EM FRENTE",
+      "name_pt": "ANDRE LUIS DANTAS FERREIRA",
+      "partido": 20,
+      "politico": 97,
+      "uf": "SE"
+    },
+    {
+      "cidade": "PAR\u00c1",
+      "id": 48,
+      "id_original": 74077,
+      "name_en": "GIOVANNI CORREA QUEIROZ - CRESCE PAR\u00c1",
+      "name_pt": "GIOVANNI CORREA QUEIROZ",
+      "partido": 12,
+      "politico": 98,
+      "uf": "PA"
+    },
+    {
+      "cidade": "SERGIPE",
+      "id": 49,
+      "id_original": 160626,
+      "name_en": "JOSE ALMEIDA LIMA - PARA SERGIPE CONTINUAR SEGUINDO EM FRENTE",
+      "name_pt": "JOSE ALMEIDA LIMA",
+      "partido": 15,
+      "politico": 99,
+      "uf": "SE"
+    },
+    {
+      "cidade": "SERGIPE",
+      "id": 50,
+      "id_original": 160568,
+      "name_en": "ROGERIO CARVALHO SANTOS - PARA SERGIPE CONTINUAR SEGUINDO EM FRENTE",
+      "name_pt": "ROGERIO CARVALHO SANTOS",
+      "partido": 13,
+      "politico": 102,
+      "uf": "SE"
+    },
+    {
+      "cidade": "SANTA CATARINA",
+      "id": 51,
+      "id_original": 160536,
+      "name_en": "MARCO ANTONIO TEBALDI - COLIGA\u00c7\u00c3O DEM - PMDB - PSDB - PPS - PTC - PSL - PRP - PSC",
+      "name_pt": "MARCO ANTONIO TEBALDI",
+      "partido": 45,
+      "politico": 103,
+      "uf": "SC"
+    },
+    {
+      "cidade": "RORAIMA",
+      "id": 52,
+      "id_original": 73982,
+      "name_en": "LUCIANO DE SOUZA CASTRO - UNI\u00c3O POR RORAIMA 1",
+      "name_pt": "LUCIANO DE SOUZA CASTRO",
+      "partido": 22,
+      "politico": 104,
+      "uf": "RR"
+    },
+    {
+      "cidade": "SANTA CATARINA",
+      "id": 53,
+      "id_original": 160509,
+      "name_en": "JORGINHO DOS SANTOS MELLO - COLIGA\u00c7\u00c3O DEM - PMDB - PSDB - PPS - PTC - PSL - PRP - PSC",
+      "name_pt": "JORGINHO DOS SANTOS MELLO",
+      "partido": 22,
+      "politico": 105,
+      "uf": "SC"
+    },
+    {
+      "cidade": "BAHIA",
+      "id": 54,
+      "id_original": 74570,
+      "name_en": "JUTAHY MAGALHAES JUNIOR - #NE#",
+      "name_pt": "JUTAHY MAGALHAES JUNIOR",
+      "partido": 45,
+      "politico": 106,
+      "uf": "BA"
+    },
+    {
+      "cidade": "SANTA CATARINA",
+      "id": 55,
+      "id_original": 160651,
+      "name_en": "ROGERIO MENDONcA - COLIGA\u00c7\u00c3O DEM - PMDB - PSDB - PPS - PTC - PSL - PRP - PSC",
+      "name_pt": "ROGERIO MENDONcA",
+      "partido": 15,
+      "politico": 107,
+      "uf": "SC"
+    },
+    {
+      "cidade": "SANTA CATARINA",
+      "id": 56,
+      "id_original": 160604,
+      "name_en": "PEDRO FRANCISCO UCZAI - A FAVOR DE SANTA CATARINA",
+      "name_pt": "PEDRO FRANCISCO UCZAI",
+      "partido": 13,
+      "politico": 110,
+      "uf": "SC"
+    },
+    {
+      "cidade": "RIO GRANDE DO SUL",
+      "id": 57,
+      "id_original": 160581,
+      "name_en": "ASSIS FLAVIO DA SILVA MELO - UNIDADE PELO RIO GRANDE",
+      "name_pt": "ASSIS FLAVIO DA SILVA MELO",
+      "partido": 65,
+      "politico": 111,
+      "uf": "RS"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 58,
+      "id_original": 73584,
+      "name_en": "ANTONIO CARLOS DE MENDES THAME - PSDB/DEM/PPS",
+      "name_pt": "ANTONIO CARLOS DE MENDES THAME",
+      "partido": 45,
+      "politico": 112,
+      "uf": "SP"
+    },
+    {
+      "cidade": "RIO GRANDE DO SUL",
+      "id": 59,
+      "id_original": 160567,
+      "name_en": "NELSON MARCHEZAN JUNIOR - RIO GRANDE AFIRMATIVO",
+      "name_pt": "NELSON MARCHEZAN JUNIOR",
+      "partido": 45,
+      "politico": 113,
+      "uf": "RS"
+    },
+    {
+      "cidade": "RIO GRANDE DO SUL",
+      "id": 60,
+      "id_original": 160607,
+      "name_en": "JOSE LUIZ STEDILE - UNIDADE PELO RIO GRANDE",
+      "name_pt": "JOSE LUIZ STEDILE",
+      "partido": 40,
+      "politico": 114,
+      "uf": "RS"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 61,
+      "id_original": 73434,
+      "name_en": "ARNALDO FARIA DE SA - #NE#",
+      "name_pt": "ARNALDO FARIA DE SA",
+      "partido": 14,
+      "politico": 115,
+      "uf": "SP"
+    },
+    {
+      "cidade": "PARAN\u00c1",
+      "id": 62,
+      "id_original": 73466,
+      "name_en": "RUBENS BUENO - PSDB - PP - DEM - PPS - PRB",
+      "name_pt": "RUBENS BUENO",
+      "partido": 23,
+      "politico": 118,
+      "uf": "PR"
+    },
+    {
+      "cidade": "RIO GRANDE DO SUL",
+      "id": 63,
+      "id_original": 160552,
+      "name_en": "DANRLEI DE DEUS HINTERHOLZ - ALIAN\u00c7A TRABALHISTA DEMOCR\u00c1TICA",
+      "name_pt": "DANRLEI DE DEUS HINTERHOLZ",
+      "partido": 3,
+      "politico": 119,
+      "uf": "RS"
+    },
+    {
+      "cidade": "RIO GRANDE DO SUL",
+      "id": 64,
+      "id_original": 160535,
+      "name_en": "DIONILSO MATEUS MARCON - #NE#",
+      "name_pt": "DIONILSO MATEUS MARCON",
+      "partido": 13,
+      "politico": 120,
+      "uf": "RS"
+    },
+    {
+      "cidade": "RIO GRANDE DO SUL",
+      "id": 65,
+      "id_original": 160673,
+      "name_en": "GIOVANI CHERINI - PDT - PTN",
+      "name_pt": "GIOVANI CHERINI",
+      "partido": 12,
+      "politico": 124,
+      "uf": "RS"
+    },
+    {
+      "cidade": "MATO GROSSO",
+      "id": 66,
+      "id_original": 160519,
+      "name_en": "JULIO JOSE DE CAMPOS - COLIGA\u00c7\u00c3O SENADOR JONAS PINHEIRO II",
+      "name_pt": "JULIO JOSE DE CAMPOS",
+      "partido": 25,
+      "politico": 126,
+      "uf": "MT"
+    },
+    {
+      "cidade": "CEAR\u00c1",
+      "id": 67,
+      "id_original": 73588,
+      "name_en": "CARLOS MAURO CABRAL BENEVIDES - PRB/PDT/PT/PMDB/PSC/PSB/PCDOB",
+      "name_pt": "CARLOS MAURO CABRAL BENEVIDES",
+      "partido": 15,
+      "politico": 129,
+      "uf": "CE"
+    },
+    {
+      "cidade": "RORAIMA",
+      "id": 68,
+      "id_original": 160668,
+      "name_en": "PAULO CESAR JUSTO QUARTIERO - UNI\u00c3O POR RORAIMA 1",
+      "name_pt": "PAULO CESAR JUSTO QUARTIERO",
+      "partido": 25,
+      "politico": 130,
+      "uf": "RR"
+    },
+    {
+      "cidade": "RORAIMA",
+      "id": 69,
+      "id_original": 160656,
+      "name_en": "RAUL DA SILVA LIMA SOBRINHO - RORAIMA FELIZ",
+      "name_pt": "RAUL DA SILVA LIMA SOBRINHO",
+      "partido": 11,
+      "politico": 131,
+      "uf": "RR"
+    },
+    {
+      "cidade": "PIAU\u00cd",
+      "id": 70,
+      "id_original": 160974,
+      "name_en": "HUGO NAPOLEAO DO REGO NETO - A FOR\u00c7A DO POVO",
+      "name_pt": "HUGO NAPOLEAO DO REGO NETO",
+      "partido": 3,
+      "politico": 132,
+      "uf": "PI"
+    },
+    {
+      "cidade": "RORAIMA",
+      "id": 71,
+      "id_original": 160531,
+      "name_en": "JOHNATHAN PEREIRA DE JESUS - AGORA \u00c9 10",
+      "name_pt": "JOHNATHAN PEREIRA DE JESUS",
+      "partido": 10,
+      "politico": 133,
+      "uf": "RR"
+    },
+    {
+      "cidade": "PAR\u00c1",
+      "id": 72,
+      "id_original": 74222,
+      "name_en": "ASDRUBAL MENDES BENTES - #NE#",
+      "name_pt": "ASDRUBAL MENDES BENTES",
+      "partido": 15,
+      "politico": 135,
+      "uf": "PA"
+    },
+    {
+      "cidade": "ROND\u00d4NIA",
+      "id": 73,
+      "id_original": 160605,
+      "name_en": "CARLOS MAGNO RAMOS - AVAN\u00c7A RONDONIA - O PROGRESSO N\u00c3O PODE PARAR",
+      "name_pt": "CARLOS MAGNO RAMOS",
+      "partido": 11,
+      "politico": 136,
+      "uf": "RO"
+    },
+    {
+      "cidade": "PERNAMBUCO",
+      "id": 74,
+      "id_original": 74419,
+      "name_en": "LUIZ GONZAGA PATRIOTA - FRENTE POPULAR DE PERNAMBUCO PARA DEPUTADO FEDERAL E ESTADUAL",
+      "name_pt": "LUIZ GONZAGA PATRIOTA",
+      "partido": 40,
+      "politico": 138,
+      "uf": "PE"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 75,
+      "id_original": 132056,
+      "name_en": "PAULO SALIM MALUF - #NE#",
+      "name_pt": "PAULO SALIM MALUF",
+      "partido": 11,
+      "politico": 141,
+      "uf": "SP"
+    },
+    {
+      "cidade": "RIO DE JANEIRO",
+      "id": 76,
+      "id_original": 160597,
+      "name_en": "ROMARIO DE SOUZA FARIA - FRENTE DE MOBILIZA\u00c7\u00c3O SOCIALISTA",
+      "name_pt": "ROMARIO DE SOUZA FARIA",
+      "partido": 40,
+      "politico": 142,
+      "uf": "RJ"
+    },
+    {
+      "cidade": "RIO DE JANEIRO",
+      "id": 77,
+      "id_original": 160512,
+      "name_en": "AUREO LIDIO MOREIRA RIBEIRO - RENOVA RIO",
+      "name_pt": "AUREO LIDIO MOREIRA RIBEIRO",
+      "partido": 2,
+      "politico": 143,
+      "uf": "RJ"
+    },
+    {
+      "cidade": "MATO GROSSO",
+      "id": 78,
+      "id_original": 141401,
+      "name_en": "CARLOS GOMES BEZERRA - MATO GROSSO EM PRIMEIRO LUGAR II",
+      "name_pt": "CARLOS GOMES BEZERRA",
+      "partido": 15,
+      "politico": 144,
+      "uf": "MT"
+    },
+    {
+      "cidade": "RIO DE JANEIRO",
+      "id": 79,
+      "id_original": 160627,
+      "name_en": "STEPAN NERCESSIAN - O RIO DE JANEIRO PODE MAIS",
+      "name_pt": "STEPAN NERCESSIAN",
+      "partido": 23,
+      "politico": 145,
+      "uf": "RJ"
+    },
+    {
+      "cidade": "RIO DE JANEIRO",
+      "id": 80,
+      "id_original": 160677,
+      "name_en": "FRANCISCO FLORIANO DE SOUSA SILVA - #NE#",
+      "name_pt": "FRANCISCO FLORIANO DE SOUSA SILVA",
+      "partido": 22,
+      "politico": 146,
+      "uf": "RJ"
+    },
+    {
+      "cidade": "SANTA CATARINA",
+      "id": 81,
+      "id_original": 160649,
+      "name_en": "ESPERIDIAO AMIN HELOU FILHO - ALIAN\u00c7A COM SANTA CATARINA",
+      "name_pt": "ESPERIDIAO AMIN HELOU FILHO",
+      "partido": 11,
+      "politico": 147,
+      "uf": "SC"
+    },
+    {
+      "cidade": "RIO DE JANEIRO",
+      "id": 82,
+      "id_original": 160625,
+      "name_en": "JORGE DE OLIVEIRA - #NE#",
+      "name_pt": "JORGE DE OLIVEIRA",
+      "partido": 22,
+      "politico": 148,
+      "uf": "RJ"
+    },
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 83,
+      "id_original": 73565,
+      "name_en": "VALDEMAR COSTA NETO - JUNTOS POR S\u00c3O PAULO",
+      "name_pt": "VALDEMAR COSTA NETO",
+      "partido": 22,
+      "politico": 149,
+      "uf": "SP"
+    },
+    {
+      "cidade": "RIO DE JANEIRO",
+      "id": 84,
+      "id_original": 160577,
+      "name_en": "ADRIAN MUSSI RAMOS - UNIDOS PELO RIO",
+      "name_pt": "ADRIAN MUSSI RAMOS",
+      "partido": 15,
+      "politico": 151,
+      "uf": "RJ"
+    },
+    {
+      "cidade": "MINAS GERAIS",
+      "id": 85,
+      "id_original": 74750,
+      "name_en": "NEWTON CARDOSO - TODOS JUNTOS POR MINAS",
+      "name_pt": "NEWTON CARDOSO",
+      "partido": 15,
+      "politico": 152,
+      "uf": "MG"
+    },
+    {
+      "cidade": "RIO DE JANEIRO",
+      "id": 86,
+      "id_original": 160620,
+      "name_en": "WASHINGTON REIS DE OLIVEIRA - UNIDOS PELO RIO",
+      "name_pt": "WASHINGTON REIS DE OLIVEIRA",
+      "partido": 15,
+      "politico": 153,
+      "uf": "RJ"
+    },
+    {
+      "cidade": "RIO DE JANEIRO",
+      "id": 87,
+      "id_original": 160631,
+      "name_en": "WALNEY DA ROCHA CARVALHO - SOLIDARIEDADE",
+      "name_pt": "WALNEY DA ROCHA CARVALHO",
+      "partido": 14,
+      "politico": 154,
+      "uf": "RJ"
+    },
+    {
+      "cidade": "PIAU\u00cd",
+      "id": 88,
+      "id_original": 74317,
+      "name_en": "JULIO CESAR DE CARVALHO LIMA - A FOR\u00c7A DO POVO",
+      "name_pt": "JULIO CESAR DE CARVALHO LIMA",
+      "partido": 3,
+      "politico": 155,
+      "uf": "PI"
+    },
+    {
+      "cidade": "RIO DE JANEIRO",
+      "id": 89,
+      "id_original": 160511,
+      "name_en": "ALESSANDRO LUCCIOLA MOLON - #NE#",
+      "name_pt": "ALESSANDRO LUCCIOLA MOLON",
+      "partido": 13,
+      "politico": 156,
+      "uf": "RJ"
+    },
+    {
+      "cidade": "RIO DE JANEIRO",
+      "id": 90,
+      "id_original": 160612,
+      "name_en": "SERGIO ZVEITER - #NE#",
+      "name_pt": "SERGIO ZVEITER",
+      "partido": 3,
+      "politico": 157,
+      "uf": "RJ"
+    },
+    {
+      "cidade": "RIO DE JANEIRO",
+      "id": 91,
+      "id_original": 92355,
+      "name_en": "VITOR PAULO ARAUJO DOS SANTOS - #NE#",
+      "name_pt": "VITOR PAULO ARAUJO DOS SANTOS",
+      "partido": 10,
+      "politico": 159,
+      "uf": "RJ"
+    },
+    {
+      "cidade": "PARAN\u00c1",
+      "id": 92,
+      "id_original": 73781,
+      "name_en": "NELSON MEURER - PSDB - PP - DEM - PPS - PRB",
+      "name_pt": "NELSON MEURER",
+      "partido": 11,
+      "politico": 160,
+      "uf": "PR"
+    },
+    {
+      "cidade": "PARAN\u00c1",
+      "id": 93,
+      "id_original": 160646,
+      "name_en": "FERNANDO DESTITO FRANCISCHINI - PSDB - PP - DEM - PPS - PRB",
+      "name_pt": "FERNANDO DESTITO FRANCISCHINI",
+      "partido": 2,
+      "politico": 161,
+      "uf": "PR"
+    },
+    {
+      "cidade": "PARAN\u00c1",
+      "id": 94,
+      "id_original": 160614,
+      "name_en": "CLEUSA ROSANE RIBAS FERREIRA - #NE#",
+      "name_pt": "CLEUSA ROSANE RIBAS FERREIRA",
+      "partido": 43,
+      "politico": 162,
+      "uf": "PR"
+    },
+    {
+      "cidade": "PARAN\u00c1",
+      "id": 95,
+      "id_original": 160663,
+      "name_en": "LEOPOLDO COSTA MEYER - #NE#",
+      "name_pt": "LEOPOLDO COSTA MEYER",
+      "partido": 40,
+      "politico": 164,
+      "uf": "PR"
+    },
+    {
+      "cidade": "PARAN\u00c1",
+      "id": 96,
+      "id_original": 160621,
+      "name_en": "SANDRO ALEX CRUZ DE OLIVEIRA - PSDB - PP - DEM - PPS - PRB",
+      "name_pt": "SANDRO ALEX CRUZ DE OLIVEIRA",
+      "partido": 23,
+      "politico": 165,
+      "uf": "PR"
+    },
+    {
+      "cidade": "MINAS GERAIS",
+      "id": 97,
+      "id_original": 74762,
+      "name_en": "JOSE SARAIVA FELIPE - TODOS JUNTOS POR MINAS",
+      "name_pt": "JOSE SARAIVA FELIPE",
+      "partido": 15,
+      "politico": 166,
+      "uf": "MG"
+    },
+    {
+      "cidade": "PARAN\u00c1",
+      "id": 98,
+      "id_original": 160566,
+      "name_en": "NELSON PADOVANI - #NE#",
+      "name_pt": "NELSON PADOVANI",
+      "partido": 20,
+      "politico": 167,
+      "uf": "PR"
+    },
+    {
+      "cidade": "SANTA CATARINA",
+      "id": 99,
+      "id_original": 73883,
+      "name_en": "PAULO ROBERTO BARRETO BORNHAUSEN - COLIGA\u00c7\u00c3O DEM - PMDB - PSDB - PPS - PTC - PSL - PRP - PSC",
+      "name_pt": "PAULO ROBERTO BARRETO BORNHAUSEN",
+      "partido": 3,
+      "politico": 169,
+      "uf": "SC"
+    },
+    {
+      "cidade": "PARAN\u00c1",
+      "id": 100,
+      "id_original": 160573,
+      "name_en": "JOAO JOSE DE ARRUDA JUNIOR - UNI\u00c3O PELO PARAN\u00c1",
+      "name_pt": "JOAO JOSE DE ARRUDA JUNIOR",
+      "partido": 15,
+      "politico": 170,
+      "uf": "PR"
+    }
+  ]
+}

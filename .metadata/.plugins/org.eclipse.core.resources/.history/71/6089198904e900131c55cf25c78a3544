@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <style>
+      #login-facebook {
+        display: block;
+        width: 400px;
+        height: 76px;
+        margin: 320px 0 0 420px;
+        background: url(img/button-facebook.png);
+        }
+
+/*        #myform {
+          display: block;
+          width: 400px;
+          height: 200px;
+          margin: 420px 0 0 420px;
+        }*/
+    </style>
+    
+            <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.2.min.css" />
+        <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+        <title>PolÃ­tica Esporte Clube</title>
+
+    </head>
+  <body>
+        
+    <button onclick="window.location='index.html'">Inicio</button>
+
+<!--         <a href="#" id="login-facebook" onclick="login()"></a> -->
+
+        <div id="data"></div>
+
+        <div id="fb-root"></div>
+        
+       
+    <!-- cordova -->
+    <script src="cordova.js"></script>
+      <!-- cordova facebook plugin -->
+    <script src="cdv-plugin-fb-connect.js"></script>
+      <!-- facebook js sdk -->
+    <script src="facebook-js-sdk.js"></script>
+    
+     <script src="lib/jquery-1.9.1.min.js"></script>
+     <script src="lib/jquery.mobile-1.4.2.min.js"></script>
+     
+	
+        <div id="log">Ola Log</div>
+
+<div id="employeeListPage" data-role="page" >
+
+	<div data-role="header" data-position="fixed">
+		<h1>Classificação</h1>
+	</div>
+
+	<div data-role="content">
+         <ul id="employeeList" data-role="listview" data-filter="true"></ul>
+    </div>		
+
+</div>
+
+
+<script type="text/javascript">
+$.getJSON( 'http://politicaesporteclube.com/attrs/time/', function(data) {
+		
+				    $('#employeeList li').remove();
+				    $.each(data.times, function(index, time) {				    
+				    	retorno  = '<li><a href="time.html?id=' + time.id + '">' +
+						'<img src="pics/' + time.id + '"/>' +
+						'<h4>' + time.nome + ' ' + time.nome + '</h4>' +
+						'<p>' + time.color + '</p>' +
+						'<span class="ui-li-count">' + time.pontuacao_total + '</span></a></li>';						
+						if(time.pontuacao_total=="") time.pontuacao_total=0;						
+				    	$('#employeeList').append(retorno);
+				    });
+				    $('#employeeList').listview('refresh');
+		});
+		
+		
+		
+		
+
+</script>
+
+
+
+  </body>
+</html>

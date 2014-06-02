@@ -26,7 +26,7 @@ def selecao(nome=None):
     rodada_atual = db.session.merge(session['rodada_atual'])
     if nome is not None:
         times = politicaServices.verTime(None,nome)            
-        return render_template("politica/selecao.html",                rodada_atual=rodada_atual,              
+        return render_template("politica/selecao.html",       novo="ola",         rodada_atual=rodada_atual,              
                                time=times)
     else:
         times = politicaServices.verTime(g.user)

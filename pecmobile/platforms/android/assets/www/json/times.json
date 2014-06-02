@@ -1,0 +1,445 @@
+{
+  "times": [
+    {
+      "color": "",
+      "id": 21,
+      "nome": "Partido de EJS",
+      "pontuacao_total": 91,
+      "posicao": 1
+    },
+    {
+      "color": "",
+      "id": 16,
+      "nome": "Partido Novo",
+      "pontuacao_total": 90,
+      "posicao": 2
+    },
+    {
+      "color": "",
+      "id": 19,
+      "nome": "Liga da Justi\u00e7a",
+      "pontuacao_total": 88,
+      "posicao": 3
+    },
+    {
+      "color": "",
+      "id": 27,
+      "nome": "Partid\u00e3o",
+      "pontuacao_total": 84,
+      "posicao": 4
+    },
+    {
+      "color": "",
+      "id": 24,
+      "nome": "Koyote",
+      "pontuacao_total": 78,
+      "posicao": 5
+    },
+    {
+      "color": "",
+      "id": 32,
+      "nome": "Partido TW",
+      "pontuacao_total": 69,
+      "posicao": 6
+    },
+    {
+      "color": "",
+      "id": 34,
+      "nome": "Partido Foda",
+      "pontuacao_total": 68,
+      "posicao": 7
+    },
+    {
+      "color": "",
+      "id": 35,
+      "nome": "Partido Avente Crew",
+      "pontuacao_total": 55,
+      "posicao": 8
+    },
+    {
+      "color": "",
+      "id": 39,
+      "nome": "Partido Mensalinho",
+      "pontuacao_total": 41,
+      "posicao": 9
+    },
+    {
+      "color": "",
+      "id": 48,
+      "nome": "Partido Massa",
+      "pontuacao_total": 39,
+      "posicao": 10
+    },
+    {
+      "color": "",
+      "id": 41,
+      "nome": "KEVIN",
+      "pontuacao_total": 39,
+      "posicao": 11
+    },
+    {
+      "color": "",
+      "id": 46,
+      "nome": "Os verdes",
+      "pontuacao_total": 38,
+      "posicao": 12
+    },
+    {
+      "color": "",
+      "id": 73,
+      "nome": "Partido Alto",
+      "pontuacao_total": 30,
+      "posicao": 13
+    },
+    {
+      "color": "",
+      "id": 49,
+      "nome": "Partido Unknow",
+      "pontuacao_total": 28,
+      "posicao": 14
+    },
+    {
+      "color": "",
+      "id": 54,
+      "nome": "Partido",
+      "pontuacao_total": 28,
+      "posicao": 15
+    },
+    {
+      "color": "",
+      "id": 65,
+      "nome": "Partido da Qualidade de Vida",
+      "pontuacao_total": 28,
+      "posicao": 16
+    },
+    {
+      "color": "",
+      "id": 77,
+      "nome": "Partido da Nova Classe Trabalhadora do Brasil Democr\u00e1tico e Popular",
+      "pontuacao_total": 27,
+      "posicao": 17
+    },
+    {
+      "color": "",
+      "id": 62,
+      "nome": "Himaru Part",
+      "pontuacao_total": 26,
+      "posicao": 18
+    },
+    {
+      "color": "",
+      "id": 26,
+      "nome": "PArtido dA JUSTI\u00c7A SOCIAL",
+      "pontuacao_total": 26,
+      "posicao": 19
+    },
+    {
+      "color": "",
+      "id": 51,
+      "nome": "Partido Popular Bofinense",
+      "pontuacao_total": 25,
+      "posicao": 20
+    },
+    {
+      "color": "",
+      "id": 61,
+      "nome": "PCG",
+      "pontuacao_total": 24,
+      "posicao": 21
+    },
+    {
+      "color": "",
+      "id": 20,
+      "nome": "partido lunatico",
+      "pontuacao_total": 23,
+      "posicao": 22
+    },
+    {
+      "color": "",
+      "id": 81,
+      "nome": "Partido Ideol\u00f3gico do Brasil",
+      "pontuacao_total": 23,
+      "posicao": 23
+    },
+    {
+      "color": "",
+      "id": 75,
+      "nome": "PMP",
+      "pontuacao_total": 22,
+      "posicao": 24
+    },
+    {
+      "color": "",
+      "id": 85,
+      "nome": "PF",
+      "pontuacao_total": 22,
+      "posicao": 25
+    },
+    {
+      "color": "",
+      "id": 74,
+      "nome": "Frente Democr\u00e1tica de Esquerda",
+      "pontuacao_total": 21,
+      "posicao": 26
+    },
+    {
+      "color": "",
+      "id": 60,
+      "nome": "PISC - Partido Independente e Sem Conchavos",
+      "pontuacao_total": 21,
+      "posicao": 27
+    },
+    {
+      "color": "",
+      "id": 66,
+      "nome": "Partido Digimon",
+      "pontuacao_total": 21,
+      "posicao": 28
+    },
+    {
+      "color": "",
+      "id": 78,
+      "nome": "Partido da Revolu\u00e7\u00e3o Libert\u00e1ria",
+      "pontuacao_total": 20,
+      "posicao": 29
+    },
+    {
+      "color": "",
+      "id": 69,
+      "nome": "Partido Laranja",
+      "pontuacao_total": 20,
+      "posicao": 30
+    },
+    {
+      "color": "",
+      "id": 79,
+      "nome": "Partido da integridade social",
+      "pontuacao_total": 20,
+      "posicao": 31
+    },
+    {
+      "color": "",
+      "id": 83,
+      "nome": "Partido do Partido",
+      "pontuacao_total": 20,
+      "posicao": 32
+    },
+    {
+      "color": "",
+      "id": 68,
+      "nome": "Partido da Igualdade",
+      "pontuacao_total": 19,
+      "posicao": 33
+    },
+    {
+      "color": "",
+      "id": 63,
+      "nome": "PUNS-Partido Unido Na $",
+      "pontuacao_total": 19,
+      "posicao": 34
+    },
+    {
+      "color": "",
+      "id": 67,
+      "nome": "Partido da Evolu\u00e7\u00e3o \u00c9tica",
+      "pontuacao_total": 19,
+      "posicao": 35
+    },
+    {
+      "color": "",
+      "id": 84,
+      "nome": "Partido do Partido",
+      "pontuacao_total": 19,
+      "posicao": 36
+    },
+    {
+      "color": "",
+      "id": 50,
+      "nome": "Partido Ser\u00e1?",
+      "pontuacao_total": 17,
+      "posicao": 37
+    },
+    {
+      "color": "",
+      "id": 70,
+      "nome": "Partido cultural",
+      "pontuacao_total": 17,
+      "posicao": 38
+    },
+    {
+      "color": "",
+      "id": 76,
+      "nome": "ECO",
+      "pontuacao_total": 16,
+      "posicao": 39
+    },
+    {
+      "color": "",
+      "id": 55,
+      "nome": "Esfomeados",
+      "pontuacao_total": 16,
+      "posicao": 40
+    },
+    {
+      "color": "",
+      "id": 52,
+      "nome": "PHD",
+      "pontuacao_total": 16,
+      "posicao": 41
+    },
+    {
+      "color": "",
+      "id": 58,
+      "nome": "partido da seguran\u00e7a publica",
+      "pontuacao_total": 15,
+      "posicao": 42
+    },
+    {
+      "color": "",
+      "id": 72,
+      "nome": "Partido da Agilidade",
+      "pontuacao_total": 8,
+      "posicao": 43
+    },
+    {
+      "color": "",
+      "id": 47,
+      "nome": "PLSD",
+      "pontuacao_total": 7,
+      "posicao": 44
+    },
+    {
+      "color": "",
+      "id": 57,
+      "nome": "Partido Militar",
+      "pontuacao_total": 4,
+      "posicao": 45
+    },
+    {
+      "color": "",
+      "id": 22,
+      "nome": "Partid\u00e3o",
+      "posicao": 46
+    },
+    {
+      "color": "",
+      "id": 28,
+      "nome": "Partido partid\u00e1rio",
+      "posicao": 47
+    },
+    {
+      "color": "",
+      "id": 80,
+      "nome": "Partido Partido",
+      "posicao": 48
+    },
+    {
+      "color": "",
+      "id": 17,
+      "nome": "Partido 2000",
+      "posicao": 49
+    },
+    {
+      "color": "",
+      "id": 71,
+      "nome": "Partido Desenvolvimento",
+      "posicao": 50
+    },
+    {
+      "color": "",
+      "id": 18,
+      "nome": "Brasil",
+      "posicao": 51
+    },
+    {
+      "color": "",
+      "id": 25,
+      "nome": "X",
+      "posicao": 52
+    },
+    {
+      "color": "",
+      "id": 29,
+      "nome": "Partido partid\u00e1rio 2",
+      "posicao": 53
+    },
+    {
+      "color": "",
+      "id": 44,
+      "nome": "Teste BS",
+      "posicao": 54
+    },
+    {
+      "color": "",
+      "id": 42,
+      "nome": "Partido \u00danico de Todos os Amigos",
+      "posicao": 55
+    },
+    {
+      "color": "",
+      "id": 40,
+      "nome": "Partido Siciliano",
+      "posicao": 56
+    },
+    {
+      "color": "",
+      "id": 53,
+      "nome": "Partido da Cidade de Capelinha ",
+      "posicao": 57
+    },
+    {
+      "color": "",
+      "id": 38,
+      "nome": "PC",
+      "posicao": 58
+    },
+    {
+      "color": "",
+      "id": 56,
+      "nome": "TT- Transpar\u00eancia Total",
+      "posicao": 59
+    },
+    {
+      "color": "",
+      "id": 43,
+      "nome": "Partido da Causa Canab\u00edstica",
+      "posicao": 60
+    },
+    {
+      "color": "",
+      "id": 37,
+      "nome": "Partido teste",
+      "posicao": 61
+    },
+    {
+      "color": "",
+      "id": 36,
+      "nome": "Partido Nogueiro",
+      "posicao": 62
+    },
+    {
+      "color": "",
+      "id": 64,
+      "nome": "PARTIDO JUSTO",
+      "posicao": 63
+    },
+    {
+      "color": "",
+      "id": 14,
+      "nome": "Partido Viva",
+      "posicao": 64
+    },
+    {
+      "color": "",
+      "id": 33,
+      "nome": "Politicos Safados",
+      "posicao": 65
+    },
+    {
+      "color": "",
+      "id": 45,
+      "nome": "Partido Alto",
+      "posicao": 66
+    }
+  ]
+}

@@ -572,3 +572,40 @@ def criarPartido():
     db.session.commit()
     return jsonify({"time":time.serialize()})
 
+
+#        SERVICOS: criarTime
+@mod.route('/selecionar-politico/', methods=['GET', 'POST', 'OPTIONS'])
+@crossdomain(origin='*', headers='Content-Type')
+@cross_origin(headers=['Content-Type'])
+def selecionarPolitico():
+    
+    if request.json is None:
+        print "SEM JSON"
+        return "Sem JSON"
+    
+    if 'user' in request.json:
+        user = request.json['user']
+    if 'time' in request.json:
+        nome = request.json['time']
+    if 'politico' in request.json:
+        desc = request.json['politico']
+    if 'posicao' in request.json:
+        desc = request.json['posicao']   
+             
+    user = User.query.filter_by(id=user).first_or_404()
+    
+    if user is not None:
+        print "buscando "+str(user.id)+ " - "  + nome + " - " +desc
+        timeRetorno = politicaServices.meuTime(user.id) 
+        print "depois buscar"
+        if timeRetorno is not None:
+            print "TIME encontrado"
+            return jsonify({"time":timeRetorno.serialize()})
+    else:
+        return jsonify({"user":"nao encontrado"})
+   
+    
+    time = Time(nome=nome, desc=desc,  user_id=user.id)
+    db.session.add(time)
+    db.session.commit()
+    return jsonify({"time":time.serialize()})
