@@ -409,6 +409,19 @@ def attrs_time(time_id=None,liga_id=None):
     return jsonify({"times":items})
 
 
+@mod.route('/liga/', methods=['GET','POST', 'OPTIONS'])
+@cross_origin(headers=['Content-Type'])
+@crossdomain(origin='*')
+def attrs_liga(time_id=None,liga_id=None):
+    offset = request.args.get('offset', 0)
+    limit = request.args.get('limit', 150)  
+
+    ret = Liga.query.limit(limit).offset(offset).all()
+    items = [q.serialize() for q in ret]
+    return jsonify({"ligas":items})
+
+
+
 
 @mod.route('/top3time/', methods=['GET','POST', 'OPTIONS'])
 @cross_origin(headers=['Content-Type'])
@@ -585,27 +598,27 @@ def selecionarPolitico():
     
     if 'user' in request.json:
         user = request.json['user']
-    if 'time' in request.json:
-        nome = request.json['time']
-    if 'politico' in request.json:
-        desc = request.json['politico']
+    if 'candidatura' in request.json:
+        candidatura = request.json['candidatura']
     if 'posicao' in request.json:
-        desc = request.json['posicao']   
+        posicao = request.json['posicao']   
              
     user = User.query.filter_by(id=user).first_or_404()
     
     if user is not None:
-        print "buscando "+str(user.id)+ " - "  + nome + " - " +desc
         timeRetorno = politicaServices.meuTime(user.id) 
-        print "depois buscar"
         if timeRetorno is not None:
-            print "TIME encontrado"
+            TimeCandidato.query.filter_by(time=timeRetorno.id, posicao=posicao).delete()
+            db.session.commit()
+            timeCand = TimeCandidato(time=timeRetorno.id, posicao=posicao,    candidatura=candidatura)
+            db.session.add(timeCand)
+            db.session.commit()
+            timeRetorno = politicaServices.meuTime(user.id)
             return jsonify({"time":timeRetorno.serialize()})
+        else:
+            return jsonify({"time":"nao encontrado"})
     else:
         return jsonify({"user":"nao encontrado"})
    
     
-    time = Time(nome=nome, desc=desc,  user_id=user.id)
-    db.session.add(time)
-    db.session.commit()
-    return jsonify({"time":time.serialize()})
+    

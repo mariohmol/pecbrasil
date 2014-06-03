@@ -10,7 +10,7 @@
         <title>Política Esporte Clube</title>
 
     </head>
-  <body>
+  <body onload="runclassificacao();">
   	
  
         
@@ -33,7 +33,35 @@
          <ul id="employeeList" data-role="listview" data-filter="true"></ul>
     </div>		
 
+
+
+<script type="text/javascript">
+	
+/*
+
+$(document).ready(function() {
+    document.addEventListener("deviceready", runclassificacao, true);
+    //document.addEventListener("deviceready", runclassificacao, false);
+
+});
+
+$( document ).on( "ready", function(){
+runclassificacao();
+});
+
+$('#employeeListPage').on('pageinit', function() {
+runclassificacao();
+});
+*/
+	$('#employeeListPage').bind('pageshow', function(){
+runclassificacao();
+});	
+
+</script>
+
 </div>
+
+
 
     <!-- cordova -->
     <script src="cordova.js"></script>
@@ -42,43 +70,10 @@
       <!-- facebook js sdk -->
     <script src="facebook-js-sdk.js"></script>
     
-    
+    <script src="lib/pec.js"></script>
      <script src="lib/jquery-1.9.1.min.js"></script>
      <script src="lib/jquery.mobile-1.4.2.min.js"></script>
         
-
-
-<script type="text/javascript">
-
-function runclassificacao(){
-	url="http://localhost/json/times.json";
-	//url='http://politicaesporteclube.com/attrs/time/';
-	url="http://pecmobile/json/times.json";
-	
-	$.getJSON( url, function(data) {
-			
-					    $('#employeeList li').remove();
-					    $.each(data.times, function(index, time) {				    
-					    	retorno  = '<li><a href="time.html?id=' + time.id + '">' +
-							'<h1>' + time.posicao + '</h1>' +
-							'<h4>' + time.nome +  '</h4>' +
-							'<p>' + time.posicao + '</p>' +
-							'<span class="ui-li-count">' + time.pontuacao_total + '</span></a></li>';						
-							if(time.pontuacao_total=="") time.pontuacao_total=0;						
-					    	$('#employeeList').append(retorno);
-					    });
-					    $('#employeeList').listview('refresh');
-					    $('#devicereadyApp').hide();
-					    $('#loaded_header').show();
-					    $('#loaded_content').show();
-					    
-			});
-		
-}		
-	runclassificacao();	
-		
-
-</script>
 
 
   </body>

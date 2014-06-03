@@ -63,7 +63,8 @@ class Candidatura(db.Model, AutoSerialize):
 
     __tablename__ = 'candidatura'
     __public__ = ('id','id_original','name_pt', 'name_en', 'politico', 'color' , 'partido', 'uf',\
-                   'cidade','votacao_total','presenca_total','processo_total','proposicao_total')
+                   'cidade','pontuacao_total','pontuacao_ultima','pontuacao_tendencia'\
+                   ,'total_votacao','total_presenca','total_processo','total_proposicao','total_despesa')
     id = db.Column(db.Integer, primary_key=True)
     id_original = db.Column(db.Integer)
     name_en = db.Column(db.String(200))

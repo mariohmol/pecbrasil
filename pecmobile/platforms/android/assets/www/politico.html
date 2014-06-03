@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>    
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.2.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Política Esporte Clube</title>
+
+    </head>
+  <body>
+  	
+
+<div id="detailsPage" data-role="page" data-add-back-btn="true">
+	
+	<div class="app" id="devicereadyApp">
+        <h1 style="color:white">Política Esporte Clube</h1>
+        <div id="deviceready" class="blink">
+            <p class="event listening">Carregando dados..</p>
+            <p class="event received">Device is Ready</p>
+        </div>
+    </div>
+
+	<div data-role="header"  id="loaded_header"  style="display: none;">
+		<h1>Time</h1>
+	</div>
+
+  <div data-role="content" id="loaded_content"  style="display: none;"> 
+
+  	<img id="employeePic"/>
+	<div id="employeeDetails">
+       <h3 id="fullName"></h3>
+       <p id="employeeTitle"></p>
+       <p id="city"></p>
+   	</div>
+	 
+    <ul id="actionList" data-role="listview" data-inset="true"></ul>
+
+  </div>
+
+</div>
+
+	<!-- cordova -->
+	<script src="cordova.js"></script>
+	  <!-- cordova facebook plugin -->
+	<script src="cdv-plugin-fb-connect.js"></script>
+	  <!-- facebook js sdk -->
+	<script src="facebook-js-sdk.js"></script>
+	<script src="lib/jquery-1.9.1.min.js"></script>  
+   <script src="lib/jquery.mobile-1.4.2.min.js"></script>
+   
+
+<script type="text/javascript">
+
+function runclassificacao(){
+	//url='http://politicaesporteclube.com/attrs/candidatura/';
+	url="http://pecmobile/json/candidatura.json";
+	
+	$.getJSON( url, function(data) {
+			
+	    $('#employeeList li').remove();
+	    $.each(data.candidaturas, function(index, candidatura) {	
+	    	
+	    	$('#employeePic').attr('src','/img/fotos/' + candidatura.id_original + '.jpg' 	);
+	    	$('#fullName').html(candidatura.name_pt);
+	    	$('#employeeTitle').html("Pontos: "+candidatura.pontuacao_total);
+	    	$('#city').html(candidatura.cidade + " / " + candidatura.uf);
+	    	
+	    	
+	    			    
+	    /*	retorno  = '<li><a href="time.html?id=' + time.id + '">' +
+			'<h1>' + time.posicao + '</h1>' +
+			'<h4>' + time.nome +  '</h4>' +
+			'<p>' + time.posicao + '</p>' +
+			'<span class="ui-li-count">' + time.pontuacao_total + '</span></a></li>';						
+			if(time.pontuacao_total=="") time.pontuacao_total=0;						
+	    	$('#actionList').append(retorno);*/
+	    });
+	    $('#devicereadyApp').hide();
+	    $('#loaded_header').show();
+	    $('#loaded_content').show();
+			    
+	});
+		
+}		
+
+runclassificacao();	
+		
+
+</script>
+
+  </body>
+</html>

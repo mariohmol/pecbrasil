@@ -8,6 +8,12 @@
       "name_pt": "HENRIQUE EDUARDO LYRA ALVES",
       "partido": 15,
       "politico": 11,
+      "pontuacao_tendencia": 0.96,
+      "pontuacao_total": 22.13,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 48143,
+      "total_presenca": 335,
+      "total_votacao": 1,
       "uf": "RN"
     },
     {
@@ -18,6 +24,13 @@
       "name_pt": "INOCENCIO GOMES DE OLIVEIRA",
       "partido": 22,
       "politico": 14,
+      "pontuacao_tendencia": 0.96,
+      "pontuacao_total": 18.99,
+      "pontuacao_ultima": 1.25,
+      "total_despesa": 8096,
+      "total_presenca": 197,
+      "total_proposicao": 7,
+      "total_votacao": 0,
       "uf": "PE"
     },
     {
@@ -28,6 +41,13 @@
       "name_pt": "ROBERTO JOAO PEREIRA FREIRE",
       "partido": 23,
       "politico": 17,
+      "pontuacao_tendencia": 1.74,
+      "pontuacao_total": 17.76,
+      "pontuacao_ultima": 0.63,
+      "total_despesa": 63061,
+      "total_presenca": 226,
+      "total_proposicao": 3,
+      "total_votacao": 0,
       "uf": "SP"
     },
     {
@@ -38,6 +58,12 @@
       "name_pt": "ROSILDA DE FREITAS",
       "partido": 15,
       "politico": 22,
+      "pontuacao_tendencia": 2.6,
+      "pontuacao_total": 10.65,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 14376,
+      "total_presenca": 189,
+      "total_votacao": 1,
       "uf": "ES"
     },
     {
@@ -48,6 +74,13 @@
       "name_pt": "AROLDE DE OLIVEIRA",
       "partido": 3,
       "politico": 25,
+      "pontuacao_tendencia": 1.64,
+      "pontuacao_total": 10.87,
+      "pontuacao_ultima": 1.88,
+      "total_despesa": 72417,
+      "total_presenca": 243,
+      "total_proposicao": 5,
+      "total_votacao": 2,
       "uf": "RJ"
     },
     {
@@ -58,6 +91,13 @@
       "name_pt": "BENEDITA SOUZA DA SILVA SAMPAIO",
       "partido": 13,
       "politico": 28,
+      "pontuacao_tendencia": 1.32,
+      "pontuacao_total": 28.7,
+      "pontuacao_ultima": 3.18,
+      "total_despesa": 36522,
+      "total_presenca": 319,
+      "total_proposicao": 47,
+      "total_votacao": 2,
       "uf": "RJ"
     },
     {
@@ -68,6 +108,13 @@
       "name_pt": "SIMAO SESSIM",
       "partido": 11,
       "politico": 33,
+      "pontuacao_tendencia": 0.92,
+      "pontuacao_total": 17.91,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 50048,
+      "total_presenca": 292,
+      "total_proposicao": 11,
+      "total_votacao": 1,
       "uf": "RJ"
     },
     {
@@ -78,6 +125,13 @@
       "name_pt": "LAEL VIEIRA VARELLA",
       "partido": 25,
       "politico": 38,
+      "pontuacao_tendencia": 2.04,
+      "pontuacao_total": 12.6,
+      "pontuacao_ultima": 2.52,
+      "total_despesa": 34191,
+      "total_presenca": 197,
+      "total_proposicao": 5,
+      "total_votacao": 0,
       "uf": "MG"
     },
     {
@@ -88,6 +142,12 @@
       "name_pt": "ROBERTO EGIDIO BALESTRA",
       "partido": 11,
       "politico": 41,
+      "pontuacao_tendencia": 6.89,
+      "pontuacao_total": 18.12,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 61684,
+      "total_presenca": 247,
+      "total_votacao": 1,
       "uf": "GO"
     },
     {
@@ -98,6 +158,13 @@
       "name_pt": "WELLINGTON ANTONIO FAGUNDES",
       "partido": 22,
       "politico": 46,
+      "pontuacao_tendencia": 1.11,
+      "pontuacao_total": 19.9,
+      "pontuacao_ultima": 0.63,
+      "total_despesa": 18444,
+      "total_presenca": 259,
+      "total_proposicao": 18,
+      "total_votacao": 2,
       "uf": "MT"
     },
     {
@@ -108,6 +175,13 @@
       "name_pt": "FATIMA LUCIA PELAES",
       "partido": 15,
       "politico": 54,
+      "pontuacao_tendencia": 1.04,
+      "pontuacao_total": 17.61,
+      "pontuacao_ultima": 1.88,
+      "total_despesa": 42926,
+      "total_presenca": 235,
+      "total_proposicao": 1,
+      "total_votacao": 2,
       "uf": "AP"
     },
     {
@@ -118,6 +192,13 @@
       "name_pt": "MARIA AUXILIADORA SEABRA REZENDE",
       "partido": 25,
       "politico": 56,
+      "pontuacao_tendencia": 1.25,
+      "pontuacao_total": 22.22,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 43023,
+      "total_presenca": 306,
+      "total_proposicao": 4,
+      "total_votacao": 2,
       "uf": "TO"
     },
     {
@@ -128,6 +209,13 @@
       "name_pt": "IRAJA SILVESTRE FILHO",
       "partido": 3,
       "politico": 58,
+      "pontuacao_tendencia": 2.0,
+      "pontuacao_total": 12.17,
+      "pontuacao_ultima": 2.14,
+      "total_despesa": 79040,
+      "total_presenca": 91,
+      "total_proposicao": 5,
+      "total_votacao": 1,
       "uf": "TO"
     },
     {
@@ -138,6 +226,13 @@
       "name_pt": "CESAR HANNA HALUM",
       "partido": 10,
       "politico": 59,
+      "pontuacao_tendencia": 0.93,
+      "pontuacao_total": 19.87,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 102520,
+      "total_presenca": 113,
+      "total_proposicao": 3,
+      "total_votacao": 2,
       "uf": "TO"
     },
     {
@@ -148,6 +243,12 @@
       "name_pt": "RAIMUNDO COIMBRA JUNIOR",
       "partido": 15,
       "politico": 60,
+      "pontuacao_tendencia": 0.83,
+      "pontuacao_total": 16.64,
+      "pontuacao_ultima": 1.88,
+      "total_despesa": 99743,
+      "total_presenca": 300,
+      "total_votacao": 2,
       "uf": "TO"
     },
     {
@@ -158,6 +259,13 @@
       "name_pt": "JOSELI ANGELO AGNOLIN",
       "partido": 12,
       "politico": 61,
+      "pontuacao_tendencia": 7.56,
+      "pontuacao_total": 20.72,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 19740,
+      "total_presenca": 255,
+      "total_proposicao": 15,
+      "total_votacao": 2,
       "uf": "TO"
     },
     {
@@ -168,6 +276,13 @@
       "name_pt": "JOSE LINHARES PONTE",
       "partido": 11,
       "politico": 62,
+      "pontuacao_tendencia": 1.2,
+      "pontuacao_total": 11.11,
+      "pontuacao_ultima": 0.0,
+      "total_despesa": 68588,
+      "total_presenca": 276,
+      "total_proposicao": 1,
+      "total_votacao": 1,
       "uf": "CE"
     },
     {
@@ -178,6 +293,13 @@
       "name_pt": "BRUNA DIAS FURLAN",
       "partido": 45,
       "politico": 64,
+      "pontuacao_tendencia": 1.38,
+      "pontuacao_total": 17.75,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 50730,
+      "total_presenca": 273,
+      "total_proposicao": 2,
+      "total_votacao": 2,
       "uf": "SP"
     },
     {
@@ -188,6 +310,13 @@
       "name_pt": "JOSE CARLOS VAZ DE LIMA",
       "partido": 45,
       "politico": 66,
+      "pontuacao_tendencia": 1.26,
+      "pontuacao_total": 17.03,
+      "pontuacao_ultima": 1.88,
+      "total_despesa": 62921,
+      "total_presenca": 289,
+      "total_proposicao": 4,
+      "total_votacao": 2,
       "uf": "SP"
     },
     {
@@ -198,6 +327,12 @@
       "name_pt": "LUIZ FERNANDO ARANTES MACHADO",
       "partido": 45,
       "politico": 67,
+      "pontuacao_tendencia": 2.13,
+      "pontuacao_total": 22.52,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 60698,
+      "total_presenca": 300,
+      "total_votacao": 1,
       "uf": "SP"
     },
     {
@@ -208,6 +343,7 @@
       "name_pt": "SEVERINO SERGIO ESTELITA GUERRA",
       "partido": 45,
       "politico": 68,
+      "pontuacao_tendencia": 3.89,
       "uf": "PE"
     },
     {
@@ -218,6 +354,12 @@
       "name_pt": "WILLIAM DIB",
       "partido": 45,
       "politico": 69,
+      "pontuacao_tendencia": 1.26,
+      "pontuacao_total": 18.74,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 39450,
+      "total_presenca": 303,
+      "total_votacao": 2,
       "uf": "SP"
     },
     {
@@ -228,6 +370,13 @@
       "name_pt": "MARA CRISTINA GABRILLI",
       "partido": 45,
       "politico": 70,
+      "pontuacao_tendencia": 1.19,
+      "pontuacao_total": 18.52,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 56075,
+      "total_presenca": 273,
+      "total_proposicao": 6,
+      "total_votacao": 2,
       "uf": "SP"
     },
     {
@@ -238,6 +387,7 @@
       "name_pt": "MARCOS ANTONIO MEDRADO",
       "partido": 2,
       "politico": 71,
+      "pontuacao_tendencia": 1.14,
       "uf": "BA"
     },
     {
@@ -248,6 +398,13 @@
       "name_pt": "RICARDO IZAR JUNIOR",
       "partido": 3,
       "politico": 72,
+      "pontuacao_tendencia": 0.8,
+      "pontuacao_total": 23.57,
+      "pontuacao_ultima": 3.18,
+      "total_despesa": 48919,
+      "total_presenca": 279,
+      "total_proposicao": 28,
+      "total_votacao": 2,
       "uf": "SP"
     },
     {
@@ -258,6 +415,13 @@
       "name_pt": "ROBERTO ALVES DE LUCENA",
       "partido": 43,
       "politico": 73,
+      "pontuacao_tendencia": 0.94,
+      "pontuacao_total": 21.29,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 91736,
+      "total_presenca": 331,
+      "total_proposicao": 13,
+      "total_votacao": 0,
       "uf": "SP"
     },
     {
@@ -268,6 +432,13 @@
       "name_pt": "RONALDO RAMOS CAIADO",
       "partido": 25,
       "politico": 74,
+      "pontuacao_tendencia": 1.99,
+      "pontuacao_total": 18.67,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 48080,
+      "total_presenca": 267,
+      "total_proposicao": 6,
+      "total_votacao": 0,
       "uf": "GO"
     },
     {
@@ -278,6 +449,13 @@
       "name_pt": "JOSE LUIZ DE FRANcA PENNA",
       "partido": 43,
       "politico": 75,
+      "pontuacao_tendencia": 2.08,
+      "pontuacao_total": 19.6,
+      "pontuacao_ultima": 1.25,
+      "total_despesa": 96800,
+      "total_presenca": 299,
+      "total_proposicao": 2,
+      "total_votacao": 1,
       "uf": "SP"
     },
     {
@@ -288,6 +466,13 @@
       "name_pt": "GUILHERME MUSSI FERREIRA",
       "partido": 11,
       "politico": 76,
+      "pontuacao_tendencia": 0.8,
+      "pontuacao_total": 12.26,
+      "pontuacao_ultima": 1.88,
+      "total_despesa": 58825,
+      "total_presenca": 154,
+      "total_proposicao": 4,
+      "total_votacao": 2,
       "uf": "SP"
     },
     {
@@ -298,6 +483,13 @@
       "name_pt": "LUIZ CARLOS JORGE HAULY",
       "partido": 45,
       "politico": 77,
+      "pontuacao_tendencia": 0.77,
+      "pontuacao_total": 16.57,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 20606,
+      "total_presenca": 158,
+      "total_proposicao": 17,
+      "total_votacao": 1,
       "uf": "PR"
     },
     {
@@ -308,6 +500,13 @@
       "name_pt": "IOLANDA KEIKO MIASHIRO OTA",
       "partido": 40,
       "politico": 78,
+      "pontuacao_tendencia": 7.95,
+      "pontuacao_total": 22.05,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 51321,
+      "total_presenca": 301,
+      "total_proposicao": 18,
+      "total_votacao": 2,
       "uf": "SP"
     },
     {
@@ -318,6 +517,13 @@
       "name_pt": "GABRIEL BENEDITO ISSAAC CHALITA",
       "partido": 15,
       "politico": 79,
+      "pontuacao_tendencia": 1.13,
+      "pontuacao_total": 12.81,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 43335,
+      "total_presenca": 230,
+      "total_proposicao": 1,
+      "total_votacao": 1,
       "uf": "SP"
     },
     {
@@ -328,6 +534,13 @@
       "name_pt": "ADRIANO ELI CORREA",
       "partido": 25,
       "politico": 81,
+      "pontuacao_tendencia": 1.27,
+      "pontuacao_total": 20.44,
+      "pontuacao_ultima": 1.88,
+      "total_despesa": 22387,
+      "total_presenca": 310,
+      "total_proposicao": 1,
+      "total_votacao": 1,
       "uf": "SP"
     },
     {
@@ -338,6 +551,13 @@
       "name_pt": "JUNJI ABE",
       "partido": 3,
       "politico": 82,
+      "pontuacao_tendencia": 0.87,
+      "pontuacao_total": 20.2,
+      "pontuacao_ultima": 2.33,
+      "total_despesa": 47521,
+      "total_presenca": 297,
+      "total_proposicao": 16,
+      "total_votacao": 2,
       "uf": "SP"
     },
     {
@@ -348,6 +568,13 @@
       "name_pt": "PAULO ROBERTO GOMES MANSUR",
       "partido": 10,
       "politico": 83,
+      "pontuacao_tendencia": 0.93,
+      "pontuacao_total": 11.39,
+      "pontuacao_ultima": 0.72,
+      "total_despesa": 70329,
+      "total_presenca": 103,
+      "total_proposicao": 1,
+      "total_votacao": 2,
       "uf": "SP"
     },
     {
@@ -358,6 +585,13 @@
       "name_pt": "PAULO ROBERTO FREIRE DA COSTA",
       "partido": 22,
       "politico": 85,
+      "pontuacao_tendencia": 1.1,
+      "pontuacao_total": 15.59,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 60768,
+      "total_presenca": 227,
+      "total_proposicao": 4,
+      "total_votacao": 2,
       "uf": "SP"
     },
     {
@@ -368,6 +602,12 @@
       "name_pt": "JANDIRA FEGHALI",
       "partido": 65,
       "politico": 86,
+      "pontuacao_total": 19.7,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 43612,
+      "total_presenca": 273,
+      "total_proposicao": 12,
+      "total_votacao": 1,
       "uf": "RJ"
     },
     {
@@ -378,6 +618,12 @@
       "name_pt": "FRANCISCO EVERARDO OLIVEIRA SILVA",
       "partido": 22,
       "politico": 87,
+      "pontuacao_tendencia": 0.93,
+      "pontuacao_total": 22.57,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 14130,
+      "total_presenca": 341,
+      "total_votacao": 2,
       "uf": "SP"
     },
     {
@@ -388,6 +634,13 @@
       "name_pt": "MARCELO THEODORO DE AGUIAR",
       "partido": 25,
       "politico": 88,
+      "pontuacao_tendencia": 1.0,
+      "pontuacao_total": 13.89,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 99550,
+      "total_presenca": 72,
+      "total_proposicao": 2,
+      "total_votacao": 0,
       "uf": "SP"
     },
     {
@@ -398,6 +651,13 @@
       "name_pt": "JAIR MESSIAS BOLSONARO",
       "partido": 11,
       "politico": 89,
+      "pontuacao_tendencia": 0.93,
+      "pontuacao_total": 21.74,
+      "pontuacao_ultima": 1.25,
+      "total_despesa": 5793,
+      "total_presenca": 331,
+      "total_proposicao": 8,
+      "total_votacao": 1,
       "uf": "RJ"
     },
     {
@@ -408,6 +668,13 @@
       "name_pt": "MARCO ANTONIO FELICIANO",
       "partido": 20,
       "politico": 90,
+      "pontuacao_tendencia": 1.13,
+      "pontuacao_total": 15.22,
+      "pontuacao_ultima": 1.25,
+      "total_despesa": 47446,
+      "total_presenca": 240,
+      "total_proposicao": 11,
+      "total_votacao": 2,
       "uf": "SP"
     },
     {
@@ -418,6 +685,13 @@
       "name_pt": "NEWTON LIMA NETO",
       "partido": 13,
       "politico": 91,
+      "pontuacao_tendencia": 0.8,
+      "pontuacao_total": 15.91,
+      "pontuacao_ultima": 0.63,
+      "total_despesa": 84232,
+      "total_presenca": 286,
+      "total_proposicao": 4,
+      "total_votacao": 1,
       "uf": "SP"
     },
     {
@@ -428,6 +702,13 @@
       "name_pt": "NELSON MARQUEZELLI",
       "partido": 14,
       "politico": 92,
+      "pontuacao_tendencia": 1.28,
+      "pontuacao_total": 17.39,
+      "pontuacao_ultima": 2.32,
+      "total_despesa": 82878,
+      "total_presenca": 276,
+      "total_proposicao": 10,
+      "total_votacao": 2,
       "uf": "SP"
     },
     {
@@ -438,6 +719,12 @@
       "name_pt": "VICENTE CANDIDO DA SILVA",
       "partido": 13,
       "politico": 93,
+      "pontuacao_tendencia": 1.02,
+      "pontuacao_total": 13.71,
+      "pontuacao_ultima": 0.63,
+      "total_despesa": 93200,
+      "total_presenca": 233,
+      "total_votacao": 1,
       "uf": "SP"
     },
     {
@@ -448,6 +735,13 @@
       "name_pt": "JOSE OLIMPIO SILVEIRA MORAES",
       "partido": 11,
       "politico": 94,
+      "pontuacao_tendencia": 8.5,
+      "pontuacao_total": 14.29,
+      "pontuacao_ultima": 2.14,
+      "total_despesa": 57563,
+      "total_presenca": 254,
+      "total_proposicao": 1,
+      "total_votacao": 1,
       "uf": "SP"
     },
     {
@@ -458,6 +752,13 @@
       "name_pt": "JORGE TADEU MUDALEN",
       "partido": 25,
       "politico": 95,
+      "pontuacao_tendencia": 0.81,
+      "pontuacao_total": 16.68,
+      "pontuacao_ultima": 2.71,
+      "total_despesa": 44434,
+      "total_presenca": 269,
+      "total_proposicao": 3,
+      "total_votacao": 2,
       "uf": "SP"
     },
     {
@@ -468,6 +769,13 @@
       "name_pt": "ANDRE LUIS DANTAS FERREIRA",
       "partido": 20,
       "politico": 97,
+      "pontuacao_tendencia": 2.0,
+      "pontuacao_total": 19.18,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 90400,
+      "total_presenca": 263,
+      "total_proposicao": 12,
+      "total_votacao": 2,
       "uf": "SE"
     },
     {
@@ -478,6 +786,13 @@
       "name_pt": "GIOVANNI CORREA QUEIROZ",
       "partido": 12,
       "politico": 98,
+      "pontuacao_tendencia": 1.44,
+      "pontuacao_total": 18.03,
+      "pontuacao_ultima": 1.88,
+      "total_despesa": 54621,
+      "total_presenca": 248,
+      "total_proposicao": 4,
+      "total_votacao": 1,
       "uf": "PA"
     },
     {
@@ -488,6 +803,12 @@
       "name_pt": "JOSE ALMEIDA LIMA",
       "partido": 15,
       "politico": 99,
+      "pontuacao_tendencia": 0.88,
+      "pontuacao_total": 11.99,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 39423,
+      "total_presenca": 147,
+      "total_votacao": 0,
       "uf": "SE"
     },
     {
@@ -498,6 +819,13 @@
       "name_pt": "ROGERIO CARVALHO SANTOS",
       "partido": 13,
       "politico": 102,
+      "pontuacao_tendencia": 2.28,
+      "pontuacao_total": 14.04,
+      "pontuacao_ultima": 1.88,
+      "total_despesa": 61251,
+      "total_presenca": 203,
+      "total_proposicao": 20,
+      "total_votacao": 0,
       "uf": "SE"
     },
     {
@@ -508,6 +836,13 @@
       "name_pt": "MARCO ANTONIO TEBALDI",
       "partido": 45,
       "politico": 103,
+      "pontuacao_tendencia": 1.13,
+      "pontuacao_total": 16.79,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 84982,
+      "total_presenca": 265,
+      "total_proposicao": 5,
+      "total_votacao": 1,
       "uf": "SC"
     },
     {
@@ -518,6 +853,12 @@
       "name_pt": "LUCIANO DE SOUZA CASTRO",
       "partido": 22,
       "politico": 104,
+      "pontuacao_tendencia": 1.07,
+      "pontuacao_total": 13.83,
+      "pontuacao_ultima": 2.14,
+      "total_despesa": 51379,
+      "total_presenca": 264,
+      "total_votacao": 1,
       "uf": "RR"
     },
     {
@@ -528,6 +869,13 @@
       "name_pt": "JORGINHO DOS SANTOS MELLO",
       "partido": 22,
       "politico": 105,
+      "pontuacao_tendencia": 1.19,
+      "pontuacao_total": 18.89,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 79504,
+      "total_presenca": 283,
+      "total_proposicao": 5,
+      "total_votacao": 2,
       "uf": "SC"
     },
     {
@@ -538,6 +886,13 @@
       "name_pt": "JUTAHY MAGALHAES JUNIOR",
       "partido": 45,
       "politico": 106,
+      "pontuacao_tendencia": 0.89,
+      "pontuacao_total": 22.7,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 38818,
+      "total_presenca": 332,
+      "total_proposicao": 2,
+      "total_votacao": 2,
       "uf": "BA"
     },
     {
@@ -548,6 +903,13 @@
       "name_pt": "ROGERIO MENDONcA",
       "partido": 15,
       "politico": 107,
+      "pontuacao_tendencia": 0.92,
+      "pontuacao_total": 19.4,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 50657,
+      "total_presenca": 300,
+      "total_proposicao": 6,
+      "total_votacao": 1,
       "uf": "SC"
     },
     {
@@ -558,6 +920,13 @@
       "name_pt": "PEDRO FRANCISCO UCZAI",
       "partido": 13,
       "politico": 110,
+      "pontuacao_tendencia": 1.12,
+      "pontuacao_total": 31.48,
+      "pontuacao_ultima": 4.55,
+      "total_despesa": 77549,
+      "total_presenca": 258,
+      "total_proposicao": 81,
+      "total_votacao": 2,
       "uf": "SC"
     },
     {
@@ -568,6 +937,12 @@
       "name_pt": "ASSIS FLAVIO DA SILVA MELO",
       "partido": 65,
       "politico": 111,
+      "pontuacao_total": 21.39,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 77193,
+      "total_presenca": 258,
+      "total_proposicao": 22,
+      "total_votacao": 2,
       "uf": "RS"
     },
     {
@@ -578,6 +953,13 @@
       "name_pt": "ANTONIO CARLOS DE MENDES THAME",
       "partido": 45,
       "politico": 112,
+      "pontuacao_tendencia": 0.82,
+      "pontuacao_total": 17.41,
+      "pontuacao_ultima": 1.88,
+      "total_despesa": 35300,
+      "total_presenca": 281,
+      "total_proposicao": 14,
+      "total_votacao": 2,
       "uf": "SP"
     },
     {
@@ -588,6 +970,13 @@
       "name_pt": "NELSON MARCHEZAN JUNIOR",
       "partido": 45,
       "politico": 113,
+      "pontuacao_tendencia": 1.13,
+      "pontuacao_total": 16.33,
+      "pontuacao_ultima": 1.88,
+      "total_despesa": 35012,
+      "total_presenca": 277,
+      "total_proposicao": 4,
+      "total_votacao": 2,
       "uf": "RS"
     },
     {
@@ -598,6 +987,13 @@
       "name_pt": "JOSE LUIZ STEDILE",
       "partido": 40,
       "politico": 114,
+      "pontuacao_tendencia": 0.89,
+      "pontuacao_total": 23.01,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 54567,
+      "total_presenca": 332,
+      "total_proposicao": 5,
+      "total_votacao": 2,
       "uf": "RS"
     },
     {
@@ -608,6 +1004,13 @@
       "name_pt": "ARNALDO FARIA DE SA",
       "partido": 14,
       "politico": 115,
+      "pontuacao_tendencia": 2.19,
+      "pontuacao_total": 24.88,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 9797,
+      "total_presenca": 285,
+      "total_proposicao": 42,
+      "total_votacao": 1,
       "uf": "SP"
     },
     {
@@ -618,6 +1021,13 @@
       "name_pt": "RUBENS BUENO",
       "partido": 23,
       "politico": 118,
+      "pontuacao_tendencia": 0.94,
+      "pontuacao_total": 24.89,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 77767,
+      "total_presenca": 324,
+      "total_proposicao": 23,
+      "total_votacao": 2,
       "uf": "PR"
     },
     {
@@ -628,6 +1038,13 @@
       "name_pt": "DANRLEI DE DEUS HINTERHOLZ",
       "partido": 3,
       "politico": 119,
+      "pontuacao_tendencia": 0.96,
+      "pontuacao_total": 19.6,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 22160,
+      "total_presenca": 285,
+      "total_proposicao": 4,
+      "total_votacao": 2,
       "uf": "RS"
     },
     {
@@ -638,6 +1055,13 @@
       "name_pt": "DIONILSO MATEUS MARCON",
       "partido": 13,
       "politico": 120,
+      "pontuacao_tendencia": 0.82,
+      "pontuacao_total": 21.63,
+      "pontuacao_ultima": 2.73,
+      "total_despesa": 41352,
+      "total_presenca": 279,
+      "total_proposicao": 25,
+      "total_votacao": 1,
       "uf": "RS"
     },
     {
@@ -648,6 +1072,13 @@
       "name_pt": "GIOVANI CHERINI",
       "partido": 12,
       "politico": 124,
+      "pontuacao_tendencia": 0.85,
+      "pontuacao_total": 22.14,
+      "pontuacao_ultima": 1.88,
+      "total_despesa": 39430,
+      "total_presenca": 304,
+      "total_proposicao": 5,
+      "total_votacao": 2,
       "uf": "RS"
     },
     {
@@ -658,6 +1089,13 @@
       "name_pt": "JULIO JOSE DE CAMPOS",
       "partido": 25,
       "politico": 126,
+      "pontuacao_tendencia": 0.98,
+      "pontuacao_total": 17.5,
+      "pontuacao_ultima": 0.63,
+      "total_despesa": 69254,
+      "total_presenca": 265,
+      "total_proposicao": 1,
+      "total_votacao": 1,
       "uf": "MT"
     },
     {
@@ -668,6 +1106,13 @@
       "name_pt": "CARLOS MAURO CABRAL BENEVIDES",
       "partido": 15,
       "politico": 129,
+      "pontuacao_tendencia": 1.26,
+      "pontuacao_total": 37.13,
+      "pontuacao_ultima": 4.32,
+      "total_despesa": 50720,
+      "total_presenca": 328,
+      "total_proposicao": 104,
+      "total_votacao": 1,
       "uf": "CE"
     },
     {
@@ -678,6 +1123,13 @@
       "name_pt": "PAULO CESAR JUSTO QUARTIERO",
       "partido": 25,
       "politico": 130,
+      "pontuacao_tendencia": 0.99,
+      "pontuacao_total": 19.02,
+      "pontuacao_ultima": 1.88,
+      "total_despesa": 93925,
+      "total_presenca": 246,
+      "total_proposicao": 2,
+      "total_votacao": 2,
       "uf": "RR"
     },
     {
@@ -688,6 +1140,12 @@
       "name_pt": "RAUL DA SILVA LIMA SOBRINHO",
       "partido": 11,
       "politico": 131,
+      "pontuacao_tendencia": 1.6,
+      "pontuacao_total": 18.54,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 48463,
+      "total_presenca": 126,
+      "total_votacao": 2,
       "uf": "RR"
     },
     {
@@ -698,6 +1156,13 @@
       "name_pt": "HUGO NAPOLEAO DO REGO NETO",
       "partido": 3,
       "politico": 132,
+      "pontuacao_tendencia": 1.2,
+      "pontuacao_total": 14.48,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 124916,
+      "total_presenca": 233,
+      "total_proposicao": 1,
+      "total_votacao": 1,
       "uf": "PI"
     },
     {
@@ -708,6 +1173,13 @@
       "name_pt": "JOHNATHAN PEREIRA DE JESUS",
       "partido": 10,
       "politico": 133,
+      "pontuacao_tendencia": 2.78,
+      "pontuacao_total": 4.55,
+      "pontuacao_ultima": 2.36,
+      "total_despesa": 107363,
+      "total_presenca": 217,
+      "total_proposicao": 3,
+      "total_votacao": 0,
       "uf": "RR"
     },
     {
@@ -718,6 +1190,12 @@
       "name_pt": "ASDRUBAL MENDES BENTES",
       "partido": 15,
       "politico": 135,
+      "pontuacao_tendencia": 1.35,
+      "pontuacao_total": 11.16,
+      "pontuacao_ultima": 0.94,
+      "total_despesa": 42265,
+      "total_presenca": 257,
+      "total_votacao": 2,
       "uf": "PA"
     },
     {
@@ -728,6 +1206,13 @@
       "name_pt": "CARLOS MAGNO RAMOS",
       "partido": 11,
       "politico": 136,
+      "pontuacao_tendencia": 1.5,
+      "pontuacao_total": 13.23,
+      "pontuacao_ultima": 2.19,
+      "total_despesa": 61124,
+      "total_presenca": 200,
+      "total_proposicao": 4,
+      "total_votacao": 2,
       "uf": "RO"
     },
     {
@@ -738,6 +1223,13 @@
       "name_pt": "LUIZ GONZAGA PATRIOTA",
       "partido": 40,
       "politico": 138,
+      "pontuacao_tendencia": 1.18,
+      "pontuacao_total": 23.71,
+      "pontuacao_ultima": 3.64,
+      "total_despesa": 51407,
+      "total_presenca": 288,
+      "total_proposicao": 47,
+      "total_votacao": 2,
       "uf": "PE"
     },
     {
@@ -748,6 +1240,12 @@
       "name_pt": "PAULO SALIM MALUF",
       "partido": 11,
       "politico": 141,
+      "pontuacao_tendencia": 1.0,
+      "pontuacao_total": 10.27,
+      "pontuacao_ultima": 0.63,
+      "total_despesa": 20149,
+      "total_presenca": 163,
+      "total_votacao": 0,
       "uf": "SP"
     },
     {
@@ -758,6 +1256,13 @@
       "name_pt": "ROMARIO DE SOUZA FARIA",
       "partido": 40,
       "politico": 142,
+      "pontuacao_tendencia": 1.1,
+      "pontuacao_total": 22.54,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 68341,
+      "total_presenca": 231,
+      "total_proposicao": 17,
+      "total_votacao": 1,
       "uf": "RJ"
     },
     {
@@ -768,6 +1273,7 @@
       "name_pt": "AUREO LIDIO MOREIRA RIBEIRO",
       "partido": 2,
       "politico": 143,
+      "pontuacao_tendencia": 1.1,
       "uf": "RJ"
     },
     {
@@ -778,6 +1284,13 @@
       "name_pt": "CARLOS GOMES BEZERRA",
       "partido": 15,
       "politico": 144,
+      "pontuacao_tendencia": 0.86,
+      "pontuacao_total": 17.1,
+      "pontuacao_ultima": 2.95,
+      "total_despesa": 65710,
+      "total_presenca": 237,
+      "total_proposicao": 25,
+      "total_votacao": 1,
       "uf": "MT"
     },
     {
@@ -788,6 +1301,13 @@
       "name_pt": "STEPAN NERCESSIAN",
       "partido": 23,
       "politico": 145,
+      "pontuacao_tendencia": 0.94,
+      "pontuacao_total": 19.16,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 47049,
+      "total_presenca": 275,
+      "total_proposicao": 6,
+      "total_votacao": 1,
       "uf": "RJ"
     },
     {
@@ -798,6 +1318,13 @@
       "name_pt": "FRANCISCO FLORIANO DE SOUSA SILVA",
       "partido": 22,
       "politico": 146,
+      "pontuacao_tendencia": 1.21,
+      "pontuacao_total": 16.83,
+      "pontuacao_ultima": 1.88,
+      "total_despesa": 83548,
+      "total_presenca": 277,
+      "total_proposicao": 4,
+      "total_votacao": 2,
       "uf": "RJ"
     },
     {
@@ -808,6 +1335,13 @@
       "name_pt": "ESPERIDIAO AMIN HELOU FILHO",
       "partido": 11,
       "politico": 147,
+      "pontuacao_tendencia": 0.92,
+      "pontuacao_total": 22.74,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 45948,
+      "total_presenca": 333,
+      "total_proposicao": 6,
+      "total_votacao": 2,
       "uf": "SC"
     },
     {
@@ -818,6 +1352,12 @@
       "name_pt": "JORGE DE OLIVEIRA",
       "partido": 22,
       "politico": 148,
+      "pontuacao_tendencia": 0.87,
+      "pontuacao_total": 20.62,
+      "pontuacao_ultima": 1.88,
+      "total_despesa": 72441,
+      "total_presenca": 313,
+      "total_votacao": 2,
       "uf": "RJ"
     },
     {
@@ -828,6 +1368,7 @@
       "name_pt": "VALDEMAR COSTA NETO",
       "partido": 22,
       "politico": 149,
+      "pontuacao_tendencia": 1.05,
       "uf": "SP"
     },
     {
@@ -838,6 +1379,13 @@
       "name_pt": "ADRIAN MUSSI RAMOS",
       "partido": 15,
       "politico": 151,
+      "pontuacao_tendencia": 0.76,
+      "pontuacao_total": 13.57,
+      "pontuacao_ultima": 0.63,
+      "total_despesa": 45979,
+      "total_presenca": 178,
+      "total_proposicao": 10,
+      "total_votacao": 1,
       "uf": "RJ"
     },
     {
@@ -848,6 +1396,12 @@
       "name_pt": "NEWTON CARDOSO",
       "partido": 15,
       "politico": 152,
+      "pontuacao_tendencia": 1.28,
+      "pontuacao_total": 10.5,
+      "pontuacao_ultima": 0.63,
+      "total_despesa": 66105,
+      "total_presenca": 113,
+      "total_votacao": 1,
       "uf": "MG"
     },
     {
@@ -858,6 +1412,13 @@
       "name_pt": "WASHINGTON REIS DE OLIVEIRA",
       "partido": 15,
       "politico": 153,
+      "pontuacao_tendencia": 1.2,
+      "pontuacao_total": 21.51,
+      "pontuacao_ultima": 1.88,
+      "total_despesa": 69630,
+      "total_presenca": 302,
+      "total_proposicao": 7,
+      "total_votacao": 2,
       "uf": "RJ"
     },
     {
@@ -868,6 +1429,13 @@
       "name_pt": "WALNEY DA ROCHA CARVALHO",
       "partido": 14,
       "politico": 154,
+      "pontuacao_tendencia": 1.46,
+      "pontuacao_total": 21.91,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 65863,
+      "total_presenca": 266,
+      "total_proposicao": 2,
+      "total_votacao": 2,
       "uf": "RJ"
     },
     {
@@ -878,6 +1446,13 @@
       "name_pt": "JULIO CESAR DE CARVALHO LIMA",
       "partido": 3,
       "politico": 155,
+      "pontuacao_tendencia": 1.26,
+      "pontuacao_total": 20.28,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 90197,
+      "total_presenca": 313,
+      "total_proposicao": 1,
+      "total_votacao": 2,
       "uf": "PI"
     },
     {
@@ -888,6 +1463,13 @@
       "name_pt": "ALESSANDRO LUCCIOLA MOLON",
       "partido": 13,
       "politico": 156,
+      "pontuacao_tendencia": 0.89,
+      "pontuacao_total": 21.28,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 48017,
+      "total_presenca": 301,
+      "total_proposicao": 2,
+      "total_votacao": 2,
       "uf": "RJ"
     },
     {
@@ -898,6 +1480,13 @@
       "name_pt": "SERGIO ZVEITER",
       "partido": 3,
       "politico": 157,
+      "pontuacao_tendencia": 1.63,
+      "pontuacao_total": 14.58,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 23317,
+      "total_presenca": 204,
+      "total_proposicao": 1,
+      "total_votacao": 0,
       "uf": "RJ"
     },
     {
@@ -908,6 +1497,13 @@
       "name_pt": "VITOR PAULO ARAUJO DOS SANTOS",
       "partido": 10,
       "politico": 159,
+      "pontuacao_tendencia": 0.81,
+      "pontuacao_total": 17.13,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 81048,
+      "total_presenca": 281,
+      "total_proposicao": 3,
+      "total_votacao": 1,
       "uf": "RJ"
     },
     {
@@ -918,6 +1514,12 @@
       "name_pt": "NELSON MEURER",
       "partido": 11,
       "politico": 160,
+      "pontuacao_tendencia": 0.92,
+      "pontuacao_total": 20.02,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 87520,
+      "total_presenca": 327,
+      "total_votacao": 2,
       "uf": "PR"
     },
     {
@@ -928,6 +1530,7 @@
       "name_pt": "FERNANDO DESTITO FRANCISCHINI",
       "partido": 2,
       "politico": 161,
+      "pontuacao_tendencia": 1.28,
       "uf": "PR"
     },
     {
@@ -938,6 +1541,13 @@
       "name_pt": "CLEUSA ROSANE RIBAS FERREIRA",
       "partido": 43,
       "politico": 162,
+      "pontuacao_tendencia": 1.52,
+      "pontuacao_total": 20.85,
+      "pontuacao_ultima": 2.93,
+      "total_despesa": 46179,
+      "total_presenca": 304,
+      "total_proposicao": 16,
+      "total_votacao": 2,
       "uf": "PR"
     },
     {
@@ -948,6 +1558,13 @@
       "name_pt": "LEOPOLDO COSTA MEYER",
       "partido": 40,
       "politico": 164,
+      "pontuacao_tendencia": 0.9,
+      "pontuacao_total": 22.96,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 61173,
+      "total_presenca": 336,
+      "total_proposicao": 1,
+      "total_votacao": 2,
       "uf": "PR"
     },
     {
@@ -958,6 +1575,13 @@
       "name_pt": "SANDRO ALEX CRUZ DE OLIVEIRA",
       "partido": 23,
       "politico": 165,
+      "pontuacao_tendencia": 0.89,
+      "pontuacao_total": 18.75,
+      "pontuacao_ultima": 2.73,
+      "total_despesa": 49657,
+      "total_presenca": 319,
+      "total_proposicao": 7,
+      "total_votacao": 2,
       "uf": "PR"
     },
     {
@@ -968,6 +1592,13 @@
       "name_pt": "JOSE SARAIVA FELIPE",
       "partido": 15,
       "politico": 166,
+      "pontuacao_tendencia": 0.78,
+      "pontuacao_total": 21.32,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 72046,
+      "total_presenca": 286,
+      "total_proposicao": 1,
+      "total_votacao": 2,
       "uf": "MG"
     },
     {
@@ -978,6 +1609,13 @@
       "name_pt": "NELSON PADOVANI",
       "partido": 20,
       "politico": 167,
+      "pontuacao_tendencia": 1.17,
+      "pontuacao_total": 16.33,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 41082,
+      "total_presenca": 249,
+      "total_proposicao": 1,
+      "total_votacao": 1,
       "uf": "PR"
     },
     {
@@ -988,6 +1626,11 @@
       "name_pt": "PAULO ROBERTO BARRETO BORNHAUSEN",
       "partido": 3,
       "politico": 169,
+      "pontuacao_tendencia": 1.0,
+      "pontuacao_total": 2.5,
+      "pontuacao_ultima": 2.5,
+      "total_presenca": 21,
+      "total_votacao": 0,
       "uf": "SC"
     },
     {
@@ -998,6 +1641,13 @@
       "name_pt": "JOAO JOSE DE ARRUDA JUNIOR",
       "partido": 15,
       "politico": 170,
+      "pontuacao_tendencia": 1.23,
+      "pontuacao_total": 20.73,
+      "pontuacao_ultima": 2.5,
+      "total_despesa": 74592,
+      "total_presenca": 300,
+      "total_proposicao": 10,
+      "total_votacao": 2,
       "uf": "PR"
     }
   ]

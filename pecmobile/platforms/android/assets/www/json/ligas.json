@@ -1,0 +1,40 @@
+{
+  "ligas": [
+    {
+      "criador_liga": 48,
+      "data_liga": "2014-04-09T22:21:11",
+      "id_liga": 6,
+      "nome_liga": "Liga Galo Doido"
+    },
+    {
+      "criador_liga": 48,
+      "data_liga": "2014-04-09T23:18:52",
+      "id_liga": 7,
+      "nome_liga": "Liga do Escritorio"
+    },
+    {
+      "criador_liga": 48,
+      "data_liga": "2014-04-09T23:20:27",
+      "id_liga": 8,
+      "nome_liga": "Liga do PEC"
+    },
+    {
+      "criador_liga": 34,
+      "data_liga": "2014-04-10T00:18:14",
+      "id_liga": 9,
+      "nome_liga": "Liga THacker"
+    },
+    {
+      "criador_liga": 51,
+      "data_liga": "2014-04-16T20:32:44",
+      "id_liga": 11,
+      "nome_liga": "Liga Bar\u00e7a - Bonfim"
+    },
+    {
+      "criador_liga": 76,
+      "data_liga": "2014-04-17T22:05:08",
+      "id_liga": 12,
+      "nome_liga": "Frente \u00c9tica"
+    }
+  ]
+}

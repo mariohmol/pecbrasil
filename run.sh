@@ -9,3 +9,4 @@ pkill -f runcherry
 cp site.log site.log.bkp
 rm site.log
 python runcherry.py & 
+cp pecmobile/platforms/android/bin/PECMobile.apk pecbrasil/static/

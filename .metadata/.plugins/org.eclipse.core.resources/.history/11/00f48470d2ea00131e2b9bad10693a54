@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+            <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.2.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Política Esporte Clube</title>
+
+    </head>
+  <body>
+    
+
+    
+    <div id="detailsPage" data-role="page" >
+    	
+	  	<div data-role="header" data-position="fixed"  id="loaded_header"  style="display: none;">
+			<h1>Classifica��o</h1>
+		</div>
+         
+         <div data-role="content" >	  
+         	
+	          <p style="background: url(../img/logo.png) no-repeat center top;">
+	            <h1 style="color:white">Política Esporte Clube</h1>
+	         </p>
+	         
+	            <p><a href="classificacao.html" data-role="button"  >Classificação</a></p>
+	            <p><a href="politicolist.html" data-role="button"  data-transition="pop">TOP 100</a></p>
+	            <p><a href="#"  onclick="downloadAll(); login()" data-role="button"  data-transition="pop">Entrar</a></p>
+            	
+            	<!--
+            	
+            	 <a href="#settingsPage" id='settingsButton' class="ui-btn-right&quot
+    data-role="button" data-icon="gear">Settings</a>
+            		 <p><a href="#"  onclick="login()" data-role="button" data-rel="dialog" data-transition="pop">Entrar</a></p>
+            	-->
+        </div>
+    </div>    
+
+<!--         <a href="#" id="login-facebook" onclick="login()"></a> -->
+
+        <div id="data"></div>
+
+        <div id="fb-root"></div>
+  
+        
+        <div id="log"></div>
+        
+       
+    
+<!-- cordova -->
+<script src="cordova.js"></script>
+<!-- cordova facebook plugin -->
+<script src="cdv-plugin-fb-connect.js"></script>
+<!-- facebook js sdk -->
+<script src="facebook-js-sdk.js"></script>
+<script src="lib/pec.js"></script>
+<script src="lib/jquery-1.9.1.min.js"></script>
+<script src="lib/jquery.mobile-1.4.2.min.js"></script>
+<script type="text/javascript" src="lib/painlessfs.js"></script>       
+	<script>
+	
+	
+	 var start_examples = function(){
+
+alert('ol11');
+var pathdir='pec/json';
+var filedir='times.json';
+            //
+            //CREATE A DIRECTORY RECURSIVELY
+            var a = new DirManager(); // Initialize a Folder manager
+            a.create_r('folder_a/folder_b',Log('created successfully'));
+
+            //LIST A DIRECTORY 
+            a.list('cosa', Log('List'));
+
+            //REMOVE A DIRECTORY RECURSIVELY
+            a.remove('folder_a/folder_b',Log('complete delte'), Log('delete fail'));
+
+            //
+            //FILES MANAGEMENT:
+            //
+            var b = new FileManager();
+            // create an empty  FILE (simialr unix touch command), directory will be created RECURSIVELY if it doesnt exist
+            b.load_file(pathdir,filedir,Log('file created'),Log('something went wrong'));
+
+            // WRITE TO A FILE
+            b.write_file(pathdir,filedir,'this is demo content',Log('wrote sucessful!'));
+
+            // READ A FILE
+            b.read_file(pathdir,filedir,Log('file contents: '),Log('something went wrong'));
+
+            // download a file from a remote location and store it localy
+            b.download_file('http://politicaesporteclube.com/attrs/time/',pathdir,filedir,Log('downloaded sucess'));
+alert('ola');
+
+
+    }
+
+    //LOAD START EXAMPLES WHEN DOCUMENT IS READY
+        document.addEventListener(
+            'deviceready', 
+            start_examples, 
+            false
+        );
+	
+	
+	
+	
+	
+	/*
+	
+	document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {
+alert('ola ');
+    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+}
+
+function gotFS(fileSystem) {
+    fileSystem.root.getFile("file:///sdcard/Download/home.json", {create: true, exclusive: false}, gotFileEntry, fail);
+}
+
+function gotFileEntry(fileEntry) {
+    fileEntry.createWriter(gotFileWriter, fail);
+}
+
+function gotFileWriter(writer) {
+    writer.onwriteend = function(evt) {
+        console.log("contents of file now 'some sample text'");
+        writer.truncate(11);  
+        writer.onwriteend = function(evt) {
+            console.log("contents of file now 'some sample'");
+            writer.seek(4);
+            writer.write(" different text");
+            writer.onwriteend = function(evt){
+                console.log("contents of file now 'some different text'");
+            }
+        };
+    };
+    writer.write("some sample text");
+}
+
+function fail(error) {alert(error.code);
+    console.log(error.code);
+}
+	
+	
+	
+	*/
+	
+	
+	
+	
+	
+	
+	
+	//new FileManager().download_file('http://url','target_path',Log('downloaded success'));
+	
+	
+	
+	/*
+    document.addEventListener('deviceready', function() {
+    		downloadAll();
+                try {
+                    //alert('Device is ready! Make sure you set your app_id below this alert.');
+                    FB.init({ 
+                      appId: "208773702609294", 
+                      nativeInterface: CDV.FB, 
+                      useCachedDialogs: false 
+                    });
+                    document.getElementById('data').innerHTML = "";
+                } catch (e) {
+                    alert(e);
+                }
+            }, false);
+
+            $(document).on("ready", function () {
+                //$('#log').html('jQuery loaded');
+
+            });
+            
+            $( document ).on( "mobileinit", function() {
+			    // Make your jQuery Mobile framework configuration changes here!
+			
+			    $.mobile.allowCrossDomainPages = true;
+			});
+			
+function downloadAll(){			
+	var file_path;
+	function setFilePath() {
+	    if(detectAndroid()) {   
+	        file_path = "file:///android_asset/www/res/db/";
+	        //4 Android
+	    } else {
+	        file_path = "res//db//";
+	        //4 apache//iOS/desktop
+	    }
+	}
+	var my_host="http://politicaesporteclube.com/attrs/time/";
+	setFilePath() ;
+	
+	localStorage["my_json_data"] = loadJSON(file_path + "my_json_data.json");
+	alert(localStorage["my_json_data"]);
+	function loadJSON(url) {
+	    return jQuery.ajax({
+	        url : url,
+	        async : false,
+	        dataType : 'json'
+	    }).responseText;
+	}
+	
+	
+	$.getJSON(my_host, function (json_data) {
+	    //write to local storage
+	    alert('json')
+	    localStorage["my_json_data"] = JSON.stringify(json_data);
+		alert(localStorage["my_json_data"]);
+	});
+
+}
+
+*/
+
+</script>
+
+  </body>
+</html>

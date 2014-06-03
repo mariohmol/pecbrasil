@@ -1,0 +1,21 @@
+{
+  "candidaturas": [
+    {
+      "cidade": "S\u00c3O PAULO",
+      "id": 58,
+      "id_original": 73584,
+      "name_en": "ANTONIO CARLOS DE MENDES THAME - PSDB/DEM/PPS",
+      "name_pt": "ANTONIO CARLOS DE MENDES THAME",
+      "partido": 45,
+      "politico": 112,
+      "pontuacao_tendencia": 0.82,
+      "pontuacao_total": 17.41,
+      "pontuacao_ultima": 1.88,
+      "total_despesa": 35300,
+      "total_presenca": 281,
+      "total_proposicao": 14,
+      "total_votacao": 2,
+      "uf": "SP"
+    }
+  ]
+}

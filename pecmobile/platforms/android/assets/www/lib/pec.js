@@ -6,6 +6,9 @@ function retiraCharPost(entrada){
 }
 
 
+var storage = window.localStorage;
+
+
 
     //<button onclick="login()">Login</button>
     //<button onclick="askForWritePerm()">Write Permissions</button> 
@@ -30,6 +33,9 @@ function retiraCharPost(entrada){
                         console.log('name: ' + user.name);
                         console.log('email: ' + user.email);
                         console.log('picture url: ' + profilePictureUrl);
+						
+						window.localStorage.setItem("user", "user");
+
 
                         $('#log').html(user.name);
 
@@ -44,12 +50,15 @@ function retiraCharPost(entrada){
             }
             
             function login() {
+            	var value = window.localStorage.getItem("user");
+				if ( value != null) return value;
+
                 FB.login( function(response) {
                           
                    if (response.authResponse) {
                         //alert('logged in now');
                         console.log('login response:' + response.authResponse);
-                        me();
+                        return me();
                    } else {
                         //alert('not logged in on login');
                         console.log('login response:' + response.error);
@@ -91,4 +100,29 @@ function retiraCharPost(entrada){
                 FB.ui(params, function(obj) { console.log(obj);});
             }
             
-        
+
+function runclassificacao(){
+	url="http://localhost/json/times.json";
+	//url='http://politicaesporteclube.com/attrs/time/';
+	url="http://pecmobile/json/times.json";
+	
+	$.getJSON( url, function(data) {
+			
+					    $('#employeeList li').remove();
+					    $.each(data.times, function(index, time) {				    
+					    	retorno  = '<li><a href="time.html?id=' + time.id + '">' +
+							'<h1>' + time.posicao + '</h1>' +
+							'<h4>' + time.nome +  '</h4>' +
+							'<p>' + time.posicao + '</p>' +
+							'<span class="ui-li-count">' + time.pontuacao_total + '</span></a></li>';						
+							if(time.pontuacao_total=="") time.pontuacao_total=0;						
+					    	$('#employeeList').append(retorno);
+					    });
+					    $('#employeeList').listview('refresh');
+					    $('#devicereadyApp').hide();
+					    $('#loaded_header').show();
+					    $('#loaded_content').show();
+					    
+			});
+		
+}	        

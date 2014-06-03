@@ -14,6 +14,12 @@
     <feature name="org.apache.cordova.facebook.Connect">
         <param name="android-package" value="org.apache.cordova.facebook.ConnectPlugin" />
     </feature>
+    <feature name="File">
+	    <param name="android-package" value="org.apache.cordova.FileUtils" />
+	</feature>
+	<feature name="FileTransfer">
+	    <param name="android-package" value="org.apache.cordova.FileTransfer" />
+	</feature>
     <access origin="http://127.0.0.1*" />
     <access origin="*" />
     <preference name="useBrowserHistory" value="true" />

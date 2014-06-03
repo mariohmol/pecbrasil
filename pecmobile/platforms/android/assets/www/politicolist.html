@@ -25,13 +25,68 @@
     </div>
 
  	<div data-role="header" data-position="fixed"  id="loaded_header"  style="display: none;">
-		<h1>Classifica��o</h1>
+		<h1>TOP Políticos</h1>
 	</div>
 
             
 	<div data-role="content"  id="loaded_content"  style="display: none;">
          <ul id="employeeList" data-role="listview" data-filter="true"></ul>
     </div>		
+
+
+<script type="text/javascript">
+
+function runclassificacao(){
+	
+	//url='http://politicaesporteclube.com/attrs/partidos/';
+	url="http://pecmobile/json/partidos.json";
+	
+	var partidos = {};
+	$.getJSON( url, function(data) {
+		$.each(data.partidos, function(index, partido) {	
+			partidos[partido.id]=partido;
+		});
+		runCandidatura(partidos);
+	});
+	//url='http://politicaesporteclube.com/attrs/candidaturas/';
+	url="http://pecmobile/json/candidaturas.json";
+}
+	
+	function runCandidatura(partidos){
+	$.getJSON( url, function(data) {
+			
+					    $('#employeeList li').remove();
+					    $.each(data.candidaturas, function(index, candidatura) {		
+					    	if(candidatura.pontuacao_total=="") candidatura.pontuacao_total=0;	
+					    	partido=partidos[candidatura.partido]	    ;
+					    	retorno  = '<li><a href="politico.html?id=' + candidatura.id + '">' +
+							'<img src="/img/fotos/' + candidatura.id_original + '.jpg"/>'  +
+							'<h4>' + candidatura.name_pt +  '</h4>' +
+							'<p>' + partido.name_pt + " / " + partido.sigla + '</p>' +
+							'<p>' + candidatura.cidade + " / " + candidatura.uf + '</p>' +
+							'<span class="ui-li-count">' + candidatura.pontuacao_total + '</span></a></li>';						
+													
+					    	$('#employeeList').append(retorno);
+					    });
+					    $('#employeeList').listview('refresh');
+					    $('#devicereadyApp').hide();
+					    $('#loaded_header').show();
+					    $('#loaded_content').show();
+					    
+			});
+	}
+	
+	
+	$(function() {
+	    document.addEventListener("deviceready", runclassificacao, true);
+	    //document.addEventListener("deviceready", runclassificacao, false);
+
+	});
+
+	
+		
+
+</script>
 
 </div>
 
@@ -48,37 +103,6 @@
         
 
 
-<script type="text/javascript">
-
-function runclassificacao(){
-	url="http://localhost/json/times.json";
-	//url='http://politicaesporteclube.com/attrs/time/';
-	url="http://pecmobile/json/times.json";
-	
-	$.getJSON( url, function(data) {
-			
-					    $('#employeeList li').remove();
-					    $.each(data.times, function(index, time) {				    
-					    	retorno  = '<li><a href="time.html?id=' + time.id + '">' +
-							'<h1>' + time.posicao + '</h1>' +
-							'<h4>' + time.nome +  '</h4>' +
-							'<p>' + time.posicao + '</p>' +
-							'<span class="ui-li-count">' + time.pontuacao_total + '</span></a></li>';						
-							if(time.pontuacao_total=="") time.pontuacao_total=0;						
-					    	$('#employeeList').append(retorno);
-					    });
-					    $('#employeeList').listview('refresh');
-					    $('#devicereadyApp').hide();
-					    $('#loaded_header').show();
-					    $('#loaded_content').show();
-					    
-			});
-		
-}		
-	runclassificacao();	
-		
-
-</script>
 
 
   </body>
