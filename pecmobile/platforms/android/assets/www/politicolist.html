@@ -37,9 +37,9 @@
 <script type="text/javascript">
 
 function runclassificacao(){
-	
-	//url='http://politicaesporteclube.com/attrs/partidos/';
-	url="http://pecmobile/json/partidos.json";
+	local=false;
+	if (local!=true)url='http://politicaesporteclube.com/attrs/partido/';
+	else url="http://pecmobile/json/partidos.json";
 	
 	var partidos = {};
 	$.getJSON( url, function(data) {
@@ -48,8 +48,8 @@ function runclassificacao(){
 		});
 		runCandidatura(partidos);
 	});
-	//url='http://politicaesporteclube.com/attrs/candidaturas/';
-	url="http://pecmobile/json/candidaturas.json";
+	if (local!=true) url='http://politicaesporteclube.com/attrs/candidatura/';
+	else url="http://pecmobile/json/candidaturas.json";
 }
 	
 	function runCandidatura(partidos){

@@ -102,9 +102,9 @@ var storage = window.localStorage;
             
 
 function runclassificacao(){
-	url="http://localhost/json/times.json";
-	//url='http://politicaesporteclube.com/attrs/time/';
-	url="http://pecmobile/json/times.json";
+	local=false;
+	if (local!=true) url='http://politicaesporteclube.com/attrs/time/';
+	else url="http://pecmobile/json/times.json";
 	
 	$.getJSON( url, function(data) {
 			
