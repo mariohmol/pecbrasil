@@ -1,3 +1,9 @@
+var local=true;
+var candidaturaParam=null;
+var timeParam=null;
+var ligaParam=null;
+var usuarioParam=null;
+
 function retiraCharPost(entrada){
 	entrada = entrada.replace(/\"/g, ' ');
 	entrada = entrada.replace(/\'/g, ' ');
@@ -102,7 +108,6 @@ var storage = window.localStorage;
             
 
 function runclassificacao(){
-	local=false;
 	if (local!=true) url='http://politicaesporteclube.com/attrs/time/';
 	else url="http://pecmobile/json/times.json";
 	
@@ -110,13 +115,15 @@ function runclassificacao(){
 			
 					    $('#employeeList li').remove();
 					    $.each(data.times, function(index, time) {				    
-					    	retorno  = '<li><a href="time.html?id=' + time.id + '">' +
+					    	retorno  = '<li><a onclick="'+"window.localStorage.setItem('timeParam', '"+time.id+"');" 
+					    	+'"  href="time.html">' +
 							'<h1>' + time.posicao + '</h1>' +
 							'<h4>' + time.nome +  '</h4>' +
 							'<p>' + time.posicao + '</p>' +
 							'<span class="ui-li-count">' + time.pontuacao_total + '</span></a></li>';						
 							if(time.pontuacao_total=="") time.pontuacao_total=0;						
 					    	$('#employeeList').append(retorno);
+					    	
 					    });
 					    $('#employeeList').listview('refresh');
 					    $('#devicereadyApp').hide();
@@ -125,4 +132,82 @@ function runclassificacao(){
 					    
 			});
 		
-}	        
+}	 
+
+
+
+
+
+
+
+function readAPIdoc(){
+window.localStorage.setItem("user","124");
+ window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+   window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFSW, fail);
+   
+ }
+ 
+ 
+ 
+ 
+
+    function gotFSW(fileSystem) {
+        fileSystem.root.getFile("pec.txt", {create: true}, gotFileEntryW, fail); 
+    }
+
+    function gotFileEntryW(fileEntry) {
+        fileEntry.createWriter(gotFileWriter, fail);
+    }
+
+    function gotFileWriter(writer) {
+        writer.onwrite = function(evt) {
+            console.log("write success");
+        };
+        writer.write("user|"+window.localStorage.getItem("user"));
+        // contents of file now 'some sample text'
+        //writer.truncate(11);
+        // contents of file now 'some sample'
+        //writer.seek(4);
+        // contents of file still 'some sample' but file pointer is after the 'e' in 'some'
+        //writer.write(" different text");
+        // contents of file now 'some different text'
+    }
+    
+
+           
+
+    function gotFS(fileSystem) {
+        fileSystem.root.getFile("pec.txt", null, gotFileEntry, fail);
+    }
+
+    function gotFileEntry(fileEntry) {
+        fileEntry.file(gotFile, fail);
+    }
+
+    function gotFile(file){
+        readDataUrl(file);
+        readAsText(file);
+    }
+
+    function readDataUrl(file) {
+        var reader = new FileReader();
+        reader.onloadend = function(evt) {
+            console.log("Read as data URL");
+            console.log(evt.target.result);
+        };
+        reader.readAsDataURL(file);
+    }
+
+    function readAsText(file) {
+        var reader = new FileReader();
+        reader.onloadend = function(evt) {
+            console.log("Read as text");
+            console.log(evt.target.result);
+        };
+        reader.readAsText(file);
+    }
+
+    function fail(evt) {
+        console.log(evt.target.error.code);
+    }
+      

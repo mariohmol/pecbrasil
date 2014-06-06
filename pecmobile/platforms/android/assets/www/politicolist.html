@@ -12,6 +12,18 @@
     </head>
   <body>
   	
+  	
+
+    <!-- cordova -->
+    <script src="cordova.js"></script>
+      <!-- cordova facebook plugin -->
+    <script src="cdv-plugin-fb-connect.js"></script>
+      <!-- facebook js sdk -->
+    <script src="facebook-js-sdk.js"></script>
+	<script src="lib/pec.js"></script>
+     <script src="lib/jquery-1.9.1.min.js"></script>
+     <script src="lib/jquery.mobile-1.4.2.min.js"></script>
+        
  
         
 <div id="employeeListPage" data-role="page" >
@@ -37,7 +49,7 @@
 <script type="text/javascript">
 
 function runclassificacao(){
-	local=false;
+	
 	if (local!=true)url='http://politicaesporteclube.com/attrs/partido/';
 	else url="http://pecmobile/json/partidos.json";
 	
@@ -59,7 +71,7 @@ function runclassificacao(){
 					    $.each(data.candidaturas, function(index, candidatura) {		
 					    	if(candidatura.pontuacao_total=="") candidatura.pontuacao_total=0;	
 					    	partido=partidos[candidatura.partido]	    ;
-					    	retorno  = '<li><a href="politico.html?id=' + candidatura.id + '">' +
+					    	retorno  = '<li><a onclick="candidaturaParam='+ candidatura.id + '" href="politico.html?id=' + candidatura.id + '">' +
 							'<img src="/img/fotos/' + candidatura.id_original + '.jpg"/>'  +
 							'<h4>' + candidatura.name_pt +  '</h4>' +
 							'<p>' + partido.name_pt + " / " + partido.sigla + '</p>' +
@@ -89,18 +101,6 @@ function runclassificacao(){
 </script>
 
 </div>
-
-    <!-- cordova -->
-    <script src="cordova.js"></script>
-      <!-- cordova facebook plugin -->
-    <script src="cdv-plugin-fb-connect.js"></script>
-      <!-- facebook js sdk -->
-    <script src="facebook-js-sdk.js"></script>
-    
-    
-     <script src="lib/jquery-1.9.1.min.js"></script>
-     <script src="lib/jquery.mobile-1.4.2.min.js"></script>
-        
 
 
 
