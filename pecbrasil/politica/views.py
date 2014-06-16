@@ -115,9 +115,10 @@ def classificacao(nome=None):
             terceiro = line
         
     rodadaAtual= politicaServices.rodadaAtual()
-    topTimes= politicaServices.topTimes()
+    topTimes = politicaServices.topTimes()
     topPartidos=  politicaServices.partidosPopulares()
     verTime= politicaServices.verTime(g.user)
+    
     if nome is None:
         return render_template("politica/classificacao.html",
                    top3Time=top3Time,topTimes=topTimes,primeiroTime=primeiro,segundoTime=segundo,

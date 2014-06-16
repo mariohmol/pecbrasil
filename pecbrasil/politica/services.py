@@ -41,7 +41,7 @@ class PoliticaServices(object):
         return Time.query.order_by(Time.pontuacao_total.desc()).limit(3)
     
     def topTimes(self):        
-        return Time.query.order_by(Time.pontuacao_total.desc()).all()
+        return Time.query.order_by(Time.posicao).all()
   
     def timesInLigas(self):
         return db.session.execute("SELECT * FROM time where id in (select distinct user_ligajogador from ligajogador) ")

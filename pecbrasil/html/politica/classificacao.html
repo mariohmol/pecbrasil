@@ -4,8 +4,33 @@
 {% block title %}: {% trans %}Candidaturas{% endtrans %}{% endblock %}
 
 {% block body %}
+
+
+<Style>
+	.destacados{
+    padding: 10px 0;
+	text-align: left;
+	}
+	.destacados > div > div{
+		padding: 10px;
+		border: 1px solid transparent;
+		border-radius: 4px;
+		transition: 0.2s;
+		margin-bottom: 50px;
+	}
+	.destacados > div { height:153px; }
+	.destacados p { font-size:13px; }
+	.destacados > div:hover > div{
+		margin-top: -10px;
+		margin-bottom: 50px;
+		border: 0px solid rgb(200, 200, 200);
+		box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 2px 1px;
+		background: rgba(200, 200, 200, 0.1);
+		transition: 0.5s;
+	}
+</Style>
     
-    <div style="width:100%;float: left;">
+<div style="width:100%;float: left;">
     
     <h1 style="display:inline-block; color:#27ae60;">{% trans %}CLASSIFICAÇÃO{% endtrans %}</h1>
     
@@ -29,8 +54,8 @@
 		<div style="padding: 29px 10px; font-family: 'MohaveRegular'; font-size:34px; display:inline-table; width: 630px; height: 81px; background-color:#f4f4f4; color:#333;text-align: left;margin-top: 14px;">
 			<a href="/politica/selecao/{{primeiroTime.id}}">{{ primeiroTime.nome }}</a>
 		</div>
-		<div style="padding: 30px 0px; font-size:35px;font-family: 'MohaveBold'; color:white; text-shadow: 3px 3px 1px #27ae60; display:inline-table; width: 200px;line-height: 22px; height: 80px; background-color:#2ecc71;text-align: center;">
-			{{ primeiroTime.pontuacao_total }}<br><span style="font-size:18px;">pontos</span>
+		<div style="padding: 29px 10px 3px 0px; font-family: 'MohaveBold'; font-size:34px; display:inline-table; width: 200px; background-color:#2ecc71; color:white; text-align: center; text-shadow: 3px 3px 1px #27ae60;">
+			{{ primeiroTime.pontuacao_total }}<div style="font-size:18px;">pontos</div>
 		</div>
 	</div>
 	
@@ -41,8 +66,8 @@
 		<div style="padding: 29px 10px; font-family: 'MohaveRegular'; font-size:34px; display:inline-table; width: 630px; height: 81px; background-color:#f4f4f4; color:#333;text-align: left;margin-top: 14px;">
 			<a href="/politica/selecao/{{segundoTime.id}}">{{ segundoTime.nome }}</a>
 		</div>
-		<div style="padding: 30px 0px; font-size:35px;font-family: 'MohaveBold'; color:white; text-shadow: 3px 3px 1px #27ae60; display:inline-table; width: 200px;line-height: 22px; height: 80px; background-color:#2ecc71;text-align: center;">
-			{{ segundoTime.pontuacao_total }}<br><span style="font-size:18px;">pontos</span>
+		<div style="padding: 29px 10px 3px 0px; font-family: 'MohaveBold'; font-size:34px; display:inline-table; width: 200px; background-color:#2ecc71; color:white; text-align: center; text-shadow: 3px 3px 1px #27ae60;">
+			{{ segundoTime.pontuacao_total }}<div style="font-size:18px;">pontos</div>
 		</div>
 	</div>
 	
@@ -53,20 +78,28 @@
 		<div style="padding: 29px 10px; font-family: 'MohaveRegular'; font-size:34px; display:inline-table; width: 630px; height: 81px; background-color:#f4f4f4; color:#333;text-align: left;margin-top: 14px;">
 			<a href="/politica/selecao/{{terceiroTime.id}}">{{ terceiroTime.nome }}</a>
 		</div>
-		<div style="padding: 30px 0px; font-size:35px;font-family: 'MohaveBold'; color:white; text-shadow: 3px 3px 1px #27ae60; display:inline-table; width: 200px;line-height: 22px; height: 80px; background-color:#2ecc71;text-align: center;">
-			{{ terceiroTime.pontuacao_total }}<br><span style="font-size:18px; font-family: 'MohaveRegular'; ">pontos</span>
+		<div style="padding: 29px 10px 3px 0px; font-family: 'MohaveBold'; font-size:34px; display:inline-table; width: 200px; background-color:#2ecc71; color:white; text-align: center; text-shadow: 3px 3px 1px #27ae60;">
+			{{ terceiroTime.pontuacao_total }}<div style="font-size:18px;">pontos</div>
 		</div>
 	</div>
-	
-	
-	
-	
  
- <br/>
-</div>
+    <br style="clear:both;">  
     
-   
-    <h2 style="margin-top:30px; font-size: 28px; display:inline-block; color:#666;">{% trans %}Ranking Completo{% endtrans %} </h2>
+	<div class="row destacados">
+	    <h1 style="color:#27ae60;">{% trans %}Ranking completo{% endtrans %}</h1>
+		{% for time in topTimes %}
+			{% if time.pontuacao_total > 0 %}
+			<div class="col-md-4">
+				<div>
+					<p><h4>{{ time.posicao }} - {{ time.nome }}</h4></p>
+					<p>{{ time.pontuacao_total }} ponto(s)</p>
+					<a href="/politica/selecao/{{ time.id }}" class="btn btn-info btn-xs" title="ver mais">{% trans %}veja mais{% endtrans %} »</a>
+				</div>
+			</div>
+			{% endif %}
+		{% endfor %}	
+	</div>
+</div>
     
     <!-- 
     <table style="width:100%;float: left;">
@@ -89,51 +122,8 @@
     </table>
      -->
      
+
      
-     
-<div class="feed">
   
-  <table style="width:100%;float: left;" class="table-condensed">
-    <thead>
-      <tr>
-      	 <th>{% trans %}Posição{% endtrans %} </th>
-	     
-	     <th>{% trans %}Nome do Time{% endtrans %}</th>
-	      <th>{% trans %}Pontos{% endtrans %}</th>
-      </tr>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
-
-</div>
-     
-     <script src="/static/js/utils/utils.infinite_scroll.js"></script>
-
-<script>
-
-function item_formatter(container_el, activities){
-  
-  var attrs_enter = d3.select(container_el).select("tbody").selectAll("tr")
-    .data(activities, function(d){ return d.id; })
-    .enter().append("tr")
-    
-	
- attrs_enter.append("td").text(function(d){ return d.posicao; })
-  attrs_enter.append("td").append("a").text(function(d){ return d.nome; }).attr("href",function(d){ return "/politica/selecao/"+d.id ; })
-  attrs_enter.append("td").text(function(d){ return d.pontuacao_total; })
-  
-	
-}
-
-var is = infinite_scroll().format_items(item_formatter);
-
-d3.select(".feed")
-  .call(is.url("/attrs/time/"))
-  
-</script>
-
-
-    
 {% endblock %}
 
