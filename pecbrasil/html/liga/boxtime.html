@@ -1,0 +1,6 @@
+<h2>{{ time.nome }}</h2>
+<br/>
+<h3>Pontuação Total: <b> {{time.pontuacao_total}} </b></h3>
+<h3>Posição Geral: <b> {{time.posicao}} </b></h3>
+{% trans %}Veja mais informações sobre este time{% endtrans %} 
+<a href="" onclick="parent.window.location='/politica/selecao/{{time.id}}'">{% trans %}aqui{% endtrans %}.</a>

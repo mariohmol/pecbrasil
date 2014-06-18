@@ -188,3 +188,12 @@ def mudarvisivel(liga):
         db.session.commit()  
         
     return redirect(url_for('liga.ver')+liga)
+
+@mod.route('/boxtime')
+@mod.route('/boxtime/<id_time>')
+def boxtime(id_time=None):
+    time=politicaServices.verTime(id=id_time) 
+    if time is not None:
+        return render_template("liga/boxtime.html",id_time=id_time, time=time)
+    else:
+        return None

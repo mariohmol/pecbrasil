@@ -4,6 +4,7 @@ from sqlalchemy import func
 from flask import Blueprint, request, render_template, g,flash, Response, make_response, send_file, jsonify, session, redirect, url_for
 import csv, sys, MySQLdb, os
 from os import environ
+from config import basedir
 
 from pecbrasil import db
 from pecbrasil.utils import clean_varrequest
@@ -11,7 +12,7 @@ from pecbrasil.politica.forms import PoliticoForm,TimeForm
 from pecbrasil.politica.models import Politico, Partido, TimeCandidato,Time, Rodada, RodadaPontos,Candidatura,Pontuacao
 from pecbrasil.politica.services import PoliticaServices
 from pecbrasil.comunicado.forms import ConvidarForm
-
+from pecbrasil.liga.models import Liga
 
 mod = Blueprint('politica', __name__, url_prefix='/politica')
     
@@ -142,9 +143,23 @@ def criarPartido(name=None):
         #if g.user is None or not g.user.is_authenticated():
         #    flash('You need to be signed in for this.')
         #    return redirect(url_for('general.access'))
-        
-        time = Time(nome=time_form.nome.data, desc=time_form.desc.data, 
-                      color=time_form.color.data,  user_id=g.user.id)
+        from ..utils import ProfanitiesFilter
+            
+        arquivo_black_list = open(basedir+"/pecbrasil/static/txt/blacklist.txt")
+        black_list = [line.strip() for line in arquivo_black_list]
+                
+        filter = ProfanitiesFilter(black_list, replacements = '*')
+        if  time_form.nome.data is not None and time_form.desc.data is not None:
+            _time = filter.clean(str(time_form.nome.data))  #.encode("ascii", "xmlcharrefreplace"))) # Palavras com acento ou Ç fora do blacklist não seriam permitidas
+            _desc =  filter.clean(str(time_form.desc.data))  #.encode("ascii", "xmlcharrefreplace")))        
+        if time_form.nome.data!=_time:
+            flash('Caro Usuário: Não é permitido nomear seu partido com um termo ofensivo, siglas ou nome de partidos já existentes.\nInfelizmente o termo utilizado "'+ time_form.nome.data +'" infringe essa política do site e não poderá ser utilizado como nome do seu partido. Por favor, insira outro nome.')
+        elif time_form.desc.data!=_desc:
+            flash('Caro Usuário: Não é permitido inserir na descrição de seu partido um termo ofensivo, siglas ou nome de partidos já existentes.\nInfelizmente o termo utilizado "'+ time_form.desc.data +'" infringe essa política do site e não poderá ser utilizado na descrição do seu partido.')    
+        else:
+            time = Time(nome=time_form.nome.data, desc=time_form.desc.data, 
+                        color=time_form.color.data,  user_id=g.user.id)
+
         db.session.add(time)
         db.session.commit()
         session['user_time']=time.id
@@ -238,18 +253,38 @@ def verPartido(time=None):
     if time_form.validate_on_submit(): 
         timeRetorno.nome=time_form.nome.data
         timeRetorno.desc=time_form.desc.data
-        db.session.add(timeRetorno)
-        db.session.commit()
+
+        from ..utils import ProfanitiesFilter
+            
+        arquivo_black_list = open(basedir+"/pecbrasil/static/txt/blacklist.txt")
+        black_list = [line.strip() for line in arquivo_black_list]
+                
+        filter = ProfanitiesFilter(black_list, replacements = '*')
+        if  time_form.nome.data is not None and time_form.desc.data is not None:
+            _time = filter.clean(str(timeRetorno.nome))    #encode("ascii", "xmlcharrefreplace")))
+            _desc =  filter.clean(str(timeRetorno.desc))    #.encode("ascii", "xmlcharrefreplace")))
+        
+        if timeRetorno.nome!=_time:
+            flash('Caro Usuário: Não é permitido nomear seu partido com um termo ofensivo, siglas ou nome de partidos já existentes.\nInfelizmente o termo utilizado "'+ time_form.nome.data +'" infringe essa política do site e não poderá ser utilizado como nome do seu partido. Por favor, insira outro nome.')
+        elif timeRetorno.desc!=_desc:
+            flash('Caro Usuário: Não é permitido inserir na descrição de seu partido um termo ofensivo, siglas ou nome de partidos já existentes.\nInfelizmente o termo utilizado "'+ time_form.desc.data +'" infringe essa política do site e não poderá ser utilizado na descrição do seu partido.')
+        else:
+            db.session.add(timeRetorno)
+            db.session.commit()
         
     session['user_time']=timeRetorno.id
     rodaA = db.session.merge(session['rodada_atual'])
     
     time_form.nome.data=timeRetorno.nome
     time_form.desc.data=timeRetorno.desc
-    
-    
+
+    ligas = politicaServices.usuarioliga(user_id=timeRetorno.id)
+    ligas_total = Liga.query.all()
         
-    return render_template("politica/meu-partido.html",  rodada_atual=rodaA ,  time_form=time_form, form=form,            time = timeRetorno,user=g.user, time_id=time)
+    return render_template("politica/meu-partido.html",  rodada_atual=rodaA ,  time_form=time_form, form=form,  time = timeRetorno,user=g.user, time_id=time, 
+                           ligas=ligas, ligas_total=ligas_total)
+    
+    
 
 
 
