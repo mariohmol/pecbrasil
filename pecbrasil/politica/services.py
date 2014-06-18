@@ -324,7 +324,12 @@ class PoliticaServices(object):
             return Liga.query.filter_by(id_liga=liga_id).first()
         elif nome is not None:
             return Liga.query.filter_by(nome_liga=nome).first()
+
         
+    def usuarioliga(self, user_id=None):
+        if user_id is not None:
+            return Liga.query.join(LigaJogador).filter_by(user_ligajogador=user_id).all()    
+    
      
     def ligamembrosPontos(self,time=None):
         query =  "SELECT user_ligajogador, id_liga, nome_liga, posicaoanterior, posicao, pontos_ligajogador"
