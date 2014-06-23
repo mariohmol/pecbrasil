@@ -1,32 +1,28 @@
 	     
    {% if votacao %}
 			   
-	   <div style="width: 100%;" id="boxPolitico">
+   		<div style="width: 95%;" id="boxPolitico">
 	   
 		   <h4>
 			   <div class="field-content">
 			   
-			  {% if  iframe=='true'  %}
-			   		<a href="#" 
-		   			onclick="top.window.location='/proposicao/ver/{{ votacao.proposicao }}/'">
+		  		{% if  iframe=='true'  %}
+		   			<a href="#" onclick="top.window.location='/proposicao/ver/{{ votacao.proposicao }}/'">
 				{% else %}	
 		   			<a href="/proposicao/ver/{{ votacao.proposicao }}">
-		   		{% endif %}
+	   			{% endif %}
         
-        
-				  
-				    {{ votacao.proposicoes.sigla }}</a>
+			    {{ votacao.proposicoes.sigla }}</a>
 				    
 				    
-				    {% if votacao.proposicoes.tipo %}
-				    -  {{ votacao.proposicoes.tipo }}
-				    {% endif %}
+			    {% if votacao.proposicoes.tipo %}
+			    -  {{ votacao.proposicoes.tipo }}
+			    {% endif %}
 				    
-				    {% if votacao.proposicoes.data %}
-				     <br/>
-				     {{ votacao.proposicoes.data }}
-				     
-				      {% endif %}
+			    {% if votacao.proposicoes.data %}
+			     	<br/>
+		     		{{ votacao.proposicoes.data }}
+		      	{% endif %}
 				      
 				      {% if votacao.proposicoes.favor %}
 				      <br/>
@@ -67,21 +63,14 @@
 		   
 	</pre>
 
-
 		<div id="boxPoliticoLateral">
 		
-
-
 			<div id="boxPoliticoUltimaSemana" >
 		
-			
-			
 			</div>
 
 		</div>
 		
-	
-
 </div>
 	   
     {% endif %}

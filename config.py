@@ -95,8 +95,5 @@ MAIL_USERNAME = 'contato@politicaesporteclube.com'
 #MAIL_USERNAME = 'contato@politicaesporteclube.com'
 #MAIL_PASSWORD = 'pecBR123'
 
-
-
-
 # administrator list
 ADMINS = ['your-gmail-username@gmail.com']
