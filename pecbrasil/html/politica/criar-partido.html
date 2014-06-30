@@ -2,33 +2,135 @@
 {% extends "templates/site.html" %} 
 
 {% block body %}
+<link rel="stylesheet" href="/static/css/bootstrap.min3.css">
+	<link rel="stylesheet" href="/static/css/bootstrap-theme.min3.css">
+	<script type="text/javascript" src="/static/js/lib/jquery.min3.js"></script>
+	<script src="/static/js/lib/bootstrap.min3.js"></script>
 <div style="width: 40%;">
 	<img src="/static/img/pec/cadastro2.png" border="0" />
+</div>	
+	<style>
+#botao_atualizar {
+	width:204px; height:48px; font-size: 20px;
+	}
+	.alert-message-warning{margin: 20px 0; 	padding: 20px; 	border-left: 3px solid #f0ad4e;	background-color: #fcf8f2;
+    						}
+	.alert-message-warning h4{font-size: 30px;	margin-top: 0; 	margin-bottom: 5px;	color: #f0ad4e;
+						}
+	hr{margin-top: 10px; margin-bottom: 10px;
+						}
+	.alert-message-success {background-color: #F4FDF0; 	margin: 20px 0;	padding: 20px; 	border-left: 3px solid #3C763D;
+    					}
+	.alert-message-success h4{font-size: 30px;	margin-top: 0; 	color: #3C763D;
+						}
+	#descricao, #nome_partido {
+		font-size:25px;
+	}
+	</style>
 
+{% if nome_proibido %}
+<div class="row">
+        <div class="col-md-12" align="center">
+            <div class="alert-message-warning">
+            	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                    ×</button>
+                <h4>
+                    Aviso</h4>
+                    <hr>
+                <p>
+                    Caro Usuário: Não é permitido nomear seu partido com um termo ofensivo, siglas ou nome de 
+                    partidos já existentes. Infelizmente o termo utilizado <strong> "{{time_form.nome.data}}" </strong> infringe essa política 
+                    do site e não poderá ser utilizado como nome do seu partido. Por favor, insira outro nome.</p>
+            </div>
+        </div>
+</div>
+
+{% elif desc_proibida %}
+<div class="row">
+        <div class="col-md-12" align="center">
+        	<div class="alert-message-warning">
+            	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                    ×</button>
+                <h4>Aviso</h4>
+                    <hr>
+                <p>
+                    Caro Usuário: Não é permitido utilizar na descrição de seu partido termos ofensivos, siglas ou nome de 
+                    partidos já existentes. Infelizmente o termo utilizado <strong> "{{time_form.desc.data}}" </strong> 
+                    infringe essa política do site e não poderá ser utilizado na descrição do seu partido. Por favor, 
+                    insira outros termos.</p>
+            </div>
+        </div>
+</div>
+{% endif %}
+
+
+<div class="row">
+	<div class="col-md-4">
 	<h1>{% trans %}Criar Partido{% endtrans %}</h1>
-
+		</div>
+</div>
+	
 	<form id="ask_form" action="" method="post">
-		{{time_form.hidden_tag()}} 
-		
+		{{time_form.hidden_tag()}}
+		<div class="row">
+		<div class="col-md-3">
+		<label class="nome_partido" for="nome">{% trans %}Nome do Partido{% endtrans %}</label>
+		</div>
 		{% if g.locale == 'en'%}
-			{{ time_form.nome(id="nome",placeholder="Name of your party. Ex.: Party My Family") }} 
-			{{		time_form.desc(id="desc", 
-				placeholder="Description. Ex. My party is formed just by the best politicans and those that can change to a better place to live ...x") }}
+		<div class="col-md-7">
+			{{ time_form.nome(id="nome",placeholder="Name of your party. Ex.: Party My Family", class="form-control") }} 
+		</div>
+		</div>
+				<br/>
+		<div class="row">
+			<div class="col-md-3">
+		<label class="descricao" for="desc">{% trans %}Descrição{% endtrans %}</label>
+		</div>
+		<div class="col-md-7">
+		{{time_form.desc(id="desc", 
+		placeholder="Description. Ex. My party is formed just by the best politicans and those that can change to a better place to live ...x", class="form-control") }}
+		</div>
+		</div>
 		{% else %}
-			{{ time_form.nome(id="nome",placeholder="Nome Ex. Partido do Joao Silva") }} 
-			{{		time_form.desc(id="desc", placeholder="Descriçao Ex. Partido da Causa
-			Social , seguindo orientação política de ...") }}
+		<div class="col-md-7">
+			{{ time_form.nome(id="nome",placeholder="Nome Ex. Partido do Joao Silva", class="form-control") }} 
+		</div>
+		</div>
+		</br>
+		<div class="row">
+			<div class="col-md-3">
+		<label class="descricao" for="desc">{% trans %}Descrição{% endtrans %}</label>
+		</div>
+		<div class="col-md-7">
+		{{		time_form.desc(id="desc", placeholder="Descriçao Ex. Partido da Causa
+			Social, seguindo orientação política de ...", class="form-control") }}
+		</div>
+		</div>	 
 		{% endif %} 
 		<!-- {{
 		time_form.color(id="color", placeholder="Cor Ex. Vermelho") }} 
 		 -->
-		<input
-			type="submit" value="enviar" />
+		</br>
+		 <div class="row" align="center">
+		<button  type="submit"  id="botao_atualizar" class="btn btn-success" align="center">
+			{% trans %}Enviar{% endtrans %}</button>
+		</div>
+		
+		
 	</form>
+		
+	 
+		
+		
+		<!-- {{
+		time_form.color(id="color", placeholder="Cor Ex. Vermelho") }} 
+		 -->
+		
 </div>
-<style>
+
+	<style>
 #nome,#desc {
-	width: 300px;
+	font-size: 16px;
 }
 </style>
 {% endblock %}

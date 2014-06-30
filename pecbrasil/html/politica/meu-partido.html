@@ -82,16 +82,95 @@
 	border-right: 4px solid transparent;
 	border-left: 4px solid transparent;
 }
-#botao_atualizar {width:204px; height:48px; font-size: 20px;}
+#botao_atualizar {
+	width:204px; height:48px; font-size: 20px;
+	}
+	
+	.alert-message-warning{
+		margin: 20px 0;
+    	padding: 20px;
+    	border-left: 3px solid #f0ad4e;
+    	background-color: #fcf8f2;
+    						}
+	.alert-message-warning h4{
+		font-size: 30px;
+		margin-top: 0;
+    	margin-bottom: 5px;
+    	color: #f0ad4e;
+						}
+hr{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
 
+	.alert-message-success {
+    	background-color: #F4FDF0;
+    	margin: 20px 0;
+    	padding: 20px;
+    	border-left: 3px solid #3C763D;
+    	
+				}
+	.alert-message-success h4{
+    	font-size: 30px;
+		margin-top: 0;
+    	color: #3C763D;
+		}
 	</style>
 	
 {% if time_id %}
 <img src="/static/img/pec/cadastro4.png" border="0" />
 {% endif %}
+{%if nome_proibido %}
+<div class="row">
+        <div class="col-md-12" align="center">
+            <div class="alert-message-warning">
+            	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                    ×</button>
+                <h4>
+                    Aviso</h4>
+                    <hr>
+                <p>
+                    Caro Usuário: Não é permitido nomear seu partido com um termo ofensivo, siglas ou nome de 
+                    partidos já existentes. Infelizmente o termo utilizado <strong> "{{time_form.nome.data}}" </strong> infringe essa política 
+                    do site e não poderá ser utilizado como nome do seu partido. Por favor, insira outro nome.</p>
+            </div>
+        </div>
+</div>
+
+{%elif desc_proibida %}
+<div class="row">
+        <div class="col-md-12" align="center">
+        	<div class="alert-message-warning">
+            	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                    ×</button>
+                <h4>Aviso</h4>
+                    <hr>
+                <p>
+                    Caro Usuário: Não é permitido utilizar na descrição de seu partido termos ofensivos, siglas ou nome de 
+                    partidos já existentes. Infelizmente o termo utilizado <strong> "{{time_form.desc.data}}" </strong> 
+                    infringe essa política do site e não poderá ser utilizado na descrição do seu partido. Por favor, 
+                    insira outros termos.</p>
+            </div>
+        </div>
+</div>
+
+{% elif nome_ok %}
+<div class="row">
+        <div class="col-md-12" align="center">
+        	<div class="alert-message-success">
+            	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                    ×</button>
+            <div class="alert-message-sucess">
+                <h4>Atualização Realizada com Sucesso!</h4>
+            </div>
+        </div>
+</div>
+{% endif %}
+
+
 <div class="row">
 	<div class="col-md-4">
-<h1>{% trans %}Meu Partido{% endtrans %}</h1>
+	<h1>{% trans %}Meu Partido{% endtrans %}</h1>
 		</div>
 
 <div class="col-md-8" align="middle">
@@ -160,7 +239,8 @@
 		</div>
 		</br>
 		 <div class="row" align="center">
-		<button type="submit" id="botao_atualizar" class="btn btn-success" align="center">{% trans %}Atualizar{% endtrans %}</button>
+		<button  type="submit"  id="botao_atualizar" class="btn btn-success" align="center">
+			{% trans %}Atualizar{% endtrans %}</button>
 		</div>
 		
 		
