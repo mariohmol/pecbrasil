@@ -1,6 +1,34 @@
-<h2>{{ time.nome }}</h2>
-<br/>
-<h3>Pontuação Total: <b> {{time.pontuacao_total}} </b></h3>
-<h3>Posição Geral: <b> {{time.posicao}} </b></h3>
-{% trans %}Veja mais informações sobre este time{% endtrans %} 
-<a href="" onclick="parent.window.location='/politica/selecao/{{time.id}}'">{% trans %}aqui{% endtrans %}.</a>
+<style>
+
+h2 {
+	padding-top: 28px;
+	color: #27ae60;
+	}
+h3{
+	color: #428bca;
+	margin-bottom:5px;
+}	
+b {
+	color: black;
+	font-size: 30px;
+	text-align: center!important; /* Não está alinhando o texto no Centro para o Chrome. */
+	text-align: -moz-center;
+	margin-left:50px; /* Utilizado para alinhar o texto, dado que text-align não funciona*/
+	
+}
+	
+</style>
+  			<div>
+  				
+  			  <h2>{{ time.nome }}</h2>
+			<h3> Pontuação Total:</h3>
+			<b> {{time.pontuacao_total}} </b>
+			<h3 style="color:#428bca"> Posição Geral:</h3> 
+			<b> {{time.posicao}} </b>
+			<p>{% trans %}Veja mais informações sobre este time{% endtrans %}
+ 			<a href="" onclick="parent.window.location='/politica/selecao/{{time.id}}'">{% trans %}aqui{% endtrans %}.</a></p>
+  			  </div>
+  			  
+  			 
+
+    
