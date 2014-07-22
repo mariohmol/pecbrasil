@@ -152,19 +152,30 @@ def criarPartido(name=None):
         if  time_form.nome.data is not None and time_form.desc.data is not None:
             _time = filter.clean(str(time_form.nome.data))  #.encode("ascii", "xmlcharrefreplace"))) # Palavras com acento ou Ç fora do blacklist não seriam permitidas
             _desc =  filter.clean(str(time_form.desc.data))  #.encode("ascii", "xmlcharrefreplace")))        
-        if time_form.nome.data!=_time:
-            return render_template("politica/criar-partido.html",time_form=time_form, nome_proibido=_time)
+        try:
+            if time_form.nome.data!=_time:
+                return render_template("politica/criar-partido.html",time_form=time_form, nome_proibido=_time)
             
-        elif time_form.desc.data!=_desc:
-            return render_template("politica/criar-partido.html",time_form=time_form, desc_proibida=_desc)
-        else:
-            time = Time(nome=time_form.nome.data, desc=time_form.desc.data, 
+            elif time_form.desc.data!=_desc:
+                return render_template("politica/criar-partido.html",time_form=time_form, desc_proibida=_desc)
+            else:
+                time = Time(nome=time_form.nome.data, desc=time_form.desc.data, 
                         color=time_form.color.data,  user_id=g.user.id)
-
-            db.session.add(time)
-            db.session.commit()
-            session['user_time']=time.id
-            return redirect(url_for('politica.selecionarPoliticos'))
+        
+                db.session.add(time)
+                db.session.commit()
+                session['user_time']=time.id
+                return redirect(url_for('politica.selecionarPoliticos'))
+        except:
+                print "Erro inesperado:", sys.exc_info()
+        
+        time = Time(nome=time_form.nome.data, desc=time_form.desc.data, 
+                        color=time_form.color.data,  user_id=g.user.id)
+        db.session.add(time)
+        db.session.commit()
+        session['user_time']=time.id
+        return redirect(url_for('politica.selecionarPoliticos'))
+        
     else:       
         return render_template("politica/criar-partido.html",time_form=time_form)
 
@@ -273,21 +284,30 @@ def verPartido(time=None):
 
             ligas = politicaServices.usuarioliga(user_id=timeRetorno.id)
             ligas_total = Liga.query.all()
-        
-        if timeRetorno.nome!=_time:
-            return render_template("politica/meu-partido.html",  rodada_atual=rodaA ,  time_form=time_form, form=form,  time = timeRetorno,user=g.user, time_id=time, 
+            try:
+                if timeRetorno.nome!=_time:
+                    return render_template("politica/meu-partido.html",  rodada_atual=rodaA ,  time_form=time_form, form=form,  time = timeRetorno,user=g.user, time_id=time, 
                            ligas=ligas, ligas_total=ligas_total, nome_proibido=_time)
             
-        elif timeRetorno.desc!=_desc:
-            return render_template("politica/meu-partido.html",  rodada_atual=rodaA ,  time_form=time_form, form=form,  time = timeRetorno,user=g.user, time_id=time, 
+                elif timeRetorno.desc!=_desc:
+                    return render_template("politica/meu-partido.html",  rodada_atual=rodaA ,  time_form=time_form, form=form,  time = timeRetorno,user=g.user, time_id=time, 
                            ligas=ligas, ligas_total=ligas_total, desc_proibida=_desc)
-        else:
+                else:
+                   db.session.add(timeRetorno)
+                   db.session.commit()
+                   nome_ok="ok"            
+                   return render_template("politica/meu-partido.html",  rodada_atual=rodaA ,  time_form=time_form, form=form,  time = timeRetorno,user=g.user, time_id=time, 
+                           ligas=ligas, ligas_total=ligas_total, nome_ok=nome_ok)
+        
+    
+            except:
+                print "Erro inesperado:", sys.exc_info() 
+        
             db.session.add(timeRetorno)
             db.session.commit()
             nome_ok="ok"            
             return render_template("politica/meu-partido.html",  rodada_atual=rodaA ,  time_form=time_form, form=form,  time = timeRetorno,user=g.user, time_id=time, 
-                           ligas=ligas, ligas_total=ligas_total, nome_ok=nome_ok)
-            
+                           ligas=ligas, ligas_total=ligas_total, nome_ok=nome_ok)    
         
     session['user_time']=timeRetorno.id
     rodaA = db.session.merge(session['rodada_atual'])
