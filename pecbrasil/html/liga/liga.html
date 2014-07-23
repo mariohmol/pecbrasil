@@ -4,169 +4,145 @@
 {% block title %}: {% trans %}Liga{% endtrans %}{% endblock %}
 
 {% block body %}
-  <h1>{% trans %}Ligas{% endtrans %}</h1>
-  
 
-      <h2> {% trans %}Nome{% endtrans %}: {{ liga.nome_liga }}</h2>
-      
-      
-      {% trans %}Criado em{% endtrans %} {{ liga.data_liga }} 
-      {% trans %}por{% endtrans %} {{ liga.criador_time.nome }}
-      
-       <br/>
+	<style>
+     
+		.boxbootstrap {
+				display: block;
+				padding: 9.5px;
+				margin: 0 0 10px;
+				line-height: 1.428571429;
+				color: #333;
+				background-color: #f5f5f5;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				width: 95%;
+				height: auto;
+				min-height:100%;
+				overflow:hidden; 
+		}
+		
+		.divbootstrapSmaller{
+			width:200px; 
+			float:left; 
+			clear:both;
+		}
+		
+		.divbootstrapBigger{
+			width:400px; 
+			float:left; 
+		}
+		
+	</style>
+
+  	<h1>{% trans %}Ligas{% endtrans %}</h1>
+  
+  	<div style="float:left;">
+	 	<h2> {% trans %}Nome{% endtrans %}: {{ liga.nome_liga }}</h2>
+	      
+		{% trans %}Criado em{% endtrans %} {{ liga.data_liga }} 
+	  	{% trans %}por{% endtrans %} {{ liga.criador_time.nome }}
+  	</div>
+  	
+ 	{% if liga.desc_liga %}
+		<div class="boxbootstrap" style="float:left; clear:both; margin-top: 10px;"> 
+     		{{ liga.desc_liga }}
+		</div>
+    {% endif %} 
+    
+	<div style="float:left; clear:both; margin-top: 10px;">
+	    <a href="/liga/entrar/{{ liga.id_liga }}" class="btn btn-success btn-lg">{% trans %}Entrar na Liga{% endtrans %}</a>
+ 	</div>
+ 	  
+   	{% if liga.criador_time.id == meutime %}
+ 		<div style="float:left; margin-left: 10px;">      
+			<a href="#" class="btn btn-success btn-lg" style="background-color: red; border-color: red;" onclick="if(confirm('{% trans %}Certeza que deseja excluir a liga{% endtrans %}?')) window.location='/liga/excluir/{{ liga.id_liga }}'">{% trans %}Excluir Liga{% endtrans %}</a>
+	 	</div>
+	{% endif %}
     
     {% if liga.criador_time.id == meutime %}
-  
-  
-	      {% if liga.publico_liga == 1 %}
-	      {% trans %}Liga Pública{% endtrans %} (
-	    	<a href="/liga/mudarvisivel/{{ liga.id_liga }}">{% trans %}Mudar para Privado{% endtrans %}</a>)
-	    {% else %}
-	    {% trans %}Liga Privada{% endtrans %} (
+  		<div style="float:left; margin-left: 10px;">  
+			{% if liga.publico_liga == 1 %}
+	      		{% trans %}Liga Pública{% endtrans %} (
+	    		<a href="/liga/mudarvisivel/{{ liga.id_liga }}">{% trans %}Mudar para Privado{% endtrans %}</a>)
+		    {% else %}
+		    	{% trans %}Liga Privada{% endtrans %} (
 	    		<a href="/liga/mudarvisivel/{{ liga.id_liga }}">{% trans %}Mudar para Público{% endtrans %}</a>)
-	    {% endif %}
-	
-    {% endif %}
-     <br/>
-      <pre>
-     {{ liga.desc_liga }}
-     
-      
-    
-    </pre>
-   
-   
-    
-	 <div id="{{ divId }}_share_info"></div>
-   
-   
-   {% if liga.criador_time.id == meutime %}
-		     
-		     
-		<a href="#" onclick="if(confirm('{% trans %}Certeza que deseja excluir a liga{% endtrans %}?'))
-			window.location='/liga/excluir/{{ liga.id_liga }}'">{% trans %}Excluir Liga{% endtrans %}</a>
-		
-		    -
-    {% endif %}
-    
-    <a href="/liga/entrar/{{ liga.id_liga }}">{% trans %}Entrar na Liga{% endtrans %}</a>
-    
- {% set divId='painelLiga'  %} 
-    <br/>
-     <div id="{{ divId }}_share_info"></div>
- <a href="#" onclick="addPopUpShare('{{ divId }}_share_info', '', '',share_url)">
- {% trans %}Compartilhe{% endtrans %}</a> {% trans %}com seus amigos para que conheçam esta liga{% endtrans %}
- <script>
- var pid = "#{{ divId }}_share_info"
- var share_url=document.URL//"{{share_url}}"
-    
- </script>
- 
+		    {% endif %}
+	    </div>
+	{% endif %}
 
-    <br/>
-    <!-- 
-    
-      {% if liga.publico_liga == 1 or liga.criador_time.id == meutime %}
-      <form>
-     <input type="text" name="email" value="email"/>
-     <input type="button" name="email"/>
-      <a href="/liga/convidar/{{ liga.id_liga }}">Convidar para Liga</a>
-      </form>
-      <br/>
-	  {% endif %}
-	 -->  
-    
-    <h2>{% trans %}Membros{% endtrans %}</h2>
- 
-     {% trans %}Veja abaixo os integrantes desta liga{% endtrans %}.
-      <br/>
-      <table>
-      <tr>
-      	<td>{% trans %}Seleção{% endtrans %}</td>
-      	<td>{% trans %}Pontos na Liga{% endtrans %}</td>
-      	<td>{% trans %}Pontuação Geral{% endtrans %}</td>
-      	<td>{% trans %}Entrada{% endtrans %}</td>
-      	{% if liga.criador_time.id == meutime %}
-    
-    		<td>{% trans %}Administrar{% endtrans %}</td>
-    
-    	{% endif %}
-    	
-      	</tr>
-      	
-      	
-     {% for jogador in liga.ligajogador.order_by("pontos_ligajogador desc").all() %}
-       <tr>
-       	
-       	<td>
-	        <a href="/politica/selecao/{{ jogador.time.id }}">
-	        {{ jogador.time.nome }}</a>
-	      
-	      {% if jogador.time.id == meutime %}  
-	        <br/>-<br/>
-	         <a 	
-	         href="#"
-	         
-	         onclick="if(confirm('{% trans %}Certeza que deseja sair da liga? Se continuar perderá todos seus pontos conquistados na liga! Deseja continuar?{% endtrans %}'))
-				window.location='/liga/sairliga/{{ liga.id_liga }}'"
-			>
-	        {% trans %}Sair da Liga{% endtrans %}</a>
-	       {% endif %} 
-        
-        </td>
-        
-        
-        <td>
-		        {% if jogador.pontos_ligajogador %}        
-		        	{{ jogador.pontos_ligajogador }} 
-		        	{% else %}
-		        	0 
-		         {% endif %}          pts
-        </td>
-        	
-        <td>
-	        {% if jogador.time.pontuacao_total %}
-	        
-	        	{{ jogador.time.pontuacao_total }} 
+	<br style="clear:both;" />
+	
+	{% set divId='painelLiga' %} 
+	
+	<div style="float:left; clear:both;">
+		<h2>{% trans %}Membros{% endtrans %}</h2>
+		{% trans %}Veja abaixo os integrantes desta liga{% endtrans %}:
+   	</div>	
+
+    {% for jogador in liga.ligajogador.order_by("pontos_ligajogador desc").all() %}
+	
+	<div class="boxbootstrap">
+   		
+		<div>
+		   	<div class="divbootstrapSmaller"><b>{% trans %}Seleção{% endtrans %}:</b></div> 
+		   	<div class="divbootstrapBigger">
+		   		<a href="/politica/selecao/{{ jogador.time.id }}">{{ jogador.time.nome }}</a>
+	   		</div>  
+		   	<br>
+			<div class="divbootstrapSmaller"><b>{% trans %}Pontos na Liga{% endtrans %}:</b></div> 
+			<div class="divbootstrapBigger">
+	        	{% if jogador.pontos_ligajogador %}        
+        			{{ jogador.pontos_ligajogador }} 
 	        	{% else %}
-	        	0 
-	         {% endif %}
-	         pts
-	         
-	      </td>
-	      
-	      
-        <td>
-        	
-        		{% trans %}Entrada{% endtrans %}: {{ jogador.data_ligajogador }}
- 	 	</td>
-  	{% if liga.criador_time.id == meutime %}
-    
-    		<td>
-    			<a href="#" 
-    			onclick="if(confirm('{% trans %}Certeza que deseja excluir o jogador da liga?{% endtrans %}'))
-			window.location='/liga/excluirjogador/{{ liga.id_liga }}/{{ jogador.user_ligajogador }}'">
-			{% trans %}Excluir Jogador{% endtrans %}</a>
-	</td>
-    
-    	{% endif %}
-  </tr>
-  
+		        	0 
+     			{% endif %}pts
+			</div>
+			
+		  	<div class="divbootstrapSmaller"><b>{% trans %}Pontuação Geral{% endtrans %}:</b></div>
+		  	<div class="divbootstrapBigger">
+		        {% if jogador.time.pontuacao_total %}
+	        		{{ jogador.time.pontuacao_total }} 
+	        	{% else %}
+	        		0 
+		        {% endif %} pts
+	   		</div>
+			
+			<br>
+		  	<div class="divbootstrapSmaller"><b>{% trans %}Membro desde{% endtrans %}:</b></div>
+		  	<div class="divbootstrapBigger">{{ jogador.data_ligajogador }}</div>
+		  	
+	  		{% if liga.criador_time.id == meutime %}
+				<a href="#" onclick="if(confirm('{% trans %}Certeza que deseja excluir o jogador da liga?{% endtrans %}')) window.location='/liga/excluirjogador/{{ liga.id_liga }}/{{ jogador.user_ligajogador }}'">
+				{% trans %}Excluir Jogador{% endtrans %}</a>
+		 	{% endif %}
+		 	
+	      	{% if jogador.time.id == meutime %}  
+        		<br/>-<br/>
+         		<a href="#" onclick="if(confirm('{% trans %}Certeza que deseja sair da liga? Se continuar perderá todos seus pontos conquistados na liga! Deseja continuar?{% endtrans %}')) window.location='/liga/sairliga/{{ liga.id_liga }}'">
+        		{% trans %}Sair da Liga{% endtrans %}</a>
+       		{% endif %} 
+		</div>
+
+   	</div>
     {% endfor %}
     
-    </table>
-    
-    
-    
-<div id="profile2" class="lightbox guide_app"
-
-		style="width: 668px!important; height: auto; background-color:#f1f1f1!important; border-radius: 5px; box-shadow: 0px 0px 1px #888; padding: 5px 10px;">
+	<div id="profile2" class="lightbox guide_app" style="width: 95%; background-color:#f1f1f1!important; border-radius: 5px; box-shadow: 0px 0px 1px #888; padding: 5px 20px; clear:both; text-align: center;">
 		<h2>{% trans %}Pontuação no Campeonato{% endtrans %}</h2>
-
-		<iframe id="iframe2"
-			src="/grafico/selecaostacked/all/{{ liga.id_liga }}"
-			style="width:  648px!important; height: 600px"> </iframe>
+		<iframe id="iframe2" src="/grafico/selecaostacked/all/{{ liga.id_liga }}" style="width: 95%; height: 600px; margin-left: 20px;"> </iframe>
 	</div>
 	
+	<br><br>
+	
+	<div style="float:left; clear:both;">
+	 	<a href="#{{ divId }}_share_info" onclick="addPopUpShare('{{ divId }}_share_info', '', '',share_url)">{% trans %}Compartilhe{% endtrans %}</a> com seus amigos para que conheçam esta liga
+		<script>
+	 		var pid = "#{{ divId }}_share_info"
+	 		var share_url=document.URL//"{{share_url}}"
+	 	</script>
+	 	<div id="{{ divId }}_share_info"></div>
+ 	</div>
+ 	
 {% endblock %}
 
