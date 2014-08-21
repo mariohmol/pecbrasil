@@ -18,9 +18,14 @@
  	 
 	<form action="/comunicado/convideamigos/" method="post" name="convite">
 	
-		{{form.email(id="email", style="border:1px solid #ccc; width:100%", class="input-lg", placeholder="E-mail. Ex.: joao@email.com , maria@email.com")}}
+		{{form.nome(id="nome", style="border:1px solid #ccc; width:100%", class="input-lg", 
+		placeholder="Informe seu nome em seu convite! - Campo Obrigatório")}}
 		<br/><br>
-		{{form.obs(id="obs",style="border:1px solid #ccc; width:100%;", class="input-lg", placeholder="Mensagem. Ex: Olá joao!!")}} 
+		{{form.email(id="email", style="border:1px solid #ccc; width:100%", class="input-lg", placeholder="E-mail. 
+		Ex.: joao@email.com , maria@email.com")}}
+		<br/><br>
+		{{form.obs(id="obs",style="border:1px solid #ccc; width:100%;", class="input-lg", 
+		placeholder="Mensagem. Ex: Olá João, vamos participar do Política Esporte Clube!!")}} 
 		<br/><br>
 		<input
 			type="submit" value="{% trans %}Enviar{% endtrans %}" class="btn btn-success btn-lg" />
