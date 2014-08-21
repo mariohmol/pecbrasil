@@ -29,6 +29,7 @@ class LigaJogador(db.Model, AutoSerialize):
     liga_ligajogador = db.Column(db.Integer, db.ForeignKey(Liga.id_liga))
     status_ligajogador = db.Column(db.Integer, default=1)  
     pontos_ligajogador = db.Column(db.Integer)
+    posicao = db.Column(db.Integer)
     def __repr__(self):
         return '<LigaJogador %r>' % (self.id_ligajogador)
     

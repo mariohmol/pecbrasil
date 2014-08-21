@@ -10,6 +10,7 @@ from flask import session
 from pecbrasil import db
 from string import upper
 
+
 class PoliticaServices(object):
     
     
@@ -126,6 +127,7 @@ class PoliticaServices(object):
             .order_by(Candidatura.pontuacao_ultima.desc()).limit(tamanho)
         return politicos
     
+    
     def pontoByPolitico(self,nome=None):  
         if nome is not None:
             politicos = RodadaPontos.query.filter_by(time=nome).order_by(RodadaPontos.rodada).all()
@@ -142,6 +144,40 @@ class PoliticaServices(object):
             if politicos is None or len(politicos)==0:
                 politicos = Candidatura.query.join(Partido).filter(Partido.id==partidoSigla).order_by(Candidatura.pontuacao_total.desc()).limit(limit).offset(offset).all()
         return politicos
+    
+    def pontuacaoByCandidato(self, candidato, rodada_numero):
+        #max_ano = max([q.rodada_ano for q in Pontuacao.query.filter_by(ativo=1, candidatura=candidato, rodada=rodada_numero).all()])
+        politicos = Pontuacao.query.filter_by(ativo=1, candidatura=candidato, rodada=rodada_numero).first() # , 
+        return politicos
+    
+    def topPoliticosPresenca(self, rodada_id, tamanho): # cabe fazer um filtro por Partido!!  
+       # max_ano = max([q.rodada_ano for q in Pontuacao.query.filter_by(ativo=1, rodada=rodada_id).all()])
+       if all(q.presenca==None for q in Pontuacao.query.filter(Pontuacao.rodada==rodada_id).all()) is False:
+           politicos = db.session.query(Candidatura, Pontuacao.presenca).join(Pontuacao, Pontuacao.candidatura==Candidatura.id).filter(Pontuacao.ativo==1, Pontuacao.rodada==rodada_id).order_by(Pontuacao.presenca.desc()).limit(tamanho)
+           return politicos
+       else:
+           return None
+    
+    def topPoliticosProposicao(self, rodada_id, tamanho): # cabe fazer um filtro por Partido!!  
+        if all(q.proposicao==None for q in Pontuacao.query.filter(Pontuacao.rodada==rodada_id).all()) is False:
+           politicos = db.session.query(Candidatura, Pontuacao.proposicao).join(Pontuacao, Pontuacao.candidatura==Candidatura.id).filter(Pontuacao.ativo==1, Pontuacao.rodada==rodada_id).order_by(Pontuacao.proposicao.desc()).limit(tamanho)
+           return politicos
+        else:
+           return None
+    
+    def topPoliticosVotacoes(self, rodada_id, tamanho): # cabe fazer um filtro por Partido!!  
+        if all(q.votacao==None for q in Pontuacao.query.filter(Pontuacao.rodada==rodada_id).all()) is False:
+           politicos = db.session.query(Candidatura, Pontuacao.votacao).join(Pontuacao, Pontuacao.candidatura==Candidatura.id).filter(Pontuacao.ativo==1, Pontuacao.rodada==rodada_id).order_by(Pontuacao.votacao.desc()).limit(tamanho)
+           return politicos
+        else:
+           return None
+            
+    def topPoliticosDespesa(self, rodada_id, tamanho): # cabe fazer um filtro por Partido!!  
+        if all(q.despesa==None for q in Pontuacao.query.filter(Pontuacao.rodada==rodada_id).all()) is False:
+           politicos = db.session.query(Candidatura, Pontuacao.despesa).join(Pontuacao, Pontuacao.candidatura==Candidatura.id).filter(Pontuacao.ativo==1, Pontuacao.rodada==rodada_id).order_by(Pontuacao.despesa.desc()).limit(tamanho)
+           return politicos
+        else:
+           return None
 
    
     ###########################

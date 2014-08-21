@@ -3,45 +3,50 @@
 {% block title %}: {% trans %}Pontuação da Rodada{% endtrans %}{% endblock %}
 
 {% block body %}
- <h1>Olá {{time.nome}}, </h1>
+ <h1>Olá Sr.(a) {{nome_politico.name_pt | title}}, </h1> 
  <br/>
  <h3>Comunicamos o fechamento da rodada {{rodada.semana}}/{{rodada.ano}} , entre os dias {{rodada.inicio}} e {{rodada.fim}}. <br/>
- Nesta semana você fez {{ rodadaPontos.pontos }} pontos!!</h3>
- <br/>
+ Nesta semana você fez {{candidato.pontos}} pontos!!</h3>
+ <br>
  
  <h3> Veja mais informações sobre seu desempenho:</h3>
 
-
+{% if politicos_pontos %}
  <h2> Pontos </h2>
  
- Você teve X pontos nesta semana, no total {{ candidato.pontuacao_total|int }}. A maior pontuação encontrada é de {{ rodada_atual.max_votacao}}
+ Você teve {{0 if candidato.pontos==None else candidato.pontos}} pontos nesta semana, sendo que a média de pontos dessa rodada é de {{rodada.avg_pontuacao | round(1)}}. 
+ A maior pontuação encontrada nessa rodada é de {{ politicos_pontos[0][0].pontuacao_ultima}}. Abaixo seguem os 5 políticos que mais 
+ pontuaram nessa rodada:
  
+ <div style='width: 100%; float: left;'>
+  {% set dominio = 'http://politicaesporteclube.com' %}
+  {% set posicao = 0 %}
   
- 
+     {% for candidatoTmp in politicos_pontos %}
+     {% set candidato = candidatoTmp[0] %}
+
+   {% set backCard = 'True' %}
+   
+   		{% set posicao = posicao + 1 %}
+      	{% include "politica/boxpoliticoMail.html" %}
+      
+    
+    {% endfor %}
+   </div>
+ {% endif %}
+  
+{% if politicos_presenca %}
+<br>
  <h2> Presença </h2>
  
- Você teve X presença nesta semana, no total {{ candidato.total_presenca|int }}. A maior presença encontrada é de {{ rodada_atual.max_presenca}}
+ Você teve {{0 if candidato.presenca==None else candidato.presenca}} presença nesta semana, sendo que a média de presenças dessa rodada é de {{media_presenca| round(1)}}. 
+ A maior presença encontrada nessa rodada é de {{ politicos_presenca[0][1]}}. Abaixo seguem os 5 políticos que tiveram 
+ a maior presença nessa rodada:
  
- 
- <h2> Votações </h2>
- 
- Você teve X presença nesta semana, no total {{ candidato.total_votacao|int }}. O maior número de votações encontrada é de {{ rodada_atual.max_votacao}}
- 
- <h2> Proposições </h2>
- 
- Você teve X presença nesta semana, no total {{ candidato.total_proposicao|int }}. O maior número de proposições encontrada é de {{ rodada_atual.max_proposicao}}
- 
-  <h2> Despesa </h2>
- 
- Você teve X presença nesta semana, no total {{ candidato.total_despesa|int }}. A maior presença encontrada é de {{ rodada_atual.max_despesa}}
- 
- 
-  
- <h3>Aqui estão os políticos que mais pontuaram nesta rodada:</h3>
   <div style='width: 100%; float: left;'>
   {% set posicao = 0 %}
   
-     {% for candidatoTmp in politicos %}
+     {% for candidatoTmp in politicos_presenca %}
      {% set candidato = candidatoTmp[0] %}
 
    {% set backCard = 'True' %}
@@ -52,12 +57,90 @@
     
     {% endfor %}
    </div> 
-   <br/> <br/>
+ {% endif %}
+ 
+ {% if politicos_votacao %}
+ <br>
+ <h2> Votações </h2>
+ 
+ Você compareceu a {{0 if candidato.votacao==None else candidato.votacao}} votações nesta semana, sendo que a média de votações dessa rodada é de {{media_votacao| round(1)}}. 
+ O maior número de votações encontrada nessa rodada é de {{ politicos_votacao[0][1]}}. Abaixo seguem os 5 políticos que participaram do maior
+ número de votações nessa rodada:
+ 
+  <div style='width: 100%; float: left;'>
+   {% set posicao = 0 %}
+  
+     {% for candidatoTmp in politicos_votacao %}
+     {% set candidato = candidatoTmp[0] %}
+
+   {% set backCard = 'True' %}
+   
+   		{% set posicao = posicao + 1 %}
+      	{% include "politica/boxpoliticoMail.html" %}
+      
+    
+    {% endfor %}
+   </div> 
+ {% endif %}
+ 
+ {% if politicos_proposicao %}
+ <br>
+ <h2> Proposições </h2>
+ 
+ Você teve {{0 if candidato.proposicao == None else candidato.proposicao}} proposições nesta semana, sendo que a média de proposições dessa rodada é de {{media_proposicao| round(1)}}. 
+ O maior número de proposições encontrada nessa rodada é de {{ politicos_proposicao[0][1]}}. Abaixo seguem os 5 políticos que 
+ apresentaram o maior número de proposições nessa rodada:
+ 
+  <div style='width: 100%; float: left;'>
+   {% set posicao = 0 %}
+  
+     {% for candidatoTmp in politicos_proposicao %}
+     {% set candidato = candidatoTmp[0] %}
+
+   {% set backCard = 'True' %}
+   
+   		{% set posicao = posicao + 1 %}
+      	{% include "politica/boxpoliticoMail.html" %}
+      
+    
+    {% endfor %}
+   </div> 
+ {% endif %}
+ 
+ {% if politicos_despesa %}
+  <br>
+  <h2> Despesa </h2>
+ 
+ Você teve R${{0 if candidato.despesa==None else candidato.despesa}} de despesa nesta semana, sendo que a média de despesa dessa rodada é de {{media_despesa| round(1)}}. 
+ A maior despesa encontrada nessa rodada é de {{ politicos_despesa[0][1]}}. Abaixo seguem os 5 políticos que apresentaram 
+ as maiores despesas nessa rodada:
+ 
+  <div style='width: 100%; float: left;'>
+  
+  {% set posicao = 0 %} 
+  
+     {% for candidatoTmp in politicos_despesa %}
+     {% set candidato = candidatoTmp[0] %}
+
+   {% set backCard = 'True' %}
+   
+   		{% set posicao = posicao + 1 %}
+      	{% include "politica/boxpoliticoMail.html" %}
+      
+    
+    {% endfor %}
+   </div> 
+ {% endif %}
+ 
+    <br> <br>
    <h3>Entre no 
    <a href="http://politicaesporteclube.com">Política Esporte Clube</a> e acompanhe a sua candidatura, compare com outros políticos do seu partido e da casa!</h3>
-   
-   Use estas informações para ajudar você e sua equipe na gestão da sua candidatura. Para mais informações entre em contato através do nosso site.
-    <br/>
+   <br>
+   <h2>Trabalhamos com consultoria de dados abertos do governo focado no tema política, orientando na tomada de decisão. 
+   Nesta análise fazemos também um trabalho de captar o que os eleitores estão falando, focando na sua região. 
+   Entre em contato para saber mais.</h2>
+    <br>
+    
     Equipe Política Esporte Clube
 {% endblock %}
 
