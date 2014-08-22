@@ -150,8 +150,8 @@ def criarPartido(name=None):
                 
         filter = ProfanitiesFilter(black_list, replacements = '*')
         if  time_form.nome.data is not None and time_form.desc.data is not None:
-            _time = filter.clean(str(time_form.nome.data))  #.encode("ascii", "xmlcharrefreplace"))) # Palavras com acento ou Ç fora do blacklist não seriam permitidas
-            _desc =  filter.clean(str(time_form.desc.data))  #.encode("ascii", "xmlcharrefreplace")))        
+            _time = filter.clean(str(time_form.nome.data.encode("utf-8")))  #.encode("ascii", "xmlcharrefreplace"))) # Palavras com acento ou Ç fora do blacklist não seriam permitidas
+            _desc =  filter.clean(str(time_form.desc.data.encode("utf-8")))  #.encode("ascii", "xmlcharrefreplace")))        
         try:
             if time_form.nome.data!=_time:
                 return render_template("politica/criar-partido.html",time_form=time_form, nome_proibido=_time)
@@ -273,8 +273,8 @@ def verPartido(time=None):
                 
         filter = ProfanitiesFilter(black_list, replacements = '*')
         if  time_form.nome.data is not None and time_form.desc.data is not None:
-            _time = filter.clean(str(timeRetorno.nome)) #.encode("ascii", "xmlcharrefreplace"))
-            _desc =  filter.clean(str(timeRetorno.desc)) #.encode("ascii", "xmlcharrefreplace"))
+            _time = filter.clean(str(timeRetorno.nome.encode("utf-8"))) #.encode("ascii", "xmlcharrefreplace"))
+            _desc =  filter.clean(str(timeRetorno.desc.encode("utf-8"))) #.encode("ascii", "xmlcharrefreplace"))
             
             session['user_time']=timeRetorno.id
             rodaA = db.session.merge(session['rodada_atual'])
