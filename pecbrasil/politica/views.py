@@ -153,10 +153,10 @@ def criarPartido(name=None):
             _time = filter.clean(str(time_form.nome.data.encode("utf-8")))  #.encode("ascii", "xmlcharrefreplace"))) # Palavras com acento ou Ç fora do blacklist não seriam permitidas
             _desc =  filter.clean(str(time_form.desc.data.encode("utf-8")))  #.encode("ascii", "xmlcharrefreplace")))        
         try:
-            if time_form.nome.data!=_time:
+            if time_form.nome.data.encode("utf-8")!=_time:
                 return render_template("politica/criar-partido.html",time_form=time_form, nome_proibido=_time)
             
-            elif time_form.desc.data!=_desc:
+            elif time_form.desc.data.encode("utf-8")!=_desc:
                 return render_template("politica/criar-partido.html",time_form=time_form, desc_proibida=_desc)
             else:
                 time = Time(nome=time_form.nome.data, desc=time_form.desc.data, 
@@ -285,11 +285,11 @@ def verPartido(time=None):
             ligas = politicaServices.usuarioliga(user_id=timeRetorno.id)
             ligas_total = Liga.query.all()
             try:
-                if timeRetorno.nome!=_time:
+                if timeRetorno.nome.encode("utf-8")!=_time:
                     return render_template("politica/meu-partido.html",  rodada_atual=rodaA ,  time_form=time_form, form=form,  time = timeRetorno,user=g.user, time_id=time, 
                            ligas=ligas, ligas_total=ligas_total, nome_proibido=_time)
             
-                elif timeRetorno.desc!=_desc:
+                elif timeRetorno.desc.encode("utf-8")!=_desc:
                     return render_template("politica/meu-partido.html",  rodada_atual=rodaA ,  time_form=time_form, form=form,  time = timeRetorno,user=g.user, time_id=time, 
                            ligas=ligas, ligas_total=ligas_total, desc_proibida=_desc)
                 else:
