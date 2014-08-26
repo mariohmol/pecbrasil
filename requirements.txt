@@ -25,8 +25,8 @@ flask-mail
 # DB libs for connecting to MySQL
 # WARNING: Must have MySQL server installed!
 MySQL-python
-sqlalchemy
-flask-sqlalchemy
+sqlalchemy==0.8.3
+flask-sqlalchemy==0.9.1
 
 # Full text search indexing for db
 Flask-WhooshAlchemy

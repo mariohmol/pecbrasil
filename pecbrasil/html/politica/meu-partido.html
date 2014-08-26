@@ -4,35 +4,249 @@
  {% block title %}: {% trans %}Meu Partido{% endtrans %}{% endblock %} 
 
 {% block body %}
+<link rel="stylesheet" href="/static/css/bootstrap.min3.css">
+	<link rel="stylesheet" href="/static/css/bootstrap-theme.min3.css">
+	<script type="text/javascript" src="/static/js/lib/jquery.min3.js"></script>
+	<script src="/static/js/lib/bootstrap.min3.js"></script>
+	<style>
+.dropdown-large {
+  position: static !important;
+  top: 10px;
+}
+.dropdown-menu-large {
+  margin-left: 16px;
+  margin-right: 16px;
+  padding: 20px 0px;
+}
+.dropdown-menu-large > li > ul {
+  padding: 0;
+  margin: 0;
+}
+.dropdown-menu-large > li > ul > li {
+  list-style: none;
+}
+.dropdown-menu-large > li > ul > li > a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.428571429;
+  color: #333333;
+  white-space: normal;
+}
+.dropdown-menu-large > li ul > li > a:hover,
+.dropdown-menu-large > li ul > li > a:focus {
+  text-decoration: none;
+  color: #262626;
+  background-color: #f5f5f5;
+}
+.dropdown-menu-large .disabled > a,
+.dropdown-menu-large .disabled > a:hover,
+.dropdown-menu-large .disabled > a:focus {
+  color: #999999;
+}
+.dropdown-menu-large .disabled > a:hover,
+.dropdown-menu-large .disabled > a:focus {
+  text-decoration: none;
+  background-color: transparent;
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  cursor: not-allowed;
+}
+.dropdown-menu-large .dropdown-header {
+  color: #428bca;
+  font-size: 18px;
+}
+@media (max-width: 768px) {
+  .dropdown-menu-large {
+    margin-left: 0 ;
+    margin-right: 0 ;
+  }
+  .dropdown-menu-large > li {
+    margin-bottom: 30px;
+  }
+  .dropdown-menu-large > li:last-child {
+    margin-bottom: 0;
+  }
+  .dropdown-menu-large .dropdown-header {
+    padding: 3px 15px !important;
+  }
+}
+ b.caret {
+    display: inline-block;
+	width: 0;
+	height: 0;
+	margin-left: 7px;
+	vertical-align: middle;
+	border-top: 14px solid;
+	border-right: 4px solid transparent;
+	border-left: 4px solid transparent;
+}
+#botao_atualizar {
+	width:204px; height:48px; font-size: 20px;
+	}
+	
+	.alert-message-warning{
+		margin: 20px 0;
+    	padding: 20px;
+    	border-left: 3px solid #f0ad4e;
+    	background-color: #fcf8f2;
+    						}
+	.alert-message-warning h4{
+		font-size: 30px;
+		margin-top: 0;
+    	margin-bottom: 5px;
+    	color: #f0ad4e;
+						}
+hr{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
 
+	.alert-message-success {
+    	background-color: #F4FDF0;
+    	margin: 20px 0;
+    	padding: 20px;
+    	border-left: 3px solid #3C763D;
+    	
+				}
+	.alert-message-success h4{
+    	font-size: 30px;
+		margin-top: 0;
+    	color: #3C763D;
+		}
+	</style>
+	
 {% if time_id %}
 <img src="/static/img/pec/cadastro4.png" border="0" />
 {% endif %}
+{%if nome_proibido %}
+<div class="row">
+        <div class="col-md-12" align="center">
+            <div class="alert-message-warning">
+            	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                    ×</button>
+                <h4>
+                    Aviso</h4>
+                    <hr>
+                <p>
+                    Caro Usuário: Não é permitido nomear seu partido com um termo ofensivo, siglas ou nome de 
+                    partidos já existentes. Infelizmente o termo utilizado <strong> "{{time_form.nome.data}}" </strong> infringe essa política 
+                    do site e não poderá ser utilizado como nome do seu partido. Por favor, insira outro nome.</p>
+            </div>
+        </div>
+</div>
 
-<h1>{% trans %}Meu Partido{% endtrans %}</h1>
+{%elif desc_proibida %}
+<div class="row">
+        <div class="col-md-12" align="center">
+        	<div class="alert-message-warning">
+            	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                    ×</button>
+                <h4>Aviso</h4>
+                    <hr>
+                <p>
+                    Caro Usuário: Não é permitido utilizar na descrição de seu partido termos ofensivos, siglas ou nome de 
+                    partidos já existentes. Infelizmente o termo utilizado <strong> "{{time_form.desc.data}}" </strong> 
+                    infringe essa política do site e não poderá ser utilizado na descrição do seu partido. Por favor, 
+                    insira outros termos.</p>
+            </div>
+        </div>
+</div>
 
+{% elif nome_ok %}
+<div class="row">
+        <div class="col-md-12" align="center">
+        	<div class="alert-message-success">
+            	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                    ×</button>
+            <div class="alert-message-sucess">
+                <h4>Atualização Realizada com Sucesso!</h4>
+            </div>
+        </div>
+</div>
+{% endif %}
+
+
+<div class="row">
+	<div class="col-md-4">
+	<h1>{% trans %}Meu Partido{% endtrans %}</h1>
+		</div>
+
+<div class="col-md-8" align="middle">
+ 
+  <div class="collapse navbar-collapse js-navbar-collapse">
+		<ul class="nav navbar-nav">
+			<li class="dropdown dropdown-large">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Ligas<b class="caret"></b></a>
+				<ul class="dropdown-menu dropdown-menu-large row">
+				<li class="col-sm-6">
+						<ul>
+							<li class="dropdown-header">Minhas Ligas</li>
+							{% if ligas %}
+							{% for liga in ligas %}
+							<li><a href="http://politicaesporteclube.com/liga/ver/{{liga.id_liga}}">{{liga.nome_liga}}</a></li>
+							{% endfor %}
+							{% else %}
+							<li><a href="http://politicaesporteclube.com/liga/ver/">Inscreva-se em uma das ligas a direita, ou crie sua própria Liga e convide seus amigos.</a></li>
+							{% endif %}
+						</ul>
+				</li>
+					<li class="col-sm-6">
+						<ul>
+							<li class="dropdown-header">Todas Ligas do PEC</li>
+							{%for liga_nao in ligas_total %}
+							<li><a href="http://politicaesporteclube.com/liga/ver/{{liga_nao.id_liga}}">{{liga_nao.nome_liga}}</a></li>
+							{% endfor %}
+						</ul>
+					</li>
+				</ul>
+				
+			</li>
+		</ul>
+	</div>
+  </div>
+</div>
+
+<div class="row">
 <h3>{% trans %}Presidente{% endtrans %}: {{ user.email }} </h3>
-
+</div>
  
  	<form id="ask_form" action="" method="post">
 		{{time_form.hidden_tag()}} 
-		
+		<div class="row">
+		<div class="col-md-2">			
 		<label for="nome">{% trans %}Nome do Partido{% endtrans %}</label>
+		</div>
+		<div class="col-md-6">
 		{{ time_form.nome(id="nome",
-		placeholder="Nome Ex. Partido do Joao Silva") }} 
+		placeholder="Nome Ex. Partido do Joao Silva",class="form-control") }}
+		</div>
+		</div> 
 		<br/>
+		<div class="row">
+			<div class="col-md-2">
 		<label for="desc">{% trans %}Descrição{% endtrans %}</label>
-		{{
-		time_form.desc(id="desc", placeholder="Descriçao Ex. Partido da Causa
-		Social , seguindo orientação política de Esquerda e ...") }} 
+		</div>
+		<div class="col-md-6">
+		{{time_form.desc(id="desc", placeholder="Descriçao Ex. Partido da Causa
+		Social , seguindo orientação política de Esquerda e ...", class="form-control") }}
+		</div> 
+		
 		<!-- {{
 		time_form.color(id="color", placeholder="Cor Ex. Vermelho") }} 
 		 -->
-		<input
-			type="submit" value="{% trans %}Atualizar{% endtrans %}" />
+		</div>
+		</br>
+		 <div class="row" align="center">
+		<button  type="submit"  id="botao_atualizar" class="btn btn-success" align="center">
+			{% trans %}Atualizar{% endtrans %}</button>
+		</div>
+		
+		
 	</form>
 	
-
+</br>
 {% set posicao1=true %}
 {% set posicao2=true %}
 {% set posicao3=true %}
@@ -150,8 +364,6 @@
 <h2>{% trans %}Esta seleção ainda não pontuou neste campeonato{% endtrans %}</h2>
 
 {% endif %}
-
-
 
 <br />
 

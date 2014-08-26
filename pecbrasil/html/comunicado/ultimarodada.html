@@ -3,12 +3,13 @@
 {% block title %}: {% trans %}Pontuação da Rodada{% endtrans %}{% endblock %}
 
 {% block body %}
- <h1 style="color:#27ae60; font-family:Arial">Olá {{time.nome}},</h1>
+ <h1 style="color:#27ae60; font-family:Arial">Olá Sr.(a) Presidente(a) do time {{time.nome}},</h1>
  
- <h3 style="color:#333; font-family:Arial; font-size:15px">Comunicamos o fechamento da rodada {{rodada.semana}}/{{rodada.ano}} , entre os dias {{rodada.inicio}} e {{rodada.fim}}. <br/>
+ <h3 style="color:#333; font-family:Arial; font-size:15px">Comunicamos o fechamento da rodada referente a semana {{rodada.semana}} do ano {{rodada.ano}} , entre os dias {{rodada.inicio}} e {{rodada.fim}}. <br/>
  Sua seleção fez {{ rodadaPontos.pontos }} pontos!!</h3>
  
- <h3 style="color:#27ae60; font-size:18px;"> Veja quem está na sua seleção:</h3>
+ <h3 style="color:#27ae60; font-size:18px;"> Veja quem está na sua seleção:</h3> 
+ <i style="color:#27ae60; font-size: 13px;">Clique em "Exibir imagens"  para habilitar as fotos dos políticos</i>
   <div style='width: 100%; float: left; margin-bottom: 35px;'>
  	{% set dominio = 'http://politicaesporteclube.com' %}
  	
@@ -40,10 +41,12 @@
       
     
     {% endfor %}
-   </div> 
-   <br/> <br/>
+    
+   </div>
+   
+  <br/> <br/>
    <h3 style="color:#333; font-size:18px; margin-top:30px;">Entre no 
-   <a href="http://politicaesporteclube.com" style="color:#27ae60">Política Esporte Clube</a> e deixa seu time ainda mais forte!</h3>
+   <a href="http://politicaesporteclube.com" style="color:#27ae60">Política Esporte Clube</a> e deixe seu time ainda mais forte!</h3>
    
 {% endblock %}
 

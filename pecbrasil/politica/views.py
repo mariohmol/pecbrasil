@@ -4,6 +4,7 @@ from sqlalchemy import func
 from flask import Blueprint, request, render_template, g,flash, Response, make_response, send_file, jsonify, session, redirect, url_for
 import csv, sys, MySQLdb, os
 from os import environ
+from config import basedir
 
 from pecbrasil import db
 from pecbrasil.utils import clean_varrequest
@@ -11,7 +12,7 @@ from pecbrasil.politica.forms import PoliticoForm,TimeForm
 from pecbrasil.politica.models import Politico, Partido, TimeCandidato,Time, Rodada, RodadaPontos,Candidatura,Pontuacao
 from pecbrasil.politica.services import PoliticaServices
 from pecbrasil.comunicado.forms import ConvidarForm
-
+from pecbrasil.liga.models import Liga
 
 mod = Blueprint('politica', __name__, url_prefix='/politica')
     
@@ -115,9 +116,10 @@ def classificacao(nome=None):
             terceiro = line
         
     rodadaAtual= politicaServices.rodadaAtual()
-    topTimes= politicaServices.topTimes()
+    topTimes = politicaServices.topTimes()
     topPartidos=  politicaServices.partidosPopulares()
     verTime= politicaServices.verTime(g.user)
+    
     if nome is None:
         return render_template("politica/classificacao.html",
                    top3Time=top3Time,topTimes=topTimes,primeiroTime=primeiro,segundoTime=segundo,
@@ -141,13 +143,39 @@ def criarPartido(name=None):
         #if g.user is None or not g.user.is_authenticated():
         #    flash('You need to be signed in for this.')
         #    return redirect(url_for('general.access'))
+        from ..utils import ProfanitiesFilter
+            
+        arquivo_black_list = open(basedir+"/pecbrasil/static/txt/blacklist.txt")
+        black_list = [line.strip() for line in arquivo_black_list]
+                
+        filter = ProfanitiesFilter(black_list, replacements = '*')
+        if  time_form.nome.data is not None and time_form.desc.data is not None:
+            _time = filter.clean(str(time_form.nome.data.encode("utf-8")))  #.encode("ascii", "xmlcharrefreplace"))) # Palavras com acento ou Ç fora do blacklist não seriam permitidas
+            _desc =  filter.clean(str(time_form.desc.data.encode("utf-8")))  #.encode("ascii", "xmlcharrefreplace")))        
+        try:
+            if time_form.nome.data.encode("utf-8")!=_time:
+                return render_template("politica/criar-partido.html",time_form=time_form, nome_proibido=_time)
+            
+            elif time_form.desc.data.encode("utf-8")!=_desc:
+                return render_template("politica/criar-partido.html",time_form=time_form, desc_proibida=_desc)
+            else:
+                time = Time(nome=time_form.nome.data, desc=time_form.desc.data, 
+                        color=time_form.color.data,  user_id=g.user.id)
+        
+                db.session.add(time)
+                db.session.commit()
+                session['user_time']=time.id
+                return redirect(url_for('politica.selecionarPoliticos'))
+        except:
+                print "Erro inesperado:", sys.exc_info()
         
         time = Time(nome=time_form.nome.data, desc=time_form.desc.data, 
-                      color=time_form.color.data,  user_id=g.user.id)
+                        color=time_form.color.data,  user_id=g.user.id)
         db.session.add(time)
         db.session.commit()
         session['user_time']=time.id
         return redirect(url_for('politica.selecionarPoliticos'))
+        
     else:       
         return render_template("politica/criar-partido.html",time_form=time_form)
 
@@ -237,18 +265,63 @@ def verPartido(time=None):
     if time_form.validate_on_submit(): 
         timeRetorno.nome=time_form.nome.data
         timeRetorno.desc=time_form.desc.data
-        db.session.add(timeRetorno)
-        db.session.commit()
+
+        from ..utils import ProfanitiesFilter
+            
+        arquivo_black_list = open(basedir+"/pecbrasil/static/txt/blacklist.txt")
+        black_list = [line.strip() for line in arquivo_black_list]
+                
+        filter = ProfanitiesFilter(black_list, replacements = '*')
+        if  time_form.nome.data is not None and time_form.desc.data is not None:
+            _time = filter.clean(str(timeRetorno.nome.encode("utf-8"))) #.encode("ascii", "xmlcharrefreplace"))
+            _desc =  filter.clean(str(timeRetorno.desc.encode("utf-8"))) #.encode("ascii", "xmlcharrefreplace"))
+            
+            session['user_time']=timeRetorno.id
+            rodaA = db.session.merge(session['rodada_atual'])
+    
+            #time_form.nome.data=timeRetorno.nome
+            #time_form.desc.data=timeRetorno.desc
+
+            ligas = politicaServices.usuarioliga(user_id=timeRetorno.id)
+            ligas_total = Liga.query.all()
+            try:
+                if timeRetorno.nome.encode("utf-8")!=_time:
+                    return render_template("politica/meu-partido.html",  rodada_atual=rodaA ,  time_form=time_form, form=form,  time = timeRetorno,user=g.user, time_id=time, 
+                           ligas=ligas, ligas_total=ligas_total, nome_proibido=_time)
+            
+                elif timeRetorno.desc.encode("utf-8")!=_desc:
+                    return render_template("politica/meu-partido.html",  rodada_atual=rodaA ,  time_form=time_form, form=form,  time = timeRetorno,user=g.user, time_id=time, 
+                           ligas=ligas, ligas_total=ligas_total, desc_proibida=_desc)
+                else:
+                   db.session.add(timeRetorno)
+                   db.session.commit()
+                   nome_ok="ok"            
+                   return render_template("politica/meu-partido.html",  rodada_atual=rodaA ,  time_form=time_form, form=form,  time = timeRetorno,user=g.user, time_id=time, 
+                           ligas=ligas, ligas_total=ligas_total, nome_ok=nome_ok)
+        
+    
+            except:
+                print "Erro inesperado:", sys.exc_info() 
+        
+            db.session.add(timeRetorno)
+            db.session.commit()
+            nome_ok="ok"            
+            return render_template("politica/meu-partido.html",  rodada_atual=rodaA ,  time_form=time_form, form=form,  time = timeRetorno,user=g.user, time_id=time, 
+                           ligas=ligas, ligas_total=ligas_total, nome_ok=nome_ok)    
         
     session['user_time']=timeRetorno.id
     rodaA = db.session.merge(session['rodada_atual'])
     
     time_form.nome.data=timeRetorno.nome
     time_form.desc.data=timeRetorno.desc
-    
-    
+
+    ligas = politicaServices.usuarioliga(user_id=timeRetorno.id)
+    ligas_total = Liga.query.all()
         
-    return render_template("politica/meu-partido.html",  rodada_atual=rodaA ,  time_form=time_form, form=form,            time = timeRetorno,user=g.user, time_id=time)
+    return render_template("politica/meu-partido.html",  rodada_atual=rodaA ,  time_form=time_form, form=form,  time = timeRetorno,user=g.user, time_id=time, 
+                           ligas=ligas, ligas_total=ligas_total)
+    
+    
 
 
 

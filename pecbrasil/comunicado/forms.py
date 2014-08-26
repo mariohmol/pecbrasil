@@ -9,3 +9,4 @@ from pecbrasil.ask.models import Status
 class ConvidarForm(Form):
     obs = TextAreaField('bio', validators = [Length(min=0, max=256)])
     email = TextField('email', validators = [Required()])
+    nome = TextField('Nome', validators = [Required()])

@@ -1,87 +1,111 @@
 	     
-   {% if votacao %}
+{% if votacao %}
+
+	<style>
+ 		body { 
+ 			   background-color:#f1f1f1!important; 
+ 			   font-family:"Open Sans"!important; 
+ 			   font-size:12px!important; 
+		     }
+		     
+		.boxbootstrap {
+				display: block;
+				padding: 9.5px;
+				margin: 0 0 10px;
+				font-size: 13px;
+				line-height: 1.428571429;
+				color: #333;
+				word-break: break-all;
+				word-wrap: break-word;
+				background-color: #f5f5f5;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				width: 95%;
+				height: auto;
+				min-height:100%;
+				overflow:hidden; 
+		}
+		
+		.divbootstrapSmaller{
+			width:130px; 
+			float:left; 
+			clear:both;
+		}
+		
+		.divbootstrapBigger{
+			width:400px; 
+			float:left; 
+		}
+		
+	</style>
+  
 			   
-	   <div style="width: 100%;" id="boxPolitico">
-	   
-		   <h4>
-			   <div class="field-content">
-			   
-			  {% if  iframe=='true'  %}
-			   		<a href="#" 
-		   			onclick="top.window.location='/proposicao/ver/{{ votacao.proposicao }}/'">
-				{% else %}	
-		   			<a href="/proposicao/ver/{{ votacao.proposicao }}">
-		   		{% endif %}
-        
-        
-				  
+	<div class="boxbootstrap">
+   		<h4>
+   			<div>
+			   	<div class="divbootstrapSmaller">
+	  				{% if  iframe=='true'  %}
+			   			<a href="#" onclick="top.window.location='/proposicao/ver/{{ votacao.proposicao }}/'">
+					{% else %}	
+			   			<a href="/proposicao/ver/{{ votacao.proposicao }}">
+		   			{% endif %}
 				    {{ votacao.proposicoes.sigla }}</a>
-				    
-				    
-				    {% if votacao.proposicoes.tipo %}
-				    -  {{ votacao.proposicoes.tipo }}
-				    {% endif %}
-				    
-				    {% if votacao.proposicoes.data %}
-				     <br/>
-				     {{ votacao.proposicoes.data }}
-				     
-				      {% endif %}
-				      
-				      {% if votacao.proposicoes.favor %}
-				      <br/>
-				       {% trans %}Votos{% endtrans %}: {{ votacao.proposicoes.favor }}  {% trans %}Sim{% endtrans %}
-				       / {{ votacao.proposicoes.contra }} {% trans %}Não{% endtrans %}
-				       / {{ votacao.proposicoes.abstencao }} {% trans %}Abstenção{% endtrans %}
-				       
-				     {% endif %}  
-			   </div>
-		   </h4>
-	   
-		   <div id="boxPoliticoPartido">
-		   
-		   <h3>{% trans %}Voto do Candidato{% endtrans %}: 	{% include "proposicao/boxvoto.html" %} </h3> 
-		   	<div class="field-content">
-		  
-		  
-		   {% if votacao.proposicoes.autor %}
-				  <br/>
-		  {% trans %}Autor{% endtrans %}: {{ votacao.proposicoes.autor }}
-		   		 <br/>
-		   	 {% endif %}
-				      	
-		   	
-	
-		   	</div>
-		   
-		   </div>
-	   
-			  <pre>
-			  
-			   {% if  iframe=='true'  %}
-			   	 {{ votacao.proposicoes.desc|truncate(255,False,'') }} 
-				{% else %}	
-		   			 {{ votacao.proposicoes.desc }} 
-		   		{% endif %}
-		   		
-		   
-	</pre>
+    		    	{% if votacao.proposicoes.tipo %}
+			    		-  {{ votacao.proposicoes.tipo }}
+			    	{% endif %}
+			   	</div> 
+			   	<div class="divbootstrapBigger"></div> 
+			   	
+			   	<br>
+			   	<br>
 
-
-		<div id="boxPoliticoLateral">
-		
-
-
-			<div id="boxPoliticoUltimaSemana" >
-		
-			
-			
+			   	{% if votacao.proposicoes.data %}
+				   	<div class="divbootstrapSmaller">
+			     		{% trans %}Data{% endtrans %}:
+				   	</div> 
+				   	<div class="divbootstrapBigger">
+				   		{{ votacao.proposicoes.data }}
+				   	</div>
+			 	{% endif %}  
+			 	
+			 	{% if votacao.proposicoes.favor %}
+				   	<div class="divbootstrapSmaller">
+			     		{% trans %}Votos{% endtrans %}: 
+				   	</div> 	
+				   	<div class="divbootstrapBigger">
+				       &bull; {{ votacao.proposicoes.favor }} {% trans %} - Sim{% endtrans %} <br>
+				       &bull; {{ votacao.proposicoes.contra }} {% trans %} - Não{% endtrans %}<br>
+				       &bull; {{ votacao.proposicoes.abstencao }} {% trans %} - Abstenção{% endtrans %}
+			   		</div> 
+			   	{% endif %} 
+			   	  	
+			   	<div class="divbootstrapSmaller">
+					{% trans %}Voto do Candidato{% endtrans %}: 	
+			   	</div> 
+			   	<div class="divbootstrapBigger">
+					{% include "proposicao/boxvoto.html" %} 
+			   	</div> 
+			   	
+			   	{% if votacao.proposicoes.autor %}
+				   	<div class="divbootstrapSmaller">
+						{% trans %}Autor{% endtrans %}:	
+				   	</div> 
+				   	<div class="divbootstrapBigger">
+						{{ votacao.proposicoes.autor }}
+				   	</div> 
+				{% endif %}
+				
+			   	<div class="divbootstrapSmaller">{% trans %}Descrição{% endtrans %}:</div> 	
+			   	<div class="divbootstrapBigger">
+					{% if  iframe=='true'  %}
+	 					{{ votacao.proposicoes.desc|truncate(255,False,'') }} 
+					{% else %}	
+		 				{{ votacao.proposicoes.desc }} 
+					{% endif %}
+		   		</div> 
+				
 			</div>
-
-		</div>
-		
-	
-
-</div>
-	   
-    {% endif %}
+		</h4>
+	</div>
+				    
+{% endif %}

@@ -8,44 +8,90 @@
 {% block title %}: {% trans %}Proposição{% endtrans %}{% endblock %}
 
 {% block body %}
+
+	<style>
+ 		body { 
+ 			   background-color:#f1f1f1!important; 
+ 			   font-family:"Open Sans"!important; 
+ 			   font-size:12px!important; 
+		     }
+		     
+		.boxbootstrap {
+				display: block;
+				padding: 9.5px;
+				margin: 0 0 10px;
+				font-size: 13px;
+				line-height: 1.428571429;
+				color: #333;
+				word-break: break-all;
+				word-wrap: break-word;
+				background-color: #f5f5f5;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				width: 95%;
+				height: auto;
+				min-height:100%;
+				overflow:hidden; 
+		}
+		
+		.divbootstrapSmaller{
+			width:80px; 
+			float:left; 
+			clear:both;
+		}
+		
+		.divbootstrapBigger{
+			width:450px; 
+			float:left; 
+		}
+	</style>
   
-  {% if proposicoes %}
-   <table><tr>
-  <td> {% trans %}Autor{% endtrans %} </td>
-      <td> {% trans %}Proposicão{% endtrans %} </td>
-       <td> {% trans %}Status{% endtrans %} </td>
-     <td> {% trans %}Descrição{% endtrans %} </td>
-     </tr>
-     
-     {% for proposicoe in proposicoes %}
-     <tr>
-     <td>{{ proposicoe.candidaturas.name_pt }}</td>
-      <td>
-      
-      {% if frame  %}	
-		   			<a href="#" onclick="top.window.location='/proposicao/ver/{{ proposicoe.id }}/'">
+{% if proposicoes %}
+  
+	{% for proposicoe in proposicoes %}
+	
+	<div class="boxbootstrap">
+   		
+		<div>
+			<h4>
+			   	<div class="divbootstrapSmaller">{% trans %}Autor{% endtrans %}:</div> 
+			   	<div class="divbootstrapBigger">{{ proposicoe.candidaturas.name_pt }}</div>  
+			   	<br>
+				<div class="divbootstrapSmaller"><b>{% trans %}Proposicão{% endtrans %}:</b></div> 
+				<div class="divbootstrapBigger">
+				   	{% if frame  %}	
+		   				<a href="#" onclick="top.window.location='/proposicao/ver/{{ proposicoe.id }}/'">
+		   			{% else %}	
+		   				<a href="/proposicao/ver/{{ proposicoe.id }}/">
+		   			{% endif %}	
+					{{ proposicoe.tipoproposicao.nome_tipoproposicao }} - {{ proposicoe.sigla }}</a>
+				</div>
+				
+				{% if proposicoe.statusproposicao.nome_statusproposicao %}
+					<br>
+					<div class="divbootstrapSmaller"><b>{% trans %}Status{% endtrans %}:</b></div> 
+					<div class="divbootstrapBigger">
+						{{ proposicoe.status }} {{ proposicoe.statusproposicao.nome_statusproposicao }}
+					</div>
+				{% endif %}
+				<br>
+			  	<div class="divbootstrapSmaller"><b>{% trans %}Descrição{% endtrans %}:</b></div>
+			  	<div class="divbootstrapBigger">
+				    {% if frame %}
+			   	 		{{ proposicoe.desc|truncate(255,False,'') }} 
+					{% else %}	
+					 	{{ proposicoes.desc }} 
+			   		{% endif %}
+		   		</div>
+	   		</h4>
+		</div>
+	</div>
+	
+	{% endfor %}
 		   		
-		   		{% else %}	
-		   			<a href="/proposicao/ver/{{ proposicoe.id }}/">
-		   		{% endif %}	
-		   		
-		   		{{ proposicoe.tipoproposicao.nome_tipoproposicao }} - 
-      {{ proposicoe.sigla }}</a>
-      </td>
-       <td>{{ proposicoe.status }}
-       	
-       	{{ proposicoe.statusproposicao.nome_statusproposicao }}
-       	</td>
-     <td>{{ proposicoe.desc }}</td>
-      
-      </tr>
-    {% endfor %}
-    </table>
-    {% else %}
-    {% trans %}Não foram encontradas proposições de autoria deste político{% endtrans %}
-    {% endif %}
-    
-    
+{% else %}
+	{% trans %}Não foram encontradas proposições de autoria deste político{% endtrans %}
+{% endif %}
     
 {% endblock %}
 

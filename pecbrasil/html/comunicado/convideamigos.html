@@ -4,25 +4,24 @@
 {% block title %}: {% trans %}Convide Amigos{% endtrans %}{% endblock %}
 
 {% block body %}
-  <h1>{% trans %}Este é um convite do time{% endtrans %} {{ time.nome }} {% trans %}para você participar Política Esporte Clube{% endtrans %}</h1>
+  <h1>{% trans %}Este é um convite do {{nome}}, 
+  	proprietário do time{% endtrans %} {{ time.nome }} {% trans %}para você participar Política Esporte Clube{% endtrans %}</h1>
   {% if obs %}
-<h2>Mensagem: {{obs}}</h2>
+<h2>Mensagem de {{nome}}: {{obs}}</h2>
+	{% endif %}
 
-{% endif %}
-      <h2> {% trans %}Política Esporte Clube é um jogo que utiliza dados reais da participação dos políticos no nosso país.{% endtrans %}
+      <h2> {% trans %}Política Esporte Clube é um jogo que utiliza dados reais da 
+      	participação dos políticos no nosso país.{% endtrans %}
       	
       	</h2>
-      	
-      	
-      
+         	     
        <h2> {% trans %}Crie um time e escolha os políticos com melhor pontuação. Toda semana daremos pontos aos times baseado 
        	na participação dos políticos que você selecionou.     	{% endtrans %}
       	</h2>
 	
-	
 	 <br/> <br/>
    <h3>{% trans %}Entre no 	{% endtrans %}
-   <a href="http://politicaesporteclube.com">Política Esporte Clube</a> {% trans %}e deixa seu time ainda mais forte!{% endtrans %}</h3>
+   <a href="http://politicaesporteclube.com">Política Esporte Clube</a> {% trans %}e deixe seu time ainda mais forte!{% endtrans %}</h3>
     <br/>
     {% trans %}Equipe Política Esporte Clube{% endtrans %}
 {% endblock %}

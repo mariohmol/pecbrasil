@@ -36,6 +36,12 @@
 						p.semana=novoRodada[p.rodada_ligapontos].semana
 						p.nome = attrs[p.time_ligapontos].nome
 					})
+	inner_html = function(obj) {
+         // alert(nome=nome);
+          var htmlnovo= "<iframe id='iframe3' src='/liga/boxtime/";
+        	  htmlnovo += obj+ "' style='width: 180px; height: 360px;'></iframe>"
+          return htmlnovo
+ }
 		
 
 				viz.type("stacked")
@@ -46,6 +52,7 @@
           		.xaxis("semana")
           		.unique_axis("x")
 				.stack_type("monotone")
+				.click_function(inner_html)
 				//.year_var("ano")
 				//.year("2013")
 				//.tooltip_info([ "pontos", "rodada", "timeNome" ])
