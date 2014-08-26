@@ -10,8 +10,19 @@
         <title>Política Esporte Clube</title>
 
     </head>
-  <body onload="runclassificacao();">
+  <body >
   	
+  	
+
+    <!-- cordova -->
+    <script src="cordova.js"></script>
+      <!-- cordova facebook plugin -->
+    <script src="cdv-plugin-fb-connect.js"></script>
+      <!-- facebook js sdk -->
+    <script src="facebook-js-sdk.js"></script>    
+    <script src="lib/pec.js"></script>
+     <script src="lib/jquery-1.9.1.min.js"></script>
+     <script src="lib/jquery.mobile-1.4.2.min.js"></script>
  
         
 <div id="employeeListPage" data-role="page" >
@@ -35,44 +46,34 @@
 
 
 
-<script type="text/javascript">
+	<script type="text/javascript">
+		
+	/*
 	
-/*
-
-$(document).ready(function() {
-    document.addEventListener("deviceready", runclassificacao, true);
-    //document.addEventListener("deviceready", runclassificacao, false);
-
-});
-
-$( document ).on( "ready", function(){
-runclassificacao();
-});
-
-$('#employeeListPage').on('pageinit', function() {
-runclassificacao();
-});
-*/
-	$('#employeeListPage').bind('pageshow', function(){
-runclassificacao();
-});	
-
-</script>
+	$(document).ready(function() {
+	    document.addEventListener("deviceready", runclassificacao, true);
+	    //document.addEventListener("deviceready", runclassificacao, false);
+	
+	});
+	
+	$( document ).on( "ready", function(){
+	runclassificacao();
+	});
+	
+	$('#employeeListPage').on('pageinit', function() {
+	runclassificacao();
+	});
+	*/
+		$('#employeeListPage').bind('pageshow', function(){
+	runclassificacao();
+	
+	});	
+	
+	</script>
 
 </div>
 
 
-
-    <!-- cordova -->
-    <script src="cordova.js"></script>
-      <!-- cordova facebook plugin -->
-    <script src="cdv-plugin-fb-connect.js"></script>
-      <!-- facebook js sdk -->
-    <script src="facebook-js-sdk.js"></script>
-    
-    <script src="lib/pec.js"></script>
-     <script src="lib/jquery-1.9.1.min.js"></script>
-     <script src="lib/jquery.mobile-1.4.2.min.js"></script>
         
 
 
