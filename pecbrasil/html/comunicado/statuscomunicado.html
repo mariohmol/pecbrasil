@@ -7,7 +7,7 @@
   <h1>{% trans %}Comunicado{% endtrans %}</h1>
   
 
-      <h2> {{ titulo }}</h2>
+      <h2> {{ titulo.decode('utf-8') }}</h2>
             
       <h3>{% trans %}Envios{% endtrans %}: {{ total }}</h3>
       
