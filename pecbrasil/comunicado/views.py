@@ -286,7 +286,7 @@ def politicoultimarodada(rodada_id=None,candidato_id=None):
         #return render_template("comunicado/politicoultimarodada.html",candidato, dominio=dominio,rodada=rodada,
          #                      rodada_atual=rodada_atual, nome_politico=nome_politico) #,politicos=politicos rodadaPontos=rodadaPontos,
     else:
-        candidatos = Candidatura.query.first()
+        candidatos = Candidatura.query.all()
         total=0
         for politico in candidatos:
             candidato = politicaServices.pontuacaoByCandidato(candidato=politico.id, rodada_numero=rodada_id)
