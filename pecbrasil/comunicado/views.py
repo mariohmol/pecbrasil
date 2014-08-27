@@ -289,13 +289,15 @@ def politicoultimarodada(rodada_id=None,candidato_id=None):
         candidatos = Candidatura.query.all()
         total=0
         for politico in candidatos:
+            if total<inicio or total>fim:
+                continue
+                
             candidato = politicaServices.pontuacaoByCandidato(candidato=politico.id, rodada_numero=rodada_id)
             nome_politico = Candidatura.query.filter_by(id=politico.id).first()
             total=total+1
             #log = log + enviaPoliticoUltimaRodada(candidato,rodada_id,titulo,rodada,politicos,rodada_atual,enviar)
-            try:
-                if total>=inicio and total<=fim:
-                    enviaPoliticoUltimaRodada(candidato,rodada_id,titulo,rodada,rodada_atual,enviar, nome_politico, politicos_pontos,
+            try:                
+                enviaPoliticoUltimaRodada(candidato,rodada_id,titulo,rodada,rodada_atual,enviar, nome_politico, politicos_pontos,
                                   politicos_presenca, politicos_votacao, politicos_proposicao, politicos_despesa,
                                   media_presenca, media_votacao, media_proposicao, media_despesa)
             except:
