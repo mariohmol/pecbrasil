@@ -89,7 +89,7 @@
 					<span class="sideVal boxVotacoes">
 						<span class="valor">
 							
-							{{ candidato.total_votacao|int }} / {{ rodada_atual.max_votacao}} 
+							{{ candidato.total_votacao|int }} ( {{ candidato.porcentagem(candidato.total_votacao,rodada_atual.max_votacao)}} % )
 							{% if rodada_atual %}
 								<p style="font-size: 12px; display:none;">  {{ rodada_atual.min_votacao}} {% trans %}a{% endtrans %} {{ rodada_atual.max_votacao}} / {% trans %}média{% endtrans %}: {{ rodada_atual.avg_votacao}}</p>
 							
@@ -101,7 +101,7 @@
 					<span class="sideTlt"><i class="fa fa-male"></i> {% trans %}Presenças{% endtrans %}</span>
 					<br>
 					<span class="sideVal boxVotacoes">
-						<span class="valor">{{ candidato.total_presenca|int }} / {{ rodada_atual.max_presenca}}
+						<span class="valor">{{ candidato.total_presenca|int }} ( {{ candidato.porcentagem(candidato.total_presenca,rodada_atual.max_presenca)}} % )
 							
 						{% if rodada_atual %}
 						<p style="font-size: 12px;display:none;">  {{ rodada_atual.min_presenca}} {% trans %}a{% endtrans %} {{ rodada_atual.max_presenca}} / {% trans %}média{% endtrans %}: {{ rodada_atual.avg_presenca}}</p>
@@ -115,7 +115,7 @@
 					<span class="sideTlt"><i class="fa fa-microphone"></i> {% trans %}Proposições{% endtrans %}</span>
 					<br>
 					<span class="sideVal boxVotacoes">
-						<span class="valor">{{ candidato.total_proposicao|int }} / {{ rodada_atual.max_proposicao}}
+						<span class="valor">{{ candidato.total_proposicao|int }} (	{{ candidato.porcentagem(candidato.total_proposicao,rodada_atual.max_proposicao)}} % )
 							
 							{% if rodada_atual %}
 						<p style="font-size: 12px;display:none;">  {{ rodada_atual.min_proposicao}} {% trans %}a{% endtrans %} {{ rodada_atual.max_proposicao}} / {% trans %}média{% endtrans %}: {{ rodada_atual.avg_proposicao}}</p>
@@ -130,7 +130,7 @@
 						<span class="sideTlt"><i class="fa fa-money"></i> {% trans %}Despesas{% endtrans %}</span>
 						<br>
 					<span class="sideVal boxVotacoes">
-						<span class="valor">R$ {{ candidato.total_despesa|int }} / {{ rodada_atual.max_despesa}}
+						<span class="valor">R$ {{ candidato.total_despesa|int }} ( {{ candidato.porcentagem(candidato.total_despesa,rodada_atual.max_despesa)}} % )
 							
 							{% if rodada_atual %}
 						<p style="font-size: 12px;display:none;">  {{ rodada_atual.min_despesa}} {% trans %}a{% endtrans %} {{ rodada_atual.max_despesa}} / {% trans %}média{% endtrans %}: {{ rodada_atual.avg_despesa}}</p>

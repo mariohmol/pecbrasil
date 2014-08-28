@@ -274,7 +274,7 @@ class PoliticaServices(object):
         if nome is not None:
             politicos = Rodada.query.filter_by(ativo=1,semana=nome).order_by(Rodada.id.desc()).first()
         else:
-            politicos = Rodada.query.filter_by(ativo=1).order_by(Rodada.id.desc()).first()
+            politicos = Rodada.query.filter_by(ativo=1).order_by(Rodada.inicio.desc()).first()
         return politicos
   
     def getRodada(self,rodada_id=None):

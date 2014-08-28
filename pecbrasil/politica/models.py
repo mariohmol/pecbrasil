@@ -100,6 +100,15 @@ class Candidatura(db.Model, AutoSerialize):
     candidaturatotal = db.relationship("CandidaturaTotal", backref = 'candidaturas', lazy = 'dynamic')
     def __repr__(self):
         return '<Candidatura %r>' % (self.name_en)
+    
+    def porcentagem(self,val1,val2):
+        if val1>0 and val2>0:
+            val1=float(val1)
+            val2=float(val2)
+            resultado=(val1/val2)*100
+            return int(resultado)
+        else:
+            return 0
 
 
 class Rodada(db.Model, AutoSerialize):

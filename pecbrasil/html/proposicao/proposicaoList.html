@@ -29,7 +29,20 @@
 				border: 1px solid #ccc;
 				border-radius: 4px;
 				width: 95%;
-				height: 130px;
+				height: auto;
+				min-height:100%;
+				overflow:hidden; 
+		}
+		
+		.divbootstrapSmaller{
+			width:80px; 
+			float:left; 
+			clear:both;
+		}
+		
+		.divbootstrapBigger{
+			width:450px; 
+			float:left; 
 		}
 	</style>
   
@@ -38,13 +51,14 @@
 	{% for proposicoe in proposicoes %}
 	
 	<div class="boxbootstrap">
-   		<h4>
-   			<div>
-			   	<div style="width:80px; float:left;">{% trans %}Autor{% endtrans %}:</div> 
-			   	<div style="width:340px; float:left;">{{ proposicoe.candidaturas.name_pt }}</div>  
+   		
+		<div>
+			<h4>
+			   	<div class="divbootstrapSmaller">{% trans %}Autor{% endtrans %}:</div> 
+			   	<div class="divbootstrapBigger">{{ proposicoe.candidaturas.name_pt }}</div>  
 			   	<br>
-				<div style="width:80px; float:left;"><b>{% trans %}Proposicão{% endtrans %}:</b></div> 
-				<div style="width:340px; float:left;">
+				<div class="divbootstrapSmaller"><b>{% trans %}Proposicão{% endtrans %}:</b></div> 
+				<div class="divbootstrapBigger">
 				   	{% if frame  %}	
 		   				<a href="#" onclick="top.window.location='/proposicao/ver/{{ proposicoe.id }}/'">
 		   			{% else %}	
@@ -52,22 +66,25 @@
 		   			{% endif %}	
 					{{ proposicoe.tipoproposicao.nome_tipoproposicao }} - {{ proposicoe.sigla }}</a>
 				</div>
+				
+				{% if proposicoe.statusproposicao.nome_statusproposicao %}
+					<br>
+					<div class="divbootstrapSmaller"><b>{% trans %}Status{% endtrans %}:</b></div> 
+					<div class="divbootstrapBigger">
+						{{ proposicoe.status }} {{ proposicoe.statusproposicao.nome_statusproposicao }}
+					</div>
+				{% endif %}
 				<br>
-				<div style="width:80px; float:left;"><b>{% trans %}Status{% endtrans %}:</b></div> 
-				<div style="width:340px; float:left;">
-					{{ proposicoe.status }} {{ proposicoe.statusproposicao.nome_statusproposicao }}
-				</div>
-				<br>
-			  	<div style="width:80px; float:left;"><b>{% trans %}Descrição{% endtrans %}:</b></div>
-			  	<div style="width:450px; float:left;">
+			  	<div class="divbootstrapSmaller"><b>{% trans %}Descrição{% endtrans %}:</b></div>
+			  	<div class="divbootstrapBigger">
 				    {% if frame %}
 			   	 		{{ proposicoe.desc|truncate(255,False,'') }} 
 					{% else %}	
 					 	{{ proposicoes.desc }} 
 			   		{% endif %}
 		   		</div>
-			</div>
-		</h4>
+	   		</h4>
+		</div>
 	</div>
 	
 	{% endfor %}

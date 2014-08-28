@@ -51,6 +51,8 @@ def convideamigos(time_id=None):
 @mod.route('/ultimarodada/<rodada_id>/<time_id>')
 def ultimarodada(rodada_id=None,time_id=None):
     enviar = request.args.get('enviar')
+    inicio = request.args.get('inicio')
+    fim = request.args.get('fim')
     if enviar is None:
         enviar='True'
     rodada=politicaServices.getRodada(rodada_id)
@@ -78,8 +80,10 @@ def ultimarodada(rodada_id=None,time_id=None):
         times = Time.query.all()
         total=0
         for time in times:
+            
             total=total+1
-            log = log + enviaUltimaRodada(time,rodada_id,titulo,rodada,politicos,rodada_atual,enviar)
+            if total>=inicio and total<=fim:
+                log = log + enviaUltimaRodada(time,rodada_id,titulo,rodada,politicos,rodada_atual,enviar)
     return render_template("comunicado/statuscomunicado.html",dominio=dominio,titulo=titulo,total=total,log=log)
 
 def enviaUltimaRodada(time,rodada_id,titulo,rodada,politicos,rodada_atual,enviar):
@@ -192,7 +196,7 @@ def criartime(time_id=None):
                                           email=row.email, nickname=row.nickname,fullname=row.fullname))
             except:
                 print "Unexpected error:"
-                print "Error EMail"  +","+str([row.email])
+                log+= "Error EMail"  +","+str([row.email])
             total=total+1
             log=log+", id em User "+str(row.id)+": "+str(row.email)
                
@@ -242,6 +246,8 @@ def retornar(time_id=None):
 @mod.route('/politicoultimarodada/<rodada_id>/<candidato_id>')
 def politicoultimarodada(rodada_id=None,candidato_id=None):
     enviar = request.args.get('enviar')
+    inicio = request.args.get('inicio')
+    fim = request.args.get('fim')
     if enviar is None:
         enviar='True'
     rodada=politicaServices.getRodada(rodada_id)
@@ -280,14 +286,17 @@ def politicoultimarodada(rodada_id=None,candidato_id=None):
         #return render_template("comunicado/politicoultimarodada.html",candidato, dominio=dominio,rodada=rodada,
          #                      rodada_atual=rodada_atual, nome_politico=nome_politico) #,politicos=politicos rodadaPontos=rodadaPontos,
     else:
-        candidatos = Candidatura.query.first()
+        candidatos = Candidatura.query.all()
         total=0
         for politico in candidatos:
+            if total<inicio or total>fim:
+                continue
+                
             candidato = politicaServices.pontuacaoByCandidato(candidato=politico.id, rodada_numero=rodada_id)
             nome_politico = Candidatura.query.filter_by(id=politico.id).first()
             total=total+1
             #log = log + enviaPoliticoUltimaRodada(candidato,rodada_id,titulo,rodada,politicos,rodada_atual,enviar)
-            try:
+            try:                
                 enviaPoliticoUltimaRodada(candidato,rodada_id,titulo,rodada,rodada_atual,enviar, nome_politico, politicos_pontos,
                                   politicos_presenca, politicos_votacao, politicos_proposicao, politicos_despesa,
                                   media_presenca, media_votacao, media_proposicao, media_despesa)
