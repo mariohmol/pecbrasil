@@ -510,7 +510,7 @@ class PoliticaServices(object):
     def updatePontuacaoCandidatosSQL(self,anoatual):    
         db.session.execute("update candidatura c set c.pontuacao_total = (SELECT sum(p.pontos) FROM pontuacao p,rodada r where r.id = p.rodada and r.ativo =1 and r.ano= '"+anoatual+"' and p.candidatura = c.id group by p.candidatura )")
         
-        db.session.execute("update candidatura c set c.pontuacao_ultima = (SELECT p.pontos FROM pontuacao p,rodada r where r.id = p.rodada and r.ativo =1 and r.ano= '"+anoatual+"' and  p.candidatura = c.id order by p.rodada desc limit 1  )")
+        db.session.execute("update candidatura c set c.pontuacao_ultima = (SELECT p.pontos FROM pontuacao p,rodada r where r.id = p.rodada and r.ativo =1 and r.ano= '"+anoatual+"' and  p.candidatura = c.id order by r.semana desc limit 1  )")
         
         #db.session.execute("update candidatura c set c.pontuacao_tendencia = (SELECT avg(pontos)/c.pontuacao_ultima FROM pontuacao p,rodada r where r.id = p.rodada and r.ativo =1 and p.candidatura = c.id group by p.candidatura )")
         
@@ -530,7 +530,7 @@ class PoliticaServices(object):
         db.session.execute(query)
         db.session.execute("update candidaturatotal c set c.pontuacao_total = (SELECT sum(p.pontos) FROM pontuacao p,rodada r where r.id = p.rodada and r.ativo =1 and p.candidatura = c.candidatura and c.ano = r.ano group by p.candidatura,r.ano )")
         
-        db.session.execute("update candidaturatotal c set c.pontuacao_ultima = (SELECT p.pontos FROM pontuacao p,rodada r where r.id = p.rodada and r.ativo =1 and c.ano = r.ano and  p.candidatura = c.candidatura order by p.rodada desc limit 1  )")
+        db.session.execute("update candidaturatotal c set c.pontuacao_ultima = (SELECT p.pontos FROM pontuacao p,rodada r where r.id = p.rodada and r.ativo =1 and c.ano = r.ano and  p.candidatura = c.candidatura order by r.semana desc limit 1  )")
         
         #db.session.execute("update candidatura c set c.pontuacao_tendencia = (SELECT avg(pontos)/c.pontuacao_ultima FROM pontuacao p,rodada r where r.id = p.rodada and r.ativo =1 and p.candidatura = c.id group by p.candidatura )")
         
@@ -607,7 +607,7 @@ class PoliticaServices(object):
     def updatePontuacaoTimesSQL(self,anoatual):    
         db.session.execute("update time c set c.pontuacao_total = (SELECT sum(p.pontos) FROM rodadapontos p,rodada r where r.id = p.rodada and r.ano='"+anoatual+"' and r.ativo =1 and p.time = c.id group by p.time )")
         
-        db.session.execute("update time c set c.pontuacao_ultima = (SELECT p.pontos FROM rodadapontos p,rodada r where r.id = p.rodada and r.ano='"+anoatual+"' and r.ativo =1 and  p.time = c.id order by p.rodada desc limit 1  )")
+        db.session.execute("update time c set c.pontuacao_ultima = (SELECT p.pontos FROM rodadapontos p,rodada r where r.id = p.rodada and r.ano='"+anoatual+"' and r.ativo =1 and  p.time = c.id order by r.semana desc limit 1  )")
         
         db.session.execute("update time c set c.pontuacao_tendencia = (SELECT avg(pontos)/c.pontuacao_ultima FROM rodadapontos p ,rodada r where r.id = p.rodada and r.ano='"+anoatual+"' and r.ativo =1 and p.time = c.id group by p.time )")
         
