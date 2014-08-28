@@ -114,7 +114,7 @@ def timeincompleto(time_id=None):
         time = politicaServices.verTime(id=timeid)
         if enviar == 'True':
                 try:
-                    send_mail(titulo,['danieln.silva@yahoo,com.br'],  
+                    send_mail(titulo,[time.user.email],  
                               render_template("comunicado/timeincompleto.html",time=time))
                 except:
                     print "Error EMail"
@@ -307,7 +307,7 @@ def enviaPoliticoUltimaRodada(candidato,rodada_id,titulo,rodada, rodada_atual,en
         #rodadaPontos=politicaServices.rodadaPontosByTime(candidato.id,rodada_id)
         #politicaServices.pontuacaoByCandidato(candidato, rodada_id)
         if enviar == 'True':
-            send_mail(titulo,[nome_politico.email],  
+            send_mail(titulo,['danieln.silva@yahoo.com.br'],  
                        render_template("comunicado/politicoultimarodada.html",
                                        candidato=candidato,rodada=rodada,
                                       rodada_atual=rodada_atual, nome_politico=nome_politico, politicos_pontos=politicos_pontos,
