@@ -27,124 +27,163 @@ politicaServices = PoliticaServices()
 @mod.route('/')
 @login_required
 def admin():
-    return redirect(url_for('.admin_users'))
+    if g.user is not None and g.user.is_authenticated() and g.user.role!=0:
+        return redirect(url_for('.admin_users'))
+    else:
+         return render_template("general/404.html")
 
 @mod.route('/users/')
 @login_required
 def admin_users():
+    if g.user is not None and g.user.is_authenticated() and g.user.role!=0:
+                    
+        offset = request.args.get('offset', 0)
+        limit = 50
     
-    offset = request.args.get('offset', 0)
-    limit = 50
+        if request.is_xhr:
+        
+            # get all users EXCEPT the logged in user
+            query = User.query.filter(User.id != g.user.id)
+        
+            items = query.limit(limit).offset(offset).all()
+            items = [i.serialize() for i in items]
+        
+            return jsonify({"activities":items})
     
-    if request.is_xhr:
+        return render_template("admin/admin_users.html")
+    else:
+        return render_template("general/404.html")
         
-        # get all users EXCEPT the logged in user
-        query = User.query.filter(User.id != g.user.id)
-        
-        items = query.limit(limit).offset(offset).all()
-        items = [i.serialize() for i in items]
-        
-        return jsonify({"activities":items})
-    
-    return render_template("admin/admin_users.html")
-
 @mod.route('/user/<int:user_id>/', methods = ['PUT'])
 @login_required
 def update_user(user_id):
+    if g.user is not None and g.user.is_authenticated() and g.user.role!=0:
+        
     # test with:
     # curl -i -H "Content-Type: application/json" -X PUT 
     #   -d '{"role":2}' http://localhost:5000/admin/user/1
     
-    user = User.query.get(user_id)
-    user.role = request.json.get('role', user.role)
-    db.session.add(user)
-    db.session.commit()
+        user = User.query.get(user_id)
+        user.role = request.json.get('role', user.role)
+        db.session.add(user)
+        db.session.commit()
     
-    return jsonify( {'user': user.serialize()} )
-
+        return jsonify( {'user': user.serialize()} )
+    else:
+        return render_template("general/404.html")
+        
 @mod.route('/questions/')
 @mod.route('/questions/<status>/')
 @login_required
 def admin_questions(status=None):
+    if g.user is not None and g.user.is_authenticated() and g.user.role!=0:
     
-    if not status:
-        return redirect(url_for(".admin_questions", status="pending"))
+        if not status:
+            return redirect(url_for(".admin_questions", status="pending"))
     
-    offset = request.args.get('offset', 0)
-    limit = 50
+        offset = request.args.get('offset', 0)
+        limit = 50
     
-    if request.is_xhr:
+        if request.is_xhr:
         
         # get all users EXCEPT the logged in user
-        curr_status = Status.query.filter_by(name=status).first_or_404()
-        query = Question.query.filter_by(status = curr_status)
+            curr_status = Status.query.filter_by(name=status).first_or_404()
+            query = Question.query.filter_by(status = curr_status)
         
-        items = query.limit(limit).offset(offset).all()
-        items = [i.serialize() for i in items]
+            items = query.limit(limit).offset(offset).all()
+            items = [i.serialize() for i in items]
         
-        return jsonify({"activities":items})
+            return jsonify({"activities":items})
     
-    return render_template("admin/admin_questions.html")
-
+        return render_template("admin/admin_questions.html")
+    else:
+        return render_template("general/404.html")
+        
 @mod.route('/questions/<status>/<int:question_id>/', methods=['GET', 'POST'])
 @login_required
 def admin_questions_edit(status, question_id):
-    q = Question.query.get_or_404(question_id)
-    s = Status.query.filter_by(name=status).first_or_404()
-    form = AdminQuestionUpdateForm()
+    if g.user is not None and g.user.is_authenticated() and g.user.role!=0:
+        
+        q = Question.query.get_or_404(question_id)
+        s = Status.query.filter_by(name=status).first_or_404()
+        form = AdminQuestionUpdateForm()
     
-    if form.validate_on_submit():
-        previous_status = form.previous_status.data
-        q.status = form.status.data
-        q.status_notes = form.answer.data
-        db.session.add(q)
-        db.session.commit()
-        flash('This question has now been updated.')
-        return redirect(url_for('.admin_questions', status=previous_status))
+        if form.validate_on_submit():
+            previous_status = form.previous_status.data
+            q.status = form.status.data
+            q.status_notes = form.answer.data
+            db.session.add(q)
+            db.session.commit()
+            flash('This question has now been updated.')
+            return redirect(url_for('.admin_questions', status=previous_status))
     
     # set defaults
-    form.status.data = s
-    form.previous_status.data = s.name
-    form.answer.data = q.status_notes
+        form.status.data = s
+        form.previous_status.data = s.name
+        form.answer.data = q.status_notes
     
-    return render_template("admin/admin_questions_edit.html", 
+        return render_template("admin/admin_questions_edit.html", 
                             question=q, status=status, form=form)
-    
+    else:
+        return render_template("general/404.html")
+        
 @mod.route('/rodada/', methods=['GET', 'POST'])
-#@login_required
+@login_required
 def rodada():
-    rodadas = Rodada.query.order_by(Rodada.inicio.desc()).all()
-    return render_template("admin/rodadaList.html", rodadas=rodadas,
+    if g.user is not None and g.user.is_authenticated() and g.user.role!=0:
+        
+        rodadas = Rodada.query.order_by(Rodada.inicio.desc()).all()
+        return render_template("admin/rodadaList.html", rodadas=rodadas,
                             admin='true')
+    else:
+        return render_template("general/404.html")
+        
 @mod.route('/rodadaadicionar/<rodada>', methods=['GET', 'POST'])
-#@login_required
+@login_required
 def rodadaadicionar(rodada):
-    politicaServices.addRodada(rodada)
-    return redirect(url_for('.rodada'))
-
+    if g.user is not None and g.user.is_authenticated() and g.user.role!=0:
+         
+        politicaServices.addRodada(rodada)
+        return redirect(url_for('.rodada'))
+    else:
+        return render_template("general/404.html")
+        
 @mod.route('/rodadaremover/<rodada>', methods=['GET', 'POST'])
-#@login_required
+@login_required
 def rodadaremover(rodada):
-    politicaServices.removerRodada(rodada)
-    return redirect(url_for('.rodada'))
-
+    if g.user is not None and g.user.is_authenticated() and g.user.role!=0:
+         
+        politicaServices.removerRodada(rodada)
+        return redirect(url_for('.rodada'))
+    else:
+        return render_template("general/404.html")
+        
 @mod.route('/rodadaatualizar/<rodada>', methods=['GET', 'POST'])
-#@login_required
+@login_required
 def rodadaatualizar(rodada):
-    anoatual='2014'
-    politicaServices.atualizaRodada(rodada,anoatual)
-    return redirect(url_for('.rodada'))
-
+    if g.user is not None and g.user.is_authenticated() and g.user.role!=0:
+         
+        anoatual='2014'
+        politicaServices.atualizaRodada(rodada,anoatual)
+        return redirect(url_for('.rodada'))
+    else:
+        return render_template("general/404.html")
+        
 @mod.route('/importar/<comando>', methods=['GET', 'POST'])
+@login_required
 def importar(comando):
-    from subprocess import call,check_output,STDOUT
-    #runPartido
-    # python import.py -o runPontuacao -a L
-    #retorno=check_output(["python", " /var/www/pecbrasil/scripts/import.py -o runPontuacao -a P"])
-    #retorno=check_output(["python /var/www/pecbrasil/scripts/import.py -o runPontuacao -a P"])
-    #retorno=check_output("python")
-    retorno=check_output("python /var/www/pecbrasil/scripts/import.py -o {0} -a P; exit 0".format(comando), stderr=STDOUT,  shell=True)
-    return render_template("admin/importar.html",retorno=retorno)
+    if g.user is not None and g.user.is_authenticated() and g.user.role!=0:
+        
+        from subprocess import call,check_output,STDOUT
+        #runPartido
+        # python import.py -o runPontuacao -a L
+        #retorno=check_output(["python", " /var/www/pecbrasil/scripts/import.py -o runPontuacao -a P"])
+        #retorno=check_output(["python /var/www/pecbrasil/scripts/import.py -o runPontuacao -a P"])
+        #retorno=check_output("python")
+        retorno=check_output("python /var/www/pecbrasil/scripts/import.py -o {0} -a P; exit 0".format(comando), stderr=STDOUT,  shell=True)
+        return render_template("admin/importar.html",retorno=retorno)
+    else:
+        return render_template("general/404.html")
 
 
 
