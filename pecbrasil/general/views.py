@@ -70,7 +70,7 @@ def before_request():
     # a reference to the user from DB
     g.user = current_user
 
-    if g.user abd g.user.is_authenticated() and request.endpoint != 'static' and not request.is_xhr:
+    if g.user and g.user.is_authenticated() and request.endpoint != 'static' and not request.is_xhr:
         g.user.last_seen = datetime.utcnow()
         db.session.add(g.user)
         db.session.commit()
