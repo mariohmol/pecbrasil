@@ -1,7 +1,7 @@
 
 # Flask framework
 Jinja2==2.6
-Werkzeug==0.8.3
+Werkzeug==0.15.3
 flask==0.9
 
 # Helper lib for running scripts locally without server
