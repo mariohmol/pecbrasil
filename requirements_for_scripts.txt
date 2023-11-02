@@ -17,3 +17,4 @@ scikits.statsmodels
 # Pandas library for doing matrix math, dataframes etc. similar to R
 pandas
 patsy
+pygments>=2.7.4 # not directly required, pinned by Snyk to avoid a vulnerability
